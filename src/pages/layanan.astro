@@ -1,0 +1,236 @@
+---
+import Nav from "../components/Nav.astro";
+
+const title = "Layanan | RAKAN";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Layanan pendampingan Rakan dalam memahami kesehatan, kebiasaan, pikiran, dan perjalanan kehidupan secara lebih utuh."
+    />
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #f7f4ee;
+        color: #29251f;
+        font-family: Arial, sans-serif;
+      }
+
+      .page {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 90px 32px 120px;
+      }
+
+      .eyebrow {
+        margin-bottom: 25px;
+        color: #756d62;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 0;
+        font-family: Georgia, serif;
+        font-size: clamp(48px, 7vw, 86px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      h1 em {
+        font-weight: 400;
+      }
+
+      .intro {
+        max-width: 680px;
+        margin-top: 35px;
+        color: #655f56;
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .services {
+        margin-top: 100px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .service {
+        display: grid;
+        grid-template-columns: 90px 1fr 220px;
+        gap: 35px;
+        padding: 45px 0;
+        border-bottom: 1px solid #dcd5ca;
+      }
+
+      .number {
+        color: #8b8174;
+        font-family: Georgia, serif;
+        font-size: 18px;
+      }
+
+      .service h2 {
+        margin: 0;
+        font-family: Georgia, serif;
+        font-size: clamp(30px, 4vw, 48px);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .service p {
+        max-width: 650px;
+        margin: 20px 0 0;
+        color: #655f56;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      .label {
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        line-height: 1.6;
+      }
+
+      .boundary {
+        max-width: 760px;
+        margin-top: 100px;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+      }
+
+      .boundary h2 {
+        margin: 0;
+        font-family: Georgia, serif;
+        font-size: 34px;
+        font-weight: 400;
+      }
+
+      .boundary p {
+        color: #655f56;
+        line-height: 1.8;
+      }
+
+      @media (max-width: 750px) {
+        .page {
+          padding: 65px 22px 90px;
+        }
+
+        .service {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main class="page">
+      <div class="eyebrow">Layanan RAKAN</div>
+
+      <h1>
+        Mendampingi manusia<br />
+        <em>memahami dirinya.</em>
+      </h1>
+
+      <p class="intro">
+        Pendampingan Rakan berangkat dari satu pertanyaan sederhana:
+        apa yang sebenarnya sedang terjadi pada manusia yang ada di hadapan
+        kita?
+      </p>
+
+      <section class="services">
+        <article class="service">
+          <div class="number">01</div>
+
+          <div>
+            <h2>Konsultasi</h2>
+
+            <p>
+              Ruang percakapan untuk membahas kesehatan, kebiasaan, gaya hidup,
+              penggunaan obat, dan berbagai pertanyaan yang muncul dalam
+              kehidupan sehari-hari.
+            </p>
+          </div>
+
+          <div class="label">
+            KESEHATAN<br />
+            KEHIDUPAN
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="number">02</div>
+
+          <div>
+            <h2>Coaching</h2>
+
+            <p>
+              Pendampingan untuk membantu seseorang memahami tujuan,
+              kebiasaan, pola pikir, dan langkah perubahan yang ingin
+              dijalankannya.
+            </p>
+          </div>
+
+          <div class="label">
+            KEBIASAAN<br />
+            PERUBAHAN
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="number">03</div>
+
+          <div>
+            <h2>Mentoring</h2>
+
+            <p>
+              Pendampingan berbasis pengalaman dan pembelajaran untuk mereka
+              yang ingin berkembang dalam bidang kesehatan, farmasi,
+              komunikasi, atau pengembangan diri.
+            </p>
+          </div>
+
+          <div class="label">
+            BELAJAR<br />
+            BERKEMBANG
+          </div>
+        </article>
+      </section>
+
+      <section class="boundary">
+        <h2>Holistik bukan berarti menggantikan medis.</h2>
+
+        <p>
+          Pendekatan holistik berusaha melihat manusia secara lebih utuh.
+          Namun diagnosis, kondisi gawat, dan kebutuhan terapi medis tetap
+          berada dalam ranah pelayanan kesehatan yang sesuai.
+        </p>
+
+        <p>
+          Karena itu, pendampingan Rakan tidak dimaksudkan untuk menggantikan
+          dokter, apoteker, psikolog, atau tenaga kesehatan lain ketika
+          pemeriksaan dan penanganan profesional diperlukan.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

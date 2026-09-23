@@ -1,0 +1,71 @@
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">RAKAN</a>
+
+    <div class="links">
+      <a href="/about">Tentang</a>
+      <a href="/holistik">Kesehatan Holistik</a>
+      <a href="/tulisan">Tulisan</a>
+      <a href="/buku">Buku</a>
+      <a href="/layanan">Layanan</a>
+      <a href="/kontak">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #e5dfd5;
+    background: #f7f4ee;
+  }
+
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .brand {
+    color: #201d19;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    color: #514c45;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+
+  .links a:hover {
+    color: #201d19;
+  }
+
+  @media (max-width: 800px) {
+    .nav-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .links {
+      gap: 14px 18px;
+    }
+  }
+</style>

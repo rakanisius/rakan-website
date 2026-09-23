@@ -1,0 +1,250 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Tubuh tidak pernah bekerja sendirian. | RAKAN";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Tubuh tidak pernah bekerja sendirian. Catatan Rakan tentang tubuh, pikiran, kebiasaan, lingkungan, dan manusia sebagai satu kesatuan."
+    />
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #f7f4ee;
+        color: #29251f;
+        font-family: Arial, sans-serif;
+      }
+
+      .article {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 100px 32px 100px;
+      }
+
+      .category {
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 25px 0 30px;
+        font-family: Georgia, serif;
+        font-size: clamp(48px, 7vw, 82px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      h1 em {
+        font-weight: 400;
+      }
+
+      .meta {
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      .content {
+        max-width: 720px;
+        margin: 90px auto 0;
+      }
+
+      .content section {
+        margin-bottom: 75px;
+      }
+
+      .number {
+        margin-bottom: 15px;
+        color: #8b8174;
+        font-family: Georgia, serif;
+        font-size: 18px;
+      }
+
+      h2 {
+        margin: 0 0 22px;
+        font-family: Georgia, serif;
+        font-size: clamp(30px, 4vw, 46px);
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      p {
+        color: #514c45;
+        font-size: 18px;
+        line-height: 1.9;
+      }
+
+      .quote {
+        margin: 80px 0;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 4vw, 38px);
+        line-height: 1.3;
+      }
+
+      .closing {
+        margin-top: 100px;
+        padding-top: 45px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .closing p {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 700px) {
+        .article {
+          padding: 65px 22px 80px;
+        }
+
+        .content {
+          margin-top: 65px;
+        }
+
+        p {
+          font-size: 17px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main class="article">
+      <div class="category">Tubuh & Kesehatan</div>
+
+      <h1>
+        Tubuh tidak pernah
+        <em>bekerja sendirian.</em>
+      </h1>
+
+      <div class="meta">
+        Catatan Rakan · 01
+      </div>
+
+      <div class="content">
+        <section>
+          <div class="number">01</div>
+
+          <h2>Tubuh bukan kumpulan bagian yang terpisah.</h2>
+
+          <p>
+            Kita sering membicarakan tubuh seolah-olah ia adalah kumpulan
+            bagian yang berdiri sendiri. Jantung untuk memompa darah.
+            Paru-paru untuk bernapas. Lambung untuk mencerna makanan.
+          </p>
+
+          <p>
+            Padahal tubuh bekerja sebagai sebuah jaringan yang saling
+            berhubungan. Perubahan pada satu bagian dapat memengaruhi bagian
+            lainnya.
+          </p>
+        </section>
+
+        <section>
+          <div class="number">02</div>
+
+          <h2>Pikiran juga ikut masuk ke dalam tubuh.</h2>
+
+          <p>
+            Apa yang kita pikirkan dan rasakan tidak berhenti sebagai sesuatu
+            yang abstrak di dalam kepala. Stres, rasa takut, kegembiraan,
+            kehilangan, dan tekanan kehidupan dapat berjalan bersama perubahan
+            pada tubuh.
+          </p>
+
+          <p>
+            Karena itu, memahami kesehatan manusia membutuhkan lebih dari
+            sekadar melihat satu organ atau satu gejala.
+          </p>
+        </section>
+
+        <div class="quote">
+          Tubuh dapat merasakan sesuatu yang belum sempat kita jelaskan dengan
+          kata-kata.
+        </div>
+
+        <section>
+          <div class="number">03</div>
+
+          <h2>Kebiasaan kecil ikut membentuk kesehatan.</h2>
+
+          <p>
+            Cara kita makan, tidur, bergerak, bekerja, beristirahat, dan
+            berinteraksi dengan orang lain berlangsung berulang kali.
+          </p>
+
+          <p>
+            Sesuatu yang dilakukan sekali mungkin terlihat kecil. Tetapi
+            sesuatu yang dilakukan terus-menerus dapat menjadi bagian dari
+            kehidupan tubuh.
+          </p>
+        </section>
+
+        <section>
+          <div class="number">04</div>
+
+          <h2>Lingkungan juga menjadi bagian dari tubuh.</h2>
+
+          <p>
+            Manusia tidak hidup di ruang kosong. Udara yang dihirup, makanan
+            yang tersedia, kondisi tempat tinggal, pekerjaan, hubungan sosial,
+            dan lingkungan kehidupan semuanya dapat berhubungan dengan
+            kesehatan.
+          </p>
+        </section>
+
+        <section>
+          <div class="number">05</div>
+
+          <h2>Melihat manusia sebagai satu kesatuan.</h2>
+
+          <p>
+            Pendekatan yang lebih utuh tidak berarti mengabaikan ilmu
+            kedokteran atau farmasi. Justru sebaliknya, ia mengajak kita
+            memahami kapan sebuah masalah membutuhkan pemeriksaan medis,
+            kapan kebiasaan perlu diperbaiki, dan kapan manusia membutuhkan
+            dukungan dari orang lain.
+          </p>
+
+          <p>
+            Manusia bukan sekadar diagnosis. Ia memiliki tubuh, pikiran,
+            emosi, kebiasaan, lingkungan, hubungan, dan kehidupan yang saling
+            bertemu.
+          </p>
+        </section>
+
+        <section class="closing">
+          <p>
+            Tubuh tidak pernah bekerja sendirian.<br />
+            Begitu pula manusia.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
