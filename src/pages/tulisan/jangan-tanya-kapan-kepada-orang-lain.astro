@@ -1,0 +1,842 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = 'Jangan Tanya “Kapan?” kepada Orang Lain | RAKAN';
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" href="/favicon-rakan-512.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon-rakan-512.png" />
+    <link rel="apple-touch-icon" href="/favicon-rakan-512.png" />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Kita tidak pernah tahu apa yang sedang diperjuangkan seseorang. Jangan menjadikan pencapaian hidup kita sebagai ukuran untuk menentukan kapan orang lain harus lulus, menikah, atau mencapai sesuatu."
+    />
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #f7f4ee;
+        color: #29251f;
+        font-family: Arial, sans-serif;
+      }
+
+      .article {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 100px 32px 100px;
+      }
+
+      .category {
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 25px 0 30px;
+        font-family: Georgia, serif;
+        font-size: clamp(48px, 7vw, 82px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      .meta {
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      .intro {
+        max-width: 720px;
+        margin: 55px auto 0;
+        font-family: Georgia, serif;
+        font-size: clamp(24px, 4vw, 34px);
+        line-height: 1.45;
+        color: #514c45;
+      }
+
+      .illustration {
+        width: 100%;
+        margin: 75px 0 90px;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+
+      .illustration img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        margin-top: 12px;
+        color: #81776a;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .content {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .content section {
+        margin-bottom: 75px;
+      }
+
+      p {
+        color: #514c45;
+        font-size: 18px;
+        line-height: 1.9;
+      }
+
+      .lead {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        line-height: 1.55;
+        color: #39342f;
+      }
+
+      .quote {
+        margin: 80px 0;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 4vw, 38px);
+        line-height: 1.3;
+      }
+
+      .small-note {
+        color: #81776a;
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .closing {
+        margin-top: 100px;
+        padding-top: 45px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .closing p {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        line-height: 1.4;
+      }
+
+      .closing-final {
+        margin-top: 45px;
+        color: #7d2432 !important;
+        font-size: 30px !important;
+      }
+
+      @media (max-width: 700px) {
+        .article {
+          padding: 65px 22px 80px;
+        }
+
+        h1 {
+          font-size: clamp(43px, 13vw, 62px);
+        }
+
+        .intro {
+          margin-top: 45px;
+          font-size: 23px;
+        }
+
+        .illustration {
+          margin: 55px 0 65px;
+        }
+
+        p {
+          font-size: 17px;
+        }
+
+        .lead {
+          font-size: 21px;
+        }
+
+        .content {
+          margin-top: 0;
+        }
+
+        .quote {
+          margin: 65px 0;
+          font-size: 26px;
+        }
+
+        .closing p {
+          font-size: 24px;
+        }
+
+        .closing-final {
+          font-size: 27px !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main class="article">
+      <div class="category">Kehidupan</div>
+
+      <h1>
+        Jangan Tanya
+        <em>“Kapan?”</em>
+        kepada Orang Lain
+      </h1>
+
+      <div class="meta">
+        Catatan Rakan · 23 September 2026
+      </div>
+
+      <p class="intro">
+        Kita tidak pernah tahu apa yang sedang diperjuangkan seseorang.
+        Karena itu, jangan menjadikan pencapaian hidup kita sebagai ukuran
+        untuk menentukan kapan orang lain harus lulus, menikah, punya anak,
+        atau mencapai sesuatu.
+      </p>
+
+      <figure class="illustration">
+        <img
+          src="/images/jalan-hidup-berbeda.png"
+          alt="Ilustrasi dua jalan kehidupan dengan pilihan yang berbeda"
+        />
+        <figcaption class="caption">
+          Jalan hidup kita mungkin berbeda. Tidak berarti salah satunya harus
+          menjadi ukuran bagi yang lain.
+        </figcaption>
+      </figure>
+
+      <div class="content">
+        <section>
+          <p class="lead">
+            Saya pernah punya teman yang karier akademiknya tidak bagus-bagus
+            amat. Hampir tujuh tahun ia berkuliah, tetapi skripsinya tak
+            kunjung rampung.
+          </p>
+
+          <p>
+            Ada juga teman saya yang lain. Boro-boro memikirkan skripsi,
+            beberapa mata kuliah saja masih harus diulang.
+          </p>
+
+          <p>
+            Menariknya, keadaan mereka di luar kampus justru cukup baik.
+          </p>
+
+          <p>
+            Keadaan finansial mereka bagus. Hubungan sosial mereka juga
+            terbilang sukses. Mereka sudah sama-sama menikah. Bahkan salah
+            satunya sebentar lagi akan menjadi ayah.
+          </p>
+
+          <p>
+            Yang satu lagi, meskipun belum ada tanda-tanda akan segera punya
+            anak, sudah pergi jalan-jalan ke luar negeri bersama istrinya.
+          </p>
+
+          <p>
+            Sementara itu, kehidupan saya waktu itu belum terlalu berwarna.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Ketika memasuki tahun kelima dan menyadari bahwa saya belum juga
+            lulus S1, saya mulai marathon mengejar ketertinggalan.
+          </p>
+
+          <p>
+            Boro-boro memikirkan menikah atau punya anak.
+          </p>
+
+          <p>
+            Yang ada di kepala saya saat itu hanya satu:
+            <strong>bagaimana caranya lulus?</strong>
+          </p>
+
+          <p>
+            Teman-teman saya satu per satu sudah memakai toga. Foto wisuda
+            mereka mulai memenuhi media sosial. Sementara saya masih berkutat
+            dengan penelitian, nilai yang belum beres, laporan, dan dosen
+            pembimbing.
+          </p>
+
+          <p>
+            Dengan sisa-sisa tenaga yang ada, saya lanjutkan penelitian yang
+            sempat tertunda. Saya benahi nilai-nilai yang masih rendah. Saya
+            kejar dosen pembimbing ke mana pun ia pergi.
+          </p>
+
+          <p>
+            Akhirnya usaha itu membuahkan hasil.
+          </p>
+
+          <p>
+            Saya bisa mengikuti wisuda tepat di tahun kelima kuliah.
+          </p>
+
+          <p>
+            Tidak apa-apa. Cuma terlambat setahun. Di tengah teman-teman saya
+            yang lain, ada yang terlambat sampai tiga tahun.
+          </p>
+
+          <p>
+            Beruntung waktu itu saya banyak mengacu kepada teman-teman yang
+            lulus empat tahun. Mereka seperti memberi saya semacam cambuk.
+            Kalau mereka bisa selesai empat tahun, saya pun harus segera
+            menyelesaikan kuliah.
+          </p>
+
+          <p>
+            Saya tidak tahu bagaimana akhir cerita kuliah saya kalau waktu itu
+            saya lebih banyak melihat teman-teman yang memilih menikah lebih
+            dahulu daripada menuntaskan pendidikan.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Setelah S1 selesai, saya sempat menunda sekitar enam bulan sebelum
+            melanjutkan ke pendidikan profesi apoteker.
+          </p>
+
+          <p>
+            Pendidikan profesi ini berlangsung dua semester. Semester pertama
+            lebih banyak berisi teori dan pembelajaran di kelas. Semester
+            kedua diisi dengan Praktek Kerja Profesi Apoteker atau PKPA.
+          </p>
+
+          <p>
+            Di tahap inilah saya kembali masuk ke fase yang cukup melelahkan:
+            praktik, laporan, bimbingan, revisi, dan tentu saja menjadi
+            penghamba tanda tangan.
+          </p>
+
+          <p>
+            Sedari S1 saya sudah memutuskan untuk mengambil jalur farmasi
+            klinis. Maka pada pendidikan profesi, saya menjalani PKPA di apotek,
+            rumah sakit, dan pemerintahan.
+          </p>
+
+          <p>
+            Semuanya saya tuntaskan.
+          </p>
+
+          <p>
+            Seminggu lagi saya akan dilantik menjadi seorang apoteker.
+          </p>
+
+          <p>
+            Di saat saya sudah melewati masa-masa berat mengikuti perkuliahan,
+            praktik kerja, menyusun laporan, menemui pembimbing, menghadapi
+            revisi berulang kali, dan mengejar tanda tangan ke sana kemari,
+            teman-teman yang saya ceritakan di awal tadi belum juga
+            menunjukkan tanda-tanda hendak menyelesaikan skripsi mereka.
+          </p>
+
+          <p>
+            Nampaknya mereka masih betah dengan status mahasiswa abadi.
+          </p>
+
+          <p><strong>Mapala: Mahasiswa Paling Lama.</strong></p>
+
+          <p class="small-note">
+            Setidaknya, begitulah candaan saya waktu itu.
+          </p>
+        </section>
+
+        <div class="quote">
+          “Dul, kapan nikah?”
+        </div>
+
+        <section>
+          <p>
+            Sampai suatu hari saya membuat status di Facebook.
+          </p>
+
+          <p>
+            Salah seorang teman yang saya ceritakan tadi berkomentar:
+          </p>
+
+          <p>
+            Jleb.
+          </p>
+
+          <p>
+            Pertanyaan itu sederhana. Hanya dua kata. Tetapi entah kenapa,
+            cukup untuk membuat saya terdiam.
+          </p>
+
+          <p>
+            Iya juga.
+          </p>
+
+          <p>
+            Saya memang sudah menuntaskan kuliah. Bahkan bukan hanya S1.
+            Pendidikan profesi apoteker pun sebentar lagi selesai.
+          </p>
+
+          <p>
+            Ijazah S1 sudah di tangan.
+          </p>
+
+          <p>
+            Ijazah apoteker akan segera menyusul.
+          </p>
+
+          <p>
+            Soft file berbagai dokumen pun sudah saya scan dan amankan di
+            Google Drive.
+          </p>
+
+          <p>
+            Tetapi ketika membaca pertanyaan itu, saya tiba-tiba sadar bahwa
+            <strong>
+              lulus kuliah ternyata tidak otomatis membuat seluruh persoalan
+              hidup ikut selesai.
+            </strong>
+          </p>
+
+          <p>
+            Saya belum menikah.
+          </p>
+
+          <p>
+            Dan yang lebih membuat bingung, saya belum tahu akan menikah dengan
+            siapa.
+          </p>
+
+          <p>
+            Panik itu hanya berlangsung sebentar.
+          </p>
+
+          <p>
+            Setelahnya saya berpikir, setidaknya ada satu hal yang patut saya
+            syukuri.
+          </p>
+
+          <p>
+            Saya sudah lulus.
+          </p>
+
+          <p>
+            Sementara teman yang bertanya kepada saya tadi masih berjuang
+            dengan skripsinya.
+          </p>
+
+          <p>
+            Tentu saja, saat itu ada sedikit rasa lega.
+          </p>
+
+          <p>
+            Namun semakin saya pikirkan, saya sadar bahwa kehidupan bukan
+            perlombaan yang hadiahnya diberikan kepada orang yang paling cepat
+            menyelesaikan semua tahap.
+          </p>
+
+          <p>
+            Teman saya sudah menikah.
+          </p>
+
+          <p>
+            Saya sudah lulus.
+          </p>
+
+          <p>
+            Ia mungkin lebih dulu membangun keluarga.
+          </p>
+
+          <p>
+            Saya mungkin lebih dulu menyelesaikan pendidikan.
+          </p>
+
+          <p>
+            Lalu siapa yang menang?
+          </p>
+
+          <p>
+            Tidak ada.
+          </p>
+
+          <p>
+            Karena memang tidak ada perlombaannya.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Saya kemudian teringat bagaimana rasanya ketika dulu ditanya:
+          </p>
+
+          <p><strong>“Kapan lulus?”</strong></p>
+
+          <p>
+            Pertanyaan itu terdengar sederhana bagi orang yang mengucapkannya.
+            Tetapi bagi mahasiswa yang sedang berjuang menyelesaikan kuliah,
+            pertanyaan itu kadang terasa cukup berat.
+          </p>
+
+          <p>
+            Mereka hanya melihat satu hal: saya belum lulus.
+          </p>
+
+          <p>
+            Mereka tidak melihat janji dengan dosen pembimbing.
+          </p>
+
+          <p>
+            Mereka tidak melihat penelitian yang tertunda.
+          </p>
+
+          <p>
+            Mereka tidak melihat revisi yang berkali-kali.
+          </p>
+
+          <p>
+            Mereka tidak melihat malam-malam ketika harus begadang.
+          </p>
+
+          <p>
+            Mereka tidak melihat usaha mengejar tanda tangan.
+          </p>
+
+          <p>
+            Mereka tidak melihat berapa kali seseorang mencoba bangkit setelah
+            mendapatkan revisi lagi.
+          </p>
+
+          <p>
+            Yang mereka tahu hanya satu:
+          </p>
+
+          <p><strong>“Belum lulus.”</strong></p>
+
+          <p>
+            Maka ketika seseorang bertanya kepada saya, “Kapan nikah?”, saya
+            tidak sampai hati membalasnya dengan pertanyaan:
+          </p>
+
+          <p><strong>“Kapan lulus?”</strong></p>
+
+          <p>
+            Bukan karena saya tidak bisa.
+          </p>
+
+          <p>
+            Justru karena saya tahu persis rasanya.
+          </p>
+
+          <p>
+            Saya tahu bahwa mereka sendiri pasti sudah tahu bahwa mereka belum
+            lulus.
+          </p>
+
+          <p>
+            Mereka juga tahu bahwa skripsinya belum selesai.
+          </p>
+
+          <p>
+            Mereka juga tahu bahwa beberapa mata kuliahnya masih harus
+            diulang.
+          </p>
+
+          <p>
+            Mereka tidak membutuhkan saya untuk mengingatkan sesuatu yang setiap
+            hari mungkin sudah mereka pikirkan sendiri.
+          </p>
+
+          <p>
+            Kalau memang mereka ingin segera lulus, tentu mereka akan berusaha.
+          </p>
+
+          <p>
+            Kalau mereka memilih menundanya, mungkin ada alasan lain yang tidak
+            saya ketahui.
+          </p>
+
+          <p>
+            Dan saya tidak selalu berhak mengetahui alasan itu.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Hal yang sama berlaku untuk pertanyaan:
+          </p>
+
+          <p><strong>“Kapan nikah?”</strong></p>
+
+          <p>
+            Menikah bukan seperti makan siang yang bisa dijawab dengan,
+            “Besok.”
+          </p>
+
+          <p>
+            Atau:
+          </p>
+
+          <p>“Lusa.”</p>
+
+          <p>
+            Pernikahan membutuhkan banyak hal. Ada kesiapan, pasangan, keadaan,
+            perencanaan, tanggung jawab, dan berbagai pertimbangan lain yang
+            tidak selalu terlihat dari luar.
+          </p>
+
+          <p>
+            Bahkan orang yang sudah menentukan tanggal pernikahan pun masih
+            mungkin mengubah rencana.
+          </p>
+
+          <p>Maju.</p>
+
+          <p>Mundur.</p>
+
+          <p>Bahkan batal.</p>
+
+          <p>
+            Maka pertanyaan “kapan?” dalam urusan seperti ini tidak sesederhana
+            yang kita bayangkan.
+          </p>
+
+          <p>
+            Kita sering mengira sedang basa-basi.
+          </p>
+
+          <p>
+            Padahal bagi orang yang ditanya, bisa jadi pertanyaan itu menyentuh
+            bagian kehidupan yang sedang mereka perjuangkan.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Saya menulis ini bukan untuk mengatakan bahwa bertanya “kapan
+            lulus?” atau “kapan nikah?” selalu salah.
+          </p>
+
+          <p>
+            Bukan begitu.
+          </p>
+
+          <p>
+            Kadang pertanyaan itu lahir dari perhatian.
+          </p>
+
+          <p>
+            Kadang memang hanya basa-basi.
+          </p>
+
+          <p>
+            Tetapi ada baiknya kita belajar memahami bahwa
+            <strong>
+              tidak semua hal dalam hidup orang lain perlu kita tanyakan
+              waktunya.
+            </strong>
+          </p>
+
+          <p>
+            Setiap orang memiliki jalan yang berbeda.
+          </p>
+
+          <p>
+            Ada orang yang ingin cepat lulus kemudian menikah.
+          </p>
+
+          <p>
+            Ada yang ingin menikah lebih dahulu.
+          </p>
+
+          <p>
+            Ada yang ingin membangun karier.
+          </p>
+
+          <p>
+            Ada yang sedang membesarkan bisnis.
+          </p>
+
+          <p>
+            Ada yang sedang berusaha menyelesaikan persoalan keluarga.
+          </p>
+
+          <p>
+            Ada pula yang mungkin sedang berjuang dengan sesuatu yang sama
+            sekali tidak kita ketahui.
+          </p>
+
+          <p>
+            Maka pilihan seseorang untuk cepat menikah bukan berarti orang lain
+            harus segera menikah.
+          </p>
+
+          <p>
+            Pilihan seseorang untuk cepat lulus bukan berarti orang lain harus
+            mengikuti jadwal yang sama.
+          </p>
+
+          <p>
+            Begitu pula orang yang memilih menunda lulus atau menunda menikah
+            tidak otomatis sedang menjalani kehidupan yang salah.
+          </p>
+
+          <p>
+            Bisa jadi mereka sedang mengejar sesuatu yang menurut mereka
+            penting pada fase hidupnya sekarang.
+          </p>
+
+          <p>
+            Kita tidak tahu.
+          </p>
+
+          <p>
+            Dan tidak apa-apa.
+          </p>
+
+          <p>
+            Memang bukan tugas kita untuk mengetahui semuanya.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Mungkin saya juga perlu belajar satu hal lagi.
+          </p>
+
+          <p>
+            Jangan menjadikan pencapaian pribadi sebagai ukuran untuk menilai
+            kehidupan orang lain.
+          </p>
+
+          <p>
+            Dulu saya bangga karena akhirnya berhasil lulus.
+          </p>
+
+          <p>
+            Kemudian ketika ada orang yang belum lulus, saya bisa saja berpikir
+            bahwa saya sudah berada satu langkah di depan mereka.
+          </p>
+
+          <p>
+            Tetapi beberapa saat kemudian saya justru ditanya:
+          </p>
+
+          <p><strong>“Kapan nikah?”</strong></p>
+
+          <p>
+            Ternyata kehidupan punya cara yang cukup lucu untuk mengingatkan
+            kita.
+          </p>
+
+          <p>
+            Hari ini kita merasa unggul dalam satu hal.
+          </p>
+
+          <p>
+            Besok kita bisa saja merasa tertinggal dalam hal lain.
+          </p>
+
+          <p>
+            Karena itu, rasanya tidak perlu terlalu sibuk menghitung siapa yang
+            lebih cepat.
+          </p>
+
+          <p>
+            Kita cukup menjalani bagian kita.
+          </p>
+        </section>
+
+        <section class="closing">
+          <p>
+            Dalam tulisan ini saya ingin mengajak kita untuk saling menghargai
+            pilihan.
+          </p>
+
+          <p>
+            Saling mengerti situasi.
+          </p>
+
+          <p>
+            Saling memahami keadaan.
+          </p>
+
+          <p>
+            Mari mulai menghindari pertanyaan-pertanyaan yang mungkin bagi kita
+            terdengar sepele, tetapi bagi orang lain bisa terasa menusuk.
+          </p>
+
+          <p>
+            Tidak perlu terlalu usil terhadap kehidupan orang.
+          </p>
+
+          <p>
+            <strong>No trespassing.</strong>
+          </p>
+
+          <p>
+            Jangan masuk terlalu jauh ke wilayah yang bukan milik kita.
+          </p>
+
+          <p>
+            Biarkan orang menentukan kapan ia ingin lulus.
+          </p>
+
+          <p>
+            Biarkan orang menentukan kapan ia ingin menikah.
+          </p>
+
+          <p>
+            Biarkan orang menentukan kapan ia ingin punya anak.
+          </p>
+
+          <p>
+            Biarkan pula seseorang menentukan apa yang ingin ia kejar terlebih
+            dahulu.
+          </p>
+
+          <p>
+            Karena yang menjalani hidup itu mereka.
+          </p>
+
+          <p>
+            Bukan saya.
+          </p>
+
+          <p>
+            Bukan kita.
+          </p>
+
+          <p>
+            Dan pada akhirnya, yang paling tahu jalan terbaik bagi kehidupan
+            seseorang adalah orang yang menjalaninya sendiri.
+          </p>
+
+          <p class="closing-final">
+            <strong>Bukan saya. Bukan kita. Mereka sendiri.</strong>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
