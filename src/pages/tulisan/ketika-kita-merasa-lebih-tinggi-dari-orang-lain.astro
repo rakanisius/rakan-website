@@ -1,0 +1,981 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Ketika Kita Merasa Lebih Tinggi dari Orang Lain | RAKAN";
+const description =
+  "Tentang jabatan, status, kekuasaan, kesombongan, dan pelajaran untuk memperlakukan manusia dengan baik, terutama ketika kita merasa berada di posisi yang lebih tinggi.";
+const image = "/images/ketika-kita-merasa-lebih-tinggi.png";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="kehidupan, kesombongan, jabatan, kekuasaan, status sosial, kerendahan hati, manusia, refleksi diri, kesehatan holistik"
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={image} />
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #f7f4ee;
+        color: #29251f;
+        font-family: Arial, sans-serif;
+      }
+
+      .article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 100px 32px 100px;
+      }
+
+      .category {
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 25px 0 25px;
+        font-family: Georgia, serif;
+        font-size: clamp(46px, 7vw, 78px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .intro {
+        max-width: 720px;
+        margin: 0 0 35px;
+        color: #625b52;
+        font-family: Georgia, serif;
+        font-size: clamp(20px, 3vw, 27px);
+        line-height: 1.55;
+      }
+
+      .meta {
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      .hero {
+        margin: 70px 0 100px;
+      }
+
+      .hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+      }
+
+      .hero-caption {
+        margin-top: 12px;
+        color: #93897b;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .content {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .content section {
+        margin-bottom: 75px;
+      }
+
+      .number {
+        margin-bottom: 15px;
+        color: #8b8174;
+        font-family: Georgia, serif;
+        font-size: 18px;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+        font-family: Georgia, serif;
+        font-size: clamp(30px, 4vw, 46px);
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      p {
+        color: #514c45;
+        font-size: 18px;
+        line-height: 1.9;
+      }
+
+      .quote {
+        margin: 80px 0;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 4vw, 38px);
+        line-height: 1.3;
+      }
+
+      .question {
+        margin: 80px 0;
+        padding: 45px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+      }
+
+      .question p {
+        margin: 0;
+        color: #29251f;
+        font-family: Georgia, serif;
+        font-size: clamp(24px, 4vw, 34px);
+        line-height: 1.45;
+      }
+
+      .personal {
+        margin-top: 90px;
+        padding-top: 55px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .personal-label {
+        margin-bottom: 25px;
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .friend-quote {
+        margin: 45px 0;
+        padding: 30px 0 30px 30px;
+        border-left: 3px solid #8c1d2c;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        line-height: 1.55;
+      }
+
+      .closing {
+        margin-top: 100px;
+        padding-top: 45px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .closing p {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        line-height: 1.5;
+      }
+
+      .signature {
+        margin-top: 35px;
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      @media (max-width: 700px) {
+        .article {
+          padding: 65px 22px 80px;
+        }
+
+        .hero {
+          margin: 50px 0 70px;
+        }
+
+        .content {
+          margin-top: 0;
+        }
+
+        p {
+          font-size: 17px;
+          line-height: 1.85;
+        }
+
+        .friend-quote {
+          padding-left: 20px;
+          font-size: 21px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main class="article">
+      <div class="category">Kehidupan</div>
+
+      <h1>
+        Ketika Kita Merasa Lebih Tinggi dari Orang Lain
+      </h1>
+
+      <p class="intro">
+        Kadang-kadang yang membuat seseorang merasa berkuasa bukanlah
+        kekuatannya, melainkan keyakinannya bahwa orang lain berada di
+        bawahnya.
+      </p>
+
+      <div class="meta">
+        Catatan Rakan · Kehidupan
+      </div>
+
+      <div class="hero">
+        <img
+          src={image}
+          alt="Ilustrasi reflektif tentang jabatan, kekuasaan, status, dan kerendahan hati"
+        />
+
+        <div class="hero-caption">
+          Tentang kekuasaan, status, dan cara kita memperlakukan manusia lain.
+        </div>
+      </div>
+
+      <div class="content">
+
+        <section>
+          <p>
+            Pernah saya membaca dalam sebuah surat kabar tentang seorang
+            dokter di sebuah rumah sakit TNI yang enggan membayar parkir
+            sebesar Rp5.000. Alasannya, TNI dan polisi tidak perlu membayar
+            parkir.
+          </p>
+
+          <p>
+            Belakangan diketahui bahwa dokter tersebut bukan dokter angkatan,
+            melainkan dokter sipil. Mobil yang digunakannya pun milik istrinya,
+            yang juga dokter sipil. Namun ia tetap menolak membayar parkir
+            hanya karena mobil tersebut menggunakan pelat nomor TNI.
+          </p>
+
+          <p>
+            Awalnya, sopir dokter tersebut sudah bersedia membayar parkir.
+            Persoalan seharusnya selesai di situ.
+          </p>
+
+          <p>
+            Namun entah apa yang terjadi, setelah mobil maju beberapa meter,
+            sang dokter kembali menghampiri juru parkir. Ia menamparnya.
+            Tidak berhenti sampai di situ, ia mengeluarkan pistol dan
+            menembakkannya ke langit-langit gedung.
+          </p>
+
+          <p>
+            Juru parkir itu ketakutan dan bersimpuh di hadapannya.
+          </p>
+
+          <p>
+            Bahkan, menurut kisah yang saya baca tersebut, sang dokter masih
+            menyuruh juru parkir itu mencium kakinya. Dalam keadaan tertekan,
+            juru parkir tersebut terpaksa mengikuti kemauannya.
+          </p>
+
+          <p>
+            Entah apa yang sebenarnya terjadi dalam diri seseorang sampai
+            sebuah urusan parkir senilai Rp5.000 dapat berubah menjadi
+            pertunjukan kekuasaan seperti itu.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Lain kisah.
+          </p>
+
+          <p>
+            Saya pernah bekerja di sebuah klinik. Suatu malam ketika saya
+            sedang piket, saya mendapat cerita dari seorang tukang warung kopi
+            bahwa dokter umum yang sore harinya praktik di klinik tempat saya
+            bekerja terlibat keributan dengan seorang warga yang sedang
+            mengantre di ATM.
+          </p>
+
+          <p>
+            Alasannya terdengar sepele.
+          </p>
+
+          <p>
+            Warga tersebut hanya melihat sang dokter ketika ia baru turun dari
+            mobil.
+          </p>
+
+          <p>
+            Sebenarnya, kita semua pernah memperhatikan orang lain dari kepala
+            sampai ujung kaki. Begitu pula kita pasti pernah mengalami
+            diperhatikan orang lain dari ujung kepala sampai ujung kaki.
+          </p>
+
+          <p>
+            Kalau pakaian kita tidak biasa, mungkin perhatian orang lain terasa
+            lebih kentara. Sedikit risih, mungkin. Tetapi biasanya kita biarkan
+            saja.
+          </p>
+
+          <p>
+            Dokter tersebut rupanya tidak demikian.
+          </p>
+
+          <p>
+            Ia menghampiri orang yang melihatnya.
+          </p>
+
+          <p>
+            “Bapak kenapa lihat-lihat saya? Ada masalah apa?”
+          </p>
+
+          <p>
+            Silakan bayangkan sendiri bagaimana kelanjutannya.
+          </p>
+        </section>
+
+        <div class="quote">
+          Kadang-kadang yang kita sebut keberanian sebenarnya hanya keberanian
+          yang dipinjam dari posisi.
+        </div>
+
+        <section>
+          <p>
+            Dari berbagai kisah semacam itu, saya mulai melihat sebuah pola.
+          </p>
+
+          <p>
+            Ada orang yang merasa dirinya lebih tinggi karena jabatan.
+          </p>
+
+          <p>
+            Ada yang merasa lebih kuat karena pangkat.
+          </p>
+
+          <p>
+            Ada yang merasa lebih terhormat karena gelar.
+          </p>
+
+          <p>
+            Ada pula yang merasa berkuasa karena memiliki banyak pengikut.
+          </p>
+
+          <p>
+            Ketika bertemu orang yang dianggap berada di bawahnya, mereka
+            merasa bisa bersikap sesuka hati.
+          </p>
+
+          <p>
+            Mereka merasa harus dihormati. Mereka merasa orang lain harus
+            mengalah. Mereka merasa atribut yang melekat pada dirinya memberi
+            hak istimewa.
+          </p>
+
+          <p>
+            Seorang dokter mungkin merasa memiliki kedudukan lebih tinggi
+            daripada juru parkir.
+          </p>
+
+          <p>
+            Seorang pejabat mungkin merasa kedudukannya membuatnya tidak layak
+            ditegur.
+          </p>
+
+          <p>
+            Seorang anggota aparat mungkin merasa statusnya membuat orang lain
+            berpikir dua kali untuk melawannya.
+          </p>
+
+          <p>
+            Sekelompok pengendara mungkin merasa memiliki kekuatan karena
+            mereka sedang berkendara bersama-sama.
+          </p>
+
+          <p>
+            Begitu pula sebuah kelompok atau organisasi dapat merasa memiliki
+            kekuatan ketika jumlah anggotanya membuat orang lain takut.
+          </p>
+
+          <p>
+            Tentu saja, saya tidak sedang mengatakan bahwa semua dokter,
+            pejabat, anggota TNI, anggota polisi, klub motor, atau organisasi
+            masyarakat seperti itu.
+          </p>
+
+          <p>
+            Tidak.
+          </p>
+
+          <p>
+            Saya sedang membicarakan sebuah sifat manusia yang bisa muncul di
+            mana saja.
+          </p>
+
+          <p>
+            Sifat ketika seseorang merasa dirinya lebih tinggi daripada orang
+            lain.
+          </p>
+        </section>
+
+        <div class="question">
+          <p>
+            Kalau seseorang berani karena memiliki jabatan, apakah keberanian
+            itu tetap ada ketika jabatannya dilepas?
+          </p>
+        </div>
+
+        <section>
+          <p>
+            Kalau seseorang berani karena memiliki pangkat, bagaimana ketika
+            ia berdiri sendirian tanpa atribut?
+          </p>
+
+          <p>
+            Kalau seseorang berani karena memiliki banyak teman, apakah ia
+            masih akan melakukan hal yang sama ketika sendirian?
+          </p>
+
+          <p>
+            Kalau seseorang berani karena merasa orang lain lebih miskin, lebih
+            lemah, atau lebih rendah pendidikannya, apakah ia akan tetap
+            bersikap demikian ketika berhadapan dengan orang yang kedudukannya
+            jauh lebih tinggi?
+          </p>
+
+          <p>
+            Di sinilah saya merasa ada sesuatu yang menarik.
+          </p>
+
+          <p>
+            Kadang-kadang yang kita sebut keberanian sebenarnya hanya
+            keberanian yang dipinjam dari posisi.
+          </p>
+
+          <p>
+            Bukan keberanian yang berasal dari karakter.
+          </p>
+        </section>
+
+        <section class="personal">
+          <div class="personal-label">Kemudian saya bercermin</div>
+
+          <p>
+            Tetapi semakin lama saya memikirkannya, semakin saya sadar bahwa
+            persoalan ini tidak boleh berhenti pada cerita tentang orang lain.
+          </p>
+
+          <p>
+            Sebab sifat seperti itu ternyata tidak selalu hadir dalam bentuk
+            yang dramatis.
+          </p>
+
+          <p>
+            Tidak harus berupa tamparan.
+          </p>
+
+          <p>
+            Tidak harus berupa pistol.
+          </p>
+
+          <p>
+            Tidak harus berupa bentakan di tengah jalan.
+          </p>
+
+          <p>
+            Kadang-kadang bentuknya jauh lebih kecil.
+          </p>
+
+          <p>
+            Dan justru karena kecil, kita tidak menyadarinya.
+          </p>
+
+          <p>
+            Saya sendiri pernah mengalaminya.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Saya pernah bekerja di sebuah puskesmas, tepatnya di bagian
+            pelayanan obat.
+          </p>
+
+          <p>
+            Puskesmas tempat saya bekerja sudah bekerja sama dengan BPJS.
+            Pasien yang memiliki BPJS tidak perlu membayar ketika berobat,
+            sedangkan pasien yang belum memiliki BPJS harus membayar sesuai
+            ketentuan yang berlaku.
+          </p>
+
+          <p>
+            Dulu, saya memiliki cara pandang yang keliru terhadap pasien BPJS.
+          </p>
+
+          <p>
+            Secara tidak sadar, saya menganggap orang yang menggunakan BPJS
+            sebagai orang yang kurang mampu dan kurang berpendidikan.
+          </p>
+
+          <p>
+            Sementara itu, saya merasa gaji saya lumayan.
+          </p>
+
+          <p>
+            Saya merasa berpendidikan.
+          </p>
+
+          <p>
+            Tanpa saya sadari, pikiran itu membuat saya menempatkan diri
+            sedikit lebih tinggi daripada mereka.
+          </p>
+
+          <p>
+            Dampaknya muncul dalam cara saya melayani.
+          </p>
+
+          <p>
+            Saya menjadi lebih suka-suka terhadap pasien BPJS.
+          </p>
+
+          <p>
+            Ketika melayani mereka, intonasi suara saya bisa lebih tinggi. Saya
+            berbicara cepat. Ketika pasien tidak memahami informasi penggunaan
+            obat dan bertanya kembali, kadang saya menjawab dengan nada
+            setengah marah.
+          </p>
+
+          <p>
+            “Itu kan sudah ditulis cara pakainya. Berapa kalinya!”
+          </p>
+
+          <p>
+            Kalimat seperti itu mungkin hanya membutuhkan beberapa detik untuk
+            diucapkan.
+          </p>
+
+          <p>
+            Tetapi bagi orang yang sedang sakit, bingung, dan sedang berusaha
+            memahami obatnya, kalimat tersebut bisa terasa sangat berbeda.
+          </p>
+
+          <p>
+            Pasien mungkin akhirnya pulang dengan informasi yang masih samar.
+          </p>
+
+          <p>
+            Mau bertanya lagi, takut dimarahi.
+          </p>
+
+          <p>
+            Mungkin di dalam kepala saya saat itu ada kalimat yang lebih buruk
+            lagi:
+          </p>
+
+          <div class="friend-quote">
+            “Sudah gratis, banyak mintanya.”
+          </div>
+
+          <p>
+            Sekarang ketika mengingatnya, saya merasa tidak nyaman.
+          </p>
+
+          <p>
+            Sebab ternyata saya sedang melakukan hal yang sama dalam bentuk
+            yang jauh lebih kecil.
+          </p>
+
+          <p>
+            Saya sedang menggunakan posisi saya untuk merasa lebih tinggi
+            daripada orang lain.
+          </p>
+
+          <p>
+            Bedanya, saya tidak membawa pistol.
+          </p>
+
+          <p>
+            Saya hanya membawa jas dan pengetahuan tentang obat.
+          </p>
+
+          <p>
+            Tetapi mekanismenya bisa serupa.
+          </p>
+
+          <p>
+            Saya merasa memiliki sesuatu yang membuat posisi saya lebih tinggi,
+            lalu saya menggunakan posisi tersebut untuk memperlakukan orang
+            lain dengan lebih buruk.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Sampai suatu malam, saya mendapat pelajaran yang cukup telak.
+          </p>
+
+          <p>
+            Seorang pasien datang bersama suaminya.
+          </p>
+
+          <p>
+            Pasien tersebut adalah seorang perempuan dengan diagnosis
+            hipertensi.
+          </p>
+
+          <p>
+            Malam itu suaminya mempersoalkan intonasi saya.
+          </p>
+
+          <p>
+            Kemudian istrinya ikut menyampaikan keberatan.
+          </p>
+
+          <p>
+            Dua lawan satu.
+          </p>
+
+          <p>
+            Saya tidak sedang berada dalam posisi untuk membela diri.
+          </p>
+
+          <p>
+            Saya mengakui bahwa saya salah.
+          </p>
+
+          <p>
+            Tingkat keramahan saya malam itu memang buruk.
+          </p>
+
+          <p>
+            Maka saya memilih meminta maaf.
+          </p>
+
+          <p>
+            Berkali-kali.
+          </p>
+
+          <p>
+            Menariknya, malam itu saya baru merasakan sesuatu yang sebelumnya
+            tidak saya sadari.
+          </p>
+
+          <p>
+            Tadinya saya merasa berani kepada pasien.
+          </p>
+
+          <p>
+            Tetapi ketika pasien tersebut berani menyampaikan keberatannya,
+            saya justru menjadi down.
+          </p>
+
+          <p>
+            Saya yang tadinya berada dalam posisi lebih tinggi mendadak merasa
+            kecil.
+          </p>
+
+          <p>
+            Di situ saya belajar sesuatu.
+          </p>
+
+          <p>
+            Barangkali beginilah rasanya ketika seseorang yang selama ini kita
+            anggap berada di bawah kita ternyata berani berdiri sejajar.
+          </p>
+        </section>
+
+        <div class="quote">
+          Kalau saya hanya ramah kepada orang kaya, lalu kasar kepada orang
+          miskin, berarti keramahan saya bukan karakter. Itu transaksi.
+        </div>
+
+        <section>
+          <p>
+            Sejak saat itu saya mencoba mengubah cara saya melihat pasien.
+          </p>
+
+          <p>
+            Pasien BPJS maupun pasien umum tetap manusia.
+          </p>
+
+          <p>
+            Miskin atau kaya, tetap manusia.
+          </p>
+
+          <p>
+            Berpendidikan tinggi atau tidak berpendidikan, tetap manusia.
+          </p>
+
+          <p>
+            Mereka datang bukan untuk menerima kebaikan hati saya.
+          </p>
+
+          <p>
+            Mereka datang untuk mendapatkan pelayanan.
+          </p>
+
+          <p>
+            Dan saya berada di sana untuk melayani.
+          </p>
+
+          <p>
+            Saya tidak seharusnya menentukan kadar keramahan berdasarkan status
+            orang yang sedang berdiri di depan saya.
+          </p>
+
+          <p>
+            Kalau saya hanya ramah kepada orang kaya, lalu kasar kepada orang
+            miskin, berarti keramahan saya bukan karakter.
+          </p>
+
+          <p>
+            Itu transaksi.
+          </p>
+
+          <p>
+            Saya ramah karena saya melihat keuntungan atau posisi orang
+            tersebut.
+          </p>
+
+          <p>
+            Begitu pula dengan rasa hormat.
+          </p>
+
+          <p>
+            Kalau saya hanya menghormati orang yang memiliki jabatan, pangkat,
+            atau kekuasaan, mungkin sebenarnya saya bukan orang yang menghormati
+            manusia.
+          </p>
+
+          <p>
+            Saya hanya menghormati kekuasaan.
+          </p>
+        </section>
+
+        <section>
+          <div class="number">01</div>
+
+          <h2>Tentang kesederhanaan dan kesabaran.</h2>
+
+          <p>
+            Saya teringat sebuah nasihat dari seorang teman:
+          </p>
+
+          <div class="friend-quote">
+            “Sederhana adalah ketika punya banyak uang, tetapi tetap memilih
+            apa adanya. Tidak bermewah-mewahan. Sabar adalah ketika kita mampu
+            melawan, tetapi kita lebih memilih tidak melawan.”
+          </div>
+
+          <p>
+            Semakin saya pikirkan, semakin saya merasa nasihat tersebut
+            berkaitan dengan banyak hal yang saya ceritakan di awal.
+          </p>
+
+          <p>
+            Mungkin ukuran seseorang bukan hanya tentang apa yang bisa ia
+            lakukan.
+          </p>
+
+          <p>
+            Justru kadang-kadang ukuran seseorang terlihat dari apa yang
+            sebenarnya bisa ia lakukan, tetapi memilih untuk tidak melakukannya.
+          </p>
+
+          <p>
+            Kita bisa membentak, tetapi memilih berbicara baik-baik.
+          </p>
+
+          <p>
+            Kita bisa mempermalukan orang lain, tetapi memilih menjaga
+            martabatnya.
+          </p>
+
+          <p>
+            Kita bisa menggunakan jabatan untuk menekan, tetapi memilih
+            bersikap biasa saja.
+          </p>
+
+          <p>
+            Kita bisa membalas ketika diperlakukan tidak baik, tetapi memilih
+            menyelesaikan persoalan tanpa merendahkan.
+          </p>
+
+          <p>
+            Dan mungkin, kita bisa merasa lebih tinggi daripada orang lain,
+            tetapi memilih mengingat bahwa pada akhirnya kita semua tetap
+            manusia.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Saya tidak tahu bagaimana orang-orang dalam kisah di awal tulisan
+            ini memandang dirinya sendiri.
+          </p>
+
+          <p>
+            Mungkin mereka memiliki alasan masing-masing.
+          </p>
+
+          <p>
+            Mungkin ada bagian cerita yang tidak saya ketahui.
+          </p>
+
+          <p>
+            Mungkin pula cerita yang saya baca atau dengar tidak sepenuhnya
+            menggambarkan seluruh kejadian.
+          </p>
+
+          <p>
+            Karena itu, saya tidak ingin menjadikan kisah-kisah tersebut
+            sebagai alasan untuk merasa lebih baik daripada mereka.
+          </p>
+
+          <p>
+            Sebab kalau setelah membaca kisah tentang kesombongan orang lain
+            saya kemudian merasa,
+          </p>
+
+          <div class="friend-quote">
+            “Untung saya tidak seperti mereka.”
+          </div>
+
+          <p>
+            Bisa jadi saya sedang jatuh ke lubang yang sama dengan bentuk yang
+            berbeda.
+          </p>
+
+          <p>
+            Saya mungkin tidak menampar juru parkir.
+          </p>
+
+          <p>
+            Saya mungkin tidak mengeluarkan pistol.
+          </p>
+
+          <p>
+            Saya mungkin tidak menggunakan jabatan untuk meminta orang lain
+            memberi jalan.
+          </p>
+
+          <p>
+            Tetapi saya bisa saja memandang rendah pasien karena ia menggunakan
+            BPJS.
+          </p>
+
+          <p>
+            Saya bisa saja berbicara kasar kepada bawahan karena merasa posisi
+            saya lebih tinggi.
+          </p>
+
+          <p>
+            Saya bisa saja tidak menghormati seseorang karena pendidikannya
+            lebih rendah.
+          </p>
+
+          <p>
+            Saya bisa saja merasa lebih pintar hanya karena mengetahui sesuatu
+            yang tidak diketahui orang lain.
+          </p>
+
+          <p>
+            Bentuknya berbeda.
+          </p>
+
+          <p>
+            Akarnya mungkin sama.
+          </p>
+        </section>
+
+        <section class="closing">
+          <p>
+            Mungkin sifat “kampungan” yang paling berbahaya bukan terletak pada
+            pakaian, pendidikan, pekerjaan, atau asal-usul seseorang.
+          </p>
+
+          <p>
+            Ia muncul ketika seseorang merasa perlu membuat orang lain merasa
+            kecil agar dirinya terlihat besar.
+          </p>
+
+          <p>
+            Dan mungkin kebalikannya juga benar.
+          </p>
+
+          <p>
+            Kedewasaan bukan selalu ketika kita memiliki kekuatan lebih besar.
+          </p>
+
+          <p>
+            Kadang-kadang kedewasaan justru terlihat ketika kita memiliki
+            kekuatan untuk menekan, tetapi memilih tidak melakukannya.
+          </p>
+
+          <p>
+            Ketika kita bisa membalas, tetapi memilih menahan diri.
+          </p>
+
+          <p>
+            Ketika kita bisa menunjukkan siapa diri kita, tetapi tidak merasa
+            perlu melakukannya.
+          </p>
+
+          <p>
+            Ketika kita bisa memperlakukan orang lain sesuka hati, tetapi tetap
+            memilih memperlakukannya dengan baik.
+          </p>
+
+          <p>
+            Termasuk kepada orang yang tidak punya jabatan.
+          </p>
+
+          <p>
+            Tidak punya pangkat.
+          </p>
+
+          <p>
+            Tidak punya gelar.
+          </p>
+
+          <p>
+            Tidak punya uang.
+          </p>
+
+          <p>
+            Tidak punya kekuasaan.
+          </p>
+
+          <p>
+            Sebab mungkin di situlah ujian sebenarnya.
+          </p>
+
+          <p>
+            Bukan bagaimana kita memperlakukan orang yang kita anggap penting.
+          </p>
+
+          <p>
+            Tetapi bagaimana kita memperlakukan orang yang
+            <strong>tidak bisa memberikan apa-apa kepada kita.</strong>
+          </p>
+
+          <div class="signature">
+            Dan saya sendiri masih belajar tentang itu.
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
