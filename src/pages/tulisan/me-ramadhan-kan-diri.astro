@@ -1,0 +1,653 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Me-Ramadhan-kan Diri | RAKAN";
+const description =
+  "Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri tidak harus selesai ketika bulan itu berakhir.";
+const image = "/images/me-ramadhan-kan-diri.png";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+
+    <title>{title}</title>
+
+    <meta name="description" content={description} />
+
+    <meta
+      name="keywords"
+      content="Ramadhan, puasa, me-Ramadhan-kan diri, refleksi diri, kehidupan, spiritualitas, pengendalian diri, disiplin, Rakan"
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={image} />
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        background: #f7f4ee;
+        color: #29251f;
+        font-family: Arial, sans-serif;
+      }
+
+      .article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 100px 32px 100px;
+      }
+
+      .category {
+        color: #81776a;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 25px 0 25px;
+        font-family: Georgia, serif;
+        font-size: clamp(46px, 7vw, 78px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .intro {
+        max-width: 720px;
+        margin: 0 0 35px;
+        color: #625b52;
+        font-family: Georgia, serif;
+        font-size: clamp(20px, 3vw, 27px);
+        line-height: 1.55;
+      }
+
+      .meta {
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      .hero {
+        margin: 70px 0 100px;
+      }
+
+      .hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+      }
+
+      .hero-caption {
+        margin-top: 12px;
+        color: #93897b;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .content {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .content section {
+        margin-bottom: 75px;
+      }
+
+      p {
+        color: #514c45;
+        font-size: 18px;
+        line-height: 1.9;
+      }
+
+      .quote {
+        margin: 80px 0;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 4vw, 38px);
+        line-height: 1.3;
+      }
+
+      .question {
+        margin: 80px 0;
+        padding: 45px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+      }
+
+      .question p {
+        margin: 0;
+        color: #29251f;
+        font-family: Georgia, serif;
+        font-size: clamp(24px, 4vw, 34px);
+        line-height: 1.45;
+      }
+
+      .emphasis {
+        margin: 70px 0;
+        padding: 35px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        color: #8c1d2c;
+        font-family: Georgia, serif;
+        font-size: clamp(27px, 4vw, 39px);
+        line-height: 1.35;
+        text-align: center;
+      }
+
+      .closing {
+        margin-top: 100px;
+        padding-top: 45px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .closing p {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        line-height: 1.6;
+      }
+
+      .signature {
+        margin-top: 45px;
+        color: #81776a;
+        font-size: 14px;
+      }
+
+      @media (max-width: 700px) {
+        .article {
+          padding: 65px 22px 80px;
+        }
+
+        h1 {
+          font-size: clamp(43px, 12vw, 62px);
+          line-height: 1.03;
+        }
+
+        .intro {
+          font-size: 20px;
+        }
+
+        .hero {
+          margin: 50px 0 70px;
+        }
+
+        p {
+          font-size: 17px;
+          line-height: 1.85;
+        }
+
+        .question {
+          margin: 60px 0;
+          padding: 32px 0;
+        }
+
+        .emphasis {
+          margin: 55px 0;
+          padding: 30px 0;
+          font-size: 27px;
+        }
+
+        .closing p {
+          font-size: 22px;
+          line-height: 1.6;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Nav />
+
+    <main class="article">
+
+      <div class="category">Kehidupan</div>
+
+      <h1>
+        Me-Ramadhan-kan Diri
+      </h1>
+
+      <p class="intro">
+        Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri tidak
+        harus selesai ketika bulan itu berakhir.
+      </p>
+
+      <div class="meta">
+        Catatan Rakan · Kehidupan
+      </div>
+
+
+      <div class="hero">
+        <img
+          src={image}
+          alt="Seseorang merenung dalam suasana Ramadhan menjelang waktu berbuka"
+        />
+
+        <div class="hero-caption">
+          Ramadhan mungkin hanya sebulan. Tetapi nilai yang dilatih di dalamnya
+          dapat kita bawa sepanjang kehidupan.
+        </div>
+      </div>
+
+
+      <div class="content">
+
+        <section>
+          <p>
+            Istilah <em>me-Ramadhan-kan diri</em> ini kudapat dari Emha Ainun
+            Nadjib, atau yang akrab disapa Cak Nun. Tulisan ini pun
+            terinspirasi dari beberapa petuah Cak Nun.
+          </p>
+
+          <div class="question">
+            <p>
+              Lantas, apa itu <em>me-Ramadhan-kan diri?</em>
+            </p>
+          </div>
+
+          <p>
+            Sebelum menjawabnya, aku mau mengajakmu untuk mundur ke belakang.
+          </p>
+
+          <p>
+            Sebagai muslim, kita pasti bersepakat bahwa Ramadhan merupakan
+            bulan yang istimewa bagi umat Islam.
+          </p>
+
+          <p>
+            Akan tetapi, apakah dengan mengatakan bahwa Ramadhan adalah bulan
+            yang istimewa, lantas bulan di luar Ramadhan menjadi tidak
+            istimewa?
+          </p>
+
+          <p>
+            Apakah bulan Muharram tidak istimewa?
+          </p>
+
+          <p>
+            Apakah bulan Rajab tidak istimewa?
+          </p>
+
+          <p>
+            Apakah bulan Rabi'ul Awal, bulan yang di dalamnya umat Islam
+            memperingati kelahiran Nabi Muhammad SAW, tidak istimewa?
+          </p>
+
+          <p>
+            Sudah pasti kita tidak akan berani mengatakan bahwa bulan-bulan itu
+            tidak memiliki keistimewaan.
+          </p>
+
+          <p>
+            Lagipula, untuk apa Tuhan menciptakan bulan yang tidak bernilai?
+          </p>
+
+          <p>
+            Hal yang sama bisa kita renungkan ketika berbicara tentang hari.
+          </p>
+
+          <p>
+            Kita sebagai muslim amat mengagungkan hari Jumat. Ia disebut
+            <em>Sayyidul Ayyam</em>, penghulu hari.
+          </p>
+
+          <p>
+            Lantas, apakah hari selain Jumat menjadi tidak agung?
+          </p>
+
+          <p>
+            Kamu boleh saja menjawab bahwa semua hari itu agung, tetapi Jumat
+            memiliki keistimewaan tersendiri karena ia adalah
+            <em>Sayyidul Ayyam</em>.
+          </p>
+
+          <p>
+            Aku tidak sedang ingin mendebat semua gagasan itu. Terlebih jika
+            ada teks-teks keagamaan yang menjelaskan keutamaan Ramadhan
+            ataupun keutamaan hari Jumat.
+          </p>
+        </section>
+
+
+        <section>
+          <p>
+            Namun, bagiku, waktu hanyalah waktu.
+          </p>
+
+          <p>
+            Ia adalah sesuatu yang tidak bermuatan. Tidak positif dan tidak
+            pula negatif.
+          </p>
+
+          <p>
+            Waktu menjadi positif ketika kita mengisinya dengan sesuatu yang
+            positif. Begitu pula sebaliknya, waktu dapat menjadi buruk ketika
+            kita mengisinya dengan sesuatu yang buruk.
+          </p>
+
+          <div class="quote">
+            Waktu menjadi bermakna melalui apa yang kita lakukan di dalamnya.
+          </div>
+
+          <p>
+            Soal Ramadhan yang sering dikaitkan dengan bulan suci, mungkin
+            karena di dalamnya terdapat banyak kegiatan yang sarat nilai.
+          </p>
+
+          <p>
+            Puasa, misalnya, dapat melatih pola makan, kedisiplinan,
+            keteraturan, dan kemampuan kita mengendalikan diri.
+          </p>
+
+          <p>
+            Itu kalau kita bicara tentang simbol dan kebiasaan.
+          </p>
+
+          <p>
+            Lebih dari itu, jika kita menelisik aspek ruhani, puasa mengajarkan
+            kita kemampuan menahan sesuatu yang sebenarnya mampu kita lakukan.
+          </p>
+        </section>
+
+
+        <section>
+          <p>
+            Misalnya, kita sangat mampu meminum air pada siang hari. Tidak ada
+            yang menghalangi tangan kita untuk mengambil segelas air.
+          </p>
+
+          <p>
+            Tetapi ketika berpuasa, kita bersepakat dengan Tuhan untuk tidak
+            minum sebelum tiba waktu berbuka.
+          </p>
+
+          <p>
+            Bukan karena kita tidak mampu minum.
+          </p>
+
+          <p>
+            Justru karena kita mampu minum, tetapi kita memilih untuk
+            menahannya.
+          </p>
+
+          <div class="emphasis">
+            Aku bisa, tetapi aku tidak melakukannya.
+          </div>
+
+          <p>
+            Soal hubungan suami istri pun demikian. Kita bisa saja merayu
+            pasangan pada siang hari, tetapi ketika sedang berpuasa, kita
+            bersepakat dengan Tuhan untuk menahan hubungan seksual sampai tiba
+            waktu berbuka.
+          </p>
+
+          <p>
+            Latihan seperti ini memaksa kita untuk mengenal batas-batas diri.
+          </p>
+
+          <p>
+            Dari sini kita bisa melihat bahwa puasa bukan sekadar latihan untuk
+            menahan lapar dan haus.
+          </p>
+
+          <p>
+            Ia adalah latihan untuk mengenali batas.
+          </p>
+
+          <p>
+            Kita belajar bahwa tidak semua yang bisa kita lakukan harus kita
+            lakukan.
+          </p>
+        </section>
+
+
+        <section>
+          <p>
+            Kita hidup di zaman ketika banyak hal dapat dilakukan dengan sangat
+            mudah.
+          </p>
+
+          <p>
+            Kita bisa membeli sesuatu hanya dengan beberapa ketukan di layar.
+            Kita bisa mencari hiburan kapan saja. Kita bisa mengatakan sesuatu
+            kepada orang lain tanpa harus bertemu. Bahkan kemarahan pun bisa
+            kita tumpahkan dalam hitungan detik.
+          </p>
+
+          <p>
+            Kemampuan manusia semakin besar.
+          </p>
+
+          <div class="question">
+            <p>
+              Tetapi apakah kemampuan kita untuk menahan diri juga ikut
+              membesar?
+            </p>
+          </div>
+
+          <p>
+            Ramadhan memberi kita ruang untuk melatihnya.
+          </p>
+
+          <p>
+            Dengan begitu banyaknya nilai yang terkandung dalam puasa, kita
+            akhirnya bisa memahami mengapa Ramadhan menjadi bulan yang begitu
+            istimewa.
+          </p>
+
+          <p>
+            Di dalam Ramadhan, kita belajar menata makan, minum, waktu, ucapan,
+            keinginan, perilaku, bahkan hubungan kita dengan Tuhan.
+          </p>
+
+          <p>
+            Ramadhan seperti sebuah ruang latihan.
+          </p>
+
+          <p>
+            Tetapi latihan tentu tidak dibuat agar kita menjadi kuat hanya
+            selama berada di tempat latihan.
+          </p>
+        </section>
+
+
+        <section>
+          <div class="question">
+            <p>
+              Apakah nilai-nilai Ramadhan bisa kita bawa ke bulan-bulan
+              lainnya?
+            </p>
+          </div>
+
+          <p>
+            Sangat bisa.
+          </p>
+
+          <p>
+            Apakah kita bisa berpuasa di luar bulan Ramadhan?
+          </p>
+
+          <p>
+            Tentu bisa, kecuali pada hari-hari tertentu yang memang dilarang
+            untuk berpuasa.
+          </p>
+
+          <p>
+            Lantas, mengapa tidak membawa nilai-nilai puasa ke dalam kehidupan
+            sehari-hari?
+          </p>
+
+          <p>
+            Bukan berarti kita harus terus-menerus menahan makan dan minum.
+          </p>
+
+          <p>
+            Bukan itu maksudnya.
+          </p>
+
+          <p>
+            Yang kita bawa adalah nilai di balik puasanya.
+          </p>
+
+          <p>
+            Kita belajar menahan keinginan meskipun kita mampu memenuhinya.
+          </p>
+
+          <p>
+            Kita belajar berhenti meskipun sebenarnya kita masih bisa terus
+            berjalan.
+          </p>
+
+          <p>
+            Kita belajar mengatakan cukup meskipun sebenarnya masih bisa
+            mengambil lebih banyak.
+          </p>
+
+          <p>
+            Kita belajar menjaga ucapan meskipun kita bisa mengatakan apa saja.
+          </p>
+
+          <p>
+            Kita belajar menahan amarah meskipun kita memiliki alasan untuk
+            marah.
+          </p>
+
+          <p>
+            Kita belajar memilih, bukan sekadar bereaksi.
+          </p>
+        </section>
+
+
+        <section>
+          <div class="emphasis">
+            Itulah yang kunamakan dengan
+            <em>me-Ramadhan-kan diri.</em>
+          </div>
+
+          <p>
+            Ramadhan tidak lagi hanya menjadi sebuah bulan yang kita datangi
+            setahun sekali.
+          </p>
+
+          <p>
+            Ramadhan menjadi sebuah nilai yang kita bawa ke dalam kehidupan.
+          </p>
+
+          <p>
+            Kita membawa kedisiplinannya.
+          </p>
+
+          <p>
+            Kita membawa kemampuan menahannya.
+          </p>
+
+          <p>
+            Kita membawa kesadarannya tentang batas.
+          </p>
+
+          <p>
+            Kita membawa kebiasaannya untuk menata diri.
+          </p>
+
+          <p>
+            Kita membawa hubungannya dengan Tuhan.
+          </p>
+
+          <p>
+            Dan ketika nilai-nilai itu berhasil kita bawa ke bulan Syawal,
+            Dzulqa'dah, Dzulhijjah, Muharram, Rajab, Sya'ban, dan bulan-bulan
+            lainnya, maka sesungguhnya kita sedang berusaha menjadikan seluruh
+            waktu sebagai ruang untuk memperbaiki diri.
+          </p>
+        </section>
+
+
+        <section>
+          <p>
+            Maka, <em>me-Ramadhan-kan diri</em> bukan berarti menjadikan semua
+            bulan sebagai Ramadhan secara hukum.
+          </p>
+
+          <p>
+            Bukan.
+          </p>
+
+          <p>
+            Ramadhan tetap Ramadhan.
+          </p>
+
+          <p>
+            Yang kita bawa keluar darinya adalah nilai-nilai yang dilatih selama
+            Ramadhan.
+          </p>
+
+          <p>
+            Sebab mungkin tujuan terbesar dari sebuah latihan bukanlah agar
+            kita terus berada di tempat latihan.
+          </p>
+
+          <p>
+            Tujuannya adalah agar apa yang kita pelajari di sana menjadi bagian
+            dari cara kita menjalani kehidupan.
+          </p>
+        </section>
+
+
+        <section class="closing">
+
+          <p>
+            Dan ketika kita mampu membawa nilai-nilai Ramadhan ke setiap bulan,
+            setiap minggu, setiap hari, bahkan ke setiap keputusan kecil yang
+            kita ambil, pada saat itulah kita sedang berusaha menyucikan diri
+            terus-menerus.
+          </p>
+
+          <p>
+            Ramadhan datang setahun sekali.
+          </p>
+
+          <p>
+            Tetapi semangat Ramadhan tidak harus pergi setelah Idul Fitri.
+          </p>
+
+          <p>
+            Kita bisa <em>me-Ramadhan-kan diri.</em>
+          </p>
+
+          <p>
+            Dan dengan begitu, barangkali kita tidak hanya menjalani Ramadhan
+            setahun sekali.
+          </p>
+
+          <p>
+            Kita sedang belajar
+            <strong>ber-Ramadhan setiap hari.</strong>
+          </p>
+
+          <div class="signature">
+            Catatan Rakan
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
