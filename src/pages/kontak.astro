@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 const title = "Kontak | RAKAN";
 ---
@@ -9,9 +10,11 @@ const title = "Kontak | RAKAN";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="apple-touch-icon" href="/favicon-rakan.png" />
+
+    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+
     <title>{title}</title>
 
     <meta
@@ -163,7 +166,10 @@ const title = "Kontak | RAKAN";
             Untuk percakapan langsung dan informasi mengenai layanan Rakan.
           </p>
 
-          <a class="contact-link" href="https://wa.me/62819821945?textHalo20%Mas20%Rakan%2C%20saya%20ingin%20berkonsultasi.">
+          <a
+            class="contact-link"
+            href="https://wa.me/62819821945?text=Halo%20Rakan%2C%20saya%20ingin%20berkonsultasi."
+          >
             Hubungi melalui WhatsApp →
           </a>
         </div>
@@ -176,5 +182,7 @@ const title = "Kontak | RAKAN";
         layanan tenaga kesehatan yang sesuai.
       </div>
     </main>
+
+    <Footer />
   </body>
 </html>

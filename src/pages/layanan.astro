@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 const title = "Layanan | RAKAN";
 ---
@@ -9,14 +10,16 @@ const title = "Layanan | RAKAN";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="apple-touch-icon" href="/favicon-rakan.png" />
+
+    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
+    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+
     <title>{title}</title>
 
     <meta
       name="description"
-      content="Layanan pendampingan Rakan dalam memahami kesehatan, kebiasaan, pikiran, dan perjalanan kehidupan secara lebih utuh."
+      content="Layanan RAKAN meliputi konsultasi, terapi dan pendekatan integratif, coaching, serta mentoring untuk mendampingi manusia memahami dirinya secara lebih utuh."
     />
 
     <style>
@@ -109,6 +112,64 @@ const title = "Layanan | RAKAN";
         line-height: 1.6;
       }
 
+      .approach {
+        margin-top: 110px;
+        padding-top: 45px;
+        border-top: 1px solid #dcd5ca;
+      }
+
+      .approach-intro {
+        max-width: 700px;
+        margin-top: 25px;
+        color: #655f56;
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .approach-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        margin-top: 55px;
+        background: #dcd5ca;
+        border: 1px solid #dcd5ca;
+      }
+
+      .approach-card {
+        padding: 35px;
+        background: #f7f4ee;
+      }
+
+      .approach-card h3 {
+        margin: 0 0 18px;
+        font-family: Georgia, serif;
+        font-size: 25px;
+        font-weight: 400;
+      }
+
+      .approach-card p {
+        margin: 0;
+        color: #655f56;
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .approach-note {
+        max-width: 760px;
+        margin-top: 45px;
+        padding: 30px 0;
+        border-top: 1px solid #dcd5ca;
+        border-bottom: 1px solid #dcd5ca;
+        color: #655f56;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .approach-note strong {
+        color: #29251f;
+        font-weight: 600;
+      }
+
       .boundary {
         max-width: 760px;
         margin-top: 100px;
@@ -122,6 +183,7 @@ const title = "Layanan | RAKAN";
         font-family: Georgia, serif;
         font-size: 34px;
         font-weight: 400;
+        line-height: 1.2;
       }
 
       .boundary p {
@@ -137,6 +199,18 @@ const title = "Layanan | RAKAN";
         .service {
           grid-template-columns: 1fr;
           gap: 15px;
+        }
+
+        .approach-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .approach-card {
+          padding: 28px 24px;
+        }
+
+        .boundary h2 {
+          font-size: 30px;
         }
       }
     </style>
@@ -154,7 +228,7 @@ const title = "Layanan | RAKAN";
       </h1>
 
       <p class="intro">
-        Pendampingan Rakan berangkat dari satu pertanyaan sederhana:
+        Pendampingan RAKAN berangkat dari satu pertanyaan sederhana:
         apa yang sebenarnya sedang terjadi pada manusia yang ada di hadapan
         kita?
       </p>
@@ -167,9 +241,9 @@ const title = "Layanan | RAKAN";
             <h2>Konsultasi</h2>
 
             <p>
-              Ruang percakapan untuk membahas kesehatan, kebiasaan, gaya hidup,
+              Ruang percakapan untuk memahami kesehatan, kebiasaan, gaya hidup,
               penggunaan obat, dan berbagai pertanyaan yang muncul dalam
-              kehidupan sehari-hari.
+              kehidupan sehari-hari secara lebih menyeluruh.
             </p>
           </div>
 
@@ -181,6 +255,26 @@ const title = "Layanan | RAKAN";
 
         <article class="service">
           <div class="number">02</div>
+
+          <div>
+            <h2>Terapi &amp; Pendekatan Integratif</h2>
+
+            <p>
+              Pendampingan yang dapat memadukan pendekatan tubuh, pikiran,
+              emosi, kesadaran, dan spiritualitas sesuai kebutuhan,
+              tujuan, serta kenyamanan setiap individu.
+            </p>
+          </div>
+
+          <div class="label">
+            TUBUH<br />
+            PIKIRAN<br />
+            KESADARAN
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="number">03</div>
 
           <div>
             <h2>Coaching</h2>
@@ -199,7 +293,7 @@ const title = "Layanan | RAKAN";
         </article>
 
         <article class="service">
-          <div class="number">03</div>
+          <div class="number">04</div>
 
           <div>
             <h2>Mentoring</h2>
@@ -218,21 +312,109 @@ const title = "Layanan | RAKAN";
         </article>
       </section>
 
+      <section class="approach">
+        <div class="eyebrow">Terapi &amp; Pendekatan Integratif</div>
+
+        <h2>
+          Banyak pendekatan.<br />
+          Satu manusia yang didampingi.
+        </h2>
+
+        <p class="approach-intro">
+          Setiap manusia datang dengan cerita yang berbeda. Karena itu,
+          pendampingan tidak selalu harus menggunakan satu pendekatan yang
+          sama.
+        </p>
+
+        <p class="approach-intro">
+          RAKAN memadukan berbagai pendekatan yang dipelajari dan dikuasai,
+          dengan mempertimbangkan kebutuhan, kondisi, tujuan, serta
+          kenyamanan setiap individu.
+        </p>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <h3>Pikiran &amp; pengalaman batin</h3>
+
+            <p>
+              Hipnosis · NLP · Ericksonian · Ego State · Sedona Method ·
+              Meditasi · Loving-Kindness
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <h3>Tubuh &amp; sentuhan</h3>
+
+            <p>
+              Pijat · Akupresur
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <h3>Energi &amp; pendekatan komplementer</h3>
+
+            <p>
+              Prana · Reiki · Bioenergi · Subtle Energy · Chakra Healing ·
+              Sound Healing · Ilmu Vibrasi
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <h3>Spiritual &amp; kesadaran</h3>
+
+            <p>
+              Pendekatan spiritual · Meditasi · Tantra
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <h3>Perspektif kesehatan</h3>
+
+            <p>
+              Farmasi dan pemahaman kesehatan digunakan sebagai salah satu
+              fondasi untuk memahami tubuh, obat, dan aspek kesehatan yang
+              relevan dalam proses pendampingan.
+            </p>
+          </article>
+        </div>
+
+        <div class="approach-note">
+          <strong>Bagaimana pendekatan dipilih?</strong><br /><br />
+
+          Tidak semua pendekatan digunakan untuk semua orang. Sesi dimulai
+          dengan percakapan untuk memahami kebutuhan dan tujuan. Dari sana,
+          pendekatan yang relevan dapat dipilih atau dikombinasikan sesuai
+          konteks.
+          <br /><br />
+
+          Tujuannya bukan menggunakan sebanyak mungkin metode, tetapi
+          menemukan pendekatan yang sesuai untuk proses pendampingan.
+        </div>
+      </section>
+
       <section class="boundary">
         <h2>Holistik bukan berarti menggantikan medis.</h2>
 
         <p>
-          Pendekatan holistik berusaha melihat manusia secara lebih utuh.
+          Pendampingan holistik berusaha melihat manusia secara lebih utuh.
           Namun diagnosis, kondisi gawat, dan kebutuhan terapi medis tetap
           berada dalam ranah pelayanan kesehatan yang sesuai.
         </p>
 
         <p>
-          Karena itu, pendampingan Rakan tidak dimaksudkan untuk menggantikan
-          dokter, apoteker, psikolog, atau tenaga kesehatan lain ketika
-          pemeriksaan dan penanganan profesional diperlukan.
+          Pendekatan dalam layanan ini digunakan sebagai bentuk pendampingan
+          komplementer dan pengembangan diri. Untuk kondisi yang membutuhkan
+          pemeriksaan, diagnosis, atau terapi medis, klien tetap dianjurkan
+          berkonsultasi dengan dokter atau tenaga kesehatan yang sesuai.
+        </p>
+
+        <p>
+          Pendekatan yang digunakan dalam setiap sesi dapat berbeda.
+          Tidak semua metode digunakan untuk semua orang.
         </p>
       </section>
     </main>
+
+    <Footer />
   </body>
 </html>
