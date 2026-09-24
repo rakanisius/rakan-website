@@ -1,0 +1,31 @@
+import { contact } from "./contact";
+
+export const seo = {
+  siteName: "RAKAN",
+  siteUrl: "https://rakan.my.id",
+
+  titleTemplate: "%s | RAKAN",
+
+  defaultTitle: "RAKAN | Praktisi Kesehatan Holistik",
+
+  defaultDescription:
+    "Mendampingi manusia memahami dirinya secara utuh melalui tulisan, buku, layanan, dan kolaborasi.",
+
+  defaultImage: `${contact.website}/og/default.jpg`,
+
+  author: contact.name,
+
+  language: "id-ID",
+
+  twitter: "@rakan_my_id", // nanti isi kalau ada
+
+  keywords: [
+    "kesehatan holistik",
+    "apoteker",
+    "farmasi",
+    "literasi obat",
+    "pengembangan diri",
+    "Abdul Rakan",
+    "rakan.my.id"
+  ]
+};

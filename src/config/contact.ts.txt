@@ -1,0 +1,34 @@
+export const contact = {
+  name: "Abdul Rakan",
+  brand: "RAKAN",
+  tagline: "Praktisi Kesehatan Holistik",
+
+  whatsapp: {
+    number: "62819821945", // ganti nanti
+    message:
+      "Halo Rakan, saya ingin berdiskusi mengenai layanan yang tersedia.",
+  },
+
+  email: "halo@rakan.my.id",
+
+  website: "https://rakan.my.id",
+
+  instagram: "https://instagram.com/rakan.my.id",
+
+  youtube: "https://youtube.com/@apt.rakan_id",
+
+  linkedin: "",
+
+  address: {
+    city: "Pancoran, Jakarta Selatan",
+    province: "DKI Jakarta",
+    country: "Indonesia",
+    maps: "",
+  },
+};
+
+// Helper
+
+export const whatsappUrl =
+  `https://wa.me/${contact.whatsapp.number}` +
+  `?text=${encodeURIComponent(contact.whatsapp.message)}`;

@@ -1,0 +1,154 @@
+---
+import { contact, whatsappUrl } from "../config/contact";
+---
+
+<section class="contact-card">
+
+<div class="eyebrow">
+HUBUNGI RAKAN
+</div>
+
+<h2>
+Mari mulai percakapan.
+</h2>
+
+<p>
+Jika merasa sebuah percakapan bisa membantu,
+kita bisa memulainya dari sana.
+</p>
+
+<div class="contact-list">
+
+<div class="item">
+<strong>WhatsApp</strong>
+<a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
++{contact.whatsapp.number}
+</a>
+</div>
+
+<div class="item">
+<strong>Email</strong>
+<a href={`mailto:${contact.email}`}>
+{contact.email}
+</a>
+</div>
+
+<div class="item">
+<strong>Website</strong>
+<a href={contact.website}>
+{contact.website}
+</a>
+</div>
+
+<div class="item">
+<strong>Instagram</strong>
+<a href={contact.instagram}>
+@rakan.my.id
+</a>
+</div>
+
+<div class="item">
+<strong>Lokasi</strong>
+<span>{contact.address.city}, {contact.address.province}</span>
+</div>
+
+</div>
+
+<a class="button" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+Hubungi via WhatsApp
+</a>
+
+</section>
+
+<style>
+.contact-card{
+background:#EBE5DC;
+padding:48px;
+border-radius:2px;
+}
+
+.eyebrow{
+margin-bottom:18px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+.contact-card h2{
+margin:0;
+font-family:Georgia,serif;
+font-size:42px;
+font-weight:400;
+line-height:1.15;
+}
+
+.contact-card p{
+max-width:520px;
+margin-top:18px;
+color:#514C45;
+line-height:1.8;
+}
+
+.contact-list{
+margin-top:36px;
+display:grid;
+gap:18px;
+}
+
+.item{
+display:grid;
+grid-template-columns:120px 1fr;
+gap:16px;
+padding-bottom:18px;
+border-bottom:1px solid rgba(122,38,53,.15);
+}
+
+.item strong{
+font-size:13px;
+font-weight:600;
+color:#201D19;
+}
+
+.item a,
+.item span{
+color:#514C45;
+text-decoration:none;
+}
+
+.item a:hover{
+color:#7A2635;
+}
+
+.button{
+display:inline-block;
+margin-top:32px;
+padding:15px 24px;
+background:#7A2635;
+color:white;
+text-decoration:none;
+transition:.2s;
+}
+
+.button:hover{
+background:#201D19;
+}
+
+@media(max-width:800px){
+
+.contact-card{
+padding:32px 24px;
+}
+
+.contact-card h2{
+font-size:32px;
+}
+
+.item{
+grid-template-columns:1fr;
+gap:8px;
+}
+
+}
+</style>

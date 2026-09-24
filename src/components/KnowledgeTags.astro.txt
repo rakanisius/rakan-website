@@ -1,0 +1,116 @@
+---
+import { getNode } from "../config/knowledge";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const node = getNode(id);
+
+const labels = {
+  tubuh: "Tubuh",
+  pikiran: "Pikiran",
+  kehidupan: "Kehidupan",
+  farmasi: "Farmasi",
+  holistik: "Kesehatan Holistik",
+};
+---
+
+{node && (
+  <section class="knowledge-tags">
+
+    <div class="eyebrow">
+      TERKAIT DENGAN
+    </div>
+
+    <div class="tags">
+
+      {node.domains.map((domain) => (
+        <a
+          href={`/kategori/${domain}`}
+          class="tag"
+        >
+          {labels[domain]}
+        </a>
+      ))}
+
+    </div>
+
+  </section>
+)}
+
+<style>
+
+.knowledge-tags{
+  margin:42px 0 54px;
+}
+
+.eyebrow{
+  margin-bottom:18px;
+  color:#7A2635;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:11px 18px;
+
+  border:1px solid #D8D0C5;
+  background:#F1ECE5;
+
+  color:#5C554D;
+  text-decoration:none;
+
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  transition:.2s ease;
+}
+
+.tag:hover{
+  background:#7A2635;
+  border-color:#7A2635;
+  color:white;
+}
+
+@media(max-width:800px){
+
+  .knowledge-tags{
+    margin:34px 0 44px;
+  }
+
+  .tags{
+    gap:10px;
+  }
+
+  .tag{
+    padding:10px 16px;
+    font-size:11px;
+  }
+
+}
+
+@media(max-width:390px){
+
+  .tag{
+    padding:9px 14px;
+    font-size:10px;
+  }
+
+}
+
+</style>

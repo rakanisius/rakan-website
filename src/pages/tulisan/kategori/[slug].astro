@@ -1,0 +1,311 @@
+---
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "tubuh-kesehatan" } },
+    { params: { slug: "pikiran-emosi" } },
+    { params: { slug: "farmasi" } },
+    { params: { slug: "holistik" } },
+    { params: { slug: "kehidupan" } },
+    { params: { slug: "catatan-praktisi" } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const data = {
+  "tubuh-kesehatan": {
+    title: "Tubuh & Kesehatan",
+    description: "Obat, tubuh, tidur, nutrisi, dan kebiasaan.",
+    articles: [
+      {
+        title: "Tubuh tidak pernah bekerja sendirian.",
+        href: "/tulisan/tubuh-tidak-pernah-bekerja-sendirian",
+      },
+    ],
+  },
+
+  "pikiran-emosi": {
+    title: "Pikiran & Emosi",
+    description: "Stres, emosi, perhatian, dan pengalaman batin.",
+    articles: [],
+  },
+
+  farmasi: {
+    title: "Obat & Farmasi",
+    description: "Literasi obat untuk manusia biasa.",
+    articles: [],
+  },
+
+  holistik: {
+    title: "Kesehatan Holistik",
+    description: "Melihat manusia lebih utuh.",
+    articles: [],
+  },
+
+  kehidupan: {
+    title: "Kehidupan",
+    description: "Makna, relasi, dan perjalanan manusia.",
+    articles: [
+      {
+        title: "Ketika Kita Merasa Lebih Tinggi dari Orang Lain",
+        href: "/tulisan/ketika-kita-merasa-lebih-tinggi-dari-orang-lain",
+      },
+      {
+        title: "Jangan Tanya “Kapan?” kepada Orang Lain",
+        href: "/tulisan/jangan-tanya-kapan-kepada-orang-lain",
+      },
+      {
+        title: "Me-Ramadhan-kan Diri",
+        href: "/tulisan/me-ramadhan-kan-diri",
+      },
+    ],
+  },
+
+  "catatan-praktisi": {
+    title: "Catatan Praktisi",
+    description: "Belajar dari pengalaman nyata di lapangan.",
+    articles: [],
+  },
+};
+
+const category = data[slug];
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<link rel="icon" href="/favicon-rakan.png"/>
+
+<title>{category.title} | RAKAN</title>
+
+<meta name="description" content={category.description}/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main>
+
+<section class="hero">
+
+<div class="container">
+
+<a href="/tulisan/kategori" class="back">
+← Semua kategori
+</a>
+
+<div class="eyebrow">
+KATEGORI
+</div>
+
+<h1>{category.title}</h1>
+
+<p class="intro">
+{category.description}
+</p>
+
+</div>
+
+</section>
+
+<section class="list">
+
+<div class="container">
+
+{category.articles.length > 0 ? (
+
+category.articles.map((item)=>(
+
+<a href={item.href} class="article">
+
+<h2>{item.title}</h2>
+
+<div class="more">
+Baca tulisan →
+</div>
+
+</a>
+
+))
+
+) : (
+
+<div class="empty">
+
+<h2>Tulisan akan segera hadir.</h2>
+
+<p>
+Kategori ini sudah disiapkan sebagai bagian dari peta pengetahuan RAKAN.
+Tulisan pertama akan hadir di sini.
+</p>
+
+</div>
+
+)}
+
+</div>
+
+</section>
+
+</main>
+
+<Footer/>
+
+</body>
+</html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.hero{
+padding:90px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.back{
+display:inline-block;
+margin-bottom:24px;
+text-decoration:none;
+color:#514C45;
+font-size:14px;
+}
+
+.back:hover{
+color:#201D19;
+}
+
+.eyebrow{
+margin-bottom:20px;
+color:#7A2635;
+font-size:11px;
+letter-spacing:.16em;
+text-transform:uppercase;
+font-weight:600;
+}
+
+h1,h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+font-size:clamp(44px,6vw,72px);
+line-height:1.05;
+letter-spacing:-.03em;
+}
+
+.intro{
+margin-top:28px;
+max-width:640px;
+line-height:1.8;
+color:#514C45;
+font-size:17px;
+}
+
+.list{
+padding:60px 0 100px;
+}
+
+.article{
+display:block;
+padding:28px 0;
+border-bottom:1px solid #E5DFD5;
+text-decoration:none;
+color:inherit;
+transition:.2s;
+}
+
+.article:hover{
+transform:translateY(-2px);
+}
+
+.article:hover h2{
+color:#7A2635;
+}
+
+.article h2{
+font-size:34px;
+line-height:1.18;
+}
+
+.more{
+margin-top:14px;
+font-size:14px;
+color:#514C45;
+}
+
+.empty{
+padding:40px 0;
+max-width:640px;
+}
+
+.empty h2{
+font-size:34px;
+margin-bottom:18px;
+}
+
+.empty p{
+color:#514C45;
+line-height:1.8;
+}
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.article h2,
+.empty h2{
+font-size:24px;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+h1{
+font-size:34px;
+}
+
+.article h2,
+.empty h2{
+font-size:22px;
+}
+
+.intro,
+.empty p{
+font-size:15px;
+}
+
+}
+
+</style>

@@ -1,0 +1,211 @@
+:root{
+
+  --bg:#F7F4EE;
+  --bg-soft:#F1ECE5;
+  --bg-accent:#EBE5DC;
+
+  --text:#201D19;
+  --text-soft:#514C45;
+
+  --accent:#7A2635;
+
+  --border:#E5DFD5;
+
+  --container:1180px;
+  --reading:900px;
+
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  overflow-x:hidden;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+
+/* LAYOUT */
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:auto;
+  padding:0 32px;
+}
+
+.narrow{
+  max-width:var(--reading);
+}
+
+/* TYPOGRAPHY */
+
+h1,h2,h3,h4{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+}
+
+h1{
+  font-size:clamp(50px,7vw,82px);
+  line-height:1.04;
+  letter-spacing:-0.035em;
+}
+
+h2{
+  font-size:clamp(34px,5vw,48px);
+  line-height:1.15;
+}
+
+h3{
+  font-size:clamp(24px,3vw,32px);
+  line-height:1.25;
+}
+
+p{
+  margin:0;
+}
+
+.lead{
+  max-width:680px;
+  margin-top:32px;
+  color:var(--text-soft);
+  font-size:18px;
+  line-height:1.8;
+}
+
+/* EYEBROW */
+
+.eyebrow{
+  margin-bottom:24px;
+  color:var(--accent);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+  padding:100px 0 90px;
+}
+
+/* SECTION */
+
+.section{
+  padding:86px 0;
+  border-top:1px solid var(--border);
+}
+
+/* GRID */
+
+.split{
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:60px;
+}
+
+/* BUTTON */
+
+.button{
+  display:inline-block;
+  margin-top:26px;
+  padding:15px 24px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.button:hover{
+  background:var(--text);
+}
+
+/* CTA */
+
+.cta{
+  background:var(--bg-accent);
+  padding:90px 0;
+}
+
+/* CARD */
+
+.card-grid{
+  display:grid;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+
+.card{
+  background:var(--bg);
+  padding:32px;
+  text-decoration:none;
+  color:inherit;
+  transition:.2s;
+}
+
+.card:hover{
+  background:var(--bg-soft);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .container{
+    padding:0 20px;
+  }
+
+  .hero{
+    padding:70px 0;
+  }
+
+  h1{
+    font-size:42px;
+  }
+
+  .lead{
+    font-size:15px;
+  }
+
+  .split{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+
+  .section{
+    padding:60px 0;
+  }
+
+  .cta{
+    padding:70px 0;
+  }
+
+}
+
+/* IPHONE 12 MINI */
+
+@media(max-width:390px){
+
+  .container{
+    padding:0 18px;
+  }
+
+  .hero{
+    padding:58px 0;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+}

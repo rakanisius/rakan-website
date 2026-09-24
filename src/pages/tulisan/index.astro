@@ -6,6 +6,7 @@ const articles = [
   {
     number: "01",
     category: "TUBUH & KESEHATAN",
+    slug: "tubuh-kesehatan",
     title: "Tubuh tidak pernah bekerja sendirian.",
     description:
       "Tubuh bukan sekadar kumpulan organ yang bekerja sendiri-sendiri. Ia adalah sebuah sistem yang terus berkomunikasi dengan pikiran, kebiasaan, lingkungan, dan kehidupan kita.",
@@ -14,6 +15,7 @@ const articles = [
   {
     number: "02",
     category: "KEHIDUPAN",
+    slug: "kehidupan",
     title: "Ketika Kita Merasa Lebih Tinggi dari Orang Lain",
     description:
       "Tentang jabatan, status, kekuasaan, dan bagaimana kita memperlakukan manusia lain ketika merasa berada di posisi yang lebih tinggi.",
@@ -22,7 +24,8 @@ const articles = [
   {
     number: "03",
     category: "KEHIDUPAN",
-    title: 'Jangan Tanya “Kapan?” kepada Orang Lain',
+    slug: "kehidupan",
+    title: "Jangan Tanya “Kapan?” kepada Orang Lain",
     description:
       "Kita tidak pernah tahu apa yang sedang diperjuangkan seseorang. Jangan menjadikan pencapaian hidup kita sebagai ukuran untuk menentukan kapan orang lain harus lulus, menikah, atau mencapai sesuatu.",
     href: "/tulisan/jangan-tanya-kapan-kepada-orang-lain",
@@ -30,362 +33,516 @@ const articles = [
   {
     number: "04",
     category: "KEHIDUPAN",
+    slug: "kehidupan",
     title: "Me-Ramadhan-kan Diri",
     description:
       "Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri, mengenali batas, dan menata kehidupan tidak harus selesai ketika bulan itu berakhir.",
     href: "/tulisan/me-ramadhan-kan-diri",
   },
 ];
+
+const categories = [
+  {
+    title: "Tubuh & Kesehatan",
+    slug: "tubuh-kesehatan",
+    description: "Obat, tubuh, tidur, nutrisi, dan kebiasaan.",
+    count: "01",
+  },
+  {
+    title: "Pikiran & Emosi",
+    slug: "pikiran-emosi",
+    description: "Stres, emosi, perhatian, dan pengalaman batin.",
+    count: "00",
+  },
+  {
+    title: "Obat & Farmasi",
+    slug: "farmasi",
+    description: "Literasi obat untuk manusia biasa.",
+    count: "00",
+  },
+  {
+    title: "Kesehatan Holistik",
+    slug: "holistik",
+    description: "Melihat manusia lebih utuh.",
+    count: "00",
+  },
+  {
+    title: "Kehidupan",
+    slug: "kehidupan",
+    description: "Makna, relasi, dan perjalanan manusia.",
+    count: "03",
+  },
+  {
+    title: "Catatan Praktisi",
+    slug: "catatan-praktisi",
+    description: "Belajar dari pengalaman nyata di lapangan.",
+    count: "00",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-<link rel="apple-touch-icon" href="/favicon-rakan.png" />
-    <title>Tulisan | RAKAN</title>
+<head>
 
-    <meta
-      name="description"
-      content="Catatan Rakan tentang tubuh, pikiran, kesehatan, obat, kebiasaan, dan kehidupan."
-    />
-  </head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <body>
+<link rel="icon" href="/favicon-rakan.png"/>
 
-    <Nav />
+<title>Tulisan | RAKAN</title>
 
-    <main>
+<meta
+name="description"
+content="Catatan Rakan tentang tubuh, pikiran, kesehatan, obat, kebiasaan, dan kehidupan."
+/>
 
-      <!-- HERO -->
-      <section class="hero">
+</head>
 
-        <div class="hero-inner">
+<body>
 
-          <div class="eyebrow">
-            RUANG TULISAN RAKAN
-          </div>
+<Nav/>
 
-          <h1>
-            <span>Memahami kesehatan,</span>
-            <span><em>manusia,</em></span>
-            <em>dan kehidupan.</em>
-          </h1>
+<main>
 
-          <p class="intro">
-            Catatan tentang tubuh, pikiran, kesehatan, obat, kebiasaan,
-            dan perjalanan manusia memahami dirinya sendiri.
-          </p>
+<!-- HERO -->
 
-        </div>
+<section class="hero">
 
-      </section>
+<div class="container">
 
+<div class="eyebrow">
+RUANG TULISAN RAKAN
+</div>
 
-      <!-- ARTICLES -->
-      <section class="articles-section">
+<h1>
+<span>Memahami kesehatan,</span>
+<span><em>manusia,</em></span>
+<em>dan kehidupan.</em>
+</h1>
 
-        <div class="articles">
+<p class="intro">
+Catatan tentang tubuh, pikiran, kesehatan, obat, kebiasaan,
+dan perjalanan manusia memahami dirinya sendiri.
+</p>
 
-          {articles.map((article) => (
-            <article class="article">
+</div>
 
-              <div class="number">
-                {article.number}
-              </div>
+</section>
 
-              <div class="article-content">
+<!-- JELAJAHI BERDASARKAN TEMA -->
 
-                <div class="category">
-                  {article.category}
-                </div>
+<section class="categories-section">
 
-                <h2>
-                  {article.title}
-                </h2>
+<div class="container">
 
-                <p class="description">
-                  {article.description}
-                </p>
+<div class="eyebrow">
+JELAJAHI BERDASARKAN TEMA
+</div>
 
-              </div>
+<div class="category-grid">
 
-              <a class="read" href={article.href}>
-                Baca tulisan →
-              </a>
+{categories.map((item)=>(
 
-            </article>
-          ))}
+<a
+href={`/tulisan/kategori/${item.slug}`}
+class="category-card"
+>
 
-        </div>
+<div class="count">
+{item.count} tulisan
+</div>
 
-      </section>
+<h3>{item.title}</h3>
 
-    </main>
+<p>{item.description}</p>
 
-    <Footer />
+<div class="arrow">
+Lihat kategori →
+</div>
 
-  </body>
+</a>
+
+))}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DAFTAR ARTIKEL -->
+
+<section class="articles-section">
+
+<div class="articles">
+
+{articles.map((article)=>(
+
+<article class="article">
+
+<div class="number">
+{article.number}
+</div>
+
+<div class="article-content">
+
+<a
+class="category"
+href={`/tulisan/kategori/${article.slug}`}
+>
+{article.category}
+</a>
+
+<h2>
+{article.title}
+</h2>
+
+<p class="description">
+{article.description}
+</p>
+
+</div>
+
+<a
+class="read"
+href={article.href}
+>
+Baca tulisan →
+</a>
+
+</article>
+
+))}
+
+</div>
+
+</section>
+
+</main>
+
+<Footer/>
+
+</body>
 </html>
-
 
 <style>
 
-  :global(*) {
-    box-sizing: border-box;
-  }
+:global(*){box-sizing:border-box;}
 
-  :global(html) {
-    overflow-x: hidden;
-  }
+:global(html){
+overflow-x:hidden;
+}
 
-  :global(body) {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background: #f7f4ee;
-    color: #29251f;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+:global(body){
+margin:0;
+overflow-x:hidden;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
 
+/* CONTAINER */
 
-  /* HERO */
+.container,
+.articles-section{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
 
-  .hero {
-    width: 100%;
-    padding: 100px 32px 90px;
-    border-bottom: 1px solid #dcd5ca;
-  }
+/* HERO */
 
-  .hero-inner {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-  }
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
 
-  .eyebrow {
-    margin-bottom: 25px;
-    color: #756d62;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
 
-  h1,
-  h2 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 400;
-  }
+h1,h2,h3{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
 
-  h1 span,
-  h1 em {
-    display: block;
-  }
+h1 span,
+h1 em{
+display:block;
+}
 
-  h1 {
-    max-width: 900px;
-    font-size: clamp(50px, 7vw, 86px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-  }
+h1{
+max-width:860px;
+font-size:clamp(50px,7vw,84px);
+line-height:1.02;
+letter-spacing:-.03em;
+}
 
-  h1 em {
-    color: #756653;
-    font-style: italic;
-  }
+h1 em{
+font-style:italic;
+color:#756653;
+}
 
-  .intro {
-    max-width: 650px;
-    margin: 32px 0 0;
-    color: #655f56;
-    font-size: 17px;
-    line-height: 1.8;
-  }
+.intro{
+max-width:650px;
+margin-top:32px;
+color:#514C45;
+font-size:17px;
+line-height:1.8;
+}
 
+/* KATEGORI */
 
-  /* ARTICLES */
+.categories-section{
+padding:70px 0;
+border-bottom:1px solid #E5DFD5;
+}
 
-  .articles-section {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 85px 32px 110px;
-  }
+.category-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:24px;
+margin-top:34px;
+}
 
-  .articles {
-    width: 100%;
-    border-top: 1px solid #dcd5ca;
-  }
+.category-card{
+display:block;
+padding:28px;
+background:#F7F4EE;
+border:1px solid #E5DFD5;
+text-decoration:none;
+color:inherit;
+transition:
+transform .25s ease,
+box-shadow .25s ease,
+border-color .25s ease;
+}
 
-  .article {
-    width: 100%;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: 70px minmax(0, 1fr) 110px;
-    gap: 25px;
-    padding: 38px 0;
-    border-bottom: 1px solid #dcd5ca;
-  }
+.category-card:hover{
+transform:translateY(-3px);
+border-color:#7A2635;
+box-shadow:0 10px 24px rgba(32,29,25,.06);
+}
 
-  .number {
-    color: #8b8174;
-    font-family: Georgia, serif;
-    font-size: 17px;
-  }
+.count{
+margin-bottom:16px;
+color:#7A2635;
+font-size:11px;
+letter-spacing:.08em;
+text-transform:uppercase;
+}
 
-  .article-content {
-    min-width: 0;
-  }
+.category-card h3{
+font-size:28px;
+line-height:1.15;
+margin-bottom:14px;
+}
 
-  .category {
-    margin-bottom: 13px;
-    color: #81776a;
-    font-size: 10px;
-    letter-spacing: 0.13em;
-  }
+.category-card p{
+margin:0;
+color:#514C45;
+line-height:1.75;
+font-size:15px;
+}
 
-  h2 {
-    font-size: clamp(27px, 4vw, 43px);
-    line-height: 1.12;
-  }
+.arrow{
+margin-top:22px;
+font-size:14px;
+color:#7A2635;
+}
 
-  .description {
-    max-width: 650px;
-    margin: 16px 0 0;
-    color: #655f56;
-    font-size: 15px;
-    line-height: 1.75;
-  }
+/* ARTIKEL */
 
-  .read {
-    align-self: center;
-    color: #29251f;
-    text-decoration: none;
-    font-size: 13px;
-    white-space: nowrap;
-  }
+.articles-section{
+padding-top:80px;
+padding-bottom:110px;
+}
 
-  .read:hover {
-    text-decoration: underline;
-  }
+.articles{
+border-top:1px solid #E5DFD5;
+}
 
+.article{
+display:grid;
+grid-template-columns:60px minmax(0,1fr) 120px;
+gap:28px;
+padding:40px 0;
+border-bottom:1px solid #E5DFD5;
+}
 
-  /* MOBILE */
+.number{
+font-family:Georgia,serif;
+font-size:17px;
+color:#8B8174;
+}
 
-  @media (max-width: 800px) {
+.article-content{
+min-width:0;
+}
 
-    .hero {
-      padding: 70px 20px 65px;
-    }
+.category{
+display:inline-block;
+margin-bottom:14px;
+color:#81776A;
+font-size:10px;
+font-weight:600;
+letter-spacing:.13em;
+text-transform:uppercase;
+text-decoration:none;
+transition:.2s;
+}
 
-    .eyebrow {
-      margin-bottom: 21px;
-      font-size: 9px;
-      letter-spacing: 0.11em;
-    }
+.category:hover{
+color:#7A2635;
+}
 
-    h1 {
-      font-size: 42px;
-      line-height: 1.08;
-    }
+.article h2{
+font-size:clamp(28px,4vw,44px);
+line-height:1.12;
+}
 
-    .intro {
-      margin-top: 27px;
-      font-size: 15px;
-      line-height: 1.75;
-    }
+.description{
+max-width:650px;
+margin-top:16px;
+color:#514C45;
+font-size:15px;
+line-height:1.75;
+}
 
-    .articles-section {
-      padding: 60px 20px 80px;
-    }
+.read{
+align-self:center;
+text-decoration:none;
+color:#201D19;
+font-size:14px;
+white-space:nowrap;
+transition:.2s;
+}
 
-    .article {
-      grid-template-columns: 28px minmax(0, 1fr);
-      gap: 10px;
-      padding: 28px 0;
-    }
+.read:hover{
+color:#7A2635;
+}
 
-    .number {
-      font-size: 11px;
-    }
+/* TABLET */
 
-    .read {
-      grid-column: 2;
-      margin-top: 5px;
-      font-size: 13px;
-    }
+@media(max-width:900px){
 
-    h2 {
-      font-size: 24px;
-      line-height: 1.25;
-    }
+.container,
+.articles-section{
+padding:0 20px;
+}
 
-    .description {
-      font-size: 14px;
-      line-height: 1.7;
-    }
+.hero{
+padding:70px 0;
+}
 
-  }
+h1{
+font-size:44px;
+}
 
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-  /* IPHONE 12 MINI */
+.category-card h3{
+font-size:24px;
+}
 
-  @media (max-width: 390px) {
+.article{
+grid-template-columns:32px minmax(0,1fr);
+gap:14px;
+}
 
-    .hero {
-      padding: 58px 18px 60px;
-    }
+.read{
+grid-column:2;
+margin-top:10px;
+}
 
-    .eyebrow {
-      font-size: 8px;
-      letter-spacing: 0.09em;
-    }
+.article h2{
+font-size:26px;
+}
 
-    h1 {
-      font-size: 34px;
-      line-height: 1.1;
-    }
+}
 
-    .intro {
-      font-size: 14px;
-    }
+/* iPhone 12 mini */
 
-    .articles-section {
-      padding: 52px 18px 70px;
-    }
+@media(max-width:390px){
 
-    .article {
-      grid-template-columns: 22px minmax(0, 1fr);
-      gap: 8px;
-      padding: 24px 0;
-    }
+.container,
+.articles-section{
+padding:0 18px;
+}
 
-    .category {
-      margin-bottom: 9px;
-      font-size: 8px;
-      letter-spacing: 0.09em;
-    }
+.hero{
+padding:58px 0;
+}
 
-    h2 {
-      font-size: 21px;
-      line-height: 1.28;
-    }
+h1{
+font-size:34px;
+}
 
-    .description {
-      margin-top: 12px;
-      font-size: 13px;
-      line-height: 1.7;
-    }
+.intro{
+font-size:15px;
+}
 
-    .read {
-      font-size: 12px;
-    }
+.categories-section{
+padding:52px 0;
+}
 
-  }
+.category-grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+.category-card{
+padding:22px;
+}
+
+.category-card h3{
+font-size:22px;
+}
+
+.category-card p{
+font-size:14px;
+}
+
+.articles-section{
+padding-top:52px;
+padding-bottom:70px;
+}
+
+.article{
+grid-template-columns:24px minmax(0,1fr);
+gap:10px;
+padding:26px 0;
+}
+
+.number{
+font-size:12px;
+}
+
+.category{
+font-size:8px;
+}
+
+.article h2{
+font-size:22px;
+}
+
+.description{
+font-size:14px;
+}
+
+.read{
+font-size:12px;
+}
+
+}
 
 </style>

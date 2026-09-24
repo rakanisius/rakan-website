@@ -1,107 +1,241 @@
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="brand">RAKAN</div>
-      <p>
-        Praktisi Kesehatan Holistik
-      </p>
-      <p class="tagline">
-        Mendampingi manusia memahami dirinya secara utuh.
-      </p>
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="brand">
+
+        <div class="eyebrow">
+          RAKAN
+        </div>
+
+        <h2>
+          Mendampingi manusia memahami dirinya secara utuh.
+        </h2>
+
+        <p>
+          Apoteker, penulis, dan praktisi kesehatan holistik yang membangun ruang
+          percakapan tentang tubuh, pikiran, dan kehidupan melalui tulisan, buku,
+          pembelajaran, dan kolaborasi.
+        </p>
+
+      </div>
+
+      <div class="links">
+
+        <div class="group">
+
+          <div class="title">
+            Jelajahi
+          </div>
+
+          <a href="/">Beranda</a>
+          <a href="/about">Tentang</a>
+          <a href="/holistik">Kesehatan Holistik</a>
+          <a href="/tulisan">Tulisan</a>
+          <a href="/buku">Buku</a>
+
+        </div>
+
+        <div class="group">
+
+          <div class="title">
+            Bersama RAKAN
+          </div>
+
+          <a href="/layanan">Layanan</a>
+          <a href="/kolaborasi">Kolaborasi</a>
+          <a href="/kontak">Kontak</a>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="footer-links">
-      <a href="/about">Tentang</a>
-      <a href="/holistik">Kesehatan Holistik</a>
-      <a href="/tulisan">Tulisan</a>
-      <a href="/buku">Buku</a>
-      <a href="/layanan">Layanan</a>
-      <a href="/kontak">Kontak</a>
+    <div class="divider"></div>
+
+    <div class="footer-bottom">
+
+      <div class="copyright">
+        © 2026 Abdul Rakan
+      </div>
+
+      <div class="social">
+
+        <a href="https://youtube.com/@apt.rakan_id" target="_blank" rel="noopener noreferrer">
+          YouTube
+        </a>
+
+        <a href="https://instagram.com/rakan.my.id" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+
+        <a href="https://wa.me/62819821945" target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
+
+      </div>
+
     </div>
+
   </div>
 
-  <div class="footer-bottom">
-    <span>© 2026 RAKAN</span>
-    <span>rakan.my.id</span>
-  </div>
 </footer>
 
 <style>
-  .footer {
-    margin-top: 80px;
-    padding: 70px 32px 30px;
-    border-top: 1px solid #dcd5ca;
-    background: #eee9df;
-  }
 
-  .footer-inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 60px;
-  }
+.footer{
+background:#201D19;
+color:#F7F4EE;
+padding:72px 0 34px;
+}
 
-  .brand {
-    font-family: Georgia, serif;
-    font-size: 24px;
-    letter-spacing: 0.12em;
-  }
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
 
-  .footer p {
-    margin: 10px 0 0;
-    color: #655f56;
-    font-size: 14px;
-  }
+.footer-top{
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:70px;
+}
 
-  .footer .tagline {
-    max-width: 350px;
-    line-height: 1.7;
-  }
+.eyebrow{
+margin-bottom:18px;
+color:#C9B8A3;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
 
-  .footer-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(130px, 1fr));
-    gap: 14px 35px;
-    align-content: start;
-  }
+.brand h2{
+margin:0;
+font-family:Georgia,serif;
+font-size:clamp(32px,4vw,44px);
+font-weight:400;
+line-height:1.15;
+}
 
-  .footer-links a {
-    color: #514c45;
-    font-size: 14px;
-    text-decoration: none;
-  }
+.brand p{
+max-width:520px;
+margin-top:24px;
+color:#D5CDC1;
+font-size:16px;
+line-height:1.85;
+}
 
-  .footer-links a:hover {
-    color: #201d19;
-    text-decoration: underline;
-  }
+.links{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:36px;
+}
 
-  .footer-bottom {
-    max-width: 1180px;
-    margin: 60px auto 0;
-    padding-top: 20px;
-    border-top: 1px solid #dcd5ca;
-    display: flex;
-    justify-content: space-between;
-    color: #81776a;
-    font-size: 12px;
-  }
+.group{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
 
-  @media (max-width: 700px) {
-    .footer {
-      padding: 55px 22px 25px;
-    }
+.title{
+margin-bottom:6px;
+color:#C9B8A3;
+font-size:11px;
+font-weight:600;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
 
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
+.group a,
+.social a{
+color:#F7F4EE;
+text-decoration:none;
+transition:.2s;
+}
 
-    .footer-bottom {
-      margin-top: 45px;
-      gap: 15px;
-      flex-direction: column;
-    }
-  }
+.group a:hover,
+.social a:hover{
+color:#C9B8A3;
+}
+
+.divider{
+height:1px;
+margin:54px 0 26px;
+background:rgba(255,255,255,.12);
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:24px;
+flex-wrap:wrap;
+}
+
+.copyright{
+color:#B8ADA0;
+font-size:14px;
+}
+
+.social{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.footer{
+padding:56px 0 30px;
+}
+
+.footer-top{
+grid-template-columns:1fr;
+gap:48px;
+}
+
+.links{
+grid-template-columns:1fr 1fr;
+}
+
+.brand p{
+font-size:15px;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.links{
+grid-template-columns:1fr;
+gap:28px;
+}
+
+.brand h2{
+font-size:30px;
+}
+
+.footer-bottom{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.social{
+gap:16px;
+}
+
+}
+
 </style>

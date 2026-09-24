@@ -2,779 +2,439 @@
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Buku | RAKAN";
-
-const whatsappNumber = "62819821945";
-
-const whatsappLink = (book: string) =>
-  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Halo Rakan, saya ingin memesan buku "${book}".`
-  )}`;
+const books = [
+  {
+    title: "Pikiran, Jangan Berisik!",
+    description:
+      "Percakapan tentang pikiran, emosi, dan cara kita berdamai dengan suara-suara di dalam kepala.",
+    cover: "/images/books/pikiran-jangan-berisik.jpg",
+    href: "/buku-pikiran-jangan-berisik",
+    ebook: true,
+    physical: true,
+  },
+  {
+    title: "Ditemenin Sendiri",
+    description:
+      "Tentang belajar menemani diri sendiri ketika kehidupan tidak selalu berjalan sesuai harapan.",
+    cover: "/images/books/ditemenin-sendiri.jpg",
+    href: "/buku-ditemenin-sendiri",
+    ebook: true,
+    physical: "preorder",
+  },
+  {
+    title: "Tuhan, Wafatkan Aku di Usia 63 Tahun!",
+    description:
+      "Refleksi tentang waktu, kehidupan, dan keberanian menggunakan usia sebagai kompas, bukan sekadar angka.",
+    cover: "/images/books/63-tahun.jpg",
+    href: "/buku-tuhan-wafatkan-aku-di-usia-63-tahun",
+    ebook: true,
+    physical: "preorder",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
 
-    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>{title}</title>
-
-    <meta
-      name="description"
-      content="Buku-buku karya Abdul Rakan tentang kehidupan, pikiran, kesehatan, dan perjalanan memahami manusia."
-    />
-  </head>
-
-  <body>
-    <Nav />
+<link rel="icon" type="image/png" href="/favicon-rakan.png"/>
+<link rel="shortcut icon" type="image/png" href="/favicon-rakan.png"/>
+<link rel="apple-touch-icon" href="/favicon-rakan.png"/>
 
-    <main class="book-page">
+<title>Buku | RAKAN</title>
 
-      <!-- HERO -->
-      <section class="book-hero">
-        <div class="eyebrow">RAKAN · BUKU</div>
+<meta
+name="description"
+content="Buku-buku karya Abdul Rakan tentang tubuh, pikiran, dan kehidupan."
+/>
 
-        <h1>
-          Buku untuk
-          <br />
-          <em>berhenti sejenak.</em>
-        </h1>
+</head>
 
-        <p class="intro">
-          Beberapa hal dalam hidup terlalu panjang untuk dijelaskan dalam
-          satu percakapan. Buku menjadi ruang untuk tinggal sedikit lebih
-          lama bersama sebuah gagasan.
-        </p>
-      </section>
+<body>
 
+<Nav/>
 
-      <!-- DAFTAR BUKU -->
-      <section class="books">
+<main>
 
+<!-- HERO -->
 
-        <!-- =====================================
-             BUKU 01
-        ====================================== -->
+<section class="hero">
 
-        <article class="book">
+<div class="container">
 
-          <div class="book-cover">
-            <img
-              src="/images/sampul-buku-rakan/tuhan-63.jpg"
-              alt="Sampul buku Tuhan, wafatkan aku di usia 63 Tahun! karya Abdul Rakan"
-            />
-          </div>
+<div class="eyebrow">
+BUKU
+</div>
 
-          <div class="book-content">
+<h1>
+Gagasan yang <em>tumbuh menjadi buku.</em>
+</h1>
 
-            <div class="book-number">01</div>
+<p class="intro">
+Setiap buku lahir dari pertanyaan yang sama: bagaimana manusia memahami tubuh,
+pikiran, dan kehidupan secara lebih utuh. Sebagian dimulai dari ruang praktik,
+sebagian dari percakapan, sebagian lagi dari pengalaman hidup yang perlahan
+berubah menjadi tulisan.
+</p>
 
-            <div class="book-category">
-              MEMOAR · KEHIDUPAN
-            </div>
+</div>
 
-            <h2>
-              Tuhan, wafatkan aku
-              <br />
-              <em>di usia 63 Tahun!</em>
-            </h2>
-
-            <p class="author">
-              Abdul Rakan
-            </p>
-
-            <p class="description">
-              Sebuah perjalanan tentang waktu, kematian, kehidupan, dan
-              bagaimana manusia memilih untuk menggunakan sisa hidupnya.
-            </p>
-
-            <p class="description">
-              Dari masa kecil di Sukabumi, pesantren, pendidikan farmasi,
-              pekerjaan, kegagalan, pernikahan, hingga pengalaman berhadapan
-              dengan pasien dan kehidupan.
-            </p>
+</section>
 
-            <p class="description">
-              Angka 63 bukan ramalan tentang kapan seseorang akan mati.
-              Ia menjadi cara untuk bertanya: jika waktu kita terbatas,
-              bagaimana kita ingin menjalani hidup yang masih tersisa?
-            </p>
-
-            <div class="book-meta">
-
-              <div class="meta-item">
-                <span>HARGA</span>
-                <strong>Rp199.000</strong>
-              </div>
+<!-- RAK BUKU -->
 
-              <div class="meta-item">
-                <span>STATUS</span>
-                <strong>Pre-order fisik</strong>
-              </div>
+<section class="books-section">
 
-            </div>
+<div class="container">
 
-            <a
-              href={whatsappLink("Tuhan, wafatkan aku di usia 63 Tahun!")}
-              class="book-button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pre-order Buku Fisik →
-            </a>
+<div class="books-grid">
 
-          </div>
+{books.map((book)=>(
 
-        </article>
+<a href={book.href} class="book-card">
 
+<div class="cover-wrap">
 
-        <!-- =====================================
-             BUKU 02
-        ====================================== -->
+<img
+src={book.cover}
+alt={book.title}
+class="cover"
+loading="lazy"
+/>
 
-        <article class="book">
+</div>
 
-          <div class="book-cover">
-            <img
-              src="/images/sampul-buku-rakan/ditemenin-sendiri.jpg"
-              alt="Sampul buku Ditemenin Sendiri karya Abdul Rakan"
-            />
-          </div>
+<div class="book-content">
 
-          <div class="book-content">
+<h2>{book.title}</h2>
 
-            <div class="book-number">02</div>
+<p>{book.description}</p>
 
-            <div class="book-category">
-              PENGEMBANGAN DIRI · PIKIRAN
-            </div>
+<div class="badges">
 
-            <h2>
-              Ditemenin
-              <br />
-              <em>Sendiri</em>
-            </h2>
+{book.ebook && (
+<span class="badge">
+Ebook tersedia
+</span>
+)}
 
-            <p class="author">
-              Abdul Rakan
-            </p>
-
-            <p class="description">
-              Sebuah buku tentang belajar menemani diri sendiri ketika
-              pikiran sedang ramai, pengalaman batin terasa berat, dan
-              perjalanan hidup tidak selalu berjalan seperti yang diharapkan.
-            </p>
+{book.physical===true && (
+<span class="badge solid">
+Buku fisik tersedia
+</span>
+)}
 
-            <p class="description">
-              Buku ini mengembangkan gagasan
-              <em>Ditemenin Sendiri</em> dan protokol #4R sebagai ruang
-              untuk memahami pengalaman diri dengan lebih sadar.
-            </p>
-
-            <p class="description">
-              Ia merupakan karya edukasi, motivasi, dan pengembangan diri,
-              bukan pengganti diagnosis atau terapi dari tenaga kesehatan
-              profesional.
-            </p>
+{book.physical==="preorder" && (
+<span class="badge">
+Cetak sesuai pesanan
+</span>
+)}
 
-            <div class="book-meta">
+</div>
 
-              <div class="meta-item">
-                <span>HARGA</span>
-                <strong>Rp149.000</strong>
-              </div>
+<div class="link">
+Lihat buku →
+</div>
 
-              <div class="meta-item">
-                <span>STATUS</span>
-                <strong>Pre-order fisik</strong>
-              </div>
+</div>
 
-            </div>
+</a>
 
-            <a
-              href={whatsappLink("Ditemenin Sendiri")}
-              class="book-button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pre-order Buku Fisik →
-            </a>
+))}
 
-          </div>
+</div>
 
-        </article>
+</div>
 
+</section>
 
-        <!-- =====================================
-             BUKU 03
-        ====================================== -->
+<!-- FILOSOFI -->
 
-        <article class="book">
+<section class="philosophy">
 
-          <div class="book-cover">
-            <img
-              src="/images/sampul-buku-rakan/pikiran-jangan-berisik.jpg"
-              alt="Sampul buku Pikiran, Jangan Berisik! karya Abdul Rakan"
-            />
-          </div>
+<div class="container narrow">
 
-          <div class="book-content">
+<div class="eyebrow">
+DI BALIK SETIAP BUKU
+</div>
 
-            <div class="book-number">03</div>
+<h2>
+Menulis adalah cara memperpanjang percakapan.
+</h2>
 
-            <div class="book-category">
-              EDISI CLASSIC · PENGEMBANGAN DIRI
-            </div>
+<p>
+Sebagian percakapan selesai dalam satu pertemuan. Sebagian lagi membutuhkan
+puluhan halaman. Buku-buku ini lahir agar gagasan tetap bisa menemani seseorang,
+bahkan ketika percakapannya sudah selesai.
+</p>
 
-            <h2>
-              Pikiran,
-              <br />
-              <em>Jangan Berisik!</em>
-            </h2>
+<p class="closing-line">
+Tiga buku. Tiga pertanyaan. Satu perjalanan memahami manusia.
+</p>
 
-            <p class="author">
-              Abdul Rakan
-            </p>
+</div>
 
-            <p class="description">
-              Sebuah karya yang mengajak pembaca memperhatikan pikiran,
-              pengalaman batin, dan cara kita berhubungan dengan diri sendiri.
-            </p>
+</section>
 
-            <p class="description">
-              Buku ini mengajak pembaca memberi ruang untuk memahami apa
-              yang sedang terjadi di dalam diri, bukan sekadar berusaha
-              mengusir semua pikiran yang muncul.
-            </p>
+</main>
 
-            <div class="book-meta">
+<Footer/>
 
-              <div class="meta-item">
-                <span>HARGA</span>
-                <strong>Rp99.000</strong>
-              </div>
-
-              <div class="meta-item">
-                <span>STATUS</span>
-                <strong>Buku fisik tersedia</strong>
-              </div>
-
-            </div>
-
-            <a
-              href={whatsappLink("Pikiran, Jangan Berisik!")}
-              class="book-button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pesan Buku Fisik →
-            </a>
-
-          </div>
-
-        </article>
-
-      </section>
-
-
-      <!-- PENUTUP -->
-
-      <section class="closing">
-
-        <div class="eyebrow">
-          CATATAN
-        </div>
-
-        <h2>
-          Tidak semua buku harus
-          <br />
-          <em>dibaca terburu-buru.</em>
-        </h2>
-
-        <p>
-          Ada buku yang selesai ketika halaman terakhir ditutup.
-          Ada juga yang baru mulai bekerja setelah buku itu ditutup.
-        </p>
-
-        <p>
-          Semoga beberapa halaman di sini bisa menemani perjalanan Anda
-          memahami diri sendiri, manusia, dan kehidupan.
-        </p>
-
-      </section>
-
-    </main>
-
-    <Footer />
-  </body>
+</body>
 </html>
-
 
 <style>
 
-  /* ==================================================
-     RESET KHUSUS HALAMAN BUKU
-  ================================================== */
-
-  .book-page,
-  .book-page * {
-    box-sizing: border-box;
-  }
-
-  .book-page {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 75px 32px 100px;
-
-    color: #29251f;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-
-  /* ==================================================
-     HERO
-  ================================================== */
-
-  .book-hero {
-    padding: 20px 0 70px;
-    border-bottom: 1px solid #dcd5ca;
-  }
-
-  .book-page .eyebrow {
-    margin: 0 0 24px;
-    padding: 0;
-
-    color: #756d62;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .book-page .book-hero h1 {
-    max-width: 780px;
-    margin: 0;
-    padding: 0;
-
-    color: #29251f;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(48px, 6vw, 76px);
-    font-weight: 400;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-  }
-
-  .book-page .book-hero h1 em {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .book-page .intro {
-    max-width: 620px;
-    margin: 28px 0 0;
-    padding: 0;
-
-    color: #655f56;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.85;
-  }
-
-
-  /* ==================================================
-     BOOK LIST
-  ================================================== */
-
-  .book-page .books {
-    width: 100%;
-    margin: 0;
-    padding: 65px 0 0;
-  }
-
-
-  /* ==================================================
-     EACH BOOK
-  ================================================== */
-
-  .book-page .book {
-    display: grid;
-    grid-template-columns: 290px minmax(0, 1fr);
-    gap: 55px;
-
-    width: 100%;
-    margin: 0;
-    padding: 65px 0;
-
-    border-bottom: 1px solid #dcd5ca;
-  }
-
-  .book-page .book:first-child {
-    padding-top: 0;
-  }
-
-
-  /* ==================================================
-     COVER
-  ================================================== */
-
-  .book-page .book-cover {
-    width: 290px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .book-page .book-cover img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    margin: 0;
-    padding: 0;
-
-    aspect-ratio: 148 / 210;
-    object-fit: cover;
-
-    box-shadow: 0 14px 32px rgba(41, 37, 31, 0.13);
-  }
-
-
-  /* ==================================================
-     BOOK CONTENT
-  ================================================== */
-
-  .book-page .book-content {
-    min-width: 0;
-    margin: 0;
-    padding: 2px 0 0;
-  }
-
-  .book-page .book-number {
-    margin: 0 0 15px;
-    padding: 0;
-
-    color: #8b8174;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  .book-page .book-category {
-    margin: 0 0 15px;
-    padding: 0;
-
-    color: #81776a;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 1.6;
-
-    letter-spacing: 0.14em;
-  }
-
-  .book-page .book h2 {
-    max-width: 620px;
-
-    margin: 0;
-    padding: 0;
-
-    color: #29251f;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 400;
-
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-  }
-
-  .book-page .book h2 em {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .book-page .author {
-    margin: 18px 0 0;
-    padding: 0;
-
-    color: #81776a;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-
-  /* ==================================================
-     DESCRIPTION
-  ================================================== */
-
-  .book-page .description {
-    max-width: 620px;
-
-    margin: 20px 0 0;
-    padding: 0;
-
-    color: #655f56;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-
-    line-height: 1.9;
-  }
-
-
-  /* ==================================================
-     META
-  ================================================== */
-
-  .book-page .book-meta {
-    display: flex;
-    align-items: flex-start;
-    gap: 50px;
-
-    margin: 32px 0 0;
-    padding: 23px 0 0;
-
-    border-top: 1px solid #dcd5ca;
-  }
-
-  .book-page .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-
-    margin: 0;
-    padding: 0;
-  }
-
-  .book-page .meta-item span {
-    margin: 0;
-    padding: 0;
-
-    color: #8b8174;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: 400;
-    line-height: 1.5;
-
-    letter-spacing: 0.13em;
-  }
-
-  .book-page .meta-item strong {
-    margin: 0;
-    padding: 0;
-
-    color: #29251f;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.6;
-  }
-
-
-  /* ==================================================
-     BUTTON
-  ================================================== */
-
-  .book-page .book-button {
-    display: inline-block;
-
-    margin: 28px 0 0;
-    padding: 14px 21px;
-
-    background: #29251f;
-    color: #f7f4ee;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-
-    text-decoration: none;
-
-    transition: background 0.2s ease;
-  }
-
-  .book-page .book-button:hover {
-    background: #51493f;
-  }
-
-
-  /* ==================================================
-     CLOSING
-  ================================================== */
-
-  .book-page .closing {
-    max-width: 760px;
-
-    margin: 75px auto 0;
-    padding: 45px 0 0;
-
-    border-top: 1px solid #dcd5ca;
-  }
-
-  .book-page .closing h2 {
-    margin: 0;
-    padding: 0;
-
-    color: #29251f;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(36px, 4.5vw, 52px);
-    font-weight: 400;
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-  }
-
-  .book-page .closing h2 em {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .book-page .closing p {
-    max-width: 620px;
-
-    margin: 21px 0 0;
-    padding: 0;
-
-    color: #655f56;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.9;
-  }
-
-
-  /* ==================================================
-     TABLET
-  ================================================== */
-
-  @media (max-width: 850px) {
-
-    .book-page {
-      padding: 65px 26px 90px;
-    }
-
-    .book-page .book {
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 40px;
-      padding: 55px 0;
-    }
-
-    .book-page .book-cover {
-      width: 240px;
-    }
-
-    .book-page .book h2 {
-      font-size: clamp(32px, 5vw, 44px);
-      line-height: 1.18;
-    }
-  }
-
-
-  /* ==================================================
-     MOBILE
-  ================================================== */
-
-  @media (max-width: 680px) {
-
-    .book-page {
-      padding: 55px 22px 75px;
-    }
-
-    .book-hero {
-      padding-top: 10px;
-      padding-bottom: 55px;
-    }
-
-    .book-page .book-hero h1 {
-      font-size: clamp(44px, 13vw, 62px);
-      line-height: 1.08;
-    }
-
-    .book-page .intro {
-      margin-top: 24px;
-      font-size: 16px;
-      line-height: 1.85;
-    }
-
-    .book-page .books {
-      padding-top: 45px;
-    }
-
-    .book-page .book {
-      display: block;
-
-      margin: 0;
-      padding: 55px 0;
-    }
-
-    .book-page .book:first-child {
-      padding-top: 0;
-    }
-
-    .book-page .book-cover {
-      width: min(270px, 82%);
-      margin: 0 auto 40px;
-    }
-
-    .book-page .book-content {
-      padding: 0;
-    }
-
-    .book-page .book-number {
-      margin-bottom: 12px;
-    }
-
-    .book-page .book-category {
-      margin-bottom: 14px;
-    }
-
-    .book-page .book h2 {
-      font-size: clamp(34px, 10vw, 48px);
-      line-height: 1.18;
-    }
-
-    .book-page .author {
-      margin-top: 16px;
-      font-size: 16px;
-    }
-
-    .book-page .description {
-      margin-top: 18px;
-      font-size: 15px;
-      line-height: 1.9;
-    }
-
-    .book-page .book-meta {
-      gap: 28px;
-      margin-top: 28px;
-      padding-top: 20px;
-    }
-
-    .book-page .book-button {
-      margin-top: 25px;
-    }
-
-    .book-page .closing {
-      margin-top: 65px;
-      padding-top: 40px;
-    }
-
-    .book-page .closing h2 {
-      font-size: clamp(34px, 10vw, 48px);
-      line-height: 1.18;
-    }
-  }
+:global(*){box-sizing:border-box;}
+
+:global(html){
+overflow-x:hidden;
+}
+
+:global(body){
+margin:0;
+overflow-x:hidden;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
+
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+h1,h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+max-width:820px;
+font-size:clamp(50px,7vw,82px);
+line-height:1.04;
+letter-spacing:-.03em;
+}
+
+h1 em{
+font-style:italic;
+color:#756653;
+}
+
+.intro{
+max-width:670px;
+margin-top:32px;
+color:#514C45;
+font-size:17px;
+line-height:1.8;
+}
+
+/* RAK BUKU */
+
+.books-section{
+padding:90px 0;
+}
+
+.books-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:32px;
+}
+
+.book-card{
+display:flex;
+flex-direction:column;
+text-decoration:none;
+color:inherit;
+transition:transform .25s ease;
+}
+
+.book-card:hover{
+transform:translateY(-3px);
+}
+
+.cover-wrap{
+overflow:hidden;
+background:#F1ECE5;
+border:1px solid #E5DFD5;
+}
+
+.cover{
+width:100%;
+aspect-ratio:2/3;
+object-fit:cover;
+display:block;
+transition:transform .35s ease;
+}
+
+.book-card:hover .cover{
+transform:scale(1.03);
+}
+
+.book-content{
+padding-top:24px;
+}
+
+.book-content h2{
+font-size:30px;
+line-height:1.15;
+margin-bottom:14px;
+}
+
+.book-content p{
+color:#514C45;
+line-height:1.8;
+margin-bottom:22px;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:22px;
+}
+
+.badge{
+padding:8px 12px;
+border:1px solid #D8D0C5;
+font-size:11px;
+letter-spacing:.05em;
+}
+
+.badge.solid{
+background:#7A2635;
+border-color:#7A2635;
+color:white;
+}
+
+.link{
+color:#201D19;
+font-size:15px;
+}
+
+.book-card:hover .link{
+color:#7A2635;
+}
+
+/* FILOSOFI */
+
+.philosophy{
+background:#F1ECE5;
+padding:90px 0;
+}
+
+.philosophy h2{
+font-size:clamp(34px,5vw,48px);
+line-height:1.15;
+margin-bottom:22px;
+}
+
+.philosophy p{
+color:#514C45;
+font-size:17px;
+line-height:1.85;
+}
+
+.closing-line{
+margin-top:36px;
+font-family:Georgia,serif;
+font-size:24px;
+font-style:italic;
+color:#756653;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.container{
+padding:0 20px;
+}
+
+.hero{
+padding:70px 0;
+}
+
+h1{
+font-size:42px;
+}
+
+.books-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:28px;
+}
+
+.book-content h2{
+font-size:26px;
+}
+
+.philosophy{
+padding:70px 0;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.books-grid{
+grid-template-columns:1fr;
+gap:42px;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero{
+padding:58px 0;
+}
+
+h1{
+font-size:34px;
+}
+
+.book-content h2{
+font-size:22px;
+}
+
+.philosophy p,
+.intro{
+font-size:15px;
+}
+
+.closing-line{
+font-size:20px;
+}
+
+}
 
 </style>

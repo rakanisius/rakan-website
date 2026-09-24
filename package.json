@@ -17,10 +17,11 @@
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.2",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.3"
+    "astro": "^7.3.4"
   },
   "allowScripts": {
-    "esbuild": true
+    "esbuild": true,
+    "workerd@1.20260921.1": true
   },
   "devDependencies": {
     "@types/node": "^26.6.2",

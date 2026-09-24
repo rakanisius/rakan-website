@@ -1,0 +1,106 @@
+---
+import BookLayout from "../layouts/BookLayout.astro";
+---
+
+<BookLayout
+  title="Pikiran, Jangan Berisik!"
+  subtitle="Tentang pikiran, emosi, dan cara berdamai dengan suara-suara di dalam kepala."
+  cover="/images/books/pikiran-jangan-berisik.jpg"
+  status="Buku fisik & Ebook tersedia"
+  buyLink="https://wa.me/62819821945"
+>
+
+<section class="book-extra">
+
+  <div class="container narrow">
+
+    <div class="eyebrow">
+      TENTANG PIKIRAN
+    </div>
+
+    <h2>
+      Pikiran tidak selalu musuh.
+    </h2>
+
+    <p>
+      Sering kali kita berusaha membungkam pikiran yang berisik.
+      Padahal, sebelum menenangkannya, kita perlu memahami dari mana suara itu datang.
+    </p>
+
+    <p>
+      Buku ini mengajak pembaca membedakan antara pikiran yang perlu didengarkan,
+      pikiran yang perlu dipertanyakan, dan pikiran yang cukup dibiarkan berlalu.
+    </p>
+
+  </div>
+
+</section>
+
+</BookLayout>
+
+<style>
+
+.book-extra{
+background:#F1ECE5;
+padding:90px 0;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+.eyebrow{
+margin-bottom:20px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+.book-extra h2{
+margin:0 0 22px;
+font-family:Georgia,serif;
+font-size:clamp(34px,5vw,48px);
+font-weight:400;
+line-height:1.15;
+}
+
+.book-extra p{
+margin:0 0 20px;
+color:#514C45;
+font-size:17px;
+line-height:1.85;
+}
+
+@media(max-width:900px){
+
+.container{
+padding:0 20px;
+}
+
+.book-extra{
+padding:70px 0;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.book-extra p{
+font-size:15px;
+}
+
+}
+
+</style>
