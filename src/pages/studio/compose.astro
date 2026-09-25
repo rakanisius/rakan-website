@@ -1,0 +1,453 @@
+---
+import StudioLayout from "../../layouts/StudioLayout.astro";
+---
+
+<StudioLayout title="Compose">
+
+<div class="hero">
+
+<p class="eyebrow">RAKAN Studio / Compose</p>
+
+<h1>Compose</h1>
+
+<p class="lead">
+Mulai satu tulisan baru. Slug, excerpt, reading time, dan nama file dibuat otomatis.
+</p>
+
+</div>
+
+<div class="workspace">
+
+<div class="editor">
+
+<label>Judul</label>
+<input id="title" placeholder="Judul artikel..." />
+
+<label>Kategori</label>
+
+<select id="category">
+<option>Kehidupan</option>
+<option>Tubuh & Kesehatan</option>
+<option>Pikiran & Emosi</option>
+<option>Farmasi</option>
+<option>Holistik</option>
+<option>Catatan Praktisi</option>
+</select>
+
+<label>Isi Artikel</label>
+
+<textarea
+id="body"
+rows="22"
+placeholder="Mulai menulis...">
+</textarea>
+
+<div class="buttons">
+
+<button id="download">⬇ Export .md</button>
+
+<button id="copy" class="secondary">📋 Copy Markdown</button>
+
+</div>
+
+</div>
+
+<div class="inspector">
+
+<h2>Metadata Otomatis</h2>
+
+<div class="meta-item">
+<span>Slug</span>
+<strong id="slug">-</strong>
+</div>
+
+<div class="meta-item">
+<span>Nama File</span>
+<strong id="filename">-</strong>
+</div>
+
+<div class="meta-item">
+<span>Excerpt</span>
+<p id="excerpt">-</p>
+</div>
+
+<div class="meta-item">
+<span>Reading Time</span>
+<strong id="reading">0 menit</strong>
+</div>
+
+<hr/>
+
+<h2>Preview</h2>
+
+<div id="preview-title" class="preview-title">
+Judul artikel
+</div>
+
+<div id="preview-category" class="preview-category">
+Kategori
+</div>
+
+<div id="preview-body" class="preview-body">
+Isi artikel akan muncul di sini.
+</div>
+
+</div>
+
+</div>
+
+<section class="drop-guide">
+
+<h2>Quick Publish</h2>
+
+<p>
+Setelah menekan <strong>Export .md</strong>, pindahkan file ke folder berikut.
+</p>
+
+<div class="path">
+src/content/articles/
+</div>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="icon">1</div>
+
+<span>Export</span>
+
+</div>
+
+<div class="step">
+
+<div class="icon">2</div>
+
+<span>Drag file .md</span>
+
+</div>
+
+<div class="step">
+
+<div class="icon">3</div>
+
+<span>Build</span>
+
+</div>
+
+</div>
+
+</section>
+
+</StudioLayout>
+
+<style>
+.hero{
+margin-bottom:32px;
+}
+
+.eyebrow{
+margin:0;
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+h1{
+margin:12px 0;
+font-family:Georgia,serif;
+font-size:68px;
+font-weight:400;
+line-height:.95;
+}
+
+.lead{
+max-width:540px;
+font-size:20px;
+line-height:1.7;
+color:#514C45;
+}
+
+.workspace{
+display:grid;
+grid-template-columns:minmax(0,1fr) 340px;
+gap:28px;
+align-items:start;
+margin-bottom:40px;
+}
+
+.editor,
+.inspector,
+.drop-guide{
+background:white;
+border:1px solid #DED6CA;
+border-radius:24px;
+padding:24px;
+}
+
+label{
+display:block;
+margin:18px 0 8px;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+input,
+select,
+textarea{
+width:100%;
+box-sizing:border-box;
+padding:14px;
+border:1px solid #DED6CA;
+border-radius:12px;
+background:#F7F4EE;
+font:inherit;
+}
+
+textarea{
+resize:vertical;
+line-height:1.8;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+margin-top:22px;
+flex-wrap:wrap;
+}
+
+button{
+padding:14px 18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:14px;
+background:#7A2635;
+color:white;
+}
+
+.secondary{
+background:#F5F2EC;
+color:#201D19;
+}
+
+.inspector h2,
+.drop-guide h2{
+margin:0 0 18px;
+font-family:Georgia,serif;
+font-size:28px;
+font-weight:400;
+}
+
+.meta-item{
+padding:14px 0;
+border-bottom:1px solid #ECE5DA;
+}
+
+.meta-item span{
+display:block;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+margin-bottom:6px;
+}
+
+.meta-item p{
+margin:0;
+line-height:1.6;
+}
+
+.preview-title{
+font-family:Georgia,serif;
+font-size:36px;
+margin:18px 0 10px;
+}
+
+.preview-category{
+display:inline-block;
+background:#F5F2EC;
+padding:6px 12px;
+border-radius:999px;
+margin-bottom:22px;
+}
+
+.preview-body{
+white-space:pre-wrap;
+line-height:1.9;
+}
+
+.path{
+background:#F7F4EE;
+border:1px dashed #7A2635;
+padding:18px;
+border-radius:16px;
+font-family:monospace;
+font-size:16px;
+text-align:center;
+margin:20px 0 28px;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.step{
+text-align:center;
+padding:16px;
+background:#F7F4EE;
+border-radius:16px;
+}
+
+.icon{
+width:38px;
+height:38px;
+margin:0 auto 12px;
+border-radius:50%;
+background:#7A2635;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+}
+
+@media(max-width:960px){
+
+.workspace{
+grid-template-columns:1fr;
+}
+
+.steps{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:54px;
+}
+
+}
+</style>
+
+<script is:inline>
+const title=document.getElementById("title");
+const category=document.getElementById("category");
+const body=document.getElementById("body");
+
+const slugEl=document.getElementById("slug");
+const fileEl=document.getElementById("filename");
+const excerptEl=document.getElementById("excerpt");
+const readingEl=document.getElementById("reading");
+
+const pTitle=document.getElementById("preview-title");
+const pCat=document.getElementById("preview-category");
+const pBody=document.getElementById("preview-body");
+
+function slugify(text){
+
+return text
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-z0-9\s-]/g,"")
+.trim()
+.replace(/\s+/g,"-");
+
+}
+
+function generateMarkdown(){
+
+const today=new Date().toISOString().split("T")[0];
+
+const slug=slugify(title.value||"artikel-baru");
+
+const words=body.value.trim().split(/\s+/).filter(Boolean).length;
+
+const reading=Math.max(1,Math.ceil(words/200));
+
+const excerpt=body.value.replace(/\n+/g," ").trim().slice(0,140);
+
+return{
+slug,
+reading,
+excerpt,
+md:`---
+title: "${title.value}"
+kategori: "${category.value}"
+status: "Draft"
+tanggal: ${today}
+excerpt: "${excerpt}"
+readingTime: ${reading}
+featured: false
+---
+
+# ${title.value}
+
+${body.value}
+`
+};
+
+}
+
+function update(){
+
+const data=generateMarkdown();
+
+slugEl.textContent=data.slug;
+
+fileEl.textContent=`${data.slug}.md`;
+
+excerptEl.textContent=data.excerpt||"-";
+
+readingEl.textContent=`${data.reading} menit`;
+
+pTitle.textContent=title.value||"Judul artikel";
+
+pCat.textContent=category.value;
+
+pBody.textContent=body.value||"Isi artikel akan muncul di sini.";
+
+}
+
+[title,category,body].forEach(el=>el.addEventListener("input",update));
+
+update();
+
+document.getElementById("copy").onclick=async()=>{
+
+const data=generateMarkdown();
+
+await navigator.clipboard.writeText(data.md);
+
+alert("Markdown disalin.");
+
+};
+
+document.getElementById("download").onclick=()=>{
+
+const data=generateMarkdown();
+
+const blob=new Blob([data.md],{type:"text/markdown;charset=utf-8;"});
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+
+a.download=`${data.slug}.md`;
+
+document.body.appendChild(a);
+
+a.click();
+
+document.body.removeChild(a);
+
+URL.revokeObjectURL(url);
+
+};
+</script>

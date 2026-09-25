@@ -1,0 +1,56 @@
+---
+import StudioLayout from "../../layouts/StudioLayout.astro";
+import GitAssistant from "../../components/studio/GitAssistant.astro";
+import PublishChecklist from "../../components/studio/PublishChecklist.astro";
+---
+
+<StudioLayout title="Publish">
+
+<div class="hero">
+
+<p class="eyebrow">
+RAKAN Studio / Publish
+</p>
+
+<h1>Publish</h1>
+
+<p class="lead">
+Langkah terakhir sebelum karya hidup di rakan.my.id.
+</p>
+
+</div>
+
+<PublishChecklist />
+
+<div style="height:28px"></div>
+
+<GitAssistant />
+
+</StudioLayout>
+
+<style>
+.hero{
+margin-bottom:32px;
+}
+
+.eyebrow{
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+h1{
+font-family:Georgia,serif;
+font-size:68px;
+font-weight:400;
+margin:12px 0;
+}
+
+.lead{
+max-width:520px;
+font-size:20px;
+line-height:1.7;
+color:#514C45;
+}
+</style>

@@ -1,0 +1,43 @@
+---
+const { icon, title, text } = Astro.props;
+---
+
+<div class="card">
+
+<div class="icon">{icon}</div>
+
+<h3>{title}</h3>
+
+<p>{text}</p>
+
+</div>
+
+<style>
+.card{
+ background:white;
+ border:1px solid #DED6CA;
+ border-radius:18px;
+ padding:24px;
+ transition:.18s ease;
+}
+
+.card:hover{
+ transform:translateY(-2px);
+ border-color:#CBBEAD;
+}
+
+.icon{
+ font-size:26px;
+}
+
+h3{
+ margin:16px 0 8px;
+ font-family:Georgia,serif;
+ font-weight:400;
+}
+
+p{
+ color:#514C45;
+ line-height:1.6;
+}
+</style>

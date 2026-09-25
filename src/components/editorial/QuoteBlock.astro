@@ -1,0 +1,19 @@
+---
+const { children } = Astro.props;
+---
+
+<blockquote class="quote-block">
+  <slot/>
+</blockquote>
+
+<style>
+.quote-block{
+  margin:52px 0;
+  padding-left:24px;
+  border-left:2px solid #7A2635;
+  color:#3F3A34;
+  font-family:Georgia,serif;
+  font-style:italic;
+  line-height:1.8;
+}
+</style>

@@ -1,0 +1,270 @@
+<div id="command-palette" class="overlay hidden">
+  <div class="panel">
+    <div class="header">
+      <span class="search-icon">🔍</span>
+
+      <input
+        id="command-input"
+        type="text"
+        placeholder="Ketik perintah..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div id="command-list">
+      <a href="/studio/capture">
+        <span>⚡ Capture</span>
+        <small>C</small>
+      </a>
+
+      <a href="/studio/writing">
+        <span>✍️ Menulis</span>
+        <small>Ctrl+2</small>
+      </a>
+
+      <a href="/studio/writing/new">
+        <span>📝 Artikel Baru</span>
+        <small>N</small>
+      </a>
+
+      <a href="/studio/books">
+        <span>📚 Books</span>
+        <small>Ctrl+3</small>
+      </a>
+
+      <a href="/studio/publish">
+        <span>🚀 Publish</span>
+        <small>Ctrl+4</small>
+      </a>
+
+      <a href="/studio/inbox">
+        <span>📥 Inbox</span>
+        <small>Ctrl+5</small>
+      </a>
+    </div>
+
+    <div class="footer">
+      <span><strong>ESC</strong> Tutup</span>
+      <span><strong>ENTER</strong> Buka</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(24,22,18,.42);
+backdrop-filter:blur(6px);
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding-top:90px;
+z-index:9999;
+transition:.18s;
+}
+
+.hidden{
+display:none;
+}
+
+.panel{
+width:min(680px,92%);
+background:#F7F4EE;
+border:1px solid #DED6CA;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 28px 80px rgba(0,0,0,.18);
+}
+
+.header{
+display:flex;
+align-items:center;
+gap:14px;
+padding:22px;
+border-bottom:1px solid #ECE5DA;
+}
+
+.search-icon{
+font-size:22px;
+line-height:1;
+}
+
+.header input{
+flex:1;
+border:none;
+outline:none;
+background:transparent;
+font-size:20px;
+font-family:inherit;
+}
+
+#command-list{
+padding:10px;
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+#command-list a{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 18px;
+border-radius:14px;
+text-decoration:none;
+color:#201D19;
+transition:.15s;
+}
+
+#command-list a:hover,
+#command-list a.active{
+background:white;
+}
+
+#command-list small{
+color:#6B645A;
+}
+
+.footer{
+display:flex;
+justify-content:space-between;
+padding:18px 22px;
+border-top:1px solid #ECE5DA;
+color:#6B645A;
+font-size:13px;
+}
+
+@media(max-width:640px){
+
+.overlay{
+padding-top:40px;
+}
+
+.header input{
+font-size:18px;
+}
+
+}
+</style>
+
+<script is:inline>
+const overlay=document.getElementById("command-palette");
+const input=document.getElementById("command-input");
+const list=document.getElementById("command-list");
+const items=[...list.querySelectorAll("a")];
+
+let index=0;
+
+function highlight(){
+
+items.forEach((el,i)=>{
+
+el.classList.toggle("active",i===index);
+
+});
+
+}
+
+function openPalette(){
+
+overlay.classList.remove("hidden");
+
+input.value="";
+
+index=0;
+
+highlight();
+
+input.focus();
+
+}
+
+function closePalette(){
+
+overlay.classList.add("hidden");
+
+}
+
+document.addEventListener("keydown",e=>{
+
+if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+
+e.preventDefault();
+
+openPalette();
+
+}
+
+if(e.key==="Escape"){
+
+closePalette();
+
+}
+
+if(overlay.classList.contains("hidden")) return;
+
+if(e.key==="ArrowDown"){
+
+e.preventDefault();
+
+index=(index+1)%items.length;
+
+highlight();
+
+}
+
+if(e.key==="ArrowUp"){
+
+e.preventDefault();
+
+index=(index-1+items.length)%items.length;
+
+highlight();
+
+}
+
+if(e.key==="Enter"){
+
+e.preventDefault();
+
+items[index].click();
+
+}
+
+});
+
+input.addEventListener("input",()=>{
+
+const q=input.value.toLowerCase();
+
+const visible=items.filter(el=>{
+
+const ok=el.textContent.toLowerCase().includes(q);
+
+el.style.display=ok?"flex":"none";
+
+return ok;
+
+});
+
+if(visible.length){
+
+index=items.indexOf(visible[0]);
+
+highlight();
+
+}
+
+});
+
+overlay.addEventListener("click",e=>{
+
+if(e.target===overlay){
+
+closePalette();
+
+}
+
+});
+</script>

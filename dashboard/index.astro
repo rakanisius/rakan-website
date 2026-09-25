@@ -1,0 +1,137 @@
+---
+import StudioLayout from "../../layouts/StudioLayout.astro";
+import TodayCard from "../../components/studio/TodayCard.astro";
+import TodayCompass from "../../components/studio/TodayCompass.astro";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
+
+const drafts = articles
+  .filter((a) => a.data.status === "Draft")
+  .sort(
+    (a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime()
+  )
+  .slice(0, 3);
+---
+
+<StudioLayout title="Today">
+
+  <TodayCard />
+
+  <TodayCompass />
+
+  <section class="recent">
+
+    <div class="section-head">
+
+      <h2>Draft Terbaru</h2>
+
+      <a href="/studio/writing">Lihat semua →</a>
+
+    </div>
+
+    {
+      drafts.length === 0 ? (
+
+        <div class="empty">
+          Belum ada draft.
+        </div>
+
+      ) : (
+
+        drafts.map((draft) => (
+
+          <a
+            class="draft-card"
+            href={`/studio/writing/${draft.id}`}
+          >
+
+            <div>
+
+              <h3>{draft.data.title}</h3>
+
+              <small>{draft.data.kategori}</small>
+
+            </div>
+
+            <span>
+              {draft.data.tanggal.toLocaleDateString("id-ID")}
+            </span>
+
+          </a>
+
+        ))
+
+      )
+    }
+
+  </section>
+
+</StudioLayout>
+
+<style>
+.recent{
+margin-top:32px;
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.section-head h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+.section-head a{
+color:#7A2635;
+text-decoration:none;
+}
+
+.draft-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+margin-bottom:14px;
+background:white;
+border:1px solid #DED6CA;
+border-radius:18px;
+text-decoration:none;
+color:inherit;
+transition:.15s;
+}
+
+.draft-card:hover{
+transform:translateY(-2px);
+border-color:#CBBEAD;
+}
+
+.draft-card h3{
+margin:0 0 6px;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+.draft-card small{
+color:#6B645A;
+}
+
+.draft-card span{
+font-size:14px;
+color:#6B645A;
+}
+
+.empty{
+padding:24px;
+background:white;
+border:1px solid #DED6CA;
+border-radius:18px;
+text-align:center;
+color:#6B645A;
+}
+</style>

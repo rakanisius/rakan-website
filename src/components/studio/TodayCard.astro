@@ -1,0 +1,141 @@
+---
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
+
+const drafts = articles
+  .filter((a) => a.data.status === "Draft")
+  .sort((a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime())
+  .slice(0, 3);
+---
+
+<section class="today-card">
+
+  <p class="date">
+    {new Date().toLocaleDateString("id-ID", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).toUpperCase()}
+  </p>
+
+  <h2>Today</h2>
+
+  <p class="subtitle">
+    Lanjutkan draft terbaru.
+  </p>
+
+  {
+    drafts.length === 0 ? (
+
+      <div class="empty">
+
+        ✍️ Belum ada draft.
+
+      </div>
+
+    ) : (
+
+      <div class="draft-list">
+
+        {
+          drafts.map((draft) => (
+
+            <a
+              href={`/studio/writing/${draft.id}`}
+              class="draft-item"
+            >
+
+              <div>
+
+                <strong>{draft.data.title}</strong>
+
+                <small>{draft.data.kategori}</small>
+
+              </div>
+
+              <span>→</span>
+
+            </a>
+
+          ))
+        }
+
+      </div>
+
+    )
+  }
+
+</section>
+
+<style>
+.today-card{
+background:white;
+border:1px solid #DED6CA;
+border-radius:24px;
+padding:34px;
+margin-bottom:32px;
+}
+
+.date{
+margin:0;
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#7A2635;
+}
+
+.today-card h2{
+margin:18px 0 12px;
+font-family:Georgia,serif;
+font-size:48px;
+font-weight:400;
+}
+
+.subtitle{
+margin-bottom:26px;
+color:#514C45;
+}
+
+.empty{
+padding:18px;
+border-radius:14px;
+background:#F5F2EC;
+font-weight:600;
+}
+
+.draft-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.draft-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-radius:16px;
+background:#F7F4EE;
+text-decoration:none;
+color:inherit;
+transition:.18s;
+}
+
+.draft-item:hover{
+background:#EFE8DD;
+}
+
+.draft-item strong{
+display:block;
+margin-bottom:4px;
+font-family:Georgia,serif;
+font-weight:400;
+font-size:20px;
+}
+
+.draft-item small{
+color:#6B645A;
+}
+</style>

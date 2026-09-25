@@ -1,0 +1,111 @@
+---
+import TerminalBlock from "./TerminalBlock.astro";
+---
+
+<section class="git">
+
+<h2>Git Assistant</h2>
+
+<p>
+Masukkan judul artikel untuk membuat commit message.
+</p>
+
+<input id="git-title" placeholder="Judul artikel"/>
+
+<div class="commit">
+
+<strong id="commit-text">
+feat: tambah artikel
+</strong>
+
+<button id="copy-commit">
+Copy
+</button>
+
+</div>
+
+<TerminalBlock command="git add ." />
+
+<TerminalBlock command='git commit -m "feat: tambah artikel"' />
+
+<TerminalBlock command="git push origin main" />
+
+</section>
+
+<style>
+.git{
+background:white;
+border:1px solid #DED6CA;
+border-radius:24px;
+padding:24px;
+}
+
+.git h2{
+font-family:Georgia,serif;
+font-weight:400;
+margin-top:0;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:18px 0;
+border-radius:12px;
+border:1px solid #DED6CA;
+background:#F7F4EE;
+}
+
+.commit{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+background:#F5F2EC;
+border-radius:14px;
+margin-bottom:24px;
+gap:12px;
+}
+
+.commit button{
+background:#7A2635;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+
+<script is:inline>
+const input=document.getElementById("git-title");
+const text=document.getElementById("commit-text");
+const copy=document.getElementById("copy-commit");
+
+function slugify(v){
+
+return v
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-z0-9\s-]/g,"")
+.trim()
+.replace(/\s+/g,"-");
+
+}
+
+input.addEventListener("input",()=>{
+
+const slug=slugify(input.value);
+
+text.textContent=slug
+?`feat: tambah artikel ${slug}`
+:"feat: tambah artikel";
+
+});
+
+copy.onclick=()=>{
+
+navigator.clipboard.writeText(text.textContent);
+
+};
+</script>

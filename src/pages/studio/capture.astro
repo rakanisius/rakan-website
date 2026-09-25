@@ -1,0 +1,328 @@
+---
+import StudioLayout from "../../layouts/StudioLayout.astro";
+---
+
+<StudioLayout title="Capture">
+
+<div class="hero">
+
+<p class="eyebrow">
+RAKAN Studio / Capture
+</p>
+
+<h1>Capture</h1>
+
+<p class="lead">
+Tangkap ide sebelum sempat hilang.
+</p>
+
+</div>
+
+<div class="capture-card">
+
+<label>Judul (opsional)</label>
+
+<input id="title" placeholder="Contoh: Disturb Picture IGD"/>
+
+<label>Kategori</label>
+
+<select id="category">
+
+<option>IGD</option>
+
+<option>Apotek</option>
+
+<option>Pasukan Putih</option>
+
+<option>Keluarga</option>
+
+<option>Kehidupan</option>
+
+<option>Farmasi</option>
+
+<option>Buku</option>
+
+<option>Video</option>
+
+<option>Lainnya</option>
+
+</select>
+
+<label>Ide Mentah</label>
+
+<textarea
+id="body"
+rows="12"
+placeholder="Tulis secepat mungkin. Tidak perlu rapi.">
+</textarea>
+
+<div class="buttons">
+
+<button id="download">
+⬇ Download Capture
+</button>
+
+<button id="copy" class="secondary">
+📋 Copy Markdown
+</button>
+
+</div>
+
+</div>
+
+<section class="guide">
+
+<h2>Alur Capture</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="icon">1</div>
+
+<span>Tangkap ide</span>
+
+</div>
+
+<div class="step">
+
+<div class="icon">2</div>
+
+<span>Download .md</span>
+
+</div>
+
+<div class="step">
+
+<div class="icon">3</div>
+
+<span>Pindahkan ke `os/archive/inbox/`</span>
+
+</div>
+
+<div class="step">
+
+<div class="icon">4</div>
+
+<span>Ubah menjadi artikel di Composer</span>
+
+</div>
+
+</div>
+
+</section>
+
+</StudioLayout>
+
+<style>
+.hero{
+margin-bottom:32px;
+}
+
+.eyebrow{
+margin:0;
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+h1{
+margin:12px 0;
+font-family:Georgia,serif;
+font-size:68px;
+font-weight:400;
+line-height:.95;
+}
+
+.lead{
+max-width:520px;
+font-size:20px;
+line-height:1.7;
+color:#514C45;
+}
+
+.capture-card,
+.guide{
+background:white;
+border:1px solid #DED6CA;
+border-radius:24px;
+padding:28px;
+margin-bottom:28px;
+}
+
+label{
+display:block;
+margin:18px 0 8px;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+input,
+select,
+textarea{
+width:100%;
+box-sizing:border-box;
+padding:14px;
+border:1px solid #DED6CA;
+border-radius:12px;
+background:#F7F4EE;
+font:inherit;
+}
+
+textarea{
+resize:vertical;
+line-height:1.8;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+margin-top:24px;
+flex-wrap:wrap;
+}
+
+button{
+padding:14px 18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:#7A2635;
+color:white;
+}
+
+.secondary{
+background:#F5F2EC;
+color:#201D19;
+}
+
+.guide h2{
+font-family:Georgia,serif;
+font-weight:400;
+margin-top:0;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+}
+
+.step{
+background:#F7F4EE;
+border-radius:16px;
+padding:18px;
+text-align:center;
+}
+
+.icon{
+width:38px;
+height:38px;
+margin:0 auto 12px;
+border-radius:50%;
+background:#7A2635;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+}
+
+@media(max-width:900px){
+
+.steps{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:54px;
+}
+
+}
+</style>
+
+<script is:inline>
+const title=document.getElementById("title");
+const category=document.getElementById("category");
+const body=document.getElementById("body");
+
+function slug(text){
+
+return text
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-z0-9\s-]/g,"")
+.trim()
+.replace(/\s+/g,"-");
+
+}
+
+function build(){
+
+const today=new Date().toISOString().split("T")[0];
+
+const s=slug(title.value||body.value.slice(0,25)||"capture");
+
+return{
+
+filename:`${today}-${s}.md`,
+
+md:`---
+title: "${title.value}"
+category: "${category.value}"
+created: ${today}
+status: "Inbox"
+---
+
+# Ide
+
+${body.value}
+
+## Catatan
+
+-
+
+## Bisa berkembang menjadi
+
+- Artikel
+- Buku
+- Video
+- Newsletter
+`
+};
+
+}
+
+document.getElementById("copy").onclick=async()=>{
+
+const d=build();
+
+await navigator.clipboard.writeText(d.md);
+
+alert("Capture disalin.");
+
+};
+
+document.getElementById("download").onclick=()=>{
+
+const d=build();
+
+const blob=new Blob([d.md],{type:"text/markdown"});
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+
+a.download=d.filename;
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+};
+</script>

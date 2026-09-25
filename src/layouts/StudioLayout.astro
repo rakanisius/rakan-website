@@ -1,0 +1,61 @@
+---
+import "../styles/studio.css";
+import StudioSidebar from "../components/studio/StudioSidebar.astro";
+import StudioHeader from "../components/studio/StudioHeader.astro";
+import CommandPalette from "../components/studio/CommandPalette.astro";
+
+const title = Astro.props.title ?? "Today";
+---
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | RAKAN Studio</title>
+  </head>
+
+  <body>
+    <div class="studio-shell">
+      <StudioSidebar />
+
+      <main class="studio-main">
+        <StudioHeader title={title} />
+
+        <section class="studio-content">
+          <slot />
+        </section>
+      </main>
+    </div>
+
+    <CommandPalette />
+  </body>
+</html>
+
+<style is:global>
+.studio-shell{
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr);
+  min-height:100vh;
+  background:#F7F4EE;
+}
+
+.studio-main{
+  min-width:0;
+}
+
+.studio-content{
+  padding:0 48px 48px;
+}
+
+@media (max-width:900px){
+
+  .studio-shell{
+    grid-template-columns:1fr;
+  }
+
+  .studio-content{
+    padding:24px;
+  }
+
+}
+</style>

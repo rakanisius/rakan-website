@@ -1,0 +1,59 @@
+---
+import StudioLayout from "../../layouts/StudioLayout.astro";
+import TodayCard from "../../components/studio/TodayCard.astro";
+import TodayCompass from "../../components/studio/TodayCompass.astro";
+import EditorialHealth from "../../components/studio/EditorialHealth.astro";
+---
+
+<StudioLayout title="Today">
+
+<div class="hero">
+
+<p class="eyebrow">
+RAKAN Studio / Today
+</p>
+
+<h1>Today</h1>
+
+<p class="lead">
+Mendampingi manusia memahami dirinya secara utuh.
+</p>
+
+</div>
+
+<TodayCard />
+
+<EditorialHealth />
+
+<TodayCompass />
+
+</StudioLayout>
+
+<style>
+.hero{
+margin-bottom:18px;
+}
+
+.eyebrow{
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+margin:0;
+}
+
+h1{
+margin:14px 0 10px;
+font-family:Georgia,serif;
+font-size:72px;
+font-weight:400;
+line-height:.95;
+}
+
+.lead{
+max-width:520px;
+font-size:20px;
+line-height:1.7;
+color:#514C45;
+}
+</style>

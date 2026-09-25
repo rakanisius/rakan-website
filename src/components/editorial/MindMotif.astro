@@ -1,0 +1,19 @@
+---
+const { opacity = 0.08, width = "260px" } = Astro.props;
+---
+
+<svg
+  width={width}
+  viewBox="0 0 260 80"
+  style={`opacity:${opacity};`}
+>
+  <path
+    d="M0 40
+       C30 12 60 68 90 40
+       S150 12 180 40
+       S230 68 260 40"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"/>
+</svg>

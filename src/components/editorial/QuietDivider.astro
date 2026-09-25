@@ -1,0 +1,62 @@
+---
+const {
+  motif = "body",      // body | mind | life | none
+  width = 120,
+  opacity = 0.12
+} = Astro.props;
+
+import BodyMotif from "./BodyMotif.astro";
+import MindMotif from "./MindMotif.astro";
+import LifeMotif from "./LifeMotif.astro";
+---
+
+<div class="quiet-divider">
+
+  <div class="line"></div>
+
+  <div class="motif">
+    {motif === "body" && <BodyMotif width="32px" opacity={opacity} />}
+    {motif === "mind" && <MindMotif width="42px" opacity={opacity} />}
+    {motif === "life" && <LifeMotif width="28px" opacity={opacity} />}
+  </div>
+
+  <div class="line"></div>
+
+</div>
+
+<style>
+.quiet-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin:72px auto;
+  width:100%;
+}
+
+.line{
+  height:1px;
+  width:120px;
+  background:#D8D0C4;
+}
+
+.motif{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#7A2635;
+}
+
+@media(max-width:640px){
+
+  .quiet-divider{
+    gap:14px;
+    margin:56px auto;
+  }
+
+  .line{
+    width:72px;
+  }
+
+}
+</style>

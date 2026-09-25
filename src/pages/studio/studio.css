@@ -1,0 +1,47 @@
+.capture{
+background:white;
+border:1px solid var(--studio-border);
+border-radius:18px;
+padding:28px;
+max-width:760px;
+}
+
+.capture h2{
+font-family:Georgia,serif;
+font-weight:400;
+margin-top:0;
+}
+
+.capture input,
+.capture select,
+.capture textarea{
+width:100%;
+margin-top:16px;
+padding:14px;
+border:1px solid var(--studio-border);
+font:inherit;
+}
+
+.capture textarea{
+min-height:280px;
+resize:vertical;
+}
+
+.capture button{
+margin-top:18px;
+background:var(--studio-accent);
+color:white;
+border:none;
+padding:14px 22px;
+border-radius:12px;
+cursor:pointer;
+}
+
+.capture button:hover{
+opacity:.92;
+}
+
+.hint{
+margin-top:18px;
+color:var(--studio-muted);
+}

@@ -1,0 +1,30 @@
+<div class="reflection-break">
+
+  <div class="dot"></div>
+
+  <p><slot/></p>
+
+</div>
+
+<style>
+.reflection-break{
+  margin:64px 0;
+  text-align:center;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:#7A2635;
+  opacity:.35;
+}
+
+.reflection-break p{
+  max-width:560px;
+  margin:auto;
+  font-family:Georgia,serif;
+  font-style:italic;
+}
+</style>

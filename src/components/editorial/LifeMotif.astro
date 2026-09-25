@@ -1,0 +1,24 @@
+---
+const { opacity = 0.10, width = "180px" } = Astro.props;
+---
+
+<svg
+  width={width}
+  viewBox="0 0 180 180"
+  style={`opacity:${opacity};`}
+>
+  <circle cx="90" cy="90" r="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"/>
+
+  <circle cx="90" cy="90" r="45"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"/>
+
+  <circle cx="90" cy="90" r="70"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1"/>
+</svg>

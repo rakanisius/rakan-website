@@ -1,0 +1,52 @@
+---
+const {
+  title = "RAKAN",
+  description = "Mendampingi manusia memahami dirinya secara utuh.",
+  image = "/og/default.jpg",
+  type = "website",
+  canonical,
+} = Astro.props;
+
+const url = new URL(Astro.url.pathname, "https://rakan.my.id").toString();
+const canonicalUrl = canonical ?? url;
+const imageUrl = new URL(image, "https://rakan.my.id").toString();
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<link rel="icon" href="/favicon-rakan.png"/>
+
+<title>{title}</title>
+
+<meta name="description" content={description}/>
+
+<link rel="canonical" href={canonicalUrl}/>
+
+<meta property="og:type" content={type}/>
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:url" content={canonicalUrl}/>
+<meta property="og:site_name" content="RAKAN"/>
+<meta property="og:locale" content="id_ID"/>
+<meta property="og:image" content={imageUrl}/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content={title}/>
+<meta name="twitter:description" content={description}/>
+<meta name="twitter:image" content={imageUrl}/>
+
+</head>
+
+<body>
+
+<slot/>
+
+</body>
+</html>

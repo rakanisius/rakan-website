@@ -1,0 +1,37 @@
+---
+const {command}=Astro.props;
+---
+
+<div class="terminal">
+
+<code>{command}</code>
+
+<button onclick={`navigator.clipboard.writeText(${JSON.stringify(command)})`}>
+Copy
+</button>
+
+</div>
+
+<style>
+.terminal{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:16px;
+padding:18px;
+background:#201D19;
+color:#F7F4EE;
+border-radius:16px;
+font-family:monospace;
+margin:16px 0;
+}
+
+button{
+background:#7A2635;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:10px;
+cursor:pointer;
+}
+</style>

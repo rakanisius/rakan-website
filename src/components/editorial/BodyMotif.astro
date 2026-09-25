@@ -1,0 +1,28 @@
+---
+/**
+ * RAKAN Editorial Component
+ *
+ * Nama      : BodyMotif
+ * Dunia     : Tubuh
+ * Status    : Core Component
+ * Digunakan : Artikel kesehatan, farmasi, kolaborasi
+ */
+
+const { opacity = 0.08, width = "220px" } = Astro.props;
+---
+
+<svg
+  width={width}
+  viewBox="0 0 220 220"
+  style={`opacity:${opacity};`}
+>
+  <path
+    d="M20 120
+       C40 40 120 20 180 80
+       C210 110 190 170 130 190
+       C70 205 30 170 20 120"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"/>
+</svg>

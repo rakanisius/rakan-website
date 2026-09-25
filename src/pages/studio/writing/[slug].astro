@@ -1,0 +1,306 @@
+---
+import StudioLayout from "../../../layouts/StudioLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const score = [
+  article.data.title,
+  article.data.kategori,
+  article.data.status,
+  article.data.excerpt,
+  article.data.readingTime,
+  article.data.featured
+].filter(Boolean).length;
+
+const percent = Math.round(score / 6 * 100);
+
+const filePath = `src/content/articles/${article.id}.md`;
+---
+
+<StudioLayout title={article.data.title}>
+
+<div class="workspace">
+
+<article class="editorial">
+
+<p class="eyebrow">
+RAKAN Studio / Draft
+</p>
+
+<h1>{article.data.title}</h1>
+
+<p class="lead">
+Ruang kerja artikel.
+</p>
+
+<div class="meta">
+
+<span class="badge category">
+{article.data.kategori}
+</span>
+
+<span class="badge status">
+{article.data.status}
+</span>
+
+</div>
+
+<p class="date">
+{article.data.tanggal.toLocaleDateString("id-ID")}
+</p>
+
+<div class="actions">
+
+<button
+onclick={`navigator.clipboard.writeText("${filePath}")`}>
+✍️ Lanjut Menulis
+</button>
+
+<button
+onclick={`navigator.clipboard.writeText("${filePath}")`}>
+📋 Copy Path
+</button>
+
+<button
+onclick={`navigator.clipboard.writeText("src/content/articles/")`}>
+📂 Folder
+</button>
+
+</div>
+
+<div class="body">
+<Content/>
+</div>
+
+</article>
+
+<aside class="inspector">
+
+<h3>Editorial Health</h3>
+
+<div class="score">
+
+<div class="ring">
+{percent}%
+</div>
+
+<p>Kelengkapan artikel</p>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="item">
+<span>Status</span>
+<strong>{article.data.status}</strong>
+</div>
+
+<div class="item">
+<span>Kategori</span>
+<strong>{article.data.kategori}</strong>
+</div>
+
+<div class="item">
+<span>Tanggal</span>
+<strong>{article.data.tanggal.toLocaleDateString("id-ID")}</strong>
+</div>
+
+<div class="item">
+<span>Excerpt</span>
+<strong>{article.data.excerpt || "Belum ada"}</strong>
+</div>
+
+<div class="item">
+<span>Reading Time</span>
+<strong>{article.data.readingTime || 0} menit</strong>
+</div>
+
+<div class="item">
+<span>Featured</span>
+<strong>{article.data.featured ? "Ya" : "Tidak"}</strong>
+</div>
+
+<div class="item">
+<span>Lokasi File</span>
+<strong>{filePath}</strong>
+</div>
+
+</aside>
+
+</div>
+
+</StudioLayout>
+
+<style>
+.workspace{
+display:grid;
+grid-template-columns:minmax(0,1fr) 300px;
+gap:40px;
+align-items:start;
+}
+
+.editorial{
+max-width:760px;
+}
+
+.eyebrow{
+font-size:14px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+}
+
+.editorial h1{
+margin:12px 0;
+font-family:Georgia,serif;
+font-size:clamp(44px,6vw,72px);
+font-weight:400;
+line-height:.95;
+}
+
+.lead{
+margin:0 0 28px;
+color:#514C45;
+}
+
+.meta{
+display:flex;
+gap:10px;
+margin-bottom:18px;
+}
+
+.badge{
+padding:8px 14px;
+border-radius:999px;
+font-size:14px;
+}
+
+.category{
+background:#F5F2EC;
+}
+
+.status{
+background:#7A2635;
+color:white;
+}
+
+.date{
+margin-bottom:26px;
+color:#6B645A;
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.actions button{
+padding:12px 18px;
+border:none;
+border-radius:12px;
+background:#F5F2EC;
+cursor:pointer;
+font-size:14px;
+}
+
+.actions button:first-child{
+background:#7A2635;
+color:white;
+}
+
+.body{
+line-height:1.9;
+}
+
+.inspector{
+position:sticky;
+top:30px;
+background:white;
+border:1px solid #DED6CA;
+border-radius:22px;
+padding:24px;
+}
+
+.inspector h3{
+margin:0 0 18px;
+font-family:Georgia,serif;
+font-weight:400;
+font-size:28px;
+}
+
+.score{
+text-align:center;
+}
+
+.ring{
+width:110px;
+height:110px;
+margin:auto;
+border-radius:50%;
+border:8px solid #7A2635;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:Georgia,serif;
+font-size:28px;
+}
+
+.score p{
+margin-top:12px;
+color:#6B645A;
+}
+
+.divider{
+height:1px;
+background:#ECE5DA;
+margin:24px 0;
+}
+
+.item{
+padding:14px 0;
+border-bottom:1px solid #ECE5DA;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.item span{
+display:block;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#6B645A;
+margin-bottom:6px;
+}
+
+.item strong{
+word-break:break-word;
+}
+
+@media(max-width:960px){
+
+.workspace{
+grid-template-columns:1fr;
+}
+
+.inspector{
+position:relative;
+top:auto;
+}
+
+}
+</style>

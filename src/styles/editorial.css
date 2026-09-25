@@ -1,0 +1,38 @@
+:root{
+
+  --rakan-cream:#F7F4EE;
+  --rakan-maroon:#7A2635;
+  --rakan-charcoal:#201D19;
+  --rakan-warm:#514C45;
+  --rakan-line:#D8D0C4;
+
+  --space-xs:12px;
+  --space-sm:24px;
+  --space-md:40px;
+  --space-lg:64px;
+  --space-xl:96px;
+
+  --measure:700px;
+
+  --motif-body:0.08;
+  --motif-mind:0.08;
+  --motif-life:0.10;
+}
+
+.editorial-prose{
+  max-width:var(--measure);
+}
+
+.editorial-prose p{
+  margin:0 0 28px;
+  line-height:1.85;
+  color:var(--rakan-warm);
+}
+
+.editorial-prose h2{
+  margin:72px 0 24px;
+}
+
+.editorial-prose h3{
+  margin:56px 0 20px;
+}

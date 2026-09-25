@@ -1,0 +1,38 @@
+---
+const title = Astro.props.title ?? "Today";
+---
+
+<header class="header">
+
+  <div>
+<div class="crumb">RAKAN Studio / {title}</div>
+    <h1>{title}</h1>
+
+    <small>Mendampingi manusia memahami dirinya secara utuh.</small>
+
+  </div>
+
+</header>
+
+<style>
+.header{
+  padding:42px 48px 28px;
+}
+.crumb{
+  font-size:13px;
+  color:#6B645A;
+  margin-bottom:10px;
+  letter-spacing:.04em;
+}
+
+.header h1{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:400;
+}
+
+.header small{
+  color:#6B645A;
+}
+</style>
