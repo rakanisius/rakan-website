@@ -1,4 +1,5 @@
 ---
+import SearchArticles from "../../components/SearchArticles.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
@@ -102,6 +103,10 @@ Lihat kategori →
 
 </section>
 
+<div class="container">
+  <SearchArticles articles={sortedArticles} />
+</div>
+
 <!-- ARTIKEL -->
 
 <section class="articles-section">
@@ -112,7 +117,11 @@ Lihat kategori →
 
 {sortedArticles.map((article)=>(
 
-<article class="article">
+<article
+  class="article"
+  data-article
+  data-href={article.href}
+>
 
 <div class="number">
 {article.number}

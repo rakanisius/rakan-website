@@ -1,0 +1,58 @@
+---
+const { articles } = Astro.props;
+---
+
+<div class="search-wrap">
+  <input
+    id="article-search"
+    type="text"
+    placeholder="Cari tulisan..."
+    autocomplete="off"
+  />
+</div>
+
+<script define:vars={{ articles }}>
+  import Fuse from "fuse.js";
+
+  const input = document.getElementById("article-search");
+  const cards = [...document.querySelectorAll("[data-article]")];
+
+  const fuse = new Fuse(articles, {
+    keys: ["title", "description", "category"],
+    threshold: 0.35,
+  });
+
+  input?.addEventListener("input", (e) => {
+    const q = e.target.value.trim();
+
+    if (!q) {
+      cards.forEach((c) => (c.style.display = ""));
+      return;
+    }
+
+    const result = new Set(fuse.search(q).map((r) => r.item.href));
+
+    cards.forEach((card) => {
+      card.style.display = result.has(card.dataset.href) ? "" : "none";
+    });
+  });
+</script>
+
+<style>
+.search-wrap{
+margin:42px 0 36px;
+}
+
+#article-search{
+width:100%;
+padding:18px 22px;
+background:#F7F4EE;
+border:1px solid #DCD5CA;
+font-size:16px;
+outline:none;
+}
+
+#article-search:focus{
+border-color:#7A2635;
+}
+</style>
