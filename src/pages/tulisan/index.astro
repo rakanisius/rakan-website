@@ -39,7 +39,19 @@ const articles = [
       "Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri, mengenali batas, dan menata kehidupan tidak harus selesai ketika bulan itu berakhir.",
     href: "/tulisan/me-ramadhan-kan-diri",
   },
+  {
+    number: "05",
+    category: "KEHIDUPAN",
+    slug: "kehidupan",
+    title: "Saya Memilih Pergi, dan Itu Tidak Selalu Berarti Takut",
+    description:
+      "Sebuah benturan di jalan berubah menjadi pelajaran tentang harga diri, keberanian, dan cara memahami diri secara lebih utuh.",
+    href: "/tulisan/memilih-pergi-tidak-selalu-takut",
+  },
 ];
+const sortedArticles = [...articles].sort(
+  (a, b) => Number(b.number) - Number(a.number)
+);
 
 const categories = [
   {
@@ -70,7 +82,7 @@ const categories = [
     title: "Kehidupan",
     slug: "kehidupan",
     description: "Makna, relasi, dan perjalanan manusia.",
-    count: "03",
+    count: "04",
   },
   {
     title: "Catatan Praktisi",
@@ -179,7 +191,7 @@ Lihat kategori →
 
 <div class="articles">
 
-{articles.map((article)=>(
+{sortedArticles.map((article)=>(
 
 <article class="article">
 
