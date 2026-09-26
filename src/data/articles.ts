@@ -1,13 +1,5 @@
 export const articles = [
   {
-    number: 7,
-    category: "Kehidupan",
-    slug: "kehidupan",
-    title: "Jalan Pulang",
-    description: "Tulis deskripsi singkat di sini.",
-    href: "/tulisan/jalan-pulang",
-  },
-  {
     number: 6,
     category: "Catatan Praktisi",
     slug: "catatan-praktisi",
