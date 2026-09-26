@@ -1,78 +1,27 @@
 ---
 export const prerender = true;
+
 import Nav from "../../../components/Nav.astro";
 import Footer from "../../../components/Footer.astro";
+import { articles, categories } from "../../../data/articles";
 
 export async function getStaticPaths() {
-  return [
-    { params: { slug: "tubuh-kesehatan" } },
-    { params: { slug: "pikiran-emosi" } },
-    { params: { slug: "farmasi" } },
-    { params: { slug: "holistik" } },
-    { params: { slug: "kehidupan" } },
-    { params: { slug: "catatan-praktisi" } },
-  ];
+  return categories.map((category) => ({
+    params: { slug: category.slug },
+  }));
 }
 
 const { slug } = Astro.params;
 
-const data = {
-  "tubuh-kesehatan": {
-    title: "Tubuh & Kesehatan",
-    description: "Obat, tubuh, tidur, nutrisi, dan kebiasaan.",
-    articles: [
-      {
-        title: "Tubuh tidak pernah bekerja sendirian.",
-        href: "/tulisan/tubuh-tidak-pernah-bekerja-sendirian",
-      },
-    ],
-  },
+const category = categories.find((c) => c.slug === slug);
 
-  "pikiran-emosi": {
-    title: "Pikiran & Emosi",
-    description: "Stres, emosi, perhatian, dan pengalaman batin.",
-    articles: [],
-  },
+if (!category) {
+  return Astro.redirect("/tulisan");
+}
 
-  farmasi: {
-    title: "Obat & Farmasi",
-    description: "Literasi obat untuk manusia biasa.",
-    articles: [],
-  },
-
-  holistik: {
-    title: "Kesehatan Holistik",
-    description: "Melihat manusia lebih utuh.",
-    articles: [],
-  },
-
-  kehidupan: {
-    title: "Kehidupan",
-    description: "Makna, relasi, dan perjalanan manusia.",
-    articles: [
-      {
-        title: "Ketika Kita Merasa Lebih Tinggi dari Orang Lain",
-        href: "/tulisan/ketika-kita-merasa-lebih-tinggi-dari-orang-lain",
-      },
-      {
-        title: "Jangan Tanya “Kapan?” kepada Orang Lain",
-        href: "/tulisan/jangan-tanya-kapan-kepada-orang-lain",
-      },
-      {
-        title: "Me-Ramadhan-kan Diri",
-        href: "/tulisan/me-ramadhan-kan-diri",
-      },
-    ],
-  },
-
-  "catatan-praktisi": {
-    title: "Catatan Praktisi",
-    description: "Belajar dari pengalaman nyata di lapangan.",
-    articles: [],
-  },
-};
-
-const category = data[slug];
+const categoryArticles = articles
+  .filter((a) => a.slug === slug)
+  .sort((a, b) => b.number - a.number);
 ---
 
 <!doctype html>
@@ -100,8 +49,8 @@ const category = data[slug];
 
 <div class="container">
 
-<a href="/tulisan/kategori" class="back">
-← Semua kategori
+<a href="/tulisan" class="back">
+← Semua tulisan
 </a>
 
 <div class="eyebrow">
@@ -114,6 +63,10 @@ KATEGORI
 {category.description}
 </p>
 
+<p class="count">
+{String(categoryArticles.length).padStart(2,"0")} tulisan
+</p>
+
 </div>
 
 </section>
@@ -122,16 +75,28 @@ KATEGORI
 
 <div class="container">
 
-{category.articles.length > 0 ? (
+{categoryArticles.length > 0 ? (
 
-category.articles.map((item)=>(
+categoryArticles.map((item)=>(
 
 <a href={item.href} class="article">
 
+<div class="number">
+{String(item.number).padStart(2,"0")}
+</div>
+
+<div class="article-content">
+
 <h2>{item.title}</h2>
+
+<p class="description">
+{item.description}
+</p>
 
 <div class="more">
 Baca tulisan →
+</div>
+
 </div>
 
 </a>
@@ -227,12 +192,23 @@ color:#514C45;
 font-size:17px;
 }
 
+.count{
+margin-top:24px;
+color:#7A2635;
+font-size:12px;
+letter-spacing:.12em;
+text-transform:uppercase;
+font-weight:600;
+}
+
 .list{
 padding:60px 0 100px;
 }
 
 .article{
-display:block;
+display:grid;
+grid-template-columns:60px minmax(0,1fr);
+gap:28px;
 padding:28px 0;
 border-bottom:1px solid #E5DFD5;
 text-decoration:none;
@@ -248,9 +224,22 @@ transform:translateY(-2px);
 color:#7A2635;
 }
 
+.number{
+font-family:Georgia,serif;
+font-size:16px;
+color:#8B8174;
+}
+
 .article h2{
 font-size:34px;
 line-height:1.18;
+}
+
+.description{
+margin-top:12px;
+color:#514C45;
+line-height:1.8;
+font-size:15px;
 }
 
 .more{
@@ -280,6 +269,11 @@ line-height:1.8;
 padding:0 20px;
 }
 
+.article{
+grid-template-columns:36px minmax(0,1fr);
+gap:16px;
+}
+
 .article h2,
 .empty h2{
 font-size:24px;
@@ -297,13 +291,19 @@ h1{
 font-size:34px;
 }
 
+.article{
+grid-template-columns:26px minmax(0,1fr);
+gap:12px;
+}
+
 .article h2,
 .empty h2{
 font-size:22px;
 }
 
 .intro,
-.empty p{
+.empty p,
+.description{
 font-size:15px;
 }
 

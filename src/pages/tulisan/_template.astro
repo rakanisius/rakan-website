@@ -1,0 +1,403 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+/*
+====================================================
+RAKAN ARTICLE TEMPLATE
+====================================================
+
+Yang perlu diganti setiap artikel:
+
+1. title
+2. description
+3. image
+4. category
+5. readingTime
+6. archive
+7. heroCaption
+8. Judul H1
+9. Intro
+10. Isi artikel
+
+Ilustrasi:
+public/images/nama-gambar.png
+*/
+
+const title = "JUDUL ARTIKEL | RAKAN";
+const description = "Deskripsi singkat artikel.";
+const image = "/images/nama-gambar.png";
+
+const category = "Kehidupan";
+const readingTime = "8 menit membaca";
+const archive = "K-000";
+
+const heroCaption =
+  "Satu kalimat pembuka yang menjadi benang merah artikel.";
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<link rel="icon" href="/favicon-rakan.png"/>
+
+<title>{title}</title>
+
+<meta name="description" content={description}/>
+
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content={image}/>
+
+<link rel="canonical" href="https://rakan.my.id/tulisan/slug-artikel"/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main class="article">
+
+<div class="category">{category}</div>
+
+<h1>JUDUL ARTIKEL</h1>
+
+<p class="intro">
+Benang merah artikel ditulis satu atau dua kalimat.
+</p>
+
+<div class="meta">
+Catatan Rakan · {category} · {readingTime}
+</div>
+
+<div class="hero">
+
+<img
+src={image}
+alt="Judul Artikel"
+/>
+
+<div class="hero-caption">
+{heroCaption}
+</div>
+
+</div>
+
+<div class="content">
+
+<section>
+
+<h2>Subjudul Pertama</h2>
+
+<p>
+Mulai menulis di sini.
+</p>
+
+<p>
+Paragraf kedua.
+</p>
+
+</section>
+
+<div class="quote">
+Kalimat yang layak dibawa pulang.
+</div>
+
+<section>
+
+<h2>Subjudul Kedua</h2>
+
+<p>
+Lanjutkan tulisan.
+</p>
+
+</section>
+
+<div class="question">
+
+<p>
+Pertanyaan reflektif.
+</p>
+
+</div>
+
+<section>
+
+<h2>Subjudul Terakhir</h2>
+
+<p>
+Penutup isi artikel.
+</p>
+
+</section>
+
+<section class="personal">
+
+<div class="personal-label">
+Catatan RAKAN
+</div>
+
+<p>
+Penyembuhan sering dimulai bukan ketika konflik selesai,
+melainkan ketika kita memahami respons kita terhadap konflik itu sendiri.
+Tubuh menyimpan ketegangan, pikiran menyimpan cerita,
+dan keduanya perlu diajak pulang dengan lembut.
+</p>
+
+</section>
+
+<section class="personal">
+
+<div class="personal-label">
+Lanjutkan Perjalanan
+</div>
+
+<p>
+Sebagian tulisan di <strong>RAKAN.MY.ID</strong> lahir dari pengalaman sehari-hari
+yang pelan-pelan mengubah cara saya memahami tubuh,
+pikiran, dan kehidupan.
+</p>
+
+<p>
+Jika tulisan ini terasa dekat,
+mungkin Anda ingin melanjutkan perjalanan melalui tulisan lain,
+membaca buku-buku yang sedang saya tulis,
+atau membuka ruang kolaborasi.
+</p>
+
+<p class="cta-links">
+
+<a href="/tulisan">
+Jelajahi Tulisan
+</a>
+
+·
+
+<a href="/buku">
+Lihat Buku
+</a>
+
+·
+
+<a href="/kolaborasi">
+Kolaborasi
+</a>
+
+</p>
+
+</section>
+
+<section class="closing">
+
+<p>
+Kalimat penutup yang ingin dibawa pembaca pulang.
+</p>
+
+<div class="signature">
+
+Abdul Rakan · Apoteker & Praktisi Penyembuhan Holistik
+
+<br/>
+
+Arsip RAKAN · {archive}
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<Footer/>
+
+</body>
+</html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(html){
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+:global(body){
+margin:0;
+overflow-x:hidden;
+background:#F7F4EE;
+color:#29251F;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.article{
+max-width:1000px;
+margin:auto;
+padding:100px 32px;
+}
+
+.category{
+color:#81776A;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+h1,h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+max-width:860px;
+margin:25px 0;
+font-size:clamp(46px,7vw,78px);
+line-height:1;
+letter-spacing:-.04em;
+}
+
+.intro{
+max-width:720px;
+margin:0 0 35px;
+color:#625B52;
+font-family:Georgia,serif;
+font-size:clamp(20px,3vw,27px);
+line-height:1.55;
+}
+
+.meta{
+color:#81776A;
+font-size:14px;
+}
+
+.hero{
+margin:70px 0 100px;
+}
+
+.hero img{
+display:block;
+width:100%;
+height:auto;
+border-radius:2px;
+}
+
+.hero-caption{
+margin-top:12px;
+color:#93897B;
+font-size:12px;
+line-height:1.5;
+}
+
+.content{
+max-width:720px;
+margin:auto;
+}
+
+.content section{
+margin-bottom:75px;
+}
+
+h2{
+margin-bottom:25px;
+font-size:clamp(30px,4vw,46px);
+line-height:1.1;
+}
+
+p{
+color:#514C45;
+font-size:18px;
+line-height:1.9;
+}
+
+.quote{
+margin:80px 0;
+padding:35px 0;
+border-top:1px solid #DCD5CA;
+border-bottom:1px solid #DCD5CA;
+font-family:Georgia,serif;
+font-size:clamp(25px,4vw,38px);
+line-height:1.3;
+}
+
+.question{
+margin:80px 0;
+padding:45px 0;
+border-top:1px solid #DCD5CA;
+border-bottom:1px solid #DCD5CA;
+}
+
+.question p{
+margin:0;
+color:#29251F;
+font-family:Georgia,serif;
+font-size:clamp(24px,4vw,34px);
+line-height:1.45;
+}
+
+.personal{
+margin-top:90px;
+padding-top:55px;
+border-top:1px solid #DCD5CA;
+}
+
+.personal-label{
+margin-bottom:25px;
+color:#81776A;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+.closing{
+margin-top:100px;
+padding-top:45px;
+border-top:1px solid #DCD5CA;
+}
+
+.closing p{
+font-family:Georgia,serif;
+font-size:28px;
+line-height:1.5;
+}
+
+.signature{
+margin-top:35px;
+color:#81776A;
+font-size:14px;
+}
+
+.cta-links a{
+color:#7A2635;
+text-decoration:none;
+}
+
+.cta-links a:hover{
+text-decoration:underline;
+}
+
+@media(max-width:700px){
+
+.article{
+padding:65px 22px 80px;
+}
+
+.hero{
+margin:50px 0 70px;
+}
+
+p{
+font-size:17px;
+line-height:1.85;
+}
+
+}
+
+</style>

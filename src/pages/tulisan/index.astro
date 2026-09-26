@@ -2,95 +2,14 @@
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
-const articles = [
-  {
-    number: "01",
-    category: "TUBUH & KESEHATAN",
-    slug: "tubuh-kesehatan",
-    title: "Tubuh tidak pernah bekerja sendirian.",
-    description:
-      "Tubuh bukan sekadar kumpulan organ yang bekerja sendiri-sendiri. Ia adalah sebuah sistem yang terus berkomunikasi dengan pikiran, kebiasaan, lingkungan, dan kehidupan kita.",
-    href: "/tulisan/tubuh-tidak-pernah-bekerja-sendirian",
-  },
-  {
-    number: "02",
-    category: "KEHIDUPAN",
-    slug: "kehidupan",
-    title: "Ketika Kita Merasa Lebih Tinggi dari Orang Lain",
-    description:
-      "Tentang jabatan, status, kekuasaan, dan bagaimana kita memperlakukan manusia lain ketika merasa berada di posisi yang lebih tinggi.",
-    href: "/tulisan/ketika-kita-merasa-lebih-tinggi-dari-orang-lain",
-  },
-  {
-    number: "03",
-    category: "KEHIDUPAN",
-    slug: "kehidupan",
-    title: "Jangan Tanya “Kapan?” kepada Orang Lain",
-    description:
-      "Kita tidak pernah tahu apa yang sedang diperjuangkan seseorang. Jangan menjadikan pencapaian hidup kita sebagai ukuran untuk menentukan kapan orang lain harus lulus, menikah, atau mencapai sesuatu.",
-    href: "/tulisan/jangan-tanya-kapan-kepada-orang-lain",
-  },
-  {
-    number: "04",
-    category: "KEHIDUPAN",
-    slug: "kehidupan",
-    title: "Me-Ramadhan-kan Diri",
-    description:
-      "Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri, mengenali batas, dan menata kehidupan tidak harus selesai ketika bulan itu berakhir.",
-    href: "/tulisan/me-ramadhan-kan-diri",
-  },
-  {
-    number: "05",
-    category: "KEHIDUPAN",
-    slug: "kehidupan",
-    title: "Saya Memilih Pergi, dan Itu Tidak Selalu Berarti Takut",
-    description:
-      "Sebuah benturan di jalan berubah menjadi pelajaran tentang harga diri, keberanian, dan cara memahami diri secara lebih utuh.",
-    href: "/tulisan/memilih-pergi-tidak-selalu-takut",
-  },
-];
-const sortedArticles = [...articles].sort(
-  (a, b) => Number(b.number) - Number(a.number)
-);
+import { articles, categories } from "../../data/articles";
 
-const categories = [
-  {
-    title: "Tubuh & Kesehatan",
-    slug: "tubuh-kesehatan",
-    description: "Obat, tubuh, tidur, nutrisi, dan kebiasaan.",
-    count: "01",
-  },
-  {
-    title: "Pikiran & Emosi",
-    slug: "pikiran-emosi",
-    description: "Stres, emosi, perhatian, dan pengalaman batin.",
-    count: "00",
-  },
-  {
-    title: "Obat & Farmasi",
-    slug: "farmasi",
-    description: "Literasi obat untuk manusia biasa.",
-    count: "00",
-  },
-  {
-    title: "Kesehatan Holistik",
-    slug: "holistik",
-    description: "Melihat manusia lebih utuh.",
-    count: "00",
-  },
-  {
-    title: "Kehidupan",
-    slug: "kehidupan",
-    description: "Makna, relasi, dan perjalanan manusia.",
-    count: "04",
-  },
-  {
-    title: "Catatan Praktisi",
-    slug: "catatan-praktisi",
-    description: "Belajar dari pengalaman nyata di lapangan.",
-    count: "00",
-  },
-];
+const sortedArticles = [...articles].sort((a, b) => b.number - a.number);
+
+const categoriesWithCount = categories.map((category) => ({
+  ...category,
+  count: articles.filter((a) => a.slug === category.slug).length,
+}));
 ---
 
 <!doctype html>
@@ -154,7 +73,7 @@ JELAJAHI BERDASARKAN TEMA
 
 <div class="category-grid">
 
-{categories.map((item)=>(
+{categoriesWithCount.map((item)=>(
 
 <a
 href={`/tulisan/kategori/${item.slug}`}
