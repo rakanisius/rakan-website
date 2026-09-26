@@ -19,7 +19,7 @@
     "dashboard": "node scripts/dashboard.cjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.3.2",
+    "@astrojs/cloudflare": "^14.3.3",
     "@astrojs/react": "^7.0.0",
     "@astrojs/sitemap": "^3.7.4",
     "@types/react": "^19.3.0",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.2",
-    "wrangler": "^4.136.2"
+    "wrangler": "^4.140.0"
   },
   "allowScripts": {
     "esbuild": true,

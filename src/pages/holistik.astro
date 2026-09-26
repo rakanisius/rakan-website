@@ -2,477 +2,250 @@
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Kesehatan Holistik";
+const title = "Penyembuhan Holistik | RAKAN";
 const description =
-  "Memahami kesehatan sebagai hubungan antara tubuh, pikiran, kebiasaan, lingkungan, dan kehidupan dengan pendekatan yang utuh dan bertanggung jawab.";
+  "Memahami penyembuhan holistik sebagai hubungan antara tubuh, pikiran, kebiasaan, lingkungan, dan kehidupan dengan pendekatan yang utuh dan bertanggung jawab.";
 ---
 
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{title}</title>
+<meta name="description" content={description}/>
+<link rel="icon" href="/favicon-rakan.png"/>
+</head>
+
+<body>
+
+<Nav/>
+
+<main>
+
+<section class="hero">
+<div class="container">
+
+<p class="eyebrow">PENYEMBUHAN HOLISTIK</p>
+
+<h1>
+Penyembuhan dimulai ketika kita berhenti melihat manusia
+<em>sebagai sekumpulan gejala.</em>
+</h1>
+
+<p class="lead">
+Tubuh, pikiran, kebiasaan, lingkungan, dan kehidupan saling memengaruhi.
+Pendekatan ini tidak menggantikan pengobatan, tetapi memperluas cara kita memahami manusia.
+</p>
 
-    <title>{title} | Rakan</title>
-    <meta name="description" content={description} />
+<div class="actions">
+<a href="/layanan" class="button primary">Mulai Konsultasi</a>
+<a href="/tulisan" class="button secondary">Baca Tulisan</a>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container split">
+
+<div class="left">
+<p class="eyebrow">APA ITU</p>
+<h2>Melihat manusia sebagai satu kesatuan.</h2>
+</div>
+
+<div class="right">
+<p>Penyembuhan holistik bukan metode tunggal. Ia adalah cara memandang manusia secara lebih utuh.</p>
+<p>Keluhan fisik dapat dipengaruhi banyak faktor. Begitu pula pengalaman batin dapat memengaruhi cara seseorang menjalani hidup. Hubungan itu tidak selalu sederhana, tetapi layak dipahami.</p>
+<p>Tujuannya bukan mencari satu penyebab untuk semua hal, melainkan memahami konteks yang lebih luas.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
 
-    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
-  </head>
+<p class="eyebrow">TIGA RUANG</p>
 
-  <body>
-    <Nav />
+<h2>Tubuh · Pikiran · Kehidupan</h2>
 
-    <main>
+<div class="grid3">
 
-      <!-- HERO -->
+<article>
+<h3>Tubuh</h3>
+<p>Gejala, obat, tidur, nutrisi, aktivitas, dan proses pemulihan.</p>
+</article>
 
-      <section class="hero">
-        <div class="container">
+<article>
+<h3>Pikiran</h3>
+<p>Emosi, stres, perhatian, dan cara kita merespons kehidupan.</p>
+</article>
 
-          <p class="eyebrow">
-            KESEHATAN HOLISTIK
-          </p>
+<article>
+<h3>Kehidupan</h3>
+<p>Relasi, pekerjaan, lingkungan, nilai, dan ruang bertumbuh.</p>
+</article>
 
-          <h1>
-            Memahami kesehatan{" "}
-            <em>sebagai pengalaman manusia.</em>
-          </h1>
+</div>
 
-          <p class="lead">
-            Kesehatan tidak hanya berbicara tentang penyakit.
-            Ia juga menyentuh tubuh, pikiran, kebiasaan,
-            lingkungan, hubungan, dan kehidupan seseorang.
-          </p>
+</div>
+</section>
 
-        </div>
-      </section>
+<section class="section alt">
+<div class="container">
 
-      <!-- APA ITU -->
+<p class="eyebrow">BATAS PENDEKATAN</p>
 
-      <section class="section">
-        <div class="container split">
+<h2>Holistik tidak berarti meninggalkan sains.</h2>
 
-          <div class="left">
+<div class="table-wrap">
+<table>
+<tr>
+<th>Bukan</th>
+<th>Melainkan</th>
+</tr>
+<tr>
+<td>Menggantikan diagnosis</td>
+<td>Memperluas pemahaman tentang manusia</td>
+</tr>
+<tr>
+<td>Menolak obat</td>
+<td>Menggunakan obat secara tepat</td>
+</tr>
+<tr>
+<td>Menjanjikan kesembuhan instan</td>
+<td>Mendampingi proses perubahan</td>
+</tr>
+<tr>
+<td>Mengabaikan bukti ilmiah</td>
+<td>Tetap berpijak pada pengetahuan</td>
+</tr>
+</table>
+</div>
 
-            <p class="eyebrow">
-              APA ITU
-            </p>
+</div>
+</section>
 
-            <h2>
-              Melihat manusia lebih utuh.
-            </h2>
+<section class="section">
+<div class="container">
 
-          </div>
+<p class="eyebrow">EMPAT LAPIS PEMAHAMAN</p>
 
-          <div class="right">
+<h2>Cara saya membedakan informasi kesehatan.</h2>
 
-            <p>
-              Pendekatan holistik mengajak kita melihat manusia sebagai
-              satu kesatuan, bukan kumpulan bagian yang berdiri sendiri.
-            </p>
+<div class="grid2">
 
-            <p>
-              Tubuh, pikiran, kebiasaan, lingkungan,
-              relasi, dan pengalaman hidup dapat saling memengaruhi,
-              meskipun tidak selalu dengan cara yang sederhana.
-            </p>
+<article>
+<h3>Bukti ilmiah</h3>
+<p>Temuan yang didukung penelitian dan menjadi dasar praktik kesehatan.</p>
+</article>
 
-            <p>
-              Tujuannya bukan mencari satu penyebab untuk semua hal,
-              melainkan memahami konteks yang lebih luas.
-            </p>
+<article>
+<h3>Kemungkinan biologis</h3>
+<p>Ada mekanisme yang masuk akal, tetapi bukti masih berkembang.</p>
+</article>
 
-          </div>
+<article>
+<h3>Pengalaman pribadi</h3>
+<p>Pengalaman dapat memberi makna, tetapi belum tentu berlaku untuk semua orang.</p>
+</article>
 
-        </div>
-      </section>
+<article>
+<h3>Keyakinan</h3>
+<p>Nilai dan kepercayaan memiliki tempatnya sendiri, tetapi berbeda dari klaim ilmiah.</p>
+</article>
 
-      <!-- TIGA RUANG -->
+</div>
 
-      <section class="section">
-        <div class="container">
+</div>
+</section>
 
-          <p class="eyebrow">
-            TIGA RUANG
-          </p>
+<section class="section">
+<div class="container narrow">
 
-          <h2>
-            Tubuh · Pikiran · Kehidupan
-          </h2>
+<p class="eyebrow">BAGAIMANA SAYA BEKERJA</p>
 
-          <div class="pillars">
+<h2>Memahami sebelum menentukan langkah.</h2>
 
-            <article>
-              <span>01</span>
+<p>Ketika seseorang datang, saya tidak hanya bertanya apa yang sakit. Saya juga ingin memahami bagaimana tidurnya, bagaimana kesehariannya, bagaimana pikirannya, dan bagaimana hidup sedang berjalan.</p>
 
-              <h3>Tubuh</h3>
+<div class="flow">
 
-              <p>
-                Tidur, nutrisi, aktivitas, obat,
-                penyakit, dan bagaimana tubuh memberi sinyal.
-              </p>
-            </article>
+<div>01 · Memahami konteks.</div>
+<div>02 · Menentukan langkah.</div>
+<div>03 · Konsultasi selesai atau berlanjut menjadi pendampingan.</div>
 
-            <article>
-              <span>02</span>
+</div>
 
-              <h3>Pikiran</h3>
+<div class="statement">
+<p>Tubuh memberi sinyal.</p>
+<p>Pikiran memberi konteks.</p>
+<p>Kehidupan memberi cerita.</p>
+</div>
 
-              <p>
-                Emosi, stres, perhatian,
-                cara berpikir, dan pengalaman batin.
-              </p>
-            </article>
+</div>
+</section>
 
-            <article>
-              <span>03</span>
+<section class="cta">
+<div class="container narrow">
 
-              <h3>Kehidupan</h3>
+<p class="eyebrow">MULAI DARI SATU PERCAKAPAN</p>
 
-              <p>
-                Relasi, pekerjaan, keluarga,
-                lingkungan, nilai, dan makna hidup.
-              </p>
-            </article>
+<h2>Mungkin jawaban yang Anda cari bukan hanya nama penyakit.</h2>
 
-          </div>
+<p>Konsultasi menjadi ruang untuk memahami persoalan terlebih dahulu. Bila satu percakapan sudah cukup, tidak perlu pendampingan. Bila belum cukup, perjalanan dapat dilanjutkan dengan pendampingan yang lebih mendalam.</p>
 
-        </div>
-      </section>
+<div class="actions">
+<a href="/layanan" class="button primary">Lihat Layanan</a>
+<a href="/kolaborasi" class="button secondary">Kolaborasi</a>
+</div>
 
-      <!-- APA YANG TIDAK -->
+</div>
+</section>
 
-      <section class="section boundary">
-        <div class="container narrow">
+</main>
 
-          <p class="eyebrow">
-            APA YANG TIDAK BERARTI
-          </p>
+<Footer/>
 
-          <h2>
-            Holistik bukan jawaban untuk semua hal.
-          </h2>
-
-          <div class="truth-list">
-
-            <article>
-
-              <span>01</span>
-
-              <div>
-
-                <h3>
-                  Tidak semua penyakit punya satu penyebab tersembunyi.
-                </h3>
-
-                <p>
-                  Banyak kondisi kesehatan memiliki penyebab yang kompleks,
-                  melibatkan faktor biologis, psikologis, sosial,
-                  maupun lingkungan.
-                </p>
-
-              </div>
-
-            </article>
-
-            <article>
-
-              <span>02</span>
-
-              <div>
-
-                <h3>
-                  Tidak semua pengalaman pribadi menjadi bukti ilmiah.
-                </h3>
-
-                <p>
-                  Pengalaman seseorang tetap berharga,
-                  tetapi tidak selalu dapat digeneralisasi
-                  menjadi kebenaran universal.
-                </p>
-
-              </div>
-
-            </article>
-
-            <article>
-
-              <span>03</span>
-
-              <div>
-
-                <h3>
-                  Tidak semua pendekatan cocok untuk semua orang.
-                </h3>
-
-                <p>
-                  Setiap manusia memiliki kebutuhan,
-                  kondisi, dan konteks yang berbeda.
-                </p>
-
-              </div>
-
-            </article>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- EMPAT LAPIS -->
-
-      <section class="section">
-        <div class="container">
-
-          <p class="eyebrow">
-            EMPAT LAPIS PEMAHAMAN
-          </p>
-
-          <h2>
-            Cara saya membedakan informasi kesehatan.
-          </h2>
-
-          <div class="layers">
-
-            <article>
-              <span>01</span>
-
-              <h3>Bukti ilmiah</h3>
-
-              <p>
-                Temuan yang didukung penelitian
-                dan menjadi dasar praktik kesehatan.
-              </p>
-            </article>
-
-            <article>
-              <span>02</span>
-
-              <h3>Kemungkinan biologis</h3>
-
-              <p>
-                Ada mekanisme yang masuk akal,
-                tetapi bukti masih berkembang.
-              </p>
-            </article>
-
-            <article>
-              <span>03</span>
-
-              <h3>Pengalaman pribadi</h3>
-
-              <p>
-                Pengalaman seseorang dapat memberi makna,
-                tetapi belum tentu berlaku untuk semua orang.
-              </p>
-            </article>
-
-            <article>
-              <span>04</span>
-
-              <h3>Keyakinan</h3>
-
-              <p>
-                Nilai dan kepercayaan memiliki tempatnya sendiri,
-                tetapi berbeda dari klaim ilmiah.
-              </p>
-            </article>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- PENERAPAN -->
-
-      <section class="section">
-        <div class="container narrow">
-
-          <p class="eyebrow">
-            DALAM PRAKTIK
-          </p>
-
-          <h2>
-            Bagaimana pendekatan ini digunakan.
-          </h2>
-
-          <p>
-            Ketika seseorang datang dengan keluhan,
-            saya tidak hanya bertanya apa yang sakit.
-          </p>
-
-          <p>
-            Saya juga tertarik memahami bagaimana tidurnya,
-            bagaimana kesehariannya,
-            bagaimana pikirannya,
-            bagaimana relasinya,
-            dan bagaimana hidup sedang berjalan.
-          </p>
-
-          <div class="statement">
-
-            <p>
-              Tubuh memberi sinyal.
-            </p>
-
-            <p>
-              Pikiran memberi konteks.
-            </p>
-
-            <p>
-              Kehidupan memberi cerita.
-            </p>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- RUANG BELAJAR -->
-
-      <section class="section">
-        <div class="container">
-
-          <p class="eyebrow">
-            LANJUTKAN BELAJAR
-          </p>
-
-          <h2>
-            Jelajahi ruang lain di RAKAN.
-          </h2>
-
-          <div class="spaces">
-
-            <a href="/tulisan" class="space-card">
-              <span>01</span>
-
-              <h3>Tulisan</h3>
-
-              <p>
-                Catatan tentang tubuh, pikiran, dan kehidupan.
-              </p>
-            </a>
-
-            <a href="/buku" class="space-card">
-              <span>02</span>
-
-              <h3>Buku</h3>
-
-              <p>
-                Gagasan yang berkembang menjadi karya panjang.
-              </p>
-            </a>
-
-            <a href="/layanan" class="space-card">
-              <span>03</span>
-
-              <h3>Layanan</h3>
-
-              <p>
-                Pendampingan yang disesuaikan dengan kebutuhan.
-              </p>
-            </a>
-
-            <a href="/kolaborasi" class="space-card">
-              <span>04</span>
-
-              <h3>Kolaborasi</h3>
-
-              <p>
-                Menghadirkan percakapan untuk institusi,
-                sekolah, kampus, dan komunitas.
-              </p>
-            </a>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- CTA -->
-
-      <section class="cta">
-        <div class="container narrow">
-
-          <p class="eyebrow">
-            PENUTUP
-          </p>
-
-          <h2>
-            Memahami manusia tidak selalu berarti
-            menemukan jawaban yang sederhana.
-          </h2>
-
-          <p>
-            Tetapi semakin luas cara kita melihat manusia,
-            semakin bijaksana kita mengambil keputusan
-            tentang kesehatan dan kehidupan.
-          </p>
-
-          <a href="/tulisan" class="button">
-            Baca Tulisan
-          </a>
-
-        </div>
-      </section>
-
-    </main>
-
-    <Footer />
-  </body>
+</body>
 </html>
 
 <style>
-:global(body){
-  margin:0;
-  background:#F7F4EE;
-  color:#201D19;
-  font-family:Arial,sans-serif;
-}
-:global(*){box-sizing:border-box;}
-.container{width:100%;max-width:1180px;margin:0 auto;padding:0 32px;}
-.narrow{max-width:900px;}
-.hero{padding:96px 0 110px;}
-.eyebrow{color:#7A2635;font-size:12px;font-weight:600;letter-spacing:.16em;margin-bottom:24px;}
-h1,h2,h3{font-family:Georgia,serif;font-weight:400;}
-h1{font-size:58px;line-height:1.08;max-width:840px;margin:0;}
-h1 em{font-style:italic;}
-h2{font-size:40px;line-height:1.2;margin:0 0 28px;}
-h3{font-size:26px;margin:0 0 12px;}
-.lead{max-width:720px;font-size:18px;line-height:1.8;color:#514C45;margin-top:32px;}
-.section{padding:86px 0;border-top:1px solid #E5DFD5;}
-.split{display:grid;grid-template-columns:340px 1fr;gap:60px;}
-.right p,.narrow p{color:#514C45;line-height:1.8;font-size:17px;}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;}
-.pillars article,.layers article{border-top:2px solid #7A2635;padding-top:18px;}
-.pillars span,.layers span{color:#7A2635;font-size:12px;letter-spacing:.12em;}
-.boundary{background:#F1ECE5;}
-.truth-list{margin-top:42px;border-top:1px solid #E5DFD5;}
-.truth-list article{display:grid;grid-template-columns:70px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid #E5DFD5;}
-.truth-list span{color:#7A2635;font-size:12px;letter-spacing:.12em;}
-.truth-list p{margin:0;color:#514C45;line-height:1.8;}
-.layers{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:48px;}
-.statement{margin-top:42px;padding:30px 0;border-top:1px solid #E5DFD5;border-bottom:1px solid #E5DFD5;}
-.statement p{font-family:Georgia,serif;color:#201D19;font-size:24px;margin:8px 0;}
-.spaces{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#E5DFD5;border:1px solid #E5DFD5;margin-top:48px;}
-.space-card{background:#F7F4EE;padding:32px;text-decoration:none;color:inherit;transition:background .2s ease;}
-.space-card:hover{background:#F1ECE5;}
-.space-card span{color:#7A2635;font-size:12px;letter-spacing:.12em;}
-.space-card p{color:#514C45;line-height:1.7;}
-.cta{padding:100px 0 120px;background:#EBE5DC;}
-.button{display:inline-block;padding:15px 24px;background:#7A2635;color:white;text-decoration:none;margin-top:18px;}
-.button:hover{background:#201D19;}
+:global(*){box-sizing:border-box}
+:global(body){margin:0;background:#F7F4EE;color:#201D19;font-family:Arial,sans-serif}
+.container{max-width:1180px;margin:auto;padding:0 32px}
+.narrow{max-width:760px}
+.hero{padding:96px 0 110px}
+.section{padding:86px 0;border-top:1px solid #E5DFD5}
+.alt{background:#F1ECE5}
+.split{display:grid;grid-template-columns:320px 1fr;gap:60px}
+.eyebrow{color:#7A2635;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
+h1,h2,h3{font-family:Georgia,serif;font-weight:400;margin:0}
+h1{font-size:clamp(54px,7vw,82px);line-height:1.05}
+h1 em{display:block;font-style:italic;color:#756653}
+h2{font-size:clamp(36px,5vw,50px);line-height:1.15;margin-bottom:24px}
+.lead,p{color:#514C45;line-height:1.8}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:40px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse}
+th,td{padding:16px;border-bottom:1px solid #D8D0C5;text-align:left}
+th{font-family:Georgia,serif}
+.flow{margin-top:36px;border-top:1px solid #D8D0C5}
+.flow div{padding:18px 0;border-bottom:1px solid #D8D0C5}
+.statement{margin-top:36px;padding:26px 0;border-top:1px solid #D8D0C5;border-bottom:1px solid #D8D0C5}
+.statement p{font-family:Georgia,serif;font-size:24px;color:#201D19;margin:8px 0}
+.cta{padding:100px 0;background:#EBE5DC}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.button{display:inline-block;padding:14px 22px;text-decoration:none;border:1px solid #C8BBAA}
+.primary{background:#7A2635;color:#fff;border-color:#7A2635}
+.secondary{color:#201D19;background:transparent}
 @media(max-width:800px){
-.container{padding:0 20px;}
-.hero{padding:60px 0 80px;}
-h1{font-size:41px;}
-h2{font-size:31px;}
-.split{grid-template-columns:1fr;gap:30px;}
-.pillars,.layers,.spaces{grid-template-columns:1fr;}
-.truth-list article{grid-template-columns:48px 1fr;}
-.statement p{font-size:20px;}
-.cta{padding:80px 0;}
+.container{padding:0 20px}
+.hero,.section,.cta{padding:70px 0}
+.split,.grid3,.grid2{grid-template-columns:1fr}
+h1{font-size:42px}
+.statement p{font-size:20px}
 }
 </style>

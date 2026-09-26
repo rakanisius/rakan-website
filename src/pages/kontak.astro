@@ -3,186 +3,447 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "Kontak | RAKAN";
+const description =
+  "Hubungi RAKAN untuk konsultasi, pendampingan, atau kolaborasi.";
 ---
 
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+<title>{title}</title>
+<meta name="description" content={description}/>
 
-    <title>{title}</title>
+<link rel="icon" href="/favicon-rakan.png"/>
+</head>
 
-    <meta
-      name="description"
-      content="Hubungi Rakan untuk konsultasi, coaching, mentoring, tulisan, dan kerja sama."
-    />
+<body>
 
-    <style>
-      :global(*) {
-        box-sizing: border-box;
-      }
+<Nav/>
 
-      :global(body) {
-        margin: 0;
-        background: #f7f4ee;
-        color: #29251f;
-        font-family: Arial, sans-serif;
-      }
+<main>
 
-      .page {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 90px 32px 120px;
-      }
+<!-- HERO -->
 
-      .eyebrow {
-        margin-bottom: 25px;
-        color: #756d62;
-        font-size: 13px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
+<section class="hero">
 
-      h1 {
-        max-width: 900px;
-        margin: 0;
-        font-family: Georgia, serif;
-        font-size: clamp(48px, 7vw, 86px);
-        font-weight: 400;
-        line-height: 0.98;
-        letter-spacing: -0.04em;
-      }
+<div class="container narrow">
 
-      h1 em {
-        font-weight: 400;
-      }
+<div class="eyebrow">
+KONTAK
+</div>
 
-      .intro {
-        max-width: 650px;
-        margin-top: 35px;
-        color: #655f56;
-        font-size: 18px;
-        line-height: 1.8;
-      }
+<h1>
+Mari mulai
+<em>sebuah percakapan.</em>
+</h1>
 
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        margin-top: 100px;
-        padding-top: 45px;
-        border-top: 1px solid #dcd5ca;
-      }
+<p class="intro">
+Jika ingin memulai konsultasi, pendampingan, atau mengajukan kolaborasi, ceritakan terlebih dahulu konteks kebutuhan Anda. Percakapan yang baik biasanya dimulai dari memahami situasinya.
+</p>
 
-      .contact-block h2 {
-        margin: 0;
-        font-family: Georgia, serif;
-        font-size: 36px;
-        font-weight: 400;
-      }
+</div>
 
-      .contact-block p {
-        max-width: 500px;
-        color: #655f56;
-        font-size: 16px;
-        line-height: 1.8;
-      }
+</section>
 
-      .contact-link {
-        display: inline-block;
-        margin-top: 15px;
-        color: #29251f;
-        font-family: Georgia, serif;
-        font-size: 22px;
-        text-decoration: none;
-      }
+<!-- EMAIL -->
 
-      .contact-link:hover {
-        text-decoration: underline;
-      }
+<section class="contact-section">
 
-      .note {
-        max-width: 760px;
-        margin-top: 100px;
-        padding: 35px 0;
-        border-top: 1px solid #dcd5ca;
-        border-bottom: 1px solid #dcd5ca;
-        color: #655f56;
-        line-height: 1.8;
-      }
+<div class="container narrow">
 
-      @media (max-width: 750px) {
-        .page {
-          padding: 65px 22px 90px;
-        }
+<div class="eyebrow">
+EMAIL
+</div>
 
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 50px;
-        }
-      }
-    </style>
-  </head>
+<div class="contact-box">
 
-  <body>
-    <Nav />
+<h3>halo@rakan.my.id</h3>
 
-    <main class="page">
-      <div class="eyebrow">Kontak RAKAN</div>
+<p>
+Email ini digunakan untuk kebutuhan konsultasi, pendampingan, maupun kolaborasi.
+</p>
 
-      <h1>
-        Mari mulai<br />
-        <em>sebuah percakapan.</em>
-      </h1>
+<a href="mailto:halo@rakan.my.id" class="text-link">
+Kirim Email →
+</a>
 
-      <p class="intro">
-        Jika Anda ingin bertanya, berdiskusi, mengundang kerja sama, atau
-        mengetahui lebih jauh tentang layanan Rakan, silakan menghubungi
-        melalui kanal yang tersedia.
-      </p>
+</div>
 
-      <section class="contact-grid">
-        <div class="contact-block">
-          <h2>Email</h2>
+</div>
 
-          <p>
-            Untuk proposal kolaborasi, undangan berbicara, kerja sama institusi, media, dan kebutuhan profesional.
-          </p>
+</section>
 
-          <a class="contact-link" href="mailto:halo@rakan.my.id">
-            halo@rakan.my.id
-          </a>
-        </div>
+<!-- PILIH JALUR -->
 
-        <div class="contact-block">
-          <h2>WhatsApp</h2>
+<section class="contact-section">
 
-          <p>
-            Untuk pertanyaan singkat, konsultasi awal, atau informasi layanan.
-          </p>
+<div class="container narrow">
 
-          <a
-            class="contact-link"
-            href="https://wa.me/62819821945?text=Halo%20Rakan%2C%20saya%20ingin%20berkonsultasi."
-          >
-            Hubungi melalui WhatsApp →
-          </a>
-        </div>
-      </section>
+<div class="eyebrow">
+SEBELUM MENGHUBUNGI
+</div>
 
-      <div class="note">
-        <strong>Catatan:</strong><br />
-        Website ini merupakan ruang edukasi dan informasi. Untuk kondisi
-        kesehatan yang membutuhkan diagnosis atau penanganan medis, gunakan
-        layanan tenaga kesehatan yang sesuai.
-      </div>
-    </main>
+<h2>
+Pilih jalur yang paling sesuai.
+</h2>
 
-    <Footer />
-  </body>
+<div class="paths">
+
+<div class="path">
+
+<span>01</span>
+
+<div>
+
+<h3>Konsultasi</h3>
+
+<p>
+Jika ingin memahami persoalan lebih dulu dan menentukan langkah berikutnya.
+</p>
+
+</div>
+
+</div>
+
+<div class="path">
+
+<span>02</span>
+
+<div>
+
+<h3>Pendampingan</h3>
+
+<p>
+Jika satu percakapan belum cukup dan membutuhkan proses yang lebih mendalam.
+</p>
+
+</div>
+
+</div>
+
+<div class="path">
+
+<span>03</span>
+
+<div>
+
+<h3>Kolaborasi</h3>
+
+<p>
+Untuk seminar, workshop, training, kelas, atau program penyembuhan holistik di institusi, kampus, sekolah, komunitas, maupun perusahaan.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+LANGKAH BERIKUTNYA
+</div>
+
+<h2>
+Setiap kebutuhan memiliki jalannya sendiri.
+</h2>
+
+<p>
+Tidak semua orang membutuhkan pendampingan. Kadang satu percakapan sudah cukup. Kadang perjalanan memang membutuhkan waktu lebih panjang.
+</p>
+
+<div class="cta-actions">
+
+<a href="/layanan" class="button">
+Lihat Layanan
+</a>
+
+<a href="/kolaborasi" class="button secondary">
+Kolaborasi
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<Footer/>
+
+</body>
 </html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
+
+.contact-section{
+padding:86px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.cta{
+padding:90px 0 110px;
+background:#EBE5DC;
+}
+
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+font-size:clamp(50px,7vw,82px);
+line-height:1.03;
+letter-spacing:-.03em;
+}
+
+h1 em{
+display:block;
+font-style:italic;
+color:#756653;
+}
+
+h2{
+font-size:clamp(34px,5vw,48px);
+line-height:1.15;
+margin-bottom:22px;
+}
+
+.intro,
+.contact-section p,
+.cta p{
+color:#514C45;
+font-size:17px;
+line-height:1.8;
+}
+
+/* EMAIL CARD */
+
+.contact-box{
+padding:34px;
+background:#EBE5DC;
+border:1px solid #E5DFD5;
+}
+
+.contact-box h3{
+margin-bottom:18px;
+font-size:34px;
+line-height:1.15;
+}
+
+.contact-box p{
+margin:0 0 24px;
+}
+
+.text-link{
+display:inline-block;
+color:#201D19;
+text-decoration:none;
+border-bottom:1px solid #C8BBAA;
+padding-bottom:4px;
+transition:.2s;
+}
+
+.text-link:hover{
+border-color:#201D19;
+}
+
+/* PATHS */
+
+.paths{
+margin-top:42px;
+border-top:1px solid #E5DFD5;
+}
+
+.path{
+display:grid;
+grid-template-columns:60px 1fr;
+gap:24px;
+padding:28px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.path span{
+color:#7A2635;
+font-size:12px;
+letter-spacing:.12em;
+}
+
+.path h3{
+margin-bottom:10px;
+font-size:28px;
+}
+
+.path p{
+margin:0;
+font-size:15px;
+line-height:1.75;
+}
+
+/* CTA */
+
+.cta-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:32px;
+}
+
+.button{
+display:inline-block;
+padding:15px 24px;
+background:#7A2635;
+color:white;
+text-decoration:none;
+transition:.2s;
+}
+
+.button:hover{
+background:#201D19;
+}
+
+.button.secondary{
+background:transparent;
+border:1px solid #D8D0C5;
+color:#201D19;
+}
+
+/* TABLET */
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.hero{
+padding:70px 0;
+}
+
+.contact-section{
+padding:68px 0;
+}
+
+.cta{
+padding:70px 0 90px;
+}
+
+h1{
+font-size:42px;
+}
+
+.contact-box{
+padding:26px;
+}
+
+.contact-box h3{
+font-size:28px;
+}
+
+.path{
+grid-template-columns:42px 1fr;
+gap:18px;
+}
+
+.path h3{
+font-size:24px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero{
+padding:58px 0;
+}
+
+.contact-section{
+padding:58px 0;
+}
+
+.cta{
+padding:58px 0 72px;
+}
+
+h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
+.intro,
+.contact-section p,
+.cta p{
+font-size:15px;
+}
+
+.contact-box{
+padding:22px;
+}
+
+.contact-box h3{
+font-size:24px;
+}
+
+.path h3{
+font-size:22px;
+}
+
+}
+
+</style>

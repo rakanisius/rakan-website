@@ -8,347 +8,49 @@ import Footer from "../components/Footer.astro";
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <link rel="icon" href="/favicon-rakan.png"/>
-
 <title>Tentang Rakan | RAKAN</title>
-
-<meta
-name="description"
-content="Mengenal Abdul Rakan, apoteker, penulis, dan praktisi kesehatan holistik."
-/>
+<meta name="description" content="Mengenal Abdul Rakan, apoteker, penulis, dan praktisi penyembuhan holistik."/>
+<style>
+:global(*){box-sizing:border-box}
+:global(body){margin:0;background:#F7F4EE;color:#201D19;font-family:Arial,Helvetica,sans-serif}
+.container{max-width:1180px;margin:auto;padding:0 32px}.narrow{max-width:760px}
+.hero{padding:100px 0 90px;border-bottom:1px solid #E5DFD5}
+.hero-grid{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid #E5DFD5;background:#ECE5DA}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.eyebrow{margin-bottom:24px;color:#7A2635;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.role{color:#514C45;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+h1,h2,h3{margin:0;font-family:Georgia,serif;font-weight:400}
+h1{font-size:clamp(50px,7vw,82px);line-height:1.08;letter-spacing:-.03em}
+h1 span{display:block;margin-top:14px} h1 em{font-style:italic;color:#756653}
+.intro{max-width:650px;margin-top:34px;color:#514C45;font-size:17px;line-height:1.85}
+.story,.closing{padding:95px 0}.story h2,.closing h2{margin-bottom:30px;font-size:clamp(36px,5vw,48px);line-height:1.2}
+.story p,.closing p{margin:0 0 24px;color:#514C45;font-size:17px;line-height:1.9}
+.principles{padding:95px 0;background:#F1ECE5}.principles h2{margin-bottom:38px;font-size:clamp(36px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#E5DFD5;border:1px solid #E5DFD5}
+.item{background:#F7F4EE;padding:34px}.item h3{margin-bottom:16px;font-size:28px}.item p{margin:0;color:#514C45;line-height:1.85}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.actions a{padding:14px 22px;border:1px solid #C8BBAA;border-radius:999px;text-decoration:none;color:#201D19;transition:.2s}
+.actions a:hover{background:#7A2635;color:white;border-color:#7A2635}
+@media(max-width:800px){.container{padding:0 20px}.hero{padding:72px 0}.hero-grid{grid-template-columns:1fr}.portrait{max-width:320px}.role{font-size:12px}h1{font-size:42px}.story,.principles,.closing{padding:72px 0}.grid{grid-template-columns:1fr}.actions{flex-direction:column}.actions a{text-align:center}}
+</style>
 </head>
-
 <body>
-
 <Nav/>
-
 <main>
-
-<section class="hero">
-
-<div class="container">
-
-<div class="eyebrow">
-TENTANG RAKAN
-</div>
-
-<h1>
-Mengenal manusia sebelum
-<span><em>sekadar melihat masalahnya.</em></span>
-</h1>
-
-<p class="intro">
-Saya percaya kesehatan bukan hanya urusan tubuh.
-Ia adalah pertemuan antara tubuh, pikiran, kebiasaan, lingkungan,
-dan cara seseorang menjalani hidupnya.
-</p>
-
-</div>
-
-</section>
-
-<section class="story">
-
-<div class="container narrow">
-
-<div class="eyebrow">
-PERJALANAN
-</div>
-
-<h2>
-Dari apotek menuju ruang percakapan.
-</h2>
-
-<p>
-Saya bekerja sebagai apoteker, tetapi semakin lama saya menyadari bahwa
-banyak pertanyaan manusia tidak berhenti di nama penyakit atau nama obat.
-Ada pertanyaan tentang rasa takut, kebiasaan, hubungan, kehilangan,
-dan cara memahami diri sendiri.
-</p>
-
-<p>
-Dari sanalah lahir RAKAN.
-Bukan sekadar nama, tetapi ruang untuk membantu orang memahami kesehatan
-dengan bahasa yang lebih manusiawi.
-</p>
-
-</div>
-
-</section>
-
-<section class="principles">
-
-<div class="container">
-
-<div class="eyebrow">
-PRINSIP
-</div>
-
-<h2>
-Cara saya bekerja.
-</h2>
-
-<div class="grid">
-
-<div class="item">
-<h3>Memahami sebelum menyimpulkan.</h3>
-<p>
-Setiap orang membawa cerita yang berbeda.
-Karena itu saya berusaha mendengar lebih dulu sebelum memberi arah.
-</p>
-</div>
-
-<div class="item">
-<h3>Bahasa yang mudah dipahami.</h3>
-<p>
-Ilmu kesehatan menjadi lebih berguna ketika bisa dipahami oleh orang biasa.
-</p>
-</div>
-
-<div class="item">
-<h3>Melihat manusia secara utuh.</h3>
-<p>
-Tubuh, pikiran, kebiasaan, dan kehidupan saling memengaruhi.
-</p>
-</div>
-
-<div class="item">
-<h3>Perubahan yang realistis.</h3>
-<p>
-Saya lebih percaya pada langkah kecil yang konsisten daripada solusi instan.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="closing">
-
-<div class="container narrow">
-
-<div class="eyebrow">
-RUANG INI
-</div>
-
-<h2>
-Semoga setiap tulisan menjadi awal percakapan.
-</h2>
-
-<p>
-Website ini adalah tempat saya menulis, menerbitkan buku,
-membangun kolaborasi, dan mendampingi manusia memahami dirinya secara utuh.
-</p>
-
-</div>
-
-</section>
-
+<section class="hero"><div class="container hero-grid">
+<div class="portrait"><img src="/images/profile/rakan-portrait.jpg" alt="Abdul Rakan"/></div>
+<div>
+<div class="eyebrow">TENTANG ABDUL RAKAN</div>
+<div class="role">Apoteker & Praktisi Penyembuhan Holistik</div>
+<h1>Mengenal manusia sebelum<span><em>sekadar melihat masalahnya.</em></span></h1>
+<p class="intro">Selama bertahun-tahun saya melihat bahwa banyak pertanyaan manusia tidak berhenti di nama penyakit atau nama obat. Karena itu saya membangun SITUS ini sebagai ruang untuk menulis, berdialog, dan mendampingi percakapan tentang tubuh, pikiran, dan kehidupan.</p>
+</div></div></section>
+<section class="story"><div class="container narrow"><div class="eyebrow">PERJALANAN</div><h2>Dari apotek menuju ruang percakapan.</h2><p>Pengalaman bekerja sebagai apoteker memperlihatkan kepada saya bahwa banyak orang pulang membawa resep, tetapi belum tentu pulang membawa pemahaman.</p><p>Semakin lama saya menyadari bahwa banyak pertanyaan manusia tidak berhenti di diagnosis, obat, atau hasil pemeriksaan. Ada pertanyaan tentang rasa takut, kebiasaan, hubungan, kehilangan, dan cara memahami diri sendiri.</p><p>Dari sanalah lahir RAKAN®. Bukan sekadar nama, tetapi ruang untuk membantu orang memahami kesehatan dengan bahasa yang lebih manusiawi.</p></div></section>
+<section class="principles"><div class="container"><div class="eyebrow">PRINSIP</div><h2>Cara saya mendampingi.</h2><div class="grid"><div class="item"><h3>Memahami sebelum menyimpulkan.</h3><p>Setiap orang membawa cerita yang berbeda. Karena itu saya berusaha mendengar lebih dulu sebelum memberi arah.</p></div><div class="item"><h3>Bahasa yang mudah dipahami.</h3><p>Ilmu kesehatan menjadi lebih berguna ketika bisa dipahami oleh orang biasa.</p></div><div class="item"><h3>Melihat manusia secara utuh.</h3><p>Tubuh, pikiran, kebiasaan, dan kehidupan saling memengaruhi.</p></div><div class="item"><h3>Perubahan yang realistis.</h3><p>Saya lebih percaya pada langkah kecil yang konsisten daripada solusi instan.</p></div></div></div></section>
+<section class="closing"><div class="container narrow"><div class="eyebrow">RUANG INI</div><h2>Semoga setiap tulisan menjadi awal percakapan.</h2><p>Kalau Anda sampai di halaman ini setelah membaca sebuah tulisan, mungkin percakapannya belum selesai. Anda bisa melanjutkannya lewat buku, pendampingan, atau kolaborasi.</p><div class="actions"><a href="/buku">Baca Buku</a><a href="/layanan">Lihat Layanan</a><a href="/kolaborasi">Kolaborasi</a></div></div></section>
 </main>
-
 <Footer/>
-
 </body>
 </html>
-
-<style>
-
-:global(*){box-sizing:border-box;}
-
-:global(body){
-margin:0;
-background:#F7F4EE;
-color:#201D19;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-.container{
-max-width:1180px;
-margin:auto;
-padding:0 32px;
-}
-
-.narrow{
-max-width:760px;
-}
-
-.hero{
-padding:100px 0 90px;
-border-bottom:1px solid #E5DFD5;
-}
-
-.eyebrow{
-margin-bottom:24px;
-color:#7A2635;
-font-size:11px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-}
-
-h1,h2,h3{
-margin:0;
-font-family:Georgia,serif;
-font-weight:400;
-}
-
-h1{
-max-width:860px;
-font-size:clamp(50px,7vw,82px);
-line-height:1.08;
-letter-spacing:-.03em;
-}
-
-h1 span{
-display:block;
-margin-top:14px;
-}
-
-h1 em{
-font-style:italic;
-color:#756653;
-}
-
-.intro{
-max-width:650px;
-margin-top:34px;
-color:#514C45;
-font-size:17px;
-line-height:1.85;
-}
-
-.story,
-.closing{
-padding:95px 0;
-}
-
-.story h2,
-.closing h2{
-margin-bottom:30px;
-font-size:clamp(36px,5vw,48px);
-line-height:1.2;
-}
-
-.story p,
-.closing p{
-margin:0 0 24px;
-color:#514C45;
-font-size:17px;
-line-height:1.9;
-}
-
-.principles{
-padding:95px 0;
-background:#F1ECE5;
-}
-
-.principles h2{
-margin-bottom:38px;
-font-size:clamp(36px,5vw,48px);
-line-height:1.2;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:1px;
-background:#E5DFD5;
-border:1px solid #E5DFD5;
-}
-
-.item{
-background:#F7F4EE;
-padding:34px;
-}
-
-.item h3{
-margin-bottom:16px;
-font-size:28px;
-line-height:1.25;
-}
-
-.item p{
-margin:0;
-color:#514C45;
-line-height:1.85;
-}
-
-@media(max-width:800px){
-
-.container{
-padding:0 20px;
-}
-
-.hero{
-padding:72px 0;
-}
-
-h1{
-font-size:42px;
-line-height:1.12;
-}
-
-h1 span{
-margin-top:18px;
-}
-
-.story,
-.principles,
-.closing{
-padding:72px 0;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.story h2,
-.principles h2,
-.closing h2{
-margin-bottom:26px;
-font-size:32px;
-line-height:1.25;
-}
-
-}
-
-@media(max-width:390px){
-
-.container{
-padding:0 18px;
-}
-
-.hero{
-padding:58px 0;
-}
-
-h1{
-font-size:34px;
-}
-
-h1 span{
-margin-top:20px;
-}
-
-.intro{
-margin-top:30px;
-font-size:15px;
-line-height:1.8;
-}
-
-.story h2,
-.principles h2,
-.closing h2{
-font-size:28px;
-}
-
-.item h3{
-font-size:22px;
-}
-
-}
-
-</style>

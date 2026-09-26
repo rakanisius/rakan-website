@@ -7,298 +7,275 @@ const title = "Form Kolaborasi | RAKAN";
 
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>{title}</title>
+<title>{title}</title>
 
-    <meta
-      name="description"
-      content="Ajukan kolaborasi bersama RAKAN untuk seminar, workshop, kelas, talkshow, dan program khusus."
-    />
+<meta
+name="description"
+content="Ajukan kolaborasi bersama RAKAN."
+/>
 
-    <link rel="icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="shortcut icon" type="image/png" href="/favicon-rakan.png" />
-    <link rel="apple-touch-icon" href="/favicon-rakan.png" />
+<link rel="icon" href="/favicon-rakan.png"/>
 
-    <style>
-      :global(*) {
-        box-sizing: border-box;
-      }
+<style>
 
-      :global(body) {
-        margin: 0;
-        background: #f7f4ee;
-        color: #201d19;
-        font-family: Arial, sans-serif;
-      }
+:global(*){box-sizing:border-box;}
 
-      .container {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 90px 24px 120px;
-      }
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-      .eyebrow {
-        margin-bottom: 24px;
-        color: #7a2635;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
+.container{
+max-width:760px;
+margin:auto;
+padding:90px 24px 120px;
+}
 
-      h1 {
-        margin: 0 0 24px;
-        font-family: Georgia, serif;
-        font-size: clamp(42px, 6vw, 64px);
-        font-weight: 400;
-        line-height: 1.08;
-        letter-spacing: -0.03em;
-      }
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:12px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
 
-      .lead {
-        margin-bottom: 42px;
-        color: #514c45;
-        font-size: 18px;
-        line-height: 1.8;
-      }
+h1,h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
 
-      .info {
-        margin-bottom: 46px;
-        padding: 28px 0;
-        border-top: 1px solid #d8d0c4;
-        border-bottom: 1px solid #d8d0c4;
-      }
+h1{
+margin-bottom:28px;
+font-size:clamp(42px,6vw,64px);
+line-height:1.08;
+}
 
-      .info h2 {
-        margin: 0 0 14px;
-        font-family: Georgia, serif;
-        font-size: 24px;
-        font-weight: 400;
-      }
+h2{
+margin-bottom:16px;
+font-size:28px;
+}
 
-      .info ul {
-        margin: 0;
-        padding-left: 18px;
-        color: #514c45;
-        line-height: 1.9;
-      }
+.lead{
+margin-bottom:42px;
+color:#514C45;
+font-size:18px;
+line-height:1.8;
+}
 
-      .guide {
-        margin-bottom: 42px;
-        padding: 28px;
-        background: #ebe5dc;
-      }
+.box{
+margin-bottom:42px;
+padding:28px;
+background:#EBE5DC;
+}
 
-      .guide h2 {
-        margin: 0 0 14px;
-        font-family: Georgia, serif;
-        font-size: 24px;
-        font-weight: 400;
-      }
+.box p{
+margin:0 0 14px;
+color:#514C45;
+line-height:1.8;
+}
 
-      .guide p {
-        margin: 0 0 14px;
-        color: #514c45;
-        line-height: 1.8;
-      }
+.box p:last-child{
+margin-bottom:0;
+}
 
-      .guide ul {
-        margin: 0;
-        padding-left: 18px;
-        color: #514c45;
-        line-height: 1.9;
-      }
+.list{
+display:grid;
+gap:10px;
+margin-top:16px;
+}
 
-      form {
-        display: grid;
-        gap: 28px;
-      }
+.list div{
+padding-left:22px;
+position:relative;
+color:#514C45;
+line-height:1.8;
+}
 
-      label {
-        display: block;
-        margin-bottom: 10px;
-        color: #514c45;
-        font-size: 14px;
-      }
+.list div::before{
+content:"•";
+position:absolute;
+left:0;
+color:#7A2635;
+}
 
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 16px;
-        border: 1px solid #d8d0c4;
-        background: white;
-        color: #201d19;
-        font-size: 16px;
-        font-family: inherit;
-      }
+form{
+display:grid;
+gap:28px;
+}
 
-      input:focus,
-      textarea:focus,
-      select:focus {
-        outline: none;
-        border-color: #7a2635;
-      }
+label{
+display:block;
+margin-bottom:10px;
+color:#514C45;
+font-size:14px;
+}
 
-      textarea {
-        min-height: 170px;
-        resize: vertical;
-      }
+input,textarea{
+width:100%;
+padding:16px;
+border:1px solid #D8D0C4;
+background:white;
+font-size:16px;
+font-family:inherit;
+}
 
-      button {
-        padding: 16px 26px;
-        border: none;
-        background: #7a2635;
-        color: white;
-        font-size: 15px;
-        cursor: pointer;
-        transition: background 0.2s ease;
-      }
+input:focus,textarea:focus{
+outline:none;
+border-color:#7A2635;
+}
 
-      button:hover {
-        background: #201d19;
-      }
+textarea{
+min-height:180px;
+resize:vertical;
+}
 
-      @media (max-width: 640px) {
-        .container {
-          padding: 70px 20px 90px;
-        }
+button{
+padding:16px 26px;
+border:none;
+background:#7A2635;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
+}
 
-        .guide {
-          padding: 24px;
-        }
-      }
-    </style>
-  </head>
+button:hover{
+background:#201D19;
+}
 
-  <body>
-    <Nav />
+@media(max-width:640px){
 
-    <main class="container">
-      <div class="eyebrow">Kolaborasi</div>
+.container{padding:70px 20px 90px;}
 
-      <h1>Mari mulai sebuah kolaborasi.</h1>
+.box{padding:24px;}
 
-      <p class="lead">
-        Ceritakan kebutuhan kegiatan Anda. Saya akan mempelajari konteks,
-        peserta, tujuan, dan bentuk kolaborasi yang paling sesuai sebelum
-        melanjutkan percakapan berikutnya.
-      </p>
+}
 
-      <section class="info">
-        <h2>Sebelum mengirim</h2>
+</style>
 
-        <ul>
-          <li>Proposal akan dipelajari terlebih dahulu.</li>
-          <li>Balasan akan dikirim melalui email.</li>
-          <li>Untuk kebutuhan mendesak, gunakan WhatsApp di halaman Kontak.</li>
-        </ul>
-      </section>
+</head>
 
-      <section class="guide">
-        <h2>Apa yang biasanya saya butuhkan?</h2>
+<body>
 
-        <p>
-          Tidak perlu menyiapkan proposal yang rumit. Tiga informasi berikut
-          sudah cukup untuk memulai.
-        </p>
+<Nav/>
 
-        <ul>
-          <li>Tujuan kegiatan.</li>
-          <li>Siapa pesertanya.</li>
-          <li>Kapan rencananya.</li>
-        </ul>
-      </section>
+<main class="container">
 
-      <form
-        name="kolaborasi"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        action="/kolaborasi/terima-kasih/"
-      >
-        <input type="hidden" name="form-name" value="kolaborasi" />
+<div class="eyebrow">KOLABORASI</div>
 
-        <p hidden>
-          <label>
-            Jangan isi kolom ini
-            <input name="bot-field" />
-          </label>
-        </p>
+<h1>Mari mulai dari konteksnya.</h1>
 
-        <div>
-          <label for="nama">Nama *</label>
-          <input id="nama" name="nama" required />
-        </div>
+<p class="lead">
+Ceritakan siapa pesertanya, apa tujuan kegiatannya,
+dan kapan rencananya.
+Dari sana kita menyusun bentuk kolaborasi yang paling sesuai.
+</p>
 
-        <div>
-          <label for="email">Email *</label>
-          <input id="email" type="email" name="email" required />
-        </div>
+<section class="box">
 
-        <div>
-          <label for="institusi">Institusi / Organisasi</label>
-          <input id="institusi" name="institusi" />
-        </div>
+<h2>Apa yang akan kita bicarakan?</h2>
 
-        <div>
-          <label for="jenis">Jenis Kolaborasi *</label>
-          <select id="jenis" name="jenis" required>
-            <option value="">Pilih jenis kolaborasi</option>
-            <option>Seminar</option>
-            <option>Talkshow</option>
-            <option>Workshop</option>
-            <option>Kelas</option>
-            <option>Program Khusus</option>
-            <option>Media & Wawancara</option>
-            <option>Lainnya</option>
-          </select>
-        </div>
+<p>
+Kolaborasi berfokus pada pembelajaran penyembuhan holistik melalui seminar,
+workshop, training, talkshow, kelas privat, kelas kelompok, maupun gathering.
+</p>
 
-        <div>
-          <label for="lokasi">Lokasi</label>
-          <input
-            id="lokasi"
-            name="lokasi"
-            placeholder="Contoh: Jakarta atau Online"
-          />
-        </div>
+<div class="list">
 
-        <div>
-          <label for="peserta">Perkiraan Jumlah Peserta</label>
-          <input
-            id="peserta"
-            name="peserta"
-            placeholder="Contoh: 80 peserta"
-          />
-        </div>
+<div>Prinsip penyembuhan holistik.</div>
 
-        <div>
-          <label for="waktu">Perkiraan Waktu</label>
-          <input
-            id="waktu"
-            name="waktu"
-            placeholder="Contoh: Oktober 2026"
-          />
-        </div>
+<div>Pendekatan yang relevan untuk persoalan sehari-hari.</div>
 
-        <div>
-          <label for="pesan">Ceritakan kebutuhan Anda *</label>
-          <textarea
-            id="pesan"
-            name="pesan"
-            placeholder="Misalnya tujuan kegiatan, siapa pesertanya, durasi yang diharapkan, dan informasi lain yang menurut Anda penting."
-            required
-          ></textarea>
-        </div>
+<div>Hubungan tubuh, pikiran, kebiasaan, dan lingkungan.</div>
 
-        <button type="submit">Kirim Pengajuan</button>
-      </form>
-    </main>
+<div>Pendekatan integratif dan komplementer secara bertanggung jawab.</div>
 
-    <Footer />
-  </body>
+</div>
+
+</section>
+
+<form
+method="POST"
+action="/api/kolaborasi"
+>
+
+<div>
+
+<label for="nama">Nama *</label>
+
+<input id="nama" name="nama" required/>
+
+</div>
+
+<div>
+
+<label for="email">Email *</label>
+
+<input id="email" type="email" name="email" required/>
+
+</div>
+
+<div>
+
+<label for="institusi">Institusi / Organisasi *</label>
+
+<input id="institusi" name="institusi" required/>
+
+</div>
+
+<div>
+
+<label for="lokasi">Lokasi</label>
+
+<input id="lokasi" name="lokasi"/>
+
+</div>
+
+<div>
+
+<label for="peserta">Perkiraan Jumlah Peserta</label>
+
+<input id="peserta" name="peserta"/>
+
+</div>
+
+<div>
+
+<label for="waktu">Perkiraan Waktu</label>
+
+<input id="waktu" name="waktu"/>
+
+</div>
+
+<div>
+
+<label for="pesan">Ceritakan kebutuhan Anda *</label>
+
+<textarea
+id="pesan"
+name="pesan"
+required
+placeholder="Apa yang ingin dicapai melalui kegiatan ini? Siapa pesertanya? Kapan rencananya? Informasi lain apa yang perlu saya ketahui agar program dapat disusun sesuai kebutuhan Anda?"
+></textarea>
+
+</div>
+
+<button type="submit">Kirim Pengajuan</button>
+
+</form>
+
+</main>
+
+<Footer/>
+
+</body>
+
 </html>

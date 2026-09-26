@@ -130,7 +130,7 @@ dan perjalanan manusia memahami dirinya sendiri.
 
 </section>
 
-<!-- JELAJAHI BERDASARKAN TEMA -->
+<!-- KATEGORI -->
 
 <section class="categories-section">
 
@@ -171,9 +171,11 @@ Lihat kategori →
 
 </section>
 
-<!-- DAFTAR ARTIKEL -->
+<!-- ARTIKEL -->
 
 <section class="articles-section">
+
+<div class="container">
 
 <div class="articles">
 
@@ -217,6 +219,43 @@ Baca tulisan →
 
 </div>
 
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="cta-inner">
+
+<div class="eyebrow">
+LANJUTKAN PERJALANAN
+</div>
+
+<h2>
+Membaca adalah awal.
+<em>Memahami membutuhkan percakapan.</em>
+</h2>
+
+<p>
+Jika satu tulisan membuka pertanyaan baru, Anda bisa melanjutkannya melalui buku atau layanan pendampingan.
+</p>
+
+<div class="cta-actions">
+
+<a href="/buku" class="button secondary">
+Lihat Buku
+</a>
+
+<a href="/layanan" class="button">
+Lihat Layanan
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 </main>
@@ -232,6 +271,7 @@ Baca tulisan →
 
 :global(html){
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 :global(body){
@@ -242,10 +282,7 @@ color:#201D19;
 font-family:Arial,Helvetica,sans-serif;
 }
 
-/* CONTAINER */
-
-.container,
-.articles-section{
+.container{
 max-width:1180px;
 margin:auto;
 padding:0 32px;
@@ -319,10 +356,7 @@ background:#F7F4EE;
 border:1px solid #E5DFD5;
 text-decoration:none;
 color:inherit;
-transition:
-transform .25s ease,
-box-shadow .25s ease,
-border-color .25s ease;
+transition:.25s ease;
 }
 
 .category-card:hover{
@@ -361,8 +395,7 @@ color:#7A2635;
 /* ARTIKEL */
 
 .articles-section{
-padding-top:80px;
-padding-bottom:110px;
+padding:80px 0 110px;
 }
 
 .articles{
@@ -396,7 +429,6 @@ font-weight:600;
 letter-spacing:.13em;
 text-transform:uppercase;
 text-decoration:none;
-transition:.2s;
 }
 
 .category:hover{
@@ -422,19 +454,79 @@ text-decoration:none;
 color:#201D19;
 font-size:14px;
 white-space:nowrap;
-transition:.2s;
 }
 
 .read:hover{
 color:#7A2635;
 }
 
+/* CTA */
+
+.cta{
+padding:90px 0;
+background:#EBE5DC;
+border-top:1px solid #E5DFD5;
+}
+
+.cta-inner{
+max-width:760px;
+margin:auto;
+padding:0 32px;
+}
+
+.cta h2{
+font-size:clamp(34px,5vw,48px);
+line-height:1.15;
+margin:18px 0;
+}
+
+.cta h2 em{
+display:block;
+font-style:italic;
+color:#756653;
+}
+
+.cta p{
+max-width:620px;
+color:#514C45;
+font-size:17px;
+line-height:1.8;
+}
+
+.cta-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.button{
+display:inline-block;
+padding:15px 24px;
+background:#7A2635;
+color:white;
+text-decoration:none;
+}
+
+.button:hover{
+background:#201D19;
+}
+
+.button.secondary{
+background:transparent;
+border:1px solid #D8D0C5;
+color:#201D19;
+}
+
+.button.secondary:hover{
+background:#F1ECE5;
+}
+
 /* TABLET */
 
 @media(max-width:900px){
 
-.container,
-.articles-section{
+.container{
 padding:0 20px;
 }
 
@@ -470,12 +562,11 @@ font-size:26px;
 
 }
 
-/* iPhone 12 mini */
+/* MOBILE */
 
 @media(max-width:390px){
 
-.container,
-.articles-section{
+.container{
 padding:0 18px;
 }
 
@@ -513,8 +604,7 @@ font-size:14px;
 }
 
 .articles-section{
-padding-top:52px;
-padding-bottom:70px;
+padding:52px 0 70px;
 }
 
 .article{
@@ -541,6 +631,18 @@ font-size:14px;
 
 .read{
 font-size:12px;
+}
+
+.cta{
+padding:58px 0;
+}
+
+.cta-inner{
+padding:0 18px;
+}
+
+.cta p{
+font-size:15px;
 }
 
 }

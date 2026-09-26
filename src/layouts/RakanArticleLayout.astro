@@ -1,0 +1,245 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title,
+  description,
+  category,
+  archive,
+  author = "Abdul Rakan",
+  readingTime = "8 menit membaca",
+  benangMerah,
+  heroQuote,
+  heroImage
+} = Astro.props;
+---
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title} | RAKAN</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    {heroImage && <meta property="og:image" content={heroImage} />}
+  </head>
+
+  <body>
+
+    <Nav />
+
+    <main class="article">
+
+      <header class="hero">
+
+        <div class="meta">
+          <span>{category}</span>
+          <span>•</span>
+          <span>{readingTime}</span>
+        </div>
+
+        <h1>{title}</h1>
+
+        <p class="benang">
+          <strong>Benang Merah:</strong> {benangMerah}
+        </p>
+
+        <blockquote>
+          {heroQuote}
+        </blockquote>
+
+        {heroImage && (
+          <img
+            src={heroImage}
+            alt={title}
+            class="hero-image"
+            loading="eager"
+          />
+        )}
+
+      </header>
+
+      <article class="content">
+        <slot />
+      </article>
+
+      <hr />
+
+      <section class="signature">
+
+        <p class="author">
+          <strong>{author}</strong>
+        </p>
+
+        <p class="role">
+          Apoteker & Praktisi Penyembuhan Holistik
+        </p>
+
+        <p class="editorial">
+          <em>
+            Di RAKAN.MY.ID, saya percaya perjalanan memahami diri sering dimulai dari peristiwa yang tampak biasa.
+          </em>
+        </p>
+
+        <p class="archive">
+          Arsip RAKAN · {archive}
+        </p>
+
+      </section>
+
+    </main>
+
+    <Footer />
+
+  </body>
+</html>
+
+<style>
+:root{
+  --cream:#F7F4EE;
+  --maroon:#7A2635;
+  --text:#2B2B2B;
+  --muted:#6B6B6B;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.article{
+  max-width:760px;
+  margin:auto;
+  padding:4rem 1.5rem 5rem;
+}
+
+.hero{
+  margin-bottom:3rem;
+}
+
+.meta{
+  display:flex;
+  gap:.6rem;
+  align-items:center;
+  color:var(--muted);
+  font-size:.95rem;
+  margin-bottom:.8rem;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,5vw,3.7rem);
+  line-height:1.12;
+  margin:0 0 1rem;
+  letter-spacing:-.02em;
+}
+
+.benang{
+  margin:1.5rem 0;
+  color:#4F4F4F;
+  line-height:1.7;
+}
+
+blockquote{
+  border-left:4px solid var(--maroon);
+  padding-left:1rem;
+  margin:2rem 0;
+  font-style:italic;
+  color:#4A3B3F;
+  font-size:1.15rem;
+  line-height:1.8;
+}
+
+.hero-image{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  margin-top:2rem;
+  display:block;
+}
+
+.content{
+  font-size:1.12rem;
+  line-height:1.95;
+}
+
+.content h2{
+  color:var(--maroon);
+  margin-top:3.5rem;
+  margin-bottom:1rem;
+  font-size:1.7rem;
+}
+
+.content h3{
+  color:var(--maroon);
+  margin-top:2.5rem;
+}
+
+.content p{
+  margin:1.2rem 0;
+}
+
+.content blockquote{
+  margin:2rem 0;
+}
+
+.content img{
+  width:100%;
+  border-radius:16px;
+}
+
+hr{
+  margin:5rem 0 3rem;
+  border:none;
+  border-top:1px solid rgba(122,38,53,.18);
+}
+
+.signature{
+  text-align:center;
+}
+
+.signature .author{
+  margin-bottom:.25rem;
+  font-size:1.1rem;
+}
+
+.signature .role{
+  color:var(--muted);
+  margin-bottom:1.4rem;
+}
+
+.signature .editorial{
+  max-width:520px;
+  margin:0 auto 1.5rem;
+  line-height:1.8;
+  color:#5C4B50;
+}
+
+.signature .archive{
+  color:#8A7A7A;
+  font-size:.92rem;
+}
+
+@media (max-width:640px){
+
+  .article{
+    padding:3rem 1.2rem 4rem;
+  }
+
+  .content{
+    font-size:1.05rem;
+    line-height:1.9;
+  }
+
+}
+</style>
