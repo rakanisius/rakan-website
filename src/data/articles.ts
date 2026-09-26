@@ -1,11 +1,12 @@
 export const articles = [
   {
-    number: 6,
-    category: "Catatan Praktisi",
-    slug: "catatan-praktisi",
-    title: "Jalan Pulang",
-    description: "Tulis deskripsi singkat di sini.",
-    href: "/tulisan/jalan-pulang",
+  number: 6,
+  category: "Kehidupan",
+  slug: "kehidupan",
+  title: "Ketika Kekerasan Menjadi Syarat Masuk Komunitas",
+  description:
+    "Catatan dari ruang IGD tentang bagaimana kebutuhan diterima dalam kelompok bisa berubah menjadi kekerasan, dan mengapa luka manusia tidak selalu berasal dari penyakit.",
+  href: "/tulisan/ketika-kekerasan-menjadi-syarat-masuk-komunitas",
   },
   {
     number: 5,
