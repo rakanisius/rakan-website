@@ -84,14 +84,20 @@ const CATEGORY = {
   let article = fs.readFileSync(templatePath, "utf8");
 
   article = article
-    .replace(/number:\s*\d+/, `number: ${next}`)
-    .replace(/archive:\s*"[^"]*"/, `archive: "K-${String(next).padStart(3, "0")}"`)
-    .replace(/category:\s*"[^"]*"/, `category: "${cat.title}"`)
-    .replace(/slug:\s*"[^"]*"/, `slug: "${cat.slug}"`)
-    .replace(/path:\s*"[^"]*"/, `path: "${slug}"`)
-    .replace(/title:\s*"[^"]*"/, `title: "${title}"`)
-    .replace(/description:\s*"[^"]*"/, `description: "Tulis deskripsi singkat di sini."`)
-    .replace(/\/images\/[^"]+/, `/images/${slug}.png`);
+    .replace(/const slug = "slug-artikel"/, `const slug = "${slug}"`)
+    .replace(/const title = "JUDUL ARTIKEL \| RAKAN"/, `const title = "${title} | RAKAN"`)
+    .replace(/const description = "Deskripsi singkat artikel\."/,
+      `const description = "Tulis deskripsi singkat di sini."`)
+    .replace(/const image = "\/images\/nama-gambar\.png"/,
+      `const image = "/images/${slug}.png"`)
+    .replace(/const category = "Kehidupan"/,
+      `const category = "${cat.title}"`)
+    .replace(/const archive = "K-000"/,
+      `const archive = "K-${String(next).padStart(3, "0")}"`)
+    .replace(/<h1>JUDUL ARTIKEL<\/h1>/,
+      `<h1>${title}</h1>`)
+    .replace(/alt="Judul Artikel"/,
+      `alt="${title}"`);
 
   fs.writeFileSync(articlePath, article);
 
@@ -119,6 +125,10 @@ const CATEGORY = {
   console.log("\n==============================");
   console.log("✓ Artikel dibuat");
   console.log(`✓ Nomor : ${next}`);
+  console.log(`✓ Arsip : K-${String(next).padStart(3, "0")}`);
+  console.log("✓ Slug otomatis");
+  console.log("✓ Canonical otomatis");
+  console.log("✓ Related Content otomatis");
   console.log("✓ Masuk menu Tulisan");
   console.log("✓ Masuk kategori");
   console.log("==============================");

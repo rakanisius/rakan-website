@@ -25,6 +25,8 @@ Ilustrasi:
 public/images/nama-gambar.png
 */
 
+const slug = "slug-artikel";
+
 const title = "JUDUL ARTIKEL | RAKAN";
 const description = "Deskripsi singkat artikel.";
 const image = "/images/nama-gambar.png";
@@ -55,7 +57,7 @@ const heroCaption =
 <meta property="og:type" content="article"/>
 <meta property="og:image" content={image}/>
 
-<link rel="canonical" href="https://rakan.my.id/tulisan/slug-artikel"/>
+<link rel="canonical" href={`https://rakan.my.id/tulisan/${slug}`}/>
 
 </head>
 
@@ -215,7 +217,7 @@ Arsip RAKAN · {archive}
 </div>
 
 <RelatedContent
-  currentHref="/tulisan/slug-artikel"
+  currentHref={`/tulisan/${slug}`}
   currentCategory={category}
 />
 
