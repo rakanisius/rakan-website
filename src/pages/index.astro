@@ -1,11 +1,16 @@
+
 ---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { articles } from "../data/articles";
 
-const title = "Tentang Rakan | RAKAN";
+const title = "RAKAN | Apoteker & Praktisi Penyembuhan Holistik";
 const description =
-  "Mengenal Abdul Rakan, apoteker, penulis, dan praktisi penyembuhan holistik.";
-const image = "/images/profile/rakan-portrait.jpg";
+  "Mendampingi manusia memahami tubuh, otak, pikiran, dan kehidupan melalui tulisan, buku, konsultasi, pendampingan, dan kolaborasi.";
+
+const latestArticles = [...articles]
+  .sort((a,b)=>b.number-a.number)
+  .slice(0,3);
 ---
 
 <!doctype html>
@@ -16,14 +21,15 @@ const image = "/images/profile/rakan-portrait.jpg";
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>{title}</title>
+
 <meta name="description" content={description}/>
 
-<link rel="canonical" href="https://rakan.my.id/about"/>
+<link rel="canonical" href="https://rakan.my.id/"/>
 
 <meta property="og:title" content={title}/>
 <meta property="og:description" content={description}/>
-<meta property="og:type" content="profile"/>
-<meta property="og:image" content={image}/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/images/profile/rakan-portrait.jpg"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 
@@ -41,132 +47,45 @@ const image = "/images/profile/rakan-portrait.jpg";
 
 <section class="hero">
 
-<div class="container hero-grid">
-
-<div class="portrait">
-
-<img
-src={image}
-alt="Abdul Rakan"
-/>
-
-</div>
-
-<div>
-
-<div class="eyebrow">
-TENTANG RAKAN
-</div>
-
-<div class="role">
-APOTEKER & PRAKTISI PENYEMBUHAN HOLISTIK
-</div>
-
-<h1>
-Mengenal manusia
-<em>sebelum sekadar melihat masalahnya.</em>
-</h1>
-
-<p class="intro">
-Selama bertahun-tahun saya melihat bahwa banyak pertanyaan manusia tidak berhenti di nama penyakit atau nama obat.
-Karena itu saya membangun RAKAN sebagai ruang untuk menulis, berdialog, dan mendampingi percakapan tentang tubuh, otak, pikiran, dan kehidupan.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PERAN -->
-
-<section class="section border">
-
 <div class="container">
 
 <div class="eyebrow">
-PERAN SAYA HARI INI
+RAKAN
 </div>
 
-<h2>
-Empat ruang yang saling melengkapi.
-</h2>
+<div class="role">
+Apoteker & Praktisi Penyembuhan Holistik
+</div>
 
-<div class="role-grid">
+<h1>
+Mendampingi manusia memahami
+<em>proses penyembuhan secara utuh.</em>
+</h1>
 
-<div class="role-card">
-
-<h3>Apoteker</h3>
-
-<p>
-Membantu menjelaskan farmasi dan kesehatan dengan bahasa yang dapat dipahami orang biasa.
+<p class="lead">
+Tubuh, otak, pikiran, dan kehidupan saling memengaruhi.
+RAKAN menjadi ruang untuk memahami hubungan itu melalui tulisan,
+buku,
+konsultasi,
+pendampingan,
+dan kolaborasi.
 </p>
 
-</div>
+<div class="actions">
 
-<div class="role-card">
+<a href="/tulisan" class="button primary">
+Jelajahi Tulisan
+</a>
 
-<h3>Penulis</h3>
+<a href="/layanan" class="button secondary">
+Lihat Layanan
+</a>
 
-<p>
-Membangun perpustakaan RAKAN melalui artikel, buku, dan perjalanan berpikir yang saling terhubung.
-</p>
-
-</div>
-
-<div class="role-card">
-
-<h3>Praktisi Penyembuhan Holistik</h3>
-
-<p>
-Mendampingi proses memahami manusia secara lebih utuh melalui pendekatan yang bertanggung jawab.
-</p>
+<a href="/about" class="button secondary">
+Tentang Rakan
+</a>
 
 </div>
-
-<div class="role-card">
-
-<h3>Kolaborator</h3>
-
-<p>
-Menghadirkan seminar, workshop, training, talkshow, dan kelas bersama berbagai institusi.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PERJALANAN -->
-
-<section class="section border">
-
-<div class="container narrow">
-
-<div class="eyebrow">
-PERJALANAN
-</div>
-
-<h2>
-Dari apotek menuju ruang percakapan.
-</h2>
-
-<p>
-Pengalaman bekerja sebagai apoteker memperlihatkan kepada saya bahwa banyak orang pulang membawa resep, tetapi belum tentu pulang membawa pemahaman.
-</p>
-
-<p>
-Semakin lama saya menyadari bahwa banyak pertanyaan manusia tidak berhenti di diagnosis, obat, atau hasil pemeriksaan.
-Ada pertanyaan tentang rasa takut, kebiasaan, hubungan, kehilangan, dan cara memahami diri sendiri.
-</p>
-
-<p>
-Dari sanalah RAKAN lahir.
-Bukan sekadar nama, tetapi ruang untuk membantu orang memahami kesehatan dengan bahasa yang lebih manusiawi.
-</p>
 
 </div>
 
@@ -174,7 +93,7 @@ Bukan sekadar nama, tetapi ruang untuk membantu orang memahami kesehatan dengan 
 
 <!-- EMPAT DUNIA -->
 
-<section class="section alt">
+<section class="section">
 
 <div class="container">
 
@@ -183,119 +102,213 @@ EMPAT DUNIA RAKAN
 </div>
 
 <h2>
-Cara saya memahami manusia.
+Empat pintu masuk menuju perpustakaan.
 </h2>
 
-<div class="world-grid">
+<p class="section-intro">
+Seluruh artikel di RAKAN dibangun di atas empat dunia yang saling terhubung.
+Inilah fondasi Peta RAKAN.
+</p>
 
-<div class="world-card">
+<div class="grid4">
+
+<a href="/tulisan/kategori/tubuh" class="card">
 
 <h3>Tubuh</h3>
 
 <p>
-Obat, farmasi, nutrisi, aktivitas, tidur, dan proses pemulihan.
+Farmasi, obat, nutrisi, aktivitas, tidur, dan pemulihan.
 </p>
 
-</div>
+</a>
 
-<div class="world-card">
+<a href="/tulisan/kategori/otak" class="card">
 
 <h3>Otak</h3>
 
 <p>
-Tidur, memori, perhatian, dan neurosains dalam kehidupan sehari-hari.
+Tidur, memori, perhatian, dan neurosains.
 </p>
 
-</div>
+</a>
 
-<div class="world-card">
+<a href="/tulisan/kategori/pikiran" class="card">
 
 <h3>Pikiran</h3>
 
 <p>
-Emosi, stres, kebiasaan, dan perubahan yang realistis.
+Emosi, stres, kebiasaan, dan perubahan.
 </p>
 
-</div>
+</a>
 
-<div class="world-card">
+<a href="/tulisan/kategori/kehidupan" class="card">
 
 <h3>Kehidupan</h3>
 
 <p>
-Relasi, keluarga, pekerjaan, lingkungan, dan ruang bertumbuh.
+Relasi, keluarga, pekerjaan, dan makna.
 </p>
 
-</div>
+</a>
 
 </div>
-
-<p class="world-note">
-Empat dunia ini menjadi dasar Peta RAKAN yang menghubungkan seluruh artikel, edition, dan knowledge node dalam satu perjalanan belajar.
-</p>
 
 </div>
 
 </section>
 
-<!-- PRINSIP -->
+<!-- PENYEMBUHAN HOLISTIK -->
 
-<section class="section border">
+<section class="section alt">
 
 <div class="container">
 
 <div class="eyebrow">
-PRINSIP
+PENDEKATAN
 </div>
 
 <h2>
-Cara saya mendampingi.
+Penyembuhan holistik tidak menggantikan pengobatan.
 </h2>
 
-<div class="principle-grid">
+<p class="section-intro">
+Sebagai apoteker, saya memandang obat, diagnosis, dan bukti ilmiah tetap memiliki tempat yang penting.
+Pendekatan holistik hadir untuk membantu memahami manusia secara lebih utuh,
+bukan menggantikan pelayanan medis yang diperlukan.
+</p>
 
-<div class="principle-card">
+<a href="/holistik" class="text-link">
+Memahami penyembuhan holistik →
+</a>
 
-<h3>Memahami sebelum menyimpulkan.</h3>
+</div>
+
+</section>
+
+<!-- TULISAN TERBARU -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="eyebrow">
+TULISAN TERBARU
+</div>
+
+<h2>
+Mulai dari satu pertanyaan.
+</h2>
+
+<div class="article-list">
+
+{latestArticles.map((article) => (
+
+<a href={article.href} class="article">
+
+<div class="article-category">
+{article.category}
+</div>
+
+<h3>{article.title}</h3>
+
+<p>{article.description}</p>
+
+<div class="more">
+Baca →
+</div>
+
+</a>
+
+))}
+
+</div>
+
+<a href="/tulisan" class="text-link">
+Lihat seluruh perpustakaan →
+</a>
+
+</div>
+
+</section>
+
+<!-- BUKU -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="eyebrow">
+BUKU
+</div>
+
+<h2>
+Sebagian percakapan membutuhkan lebih dari satu halaman.
+</h2>
+
+<p class="section-intro">
+Buku menjadi ruang yang lebih panjang ketika satu artikel tidak lagi cukup.
+</p>
+
+<a href="/buku" class="text-link">
+Lihat Buku →
+</a>
+
+</div>
+
+</section>
+
+<!-- LAYANAN -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="eyebrow">
+LAYANAN
+</div>
+
+<h2>
+Kalau ingin berjalan lebih jauh.
+</h2>
+
+<div class="grid3">
+
+<div class="service">
+
+<h3>Konsultasi</h3>
 
 <p>
-Setiap orang membawa cerita yang berbeda.
-Karena itu saya berusaha mendengar lebih dulu sebelum memberi arah.
+Awal percakapan untuk memahami persoalan.
 </p>
 
 </div>
 
-<div class="principle-card">
+<div class="service">
 
-<h3>Bahasa yang mudah dipahami.</h3>
+<h3>Pendampingan</h3>
 
 <p>
-Ilmu kesehatan menjadi lebih berguna ketika bisa dipahami oleh orang biasa.
+Lanjutan ketika satu percakapan belum cukup.
 </p>
 
 </div>
 
-<div class="principle-card">
+<div class="service">
 
-<h3>Melihat manusia secara utuh.</h3>
-
-<p>
-Tubuh, otak, pikiran, kebiasaan, dan kehidupan saling memengaruhi.
-</p>
-
-</div>
-
-<div class="principle-card">
-
-<h3>Perubahan yang realistis.</h3>
+<h3>Kolaborasi</h3>
 
 <p>
-Saya lebih percaya pada langkah kecil yang konsisten daripada solusi instan.
+Seminar, workshop, training, dan kelas.
 </p>
 
 </div>
 
 </div>
+
+<a href="/layanan" class="text-link">
+Lihat Layanan →
+</a>
 
 </div>
 
@@ -305,33 +318,25 @@ Saya lebih percaya pada langkah kecil yang konsisten daripada solusi instan.
 
 <section class="cta">
 
-<div class="container narrow">
+<div class="container">
 
 <div class="eyebrow">
-LANJUTKAN PERJALANAN
+MULAI DARI SATU PERCAKAPAN
 </div>
 
 <h2>
-Semoga setiap tulisan menjadi awal percakapan.
+Setiap langkah dimulai dari memahami konteks.
 </h2>
 
-<p>
-Kalau Anda sampai di halaman ini setelah membaca sebuah tulisan, mungkin percakapannya belum selesai.
-Anda bisa melanjutkannya melalui perpustakaan RAKAN, buku, layanan, atau kolaborasi.
+<p class="section-intro">
+Kadang satu konsultasi sudah cukup.
+Kadang perjalanan memang membutuhkan waktu lebih panjang.
 </p>
 
 <div class="actions">
 
-<a href="/tulisan" class="button primary">
-Jelajahi Tulisan
-</a>
-
-<a href="/buku" class="button secondary">
-Lihat Buku
-</a>
-
-<a href="/layanan" class="button secondary">
-Lihat Layanan
+<a href="/layanan" class="button primary">
+Konsultasi
 </a>
 
 <a href="/kolaborasi" class="button secondary">
@@ -356,6 +361,10 @@ Kolaborasi
 
 :global(*){box-sizing:border-box;}
 
+:global(html){
+scroll-behavior:smooth;
+}
+
 :global(body){
 margin:0;
 background:#F7F4EE;
@@ -369,47 +378,14 @@ margin:auto;
 padding:0 32px;
 }
 
-.narrow{
-max-width:760px;
-}
-
-/* HERO */
-
 .hero{
-padding:100px 0 90px;
+padding:100px 0;
 border-bottom:1px solid #E5DFD5;
 }
 
-.hero-grid{
-display:grid;
-grid-template-columns:340px 1fr;
-gap:56px;
-align-items:center;
-}
-
-.portrait{
-aspect-ratio:4/5;
-border-radius:28px;
-overflow:hidden;
-border:1px solid #E5DFD5;
-background:#ECE5DA;
-}
-
-.portrait img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* SECTION */
-
 .section{
 padding:90px 0;
-}
-
-.border{
-border-top:1px solid #E5DFD5;
+border-bottom:1px solid #E5DFD5;
 }
 
 .alt{
@@ -417,14 +393,12 @@ background:#F1ECE5;
 }
 
 .cta{
-padding:100px 0;
+padding:95px 0;
 background:#EBE5DC;
 }
 
-/* TYPOGRAPHY */
-
 .eyebrow{
-margin-bottom:24px;
+margin-bottom:22px;
 color:#7A2635;
 font-size:11px;
 font-weight:600;
@@ -448,8 +422,8 @@ font-weight:400;
 }
 
 h1{
-font-size:clamp(50px,7vw,82px);
-line-height:1.08;
+font-size:clamp(52px,7vw,82px);
+line-height:1.05;
 letter-spacing:-.03em;
 }
 
@@ -460,54 +434,103 @@ color:#756653;
 }
 
 h2{
-margin-bottom:26px;
+margin-bottom:24px;
 font-size:clamp(36px,5vw,52px);
 line-height:1.15;
 }
 
 h3{
-font-size:28px;
 margin-bottom:14px;
+font-size:28px;
 }
 
-.intro,
-p,
-.world-note{
+.lead,
+.section-intro,
+p{
 color:#514C45;
+line-height:1.8;
 font-size:17px;
-line-height:1.85;
 }
 
-.world-note{
-margin-top:28px;
-}
-
-/* GRID */
-
-.role-grid,
-.world-grid,
-.principle-grid{
+.grid4{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:24px;
-margin-top:40px;
+margin-top:42px;
 }
 
-.role-card,
-.world-card,
-.principle-card{
+.grid3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+margin-top:42px;
+}
+
+.card,
+.service{
+display:block;
 padding:30px;
 background:#F7F4EE;
 border:1px solid #E5DFD5;
+text-decoration:none;
+color:inherit;
+transition:.25s;
 }
 
-/* BUTTON */
+.card:hover{
+transform:translateY(-3px);
+border-color:#7A2635;
+}
+
+.article-list{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+margin-top:42px;
+}
+
+.article{
+display:block;
+padding:26px;
+border:1px solid #E5DFD5;
+text-decoration:none;
+color:inherit;
+transition:.25s;
+}
+
+.article:hover{
+transform:translateY(-3px);
+border-color:#7A2635;
+}
+
+.article-category{
+margin-bottom:12px;
+color:#81776A;
+font-size:10px;
+font-weight:600;
+letter-spacing:.13em;
+text-transform:uppercase;
+}
+
+.more{
+margin-top:18px;
+color:#7A2635;
+}
+
+.text-link{
+display:inline-block;
+margin-top:28px;
+color:#201D19;
+text-decoration:none;
+border-bottom:1px solid #C8BBAA;
+padding-bottom:4px;
+}
 
 .actions{
 display:flex;
 gap:14px;
 flex-wrap:wrap;
-margin-top:36px;
+margin-top:34px;
 }
 
 .button{
@@ -536,20 +559,10 @@ color:#201D19;
 background:#F1ECE5;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:800px){
+@media(max-width:900px){
 
 .container{
 padding:0 20px;
-}
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.portrait{
-max-width:320px;
 }
 
 .hero,
@@ -562,9 +575,9 @@ h1{
 font-size:42px;
 }
 
-.role-grid,
-.world-grid,
-.principle-grid{
+.grid4,
+.grid3,
+.article-list{
 grid-template-columns:1fr;
 }
 
@@ -598,14 +611,15 @@ h2{
 font-size:28px;
 }
 
-.intro,
+.lead,
+.section-intro,
 p{
 font-size:15px;
 }
 
-.role-card,
-.world-card,
-.principle-card{
+.card,
+.service,
+.article{
 padding:22px;
 }
 
