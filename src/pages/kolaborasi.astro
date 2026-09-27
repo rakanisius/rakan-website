@@ -4,234 +4,30 @@ import Footer from "../components/Footer.astro";
 
 const title = "Kolaborasi | RAKAN";
 const description =
-  "Kolaborasi bersama RAKAN untuk perusahaan, kampus, sekolah, organisasi, komunitas, dan institusi melalui pembelajaran penyembuhan holistik.";
+  "Kolaborasi bersama Abdul Rakan untuk perusahaan, kampus, sekolah, organisasi, komunitas, dan institusi melalui pembelajaran penyembuhan holistik.";
+const image = "/images/og-collaboration.jpg";
 ---
 
 <!doctype html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>{title}</title>
 <meta name="description" content={description}/>
 
+<link rel="canonical" href="https://rakan.my.id/kolaborasi"/>
+
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content={image}/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
 <link rel="icon" href="/favicon-rakan.png"/>
-
-<style>
-
-:global(*){box-sizing:border-box;}
-
-:global(body){
-margin:0;
-background:#F7F4EE;
-color:#201D19;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-.container{
-max-width:1180px;
-margin:auto;
-padding:0 32px;
-}
-
-.narrow{
-max-width:760px;
-}
-
-.hero{
-padding:100px 0 90px;
-border-bottom:1px solid #E5DFD5;
-}
-
-.eyebrow{
-margin-bottom:24px;
-color:#7A2635;
-font-size:11px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-}
-
-h1,h2,h3{
-margin:0;
-font-family:Georgia,serif;
-font-weight:400;
-}
-
-h1{
-max-width:900px;
-font-size:clamp(50px,7vw,82px);
-line-height:1.08;
-letter-spacing:-.03em;
-}
-
-h2{
-margin-bottom:30px;
-font-size:clamp(36px,5vw,48px);
-line-height:1.2;
-}
-
-h3{
-font-size:28px;
-line-height:1.25;
-}
-
-.lead{
-max-width:700px;
-margin-top:34px;
-color:#514C45;
-font-size:18px;
-line-height:1.9;
-}
-
-.section{
-padding:95px 0;
-}
-
-.border{
-border-top:1px solid #E5DFD5;
-}
-
-p{
-margin:0 0 24px;
-color:#514C45;
-font-size:17px;
-line-height:1.9;
-}
-
-.statement{
-margin:42px 0;
-padding:28px;
-background:#F1ECE5;
-border-left:3px solid #7A2635;
-}
-
-.statement p{
-margin:0;
-font-family:Georgia,serif;
-font-size:26px;
-color:#201D19;
-}
-
-.formats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:1px;
-margin-top:42px;
-background:#E5DFD5;
-border:1px solid #E5DFD5;
-}
-
-.formats article{
-padding:30px;
-background:#F7F4EE;
-}
-
-.formats p{
-margin:10px 0 0;
-font-size:15px;
-line-height:1.8;
-}
-
-.learn{
-display:grid;
-gap:18px;
-margin-top:34px;
-}
-
-.learn div{
-padding-left:24px;
-position:relative;
-color:#514C45;
-line-height:1.8;
-}
-
-.learn div::before{
-content:"•";
-position:absolute;
-left:0;
-color:#7A2635;
-}
-
-.process{
-margin-top:40px;
-border-top:1px solid #E5DFD5;
-}
-
-.step{
-display:grid;
-grid-template-columns:60px 1fr;
-gap:24px;
-padding:26px 0;
-border-bottom:1px solid #E5DFD5;
-}
-
-.step span{
-color:#7A2635;
-font-size:12px;
-letter-spacing:.12em;
-}
-
-.step h3{
-margin-bottom:8px;
-}
-
-.cta{
-padding:95px 0;
-background:#EBE5DC;
-}
-
-.actions{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-margin-top:36px;
-}
-
-.button{
-display:inline-block;
-padding:14px 24px;
-border-radius:999px;
-text-decoration:none;
-transition:.2s;
-}
-
-.button.primary{
-background:#7A2635;
-color:white;
-}
-
-.button.secondary{
-border:1px solid #C8BBAA;
-color:#201D19;
-}
-
-.button:hover{
-background:#201D19;
-color:white;
-border-color:#201D19;
-}
-
-@media(max-width:800px){
-
-.container{padding:0 20px;}
-
-.hero{padding:72px 0;}
-
-h1{font-size:42px;}
-
-.section,.cta{padding:72px 0;}
-
-.formats{grid-template-columns:1fr;}
-
-.actions{flex-direction:column;}
-
-.button{text-align:center;}
-
-}
-
-</style>
 
 </head>
 
@@ -241,57 +37,144 @@ h1{font-size:42px;}
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="container">
 
-<div class="eyebrow">KOLABORASI</div>
+<div class="eyebrow">
+KOLABORASI
+</div>
 
-<h1>Menghadirkan pembelajaran tentang penyembuhan holistik.</h1>
+<h1>
+Menghadirkan pembelajaran tentang
+<em>penyembuhan holistik.</em>
+</h1>
 
 <p class="lead">
-Saya membuka kolaborasi dengan perusahaan, kampus, sekolah, organisasi,
-komunitas, maupun institusi yang ingin menghadirkan ruang belajar tentang
-penyembuhan holistik dalam bahasa yang membumi dan dapat dipahami berbagai
-latar belakang.
+Saya membuka kolaborasi dengan perusahaan,
+kampus,
+sekolah,
+organisasi,
+komunitas,
+maupun institusi yang ingin menghadirkan ruang belajar tentang penyembuhan holistik
+dalam bahasa yang membumi dan dapat dipahami berbagai latar belakang.
 </p>
 
 </div>
 
 </section>
+
+<!-- CARA BEKERJA -->
 
 <section class="section border">
 
 <div class="container narrow">
 
-<div class="eyebrow">CARA SAYA BEKERJA</div>
+<div class="eyebrow">
+CARA SAYA BEKERJA
+</div>
 
-<h2>Setiap ruang memiliki kebutuhan yang berbeda.</h2>
+<h2>
+Setiap ruang memiliki kebutuhan yang berbeda.
+</h2>
 
 <p>
-Saya tidak datang membawa materi yang sama ke setiap ruangan. Saya membawa
-satu cara melihat, lalu menyesuaikannya dengan manusia yang ada di dalam
-ruangan itu.
+Saya tidak datang membawa materi yang sama ke setiap ruangan.
+Saya membawa satu cara melihat,
+lalu menyesuaikannya dengan manusia yang ada di dalam ruangan itu.
 </p>
 
 <div class="statement">
+
 <p>
-Apoteker adalah salah satu fondasi saya. Penyembuhan holistik adalah wilayah
-pendekatannya. Manusia adalah pusat perhatiannya.
+Apoteker adalah salah satu fondasi saya.
+Penyembuhan holistik adalah wilayah pendekatannya.
+Manusia adalah pusat perhatiannya.
 </p>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- SIAPA YANG COCOK -->
+
 <section class="section border">
 
 <div class="container">
 
-<div class="eyebrow">BENTUK KOLABORASI</div>
+<div class="eyebrow">
+SIAPA YANG COCOK BERKOLABORASI
+</div>
 
-<h2>Format kegiatan disesuaikan dengan kebutuhan.</h2>
+<h2>
+Ruang belajar untuk berbagai institusi.
+</h2>
+
+<div class="partner-grid">
+
+<div class="partner-card">
+
+<h3>Perusahaan</h3>
+
+<p>
+Program wellbeing, pengembangan SDM, dan ruang refleksi yang relevan dengan dunia kerja.
+</p>
+
+</div>
+
+<div class="partner-card">
+
+<h3>Kampus</h3>
+
+<p>
+Kuliah umum, workshop, dan diskusi lintas disiplin yang menghubungkan sains dan kehidupan.
+</p>
+
+</div>
+
+<div class="partner-card">
+
+<h3>Sekolah</h3>
+
+<p>
+Pembelajaran yang disesuaikan dengan peserta didik, guru, maupun orang tua.
+</p>
+
+</div>
+
+<div class="partner-card">
+
+<h3>Organisasi & Komunitas</h3>
+
+<p>
+Kelas, gathering, dan percakapan yang membangun pemahaman bersama.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FORMAT -->
+
+<section class="section border">
+
+<div class="container">
+
+<div class="eyebrow">
+BENTUK KEGIATAN
+</div>
+
+<h2>
+Format kegiatan disesuaikan dengan kebutuhan.
+</h2>
 
 <div class="formats">
 
@@ -322,7 +205,7 @@ pendekatannya. Manusia adalah pusat perhatiannya.
 
 <article>
 <h3>Group Class & Gathering</h3>
-<p>Pembelajaran yang disesuaikan dengan karakter dan tujuan kegiatan.</p>
+<p>Pembelajaran yang disesuaikan dengan karakter kegiatan.</p>
 </article>
 
 </div>
@@ -331,48 +214,89 @@ pendekatannya. Manusia adalah pusat perhatiannya.
 
 </section>
 
-<section class="section border">
+<!-- CONTOH TEMA -->
+
+<section class="section alt">
 
 <div class="container narrow">
 
-<div class="eyebrow">APA YANG AKAN DIPELAJARI PESERTA</div>
+<div class="eyebrow">
+CONTOH RUANG BELAJAR
+</div>
 
-<h2>Penyembuhan Holistik.</h2>
+<h2>
+Tema berkembang mengikuti konteks.
+</h2>
 
 <p>
-Fokus kolaborasi saya bukan menawarkan banyak tema yang terpisah, melainkan
-membantu peserta memahami penyembuhan holistik sebagai cara melihat manusia
-secara lebih utuh.
+Saya tidak menawarkan daftar materi yang kaku.
+Tema berkembang mengikuti kebutuhan peserta dan tujuan institusi.
 </p>
 
 <div class="learn">
 
-<div>Memahami prinsip-prinsip penyembuhan holistik.</div>
+<div>Memahami hubungan tubuh, otak, pikiran, dan kehidupan.</div>
 
-<div>Mempelajari praktik dan latihan yang relevan untuk persoalan sehari-hari.</div>
+<div>Penyembuhan holistik dalam kehidupan sehari-hari.</div>
 
-<div>Memahami hubungan tubuh, pikiran, kebiasaan, dan lingkungan.</div>
+<div>Kebiasaan yang mendukung kesehatan secara realistis.</div>
 
-<div>Mengenal pendekatan integratif dan komplementer secara bertanggung jawab.</div>
+<div>Stres, pemulihan, dan cara memahami respons diri.</div>
+
+<div>Pendekatan integratif secara bertanggung jawab.</div>
+
+<div>Literasi kesehatan untuk orang biasa.</div>
 
 </div>
 
-<p style="margin-top:34px">
-Durasi, bentuk kegiatan, dan investasi disesuaikan dengan tujuan program,
-jumlah peserta, serta konteks institusi.
+</div>
+
+</section>
+
+<!-- HASIL -->
+
+<section class="section border">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+APA YANG DIHARAPKAN PESERTA
+</div>
+
+<h2>
+Bukan sekadar mendapat materi.
+</h2>
+
+<p>
+Harapannya bukan peserta pulang dengan banyak catatan,
+melainkan pulang dengan cara melihat yang lebih jernih terhadap dirinya sendiri.
+</p>
+
+<p>
+Durasi,
+bentuk kegiatan,
+dan investasi disesuaikan dengan tujuan program,
+jumlah peserta,
+serta konteks institusi.
 </p>
 
 </div>
 
 </section>
 
+<!-- PROSES -->
+
 <section class="section border">
 
 <div class="container narrow">
 
-<div class="eyebrow">PROSES KOLABORASI</div>
+<div class="eyebrow">
+PROSES KOLABORASI
+</div>
 
-<h2>Kita mulai dari konteksnya.</h2>
+<h2>
+Kita mulai dari konteksnya.
+</h2>
 
 <div class="process">
 
@@ -384,7 +308,11 @@ jumlah peserta, serta konteks institusi.
 
 <h3>Memahami kebutuhan</h3>
 
-<p>Siapa pesertanya, apa tujuan kegiatannya, dan konteks apa yang perlu dipahami.</p>
+<p>
+Siapa pesertanya,
+apa tujuan kegiatannya,
+dan konteks apa yang perlu dipahami.
+</p>
 
 </div>
 
@@ -398,7 +326,11 @@ jumlah peserta, serta konteks institusi.
 
 <h3>Menyusun program</h3>
 
-<p>Materi, format, dan durasi disesuaikan dengan kebutuhan institusi.</p>
+<p>
+Materi,
+format,
+dan durasi disesuaikan dengan kebutuhan institusi.
+</p>
 
 </div>
 
@@ -410,9 +342,31 @@ jumlah peserta, serta konteks institusi.
 
 <div>
 
+<h3>Menyepakati pelaksanaan</h3>
+
+<p>
+Kita menyelaraskan jadwal,
+format,
+dan kebutuhan teknis sebelum kegiatan berlangsung.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<span>04</span>
+
+<div>
+
 <h3>Melaksanakan kegiatan</h3>
 
-<p>Program disampaikan secara edukatif, reflektif, dan berpusat pada manusia.</p>
+<p>
+Program disampaikan secara edukatif,
+reflektif,
+dan berpusat pada manusia.
+</p>
 
 </div>
 
@@ -424,24 +378,36 @@ jumlah peserta, serta konteks institusi.
 
 </section>
 
+<!-- CTA -->
+
 <section class="cta">
 
 <div class="container narrow">
 
-<div class="eyebrow">AJUKAN KOLABORASI</div>
+<div class="eyebrow">
+AJUKAN KOLABORASI
+</div>
 
-<h2>Mari mulai dari konteksnya.</h2>
+<h2>
+Mari mulai dari konteksnya.
+</h2>
 
 <p>
-Ceritakan siapa pesertanya, apa tujuan kegiatannya, dan kapan rencananya.
+Ceritakan siapa pesertanya,
+apa tujuan kegiatannya,
+dan kapan rencananya.
 Dari sana kita menyusun bentuk kolaborasi yang paling sesuai.
 </p>
 
 <div class="actions">
 
-<a class="button primary" href="/kolaborasi/form">Ajukan Kolaborasi</a>
+<a class="button primary" href="/kolaborasi/form">
+Ajukan Kolaborasi
+</a>
 
-<a class="button secondary" href="/buku">Lihat Buku</a>
+<a class="button secondary" href="/buku">
+Lihat Buku
+</a>
 
 </div>
 
@@ -456,3 +422,303 @@ Dari sana kita menyusun bentuk kolaborasi yang paling sesuai.
 </body>
 
 </html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+/* HERO */
+
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
+
+/* SECTION */
+
+.section{
+padding:90px 0;
+}
+
+.border{
+border-top:1px solid #E5DFD5;
+}
+
+.alt{
+background:#F1ECE5;
+}
+
+.cta{
+padding:95px 0;
+background:#EBE5DC;
+}
+
+/* TYPOGRAPHY */
+
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+font-size:clamp(50px,7vw,82px);
+line-height:1.08;
+letter-spacing:-.03em;
+}
+
+h1 em{
+display:block;
+font-style:italic;
+color:#756653;
+}
+
+h2{
+margin-bottom:28px;
+font-size:clamp(36px,5vw,48px);
+line-height:1.15;
+}
+
+h3{
+font-size:28px;
+line-height:1.2;
+margin-bottom:12px;
+}
+
+.lead,
+p{
+color:#514C45;
+font-size:17px;
+line-height:1.85;
+}
+
+/* STATEMENT */
+
+.statement{
+margin-top:42px;
+padding:28px;
+background:#F1ECE5;
+border-left:3px solid #7A2635;
+}
+
+.statement p{
+margin:0;
+font-family:Georgia,serif;
+font-size:26px;
+color:#201D19;
+}
+
+/* GRID */
+
+.partner-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+margin-top:40px;
+}
+
+.partner-card{
+padding:30px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+}
+
+.formats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1px;
+margin-top:42px;
+background:#E5DFD5;
+border:1px solid #E5DFD5;
+}
+
+.formats article{
+padding:30px;
+background:#F7F4EE;
+}
+
+.formats p{
+margin-top:12px;
+font-size:15px;
+line-height:1.8;
+}
+
+/* LEARN */
+
+.learn{
+display:grid;
+gap:18px;
+margin-top:36px;
+}
+
+.learn div{
+padding-left:24px;
+position:relative;
+color:#514C45;
+line-height:1.8;
+}
+
+.learn div::before{
+content:"•";
+position:absolute;
+left:0;
+color:#7A2635;
+}
+
+/* PROCESS */
+
+.process{
+margin-top:40px;
+border-top:1px solid #E5DFD5;
+}
+
+.step{
+display:grid;
+grid-template-columns:60px 1fr;
+gap:24px;
+padding:26px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.step span{
+color:#7A2635;
+font-size:12px;
+letter-spacing:.12em;
+}
+
+/* BUTTON */
+
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:36px;
+}
+
+.button{
+display:inline-block;
+padding:15px 24px;
+text-decoration:none;
+transition:.2s;
+}
+
+.button.primary{
+background:#7A2635;
+color:white;
+}
+
+.button.primary:hover{
+background:#201D19;
+}
+
+.button.secondary{
+background:transparent;
+border:1px solid #D8D0C5;
+color:#201D19;
+}
+
+.button.secondary:hover{
+background:#F1ECE5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.hero,
+.section,
+.cta{
+padding:70px 0;
+}
+
+h1{
+font-size:42px;
+}
+
+.partner-grid,
+.formats{
+grid-template-columns:1fr;
+}
+
+.statement p{
+font-size:22px;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.button{
+text-align:center;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero,
+.section,
+.cta{
+padding:58px 0;
+}
+
+h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
+.lead,
+p{
+font-size:15px;
+}
+
+.partner-card,
+.formats article,
+.statement{
+padding:22px;
+}
+
+.statement p{
+font-size:20px;
+}
+
+}
+
+</style>

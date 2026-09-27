@@ -1,0 +1,101 @@
+---
+export const prerender = true;
+
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+import { editions } from "../../../data/editions";
+import { articles } from "../../../data/articles";
+
+export async function getStaticPaths(){
+  return editions.map(e=>({params:{id:e.id}}));
+}
+
+const { id } = Astro.params;
+const edition = editions.find(e=>e.id===id);
+
+if(!edition){
+  return Astro.redirect("/tulisan");
+}
+
+const editionArticles=[...articles]
+.filter(a=>a.edition===id)
+.sort((a,b)=>a.number-b.number);
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="/favicon-rakan.png"/>
+<title>{edition.title} · Edition {edition.id} | RAKAN</title>
+<meta name="description" content={edition.description}/>
+</head>
+
+<body>
+
+<Nav/>
+
+<main class="edition">
+
+<div class="hero">
+
+<div class="eyebrow">
+{edition.world} · Edition {edition.id}
+</div>
+
+<h1>{edition.title}</h1>
+
+<p>{edition.description}</p>
+
+<div class="library">
+{edition.library}
+</div>
+
+</div>
+
+<div class="timeline">
+
+{editionArticles.map((item,i)=>(
+
+<a href={item.href} class="step">
+
+<div class="index">
+{i+1}
+</div>
+
+<div class="content">
+
+<h3>{item.title}</h3>
+
+<p>{item.description}</p>
+
+</div>
+
+</a>
+
+))}
+
+</div>
+
+</main>
+
+<Footer/>
+
+</body>
+</html>
+
+<style>
+:global(body){margin:0;background:#F7F4EE;color:#201D19;font-family:Arial,Helvetica,sans-serif;}
+.edition{max-width:980px;margin:auto;padding:90px 30px;}
+.hero{padding-bottom:60px;border-bottom:1px solid #DCD5CA;}
+.eyebrow{color:#7A2635;font-size:12px;letter-spacing:.14em;text-transform:uppercase;}
+h1{font-family:Georgia,serif;font-size:clamp(46px,7vw,76px);font-weight:400;margin:18px 0;}
+.hero p{max-width:650px;line-height:1.8;color:#514C45;}
+.library{margin-top:24px;color:#81776A;}
+.timeline{padding-top:60px;}
+.step{display:grid;grid-template-columns:48px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid #E5DFD5;text-decoration:none;color:inherit;}
+.index{width:40px;height:40px;border-radius:999px;border:1px solid #DCD5CA;display:flex;align-items:center;justify-content:center;color:#7A2635;}
+h3{font-family:Georgia,serif;font-weight:400;font-size:32px;margin:0 0 10px;}
+.step p{margin:0;color:#514C45;line-height:1.8;}
+</style>

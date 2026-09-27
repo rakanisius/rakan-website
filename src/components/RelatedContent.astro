@@ -1,113 +1,60 @@
 ---
 import { articles } from "../data/articles";
 
-const { currentHref, currentCategory } = Astro.props;
+const {
+  currentHref="",
+  currentCategory="",
+  currentWorld="",
+  currentEdition=""
+}=Astro.props;
 
-const related = articles
-  .filter(
-    (a) => a.category === currentCategory && a.href !== currentHref
-  )
-  .sort((a, b) => b.number - a.number)
-  .slice(0, 3);
+let related=articles.filter(a=>a.href!==currentHref);
+
+if(currentEdition){
+  const editionItems=related.filter(a=>a.edition===currentEdition);
+  if(editionItems.length>=3) related=editionItems;
+}
+
+if(currentWorld && related.length<3){
+  related=articles.filter(a=>a.href!==currentHref && a.world===currentWorld);
+}
+
+if(currentCategory && related.length<3){
+  related=articles.filter(a=>a.href!==currentHref && a.category===currentCategory);
+}
+
+related=related.sort((a,b)=>new Date(b.published)-new Date(a.published)).slice(0,3);
 ---
 
-{related.length > 0 && (
+{related.length>0 && (
 <section class="related">
-
-  <div class="label">
-    Lanjutkan Membaca
-  </div>
-
-  <div class="list">
-
-    {related.map((item)=>(
-
-    <a href={item.href} class="card">
-
-      <div class="category">
-        {item.category}
-      </div>
-
-      <h3>{item.title}</h3>
-
-      <p>{item.description}</p>
-
-      <span>Baca tulisan →</span>
-
-    </a>
-
-    ))}
-
-  </div>
-
+<div class="label">Lanjutkan Perjalanan</div>
+<div class="grid">
+{related.map(item=>(
+<a href={item.href} class="card">
+<div class="meta">
+<span class="world">{item.world}</span>
+<span>{item.category}</span>
+</div>
+<h3>{item.title}</h3>
+<p>{item.description}</p>
+<div class="more">Baca tulisan →</div>
+</a>
+))}
+</div>
 </section>
 )}
 
 <style>
-.related{
-margin-top:110px;
-padding-top:60px;
-border-top:1px solid #DCD5CA;
-}
-
-.label{
-margin-bottom:28px;
-color:#81776A;
-font-size:12px;
-letter-spacing:.14em;
-text-transform:uppercase;
-}
-
-.list{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:22px;
-}
-
-.card{
-display:block;
-padding:24px;
-border:1px solid #E5DFD5;
-background:#F7F4EE;
-text-decoration:none;
-color:inherit;
-transition:.2s;
-}
-
-.card:hover{
-transform:translateY(-2px);
-border-color:#7A2635;
-}
-
-.category{
-margin-bottom:12px;
-color:#81776A;
-font-size:10px;
-letter-spacing:.12em;
-text-transform:uppercase;
-}
-
-.card h3{
-margin:0 0 12px;
-font-family:Georgia,serif;
-font-weight:400;
-font-size:24px;
-line-height:1.2;
-}
-
-.card p{
-margin:0 0 18px;
-color:#514C45;
-font-size:15px;
-line-height:1.7;
-}
-
-.card span{
-color:#7A2635;
-font-size:14px;
-}
-
-@media(max-width:900px){
-.list{grid-template-columns:1fr;}
-}
+.related{margin:110px auto;max-width:1000px;padding-top:50px;border-top:1px solid #DCD5CA}
+.label{margin-bottom:30px;color:#81776A;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{display:block;padding:24px;border:1px solid #E5DFD5;text-decoration:none;color:inherit;background:#F7F4EE}
+.card:hover{border-color:#7A2635;transform:translateY(-2px)}
+.meta{display:flex;gap:8px;align-items:center;margin-bottom:12px;font-size:11px;text-transform:uppercase}
+.world{padding:4px 8px;background:#F2EEE6;border:1px solid #DCD5CA;border-radius:999px;color:#7A2635}
+h3{font-family:Georgia,serif;font-weight:400;font-size:28px;line-height:1.2;margin:0 0 12px}
+p{color:#514C45;line-height:1.8;margin:0}
+.more{margin-top:18px;color:#7A2635;font-size:14px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>

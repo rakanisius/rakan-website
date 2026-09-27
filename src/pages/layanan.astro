@@ -1,67 +1,776 @@
 ---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+
+const title = "Layanan | RAKAN";
+const description =
+  "Konsultasi, pendampingan, dan kolaborasi bersama Abdul Rakan, Apoteker & Praktisi Penyembuhan Holistik.";
+const image = "/images/og-services.jpg";
 ---
 
 <!doctype html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>{title}</title>
+<meta name="description" content={description}/>
+
+<link rel="canonical" href="https://rakan.my.id/layanan"/>
+
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content={image}/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
 <link rel="icon" href="/favicon-rakan.png"/>
-<title>Layanan | RAKAN</title>
-<meta name="description" content="Konsultasi, pendampingan, dan kolaborasi bersama RAKAN."/>
-<style>
-:global(*){box-sizing:border-box}
-:global(body){margin:0;background:#F7F4EE;color:#201D19;font-family:Arial,Helvetica,sans-serif}
-.container{max-width:1180px;margin:auto;padding:0 32px}
-.narrow{max-width:760px}
-.hero{padding:100px 0 90px;border-bottom:1px solid #E5DFD5}
-.eyebrow{margin-bottom:24px;color:#7A2635;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-.role{margin-bottom:18px;color:#514C45;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-h1,h2,h3{margin:0;font-family:Georgia,serif;font-weight:400}
-h1{max-width:860px;font-size:clamp(50px,7vw,82px);line-height:1.08;letter-spacing:-.03em}
-.intro{max-width:700px;margin-top:34px;color:#514C45;font-size:18px;line-height:1.9}
-.services{padding:95px 0}
-.timeline{position:relative;max-width:860px;margin-top:46px;padding-left:70px}
-.timeline::before{content:"";position:absolute;left:18px;top:12px;bottom:12px;width:2px;background:#D8D0C4}
-.service{position:relative;padding-bottom:70px}
-.service:last-child{padding-bottom:0}
-.dot{position:absolute;left:-60px;top:8px;width:18px;height:18px;border-radius:50%;background:#7A2635}
-.service h3{margin-bottom:12px;font-size:34px}
-.tagline{margin-bottom:22px;color:#756653;font-size:17px;font-style:italic}
-.service p{margin:0 0 18px;color:#514C45;font-size:17px;line-height:1.9}
-.highlight{margin:26px 0;padding:24px 28px;background:#F1ECE5;border-left:3px solid #7A2635}
-.highlight strong{display:block;margin-bottom:10px;font-family:Georgia,serif;font-size:24px;font-weight:400}
-.list{display:grid;gap:10px;margin-top:20px}
-.list div{padding-left:22px;position:relative;color:#514C45;line-height:1.8}
-.list div::before{content:"•";position:absolute;left:0;color:#7A2635}
-.closing{padding:95px 0;border-top:1px solid #E5DFD5}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
-.actions a{padding:14px 24px;border:1px solid #C8BBAA;border-radius:999px;text-decoration:none;color:#201D19;transition:.2s}
-.actions a.primary{background:#7A2635;color:white;border-color:#7A2635}
-.actions a:hover{background:#201D19;color:white;border-color:#201D19}
-.note{margin-top:18px;color:#6B645A;font-size:15px}
-@media(max-width:800px){.container{padding:0 20px}.hero{padding:72px 0}h1{font-size:42px}.timeline{padding-left:54px}.timeline::before{left:15px}.dot{left:-46px;width:16px;height:16px}.service h3{font-size:28px}.services,.closing{padding:72px 0}.actions{flex-direction:column}.actions a{text-align:center}}
-</style>
+
 </head>
+
 <body>
+
 <Nav/>
+
 <main>
-<section class="hero"><div class="container"><div class="eyebrow">LAYANAN</div><div class="role">Apoteker & Praktisi Penyembuhan Holistik</div><h1>Tidak semua persoalan selesai dalam satu jawaban.</h1><p class="intro">Kadang kita hanya perlu cara melihat yang lebih utuh. Kita mulai dengan memahami apa yang sebenarnya sedang terjadi, lalu menentukan langkah berikutnya bersama. Satu konsultasi bisa saja cukup. Kalau belum, barulah perjalanan dilanjutkan.</p></div></section>
 
-<section class="services"><div class="container"><div class="eyebrow">ALUR PENDAMPINGAN</div><h2>Satu percakapan bisa menjadi awal dari banyak kemungkinan.</h2><div class="timeline">
+<!-- HERO -->
 
-<article class="service"><div class="dot"></div><h3>Konsultasi</h3><div class="tagline">Tempat memulai.</div><p>Konsultasi adalah ruang pertama untuk memahami persoalan yang sedang Anda bawa. Tujuannya bukan terburu-buru memberi solusi, melainkan melihat apa yang sebenarnya sedang terjadi dan menemukan akar yang mungkin selama ini terlewat.</p><p>Di akhir percakapan kita menentukan langkah berikutnya bersama.</p><div class="highlight"><strong>Tujuan konsultasi bukan menjual pendampingan.</strong><p>Kalau satu konsultasi sudah cukup, kita berhenti di situ. Tidak semua orang membutuhkan pendampingan. Kalau persoalannya membutuhkan proses yang lebih panjang, barulah kita melanjutkannya bersama.</p></div></article>
+<section class="hero">
 
-<article class="service"><div class="dot"></div><h3>Pendampingan</h3><div class="tagline">Lanjutan ketika satu percakapan belum cukup.</div><p>Pendampingan adalah ruang ketika satu percakapan belum cukup. Kita bekerja lebih pelan, lebih dalam, dan lebih terarah sesuai kebutuhan masing-masing orang.</p><p>Di dalamnya dapat mencakup terapi holistik, latihan dari berbagai disiplin ilmu, pendekatan integratif dan komplementer, serta pembelajaran penyembuhan holistik secara komprehensif.</p><div class="list"><div>Persoalan medis maupun nonmedis.</div><div>Terapi dan latihan sesuai kebutuhan.</div><div>Pendekatan integratif dan komplementer.</div><div>Pembelajaran penyembuhan holistik secara komprehensif.</div></div></article>
+<div class="container">
 
-<article class="service"><div class="dot"></div><h3>Kolaborasi</h3><div class="tagline">Membawa percakapan ini ke ruang yang lebih luas.</div><p>Kalau Anda sedang menyiapkan seminar, workshop, training, talkshow, gathering, kelas privat, atau kelas kelompok, saya membuka ruang kolaborasi untuk membahas penyembuhan holistik dalam bahasa yang dapat dipahami peserta dari berbagai latar belakang.</p><div class="list"><div>Perusahaan & Corporate</div><div>Kampus & Sekolah</div><div>Institusi & Organisasi</div><div>LSM & Komunitas</div><div>Seminar, Workshop, Training, Talkshow, Private Class, Group Class</div></div></article>
+<div class="eyebrow">
+LAYANAN
+</div>
 
-</div></div></section>
+<div class="role">
+APOTEKER & PRAKTISI PENYEMBUHAN HOLISTIK
+</div>
 
-<section class="closing"><div class="container narrow"><div class="eyebrow">LANGKAH BERIKUTNYA</div><h2>Kalau percakapan ini terasa belum selesai, kita bisa mulai dari sini.</h2><p class="intro">Anda tidak perlu datang dengan cerita yang sudah rapi. Cukup mulai dari apa yang sedang ada hari ini.</p><div class="actions"><a class="primary" href="https://wa.me/6281296547585" target="_blank" rel="noopener">Mulai Konsultasi</a><a href="/buku">Baca Buku</a><a href="/kolaborasi">Ajukan Kolaborasi</a></div><p class="note">Kalau kebutuhan Anda adalah seminar, workshop, training, atau kegiatan komunitas, gunakan halaman Kolaborasi agar saya bisa memahami konteks acaranya terlebih dahulu.</p></div></section>
+<h1>
+Tidak semua persoalan selesai
+<em>dalam satu jawaban.</em>
+</h1>
+
+<p class="intro">
+Kadang kita hanya perlu cara melihat yang lebih utuh.
+Kita mulai dengan memahami apa yang sebenarnya sedang terjadi,
+lalu menentukan langkah berikutnya bersama.
+Satu konsultasi bisa saja cukup.
+Kalau belum, barulah perjalanan dilanjutkan.
+</p>
+
+</div>
+
+</section>
+
+<!-- APA YANG BISA DIBAHAS -->
+
+<section class="section border">
+
+<div class="container">
+
+<div class="eyebrow">
+APA YANG BISA KITA BAHAS
+</div>
+
+<h2>
+Beberapa orang datang membawa gejala.
+Sebagian lain membawa pertanyaan.
+</h2>
+
+<p class="section-intro">
+Setiap percakapan dimulai dari konteks.
+Fokusnya bukan langsung mencari jawaban,
+melainkan memahami persoalan secara lebih utuh.
+</p>
+
+<div class="topic-grid">
+
+<div class="topic-card">
+
+<h3>Tubuh</h3>
+
+<p>
+Obat, farmasi, tidur, nutrisi, aktivitas, dan proses pemulihan.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<h3>Otak</h3>
+
+<p>
+Tidur, perhatian, memori, dan kebiasaan yang memengaruhi fungsi sehari-hari.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<h3>Pikiran</h3>
+
+<p>
+Stres, emosi, pola pikir, dan perubahan kebiasaan yang realistis.
+</p>
+
+</div>
+
+<div class="topic-card">
+
+<h3>Kehidupan</h3>
+
+<p>
+Relasi, keluarga, pekerjaan, dan persoalan yang memengaruhi keseharian.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="section border">
+
+<div class="container">
+
+<div class="eyebrow">
+ALUR PENDAMPINGAN
+</div>
+
+<h2>
+Satu percakapan bisa menjadi awal
+dari banyak kemungkinan.
+</h2>
+
+<div class="timeline">
+
+<article class="service">
+
+<div class="dot"></div>
+
+<h3>Konsultasi</h3>
+
+<div class="tagline">
+Tempat memulai.
+</div>
+
+<p>
+Konsultasi adalah ruang pertama untuk memahami persoalan yang sedang Anda bawa.
+Tujuannya bukan terburu-buru memberi solusi,
+melainkan melihat apa yang sebenarnya sedang terjadi.
+</p>
+
+<p>
+Di akhir percakapan kita menentukan langkah berikutnya bersama.
+</p>
+
+<div class="highlight">
+
+<strong>
+Tujuan konsultasi bukan menjual pendampingan.
+</strong>
+
+<p>
+Kalau satu konsultasi sudah cukup,
+kita berhenti di situ.
+Tidak semua orang membutuhkan pendampingan.
+</p>
+
+</div>
+
+</article>
+
+<article class="service">
+
+<div class="dot"></div>
+
+<h3>Pendampingan</h3>
+
+<div class="tagline">
+Lanjutan ketika satu percakapan belum cukup.
+</div>
+
+<p>
+Pendampingan menjadi ruang ketika proses membutuhkan waktu lebih panjang.
+Kita bekerja lebih pelan,
+lebih dalam,
+dan lebih terarah sesuai kebutuhan masing-masing orang.
+</p>
+
+<p>
+Di dalamnya dapat mencakup latihan,
+refleksi,
+serta pendekatan penyembuhan holistik yang bertanggung jawab.
+</p>
+
+<div class="list">
+
+<div>Pendekatan yang disesuaikan dengan kebutuhan.</div>
+
+<div>Proses yang lebih terarah.</div>
+
+<div>Latihan dan refleksi yang relevan.</div>
+
+<div>Pendekatan integratif secara bertanggung jawab.</div>
+
+</div>
+
+</article>
+
+<article class="service">
+
+<div class="dot"></div>
+
+<h3>Kolaborasi</h3>
+
+<div class="tagline">
+Membawa percakapan ke ruang yang lebih luas.
+</div>
+
+<p>
+Kalau Anda sedang menyiapkan seminar,
+workshop,
+training,
+talkshow,
+kelas,
+atau gathering,
+saya membuka ruang kolaborasi untuk menghadirkan pembelajaran penyembuhan holistik.
+</p>
+
+<div class="list">
+
+<div>Perusahaan</div>
+
+<div>Kampus</div>
+
+<div>Sekolah</div>
+
+<div>Institusi</div>
+
+<div>Organisasi</div>
+
+<div>Komunitas</div>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROSES -->
+
+<section class="section border">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+BAGAIMANA PROSESNYA
+</div>
+
+<h2>
+Kita mulai dari konteksnya.
+</h2>
+
+<div class="process">
+
+<div class="step">
+
+<span>01</span>
+
+<div>
+
+<h3>Memahami persoalan</h3>
+
+<p>
+Anda membawa cerita.
+Saya membantu memetakan konteksnya.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<span>02</span>
+
+<div>
+
+<h3>Menentukan langkah berikutnya</h3>
+
+<p>
+Kalau satu percakapan sudah cukup,
+kita berhenti.
+Kalau belum,
+kita menentukan bentuk pendampingan yang sesuai.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<span>03</span>
+
+<div>
+
+<h3>Berjalan sesuai kebutuhan</h3>
+
+<p>
+Tidak ada paket yang dipaksakan.
+Proses mengikuti kebutuhan masing-masing orang.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PENJELASAN -->
+
+<section class="section alt">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+PENDEKATAN
+</div>
+
+<h2>
+Penyembuhan holistik berjalan berdampingan dengan praktik medis.
+</h2>
+
+<p>
+Sebagai apoteker,
+saya memandang obat,
+diagnosis,
+dan bukti ilmiah sebagai bagian penting dalam pelayanan kesehatan.
+Pendekatan holistik membantu melihat manusia secara lebih utuh,
+bukan menggantikan praktik medis yang bertanggung jawab.
+</p>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+LANGKAH BERIKUTNYA
+</div>
+
+<h2>
+Kalau percakapan ini terasa belum selesai,
+kita bisa mulai dari sini.
+</h2>
+
+<p>
+Anda tidak perlu datang dengan cerita yang sudah rapi.
+Cukup mulai dari apa yang sedang ada hari ini.
+</p>
+
+<div class="actions">
+
+<a class="button primary" href="/kontak">
+Mulai Konsultasi
+</a>
+
+<a class="button secondary" href="/buku">
+Lihat Buku
+</a>
+
+<a class="button secondary" href="/kolaborasi">
+Kolaborasi
+</a>
+
+</div>
+
+<p class="note">
+Kalau kebutuhan Anda adalah seminar,
+workshop,
+training,
+atau kegiatan komunitas,
+gunakan halaman Kolaborasi agar saya bisa memahami konteks acaranya terlebih dahulu.
+</p>
+
+</div>
+
+</section>
+
 </main>
+
 <Footer/>
+
 </body>
+
 </html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+/* HERO */
+
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
+
+/* SECTION */
+
+.section{
+padding:90px 0;
+}
+
+.border{
+border-top:1px solid #E5DFD5;
+}
+
+.alt{
+background:#F1ECE5;
+}
+
+.cta{
+padding:95px 0;
+background:#EBE5DC;
+}
+
+/* TYPOGRAPHY */
+
+.eyebrow{
+margin-bottom:24px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+.role{
+margin-bottom:18px;
+color:#514C45;
+font-size:14px;
+font-weight:600;
+letter-spacing:.08em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+font-size:clamp(50px,7vw,82px);
+line-height:1.08;
+letter-spacing:-.03em;
+}
+
+h1 em{
+display:block;
+font-style:italic;
+color:#756653;
+}
+
+h2{
+margin-bottom:24px;
+font-size:clamp(36px,5vw,48px);
+line-height:1.15;
+}
+
+h3{
+margin-bottom:12px;
+font-size:32px;
+}
+
+.intro,
+.section-intro,
+p{
+color:#514C45;
+font-size:17px;
+line-height:1.85;
+}
+
+/* TOPICS */
+
+.topic-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+margin-top:42px;
+}
+
+.topic-card{
+padding:30px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+}
+
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:860px;
+margin-top:46px;
+padding-left:70px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:18px;
+top:12px;
+bottom:12px;
+width:2px;
+background:#D8D0C4;
+}
+
+.service{
+position:relative;
+padding-bottom:70px;
+}
+
+.service:last-child{
+padding-bottom:0;
+}
+
+.dot{
+position:absolute;
+left:-60px;
+top:8px;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#7A2635;
+}
+
+.tagline{
+margin-bottom:20px;
+color:#756653;
+font-size:17px;
+font-style:italic;
+}
+
+.highlight{
+margin:26px 0;
+padding:24px 28px;
+background:#F1ECE5;
+border-left:3px solid #7A2635;
+}
+
+.highlight strong{
+display:block;
+margin-bottom:10px;
+font-family:Georgia,serif;
+font-size:24px;
+font-weight:400;
+}
+
+.list{
+display:grid;
+gap:10px;
+margin-top:20px;
+}
+
+.list div{
+padding-left:22px;
+position:relative;
+color:#514C45;
+line-height:1.8;
+}
+
+.list div::before{
+content:"•";
+position:absolute;
+left:0;
+color:#7A2635;
+}
+
+/* PROCESS */
+
+.process{
+margin-top:40px;
+border-top:1px solid #E5DFD5;
+}
+
+.step{
+display:grid;
+grid-template-columns:60px 1fr;
+gap:24px;
+padding:26px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.step span{
+color:#7A2635;
+font-size:12px;
+letter-spacing:.12em;
+}
+
+/* BUTTON */
+
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:36px;
+}
+
+.button{
+display:inline-block;
+padding:15px 24px;
+text-decoration:none;
+transition:.2s;
+}
+
+.button.primary{
+background:#7A2635;
+color:white;
+}
+
+.button.primary:hover{
+background:#201D19;
+}
+
+.button.secondary{
+background:transparent;
+border:1px solid #D8D0C5;
+color:#201D19;
+}
+
+.button.secondary:hover{
+background:#F1ECE5;
+}
+
+.note{
+margin-top:20px;
+color:#6B645A;
+font-size:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.hero,
+.section,
+.cta{
+padding:70px 0;
+}
+
+h1{
+font-size:42px;
+}
+
+.topic-grid{
+grid-template-columns:1fr;
+}
+
+.timeline{
+padding-left:54px;
+}
+
+.timeline::before{
+left:15px;
+}
+
+.dot{
+left:-46px;
+width:16px;
+height:16px;
+}
+
+h3{
+font-size:28px;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.button{
+text-align:center;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero,
+.section,
+.cta{
+padding:58px 0;
+}
+
+h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
+.intro,
+.section-intro,
+p{
+font-size:15px;
+}
+
+.topic-card,
+.highlight{
+padding:22px;
+}
+
+}
+
+</style>

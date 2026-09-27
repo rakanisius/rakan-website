@@ -4,19 +4,30 @@ import Footer from "../components/Footer.astro";
 
 const title = "Kontak | RAKAN";
 const description =
-  "Hubungi RAKAN untuk konsultasi, pendampingan, atau kolaborasi.";
+  "Hubungi Abdul Rakan untuk konsultasi, pendampingan, atau kolaborasi melalui RAKAN.";
 ---
 
 <!doctype html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>{title}</title>
 <meta name="description" content={description}/>
 
+<link rel="canonical" href="https://rakan.my.id/kontak"/>
+
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/images/og-contact.jpg"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
 <link rel="icon" href="/favicon-rakan.png"/>
+
 </head>
 
 <body>
@@ -41,7 +52,9 @@ Mari mulai
 </h1>
 
 <p class="intro">
-Jika ingin memulai konsultasi, pendampingan, atau mengajukan kolaborasi, ceritakan terlebih dahulu konteks kebutuhan Anda. Percakapan yang baik biasanya dimulai dari memahami situasinya.
+Jika ingin memulai konsultasi, pendampingan, atau mengajukan kolaborasi,
+ceritakan terlebih dahulu konteks kebutuhan Anda.
+Percakapan yang baik biasanya dimulai dari memahami situasinya.
 </p>
 
 </div>
@@ -63,14 +76,89 @@ EMAIL
 <h3>halo@rakan.my.id</h3>
 
 <p>
-Email ini digunakan untuk kebutuhan konsultasi, pendampingan, maupun kolaborasi.
+Email menjadi pintu utama untuk konsultasi, pendampingan, maupun kolaborasi.
+Saya akan membaca konteks yang Anda kirimkan terlebih dahulu sebelum menentukan langkah berikutnya.
 </p>
 
-<a href="mailto:halo@rakan.my.id" class="text-link">
-Kirim Email →
+<a href="mailto:halo@rakan.my.id" class="button primary">
+Kirim Email
 </a>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- SEBELUM EMAIL -->
+
+<section class="contact-section">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+SEBELUM MENGIRIM EMAIL
+</div>
+
+<h2>
+Beberapa hal yang membantu percakapan dimulai dengan lebih jelas.
+</h2>
+
+<div class="guide">
+
+<div class="guide-item">
+
+<span>01</span>
+
+<div>
+
+<h3>Tujuan</h3>
+
+<p>
+Sebutkan apakah kebutuhan Anda berkaitan dengan konsultasi, pendampingan, atau kolaborasi.
+</p>
+
+</div>
+
+</div>
+
+<div class="guide-item">
+
+<span>02</span>
+
+<div>
+
+<h3>Konteks singkat</h3>
+
+<p>
+Ceritakan situasinya dalam beberapa kalimat agar saya memahami titik awal percakapannya.
+</p>
+
+</div>
+
+</div>
+
+<div class="guide-item">
+
+<span>03</span>
+
+<div>
+
+<h3>Waktu yang diharapkan</h3>
+
+<p>
+Kalau berkaitan dengan jadwal atau kegiatan tertentu, sertakan perkiraan waktunya.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="small-note">
+Ini bukan formulir wajib. Tujuannya hanya membantu percakapan pertama menjadi lebih jelas.
+</p>
 
 </div>
 
@@ -83,11 +171,11 @@ Kirim Email →
 <div class="container narrow">
 
 <div class="eyebrow">
-SEBELUM MENGHUBUNGI
+PILIH JALUR
 </div>
 
 <h2>
-Pilih jalur yang paling sesuai.
+Setiap kebutuhan memiliki jalannya sendiri.
 </h2>
 
 <div class="paths">
@@ -101,7 +189,7 @@ Pilih jalur yang paling sesuai.
 <h3>Konsultasi</h3>
 
 <p>
-Jika ingin memahami persoalan lebih dulu dan menentukan langkah berikutnya.
+Jika ingin memahami persoalan lebih dulu dan menentukan langkah berikutnya bersama.
 </p>
 
 </div>
@@ -133,7 +221,7 @@ Jika satu percakapan belum cukup dan membutuhkan proses yang lebih mendalam.
 <h3>Kolaborasi</h3>
 
 <p>
-Untuk seminar, workshop, training, kelas, atau program penyembuhan holistik di institusi, kampus, sekolah, komunitas, maupun perusahaan.
+Untuk seminar, workshop, training, kelas, gathering, atau program pembelajaran penyembuhan holistik bagi institusi, kampus, sekolah, komunitas, maupun perusahaan.
 </p>
 
 </div>
@@ -153,25 +241,27 @@ Untuk seminar, workshop, training, kelas, atau program penyembuhan holistik di i
 <div class="container narrow">
 
 <div class="eyebrow">
-LANGKAH BERIKUTNYA
+SIAP MEMULAI?
 </div>
 
 <h2>
-Setiap kebutuhan memiliki jalannya sendiri.
+Setiap percakapan dimulai dari memahami konteks.
 </h2>
 
 <p>
-Tidak semua orang membutuhkan pendampingan. Kadang satu percakapan sudah cukup. Kadang perjalanan memang membutuhkan waktu lebih panjang.
+Tidak semua orang membutuhkan pendampingan.
+Kadang satu percakapan sudah cukup.
+Kalau memang membutuhkan perjalanan yang lebih panjang, kita menentukannya bersama setelah percakapan pertama.
 </p>
 
 <div class="cta-actions">
 
-<a href="/layanan" class="button">
-Lihat Layanan
+<a href="mailto:halo@rakan.my.id" class="button primary">
+Kirim Email
 </a>
 
-<a href="/kolaborasi" class="button secondary">
-Kolaborasi
+<a href="/layanan" class="button secondary">
+Lihat Layanan
 </a>
 
 </div>
@@ -185,6 +275,7 @@ Kolaborasi
 <Footer/>
 
 </body>
+
 </html>
 
 <style>
@@ -208,10 +299,14 @@ padding:0 32px;
 max-width:760px;
 }
 
+/* HERO */
+
 .hero{
 padding:100px 0 90px;
 border-bottom:1px solid #E5DFD5;
 }
+
+/* SECTION */
 
 .contact-section{
 padding:86px 0;
@@ -222,6 +317,8 @@ border-bottom:1px solid #E5DFD5;
 padding:90px 0 110px;
 background:#EBE5DC;
 }
+
+/* TYPOGRAPHY */
 
 .eyebrow{
 margin-bottom:24px;
@@ -251,9 +348,9 @@ color:#756653;
 }
 
 h2{
+margin-bottom:22px;
 font-size:clamp(34px,5vw,48px);
 line-height:1.15;
-margin-bottom:22px;
 }
 
 .intro,
@@ -261,13 +358,13 @@ margin-bottom:22px;
 .cta p{
 color:#514C45;
 font-size:17px;
-line-height:1.8;
+line-height:1.85;
 }
 
-/* EMAIL CARD */
+/* EMAIL */
 
 .contact-box{
-padding:34px;
+padding:36px;
 background:#EBE5DC;
 border:1px solid #E5DFD5;
 }
@@ -279,23 +376,42 @@ line-height:1.15;
 }
 
 .contact-box p{
-margin:0 0 24px;
+margin:0 0 26px;
 }
 
-.text-link{
-display:inline-block;
-color:#201D19;
-text-decoration:none;
-border-bottom:1px solid #C8BBAA;
-padding-bottom:4px;
-transition:.2s;
+/* GUIDE */
+
+.guide{
+margin-top:42px;
+border-top:1px solid #E5DFD5;
 }
 
-.text-link:hover{
-border-color:#201D19;
+.guide-item{
+display:grid;
+grid-template-columns:60px 1fr;
+gap:24px;
+padding:28px 0;
+border-bottom:1px solid #E5DFD5;
 }
 
-/* PATHS */
+.guide-item span{
+color:#7A2635;
+font-size:12px;
+letter-spacing:.12em;
+}
+
+.guide-item h3{
+margin-bottom:10px;
+font-size:28px;
+}
+
+.small-note{
+margin-top:28px;
+font-size:15px;
+color:#756653;
+}
+
+/* PATH */
 
 .paths{
 margin-top:42px;
@@ -321,13 +437,7 @@ margin-bottom:10px;
 font-size:28px;
 }
 
-.path p{
-margin:0;
-font-size:15px;
-line-height:1.75;
-}
-
-/* CTA */
+/* BUTTON */
 
 .cta-actions{
 display:flex;
@@ -339,13 +449,16 @@ margin-top:32px;
 .button{
 display:inline-block;
 padding:15px 24px;
-background:#7A2635;
-color:white;
 text-decoration:none;
 transition:.2s;
 }
 
-.button:hover{
+.button.primary{
+background:#7A2635;
+color:white;
+}
+
+.button.primary:hover{
 background:#201D19;
 }
 
@@ -353,6 +466,10 @@ background:#201D19;
 background:transparent;
 border:1px solid #D8D0C5;
 color:#201D19;
+}
+
+.button.secondary:hover{
+background:#F1ECE5;
 }
 
 /* TABLET */
@@ -380,18 +497,20 @@ font-size:42px;
 }
 
 .contact-box{
-padding:26px;
+padding:28px;
 }
 
 .contact-box h3{
 font-size:28px;
 }
 
+.guide-item,
 .path{
 grid-template-columns:42px 1fr;
 gap:18px;
 }
 
+.guide-item h3,
 .path h3{
 font-size:24px;
 }
@@ -440,6 +559,7 @@ padding:22px;
 font-size:24px;
 }
 
+.guide-item h3,
 .path h3{
 font-size:22px;
 }

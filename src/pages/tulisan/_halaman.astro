@@ -1,0 +1,593 @@
+
+---
+import RelatedContent from "../../components/RelatedContent.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+/*
+====================================================
+RAKAN MASTER ARTICLE TEMPLATE
+TRA-2.0 FINAL
+====================================================
+
+Yang diganti setiap artikel:
+
+1. slug
+2. title
+3. description
+4. image
+5. category
+6. world
+7. edition
+8. node
+9. readingTime
+10. archive
+11. heroCaption
+12. H1
+13. Intro
+14. Isi artikel
+*/
+
+const slug = "slug-artikel";
+
+const title = "JUDUL ARTIKEL | RAKAN";
+const description = "Deskripsi singkat artikel.";
+const image = "/images/nama-gambar.png";
+
+const category = "Otak";
+const world = "Otak";
+const edition = "001";
+const node = "O-001";
+
+const readingTime = "8 menit membaca";
+const archive = "O-001";
+
+const heroCaption =
+  "Satu kalimat pembuka yang menjadi benang merah artikel.";
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>{title}</title>
+
+<meta name="description" content={description}/>
+
+<link rel="canonical" href={`https://rakan.my.id/tulisan/${slug}`}/>
+
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content={image}/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" href="/favicon-rakan.png"/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main class="article">
+
+<!-- METADATA -->
+
+<div class="meta-top">
+
+<div class="category">
+{category}
+</div>
+
+<div class="meta-tags">
+
+<span>{world}</span>
+
+<span>Edition {edition}</span>
+
+<span>{node}</span>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<h1>JUDUL ARTIKEL</h1>
+
+<p class="intro">
+Benang merah artikel ditulis satu atau dua kalimat.
+</p>
+
+<div class="meta">
+Catatan Rakan · {category} · {readingTime}
+</div>
+
+<div class="hero">
+
+<img
+src={image}
+alt="Judul Artikel"
+/>
+
+<div class="hero-caption">
+{heroCaption}
+</div>
+
+</div>
+
+<!-- ARTICLE -->
+
+<div class="content">
+
+<section>
+
+<h2>Subjudul Pertama</h2>
+
+<p>
+Mulai menulis di sini.
+</p>
+
+<p>
+Paragraf kedua.
+</p>
+
+</section>
+
+<div class="quote">
+Kalimat yang layak dibawa pulang.
+</div>
+
+<section>
+
+<h2>Subjudul Kedua</h2>
+
+<p>
+Lanjutkan tulisan.
+</p>
+
+</section>
+
+<div class="question">
+
+<p>
+Pertanyaan reflektif.
+</p>
+
+</div>
+
+<section>
+
+<h2>Subjudul Terakhir</h2>
+
+<p>
+Penutup isi artikel.
+</p>
+
+</section>
+
+<!-- CATATAN RAKAN -->
+
+<section class="personal">
+
+<div class="personal-label">
+Catatan RAKAN
+</div>
+
+<p>
+Penyembuhan sering dimulai bukan ketika konflik selesai,
+melainkan ketika kita memahami respons kita terhadap konflik itu sendiri.
+Tubuh menyimpan ketegangan.
+Otak membentuk pola.
+Pikiran memberi makna.
+Kehidupan menjadi tempat semuanya bertemu.
+</p>
+
+</section>
+
+<!-- DISCOVERY -->
+
+<section class="discovery">
+
+<div class="personal-label">
+Peta RAKAN
+</div>
+
+<div class="discovery-grid">
+
+<div>
+
+<div class="discovery-title">
+Dunia
+</div>
+
+<p>{world}</p>
+
+</div>
+
+<div>
+
+<div class="discovery-title">
+Knowledge Node
+</div>
+
+<p>{node}</p>
+
+</div>
+
+<div>
+
+<div class="discovery-title">
+Edition
+</div>
+
+<p>{edition}</p>
+
+</div>
+
+</div>
+
+<p class="discovery-note">
+Tulisan ini adalah bagian dari perpustakaan RAKAN.
+Semakin banyak artikel terbit,
+semakin jelas hubungan antar pengetahuan akan terlihat melalui Peta RAKAN.
+</p>
+
+</section>
+
+<!-- JOURNEY -->
+
+<section class="journey">
+
+<div class="personal-label">
+Lanjutkan Perjalanan
+</div>
+
+<p>
+Sebagian tulisan di RAKAN lahir dari pengalaman sebagai apoteker,
+praktisi penyembuhan holistik,
+dan perjalanan memahami manusia secara lebih utuh.
+</p>
+
+<p>
+Kalau tulisan ini membuka pertanyaan baru,
+Anda bisa melanjutkan perjalanan melalui perpustakaan RAKAN,
+buku,
+layanan,
+atau kolaborasi.
+</p>
+
+<div class="journey-links">
+
+<a href="/tulisan">
+Perpustakaan
+</a>
+
+<a href="/buku">
+Buku
+</a>
+
+<a href="/layanan">
+Layanan
+</a>
+
+<a href="/kolaborasi">
+Kolaborasi
+</a>
+
+</div>
+
+</section>
+
+<!-- SIGNATURE -->
+
+<section class="closing">
+
+<p>
+Kalimat penutup yang ingin dibawa pembaca pulang.
+</p>
+
+<div class="signature">
+
+Abdul Rakan · Apoteker & Praktisi Penyembuhan Holistik
+
+<br/>
+
+Arsip RAKAN · {archive}
+
+</div>
+
+</section>
+
+</div>
+
+<RelatedContent
+currentHref={`/tulisan/${slug}`}
+currentCategory={category}
+/>
+
+</main>
+
+<Footer/>
+
+</body>
+
+</html>
+
+<style>
+
+:global(*){box-sizing:border-box;}
+
+:global(html){
+scroll-behavior:smooth;
+}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#29251F;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.article{
+max-width:1000px;
+margin:auto;
+padding:100px 32px;
+}
+
+/* META */
+
+.meta-top{
+margin-bottom:22px;
+}
+
+.category{
+color:#81776A;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+.meta-tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:14px;
+}
+
+.meta-tags span{
+padding:6px 10px;
+border:1px solid #DCD5CA;
+color:#756653;
+font-size:12px;
+}
+
+.meta{
+margin-top:12px;
+color:#81776A;
+font-size:14px;
+}
+
+/* TYPOGRAPHY */
+
+h1,h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+max-width:860px;
+margin:24px 0;
+font-size:clamp(46px,7vw,78px);
+line-height:1;
+letter-spacing:-.04em;
+}
+
+.intro{
+max-width:720px;
+margin:0 0 36px;
+color:#625B52;
+font-family:Georgia,serif;
+font-size:clamp(20px,3vw,27px);
+line-height:1.55;
+}
+
+.hero{
+margin:70px 0 100px;
+}
+
+.hero img{
+display:block;
+width:100%;
+height:auto;
+}
+
+.hero-caption{
+margin-top:12px;
+color:#93897B;
+font-size:12px;
+line-height:1.5;
+}
+
+/* CONTENT */
+
+.content{
+max-width:720px;
+margin:auto;
+}
+
+.content section{
+margin-bottom:75px;
+}
+
+h2{
+margin-bottom:25px;
+font-size:clamp(30px,4vw,46px);
+line-height:1.1;
+}
+
+p{
+color:#514C45;
+font-size:18px;
+line-height:1.9;
+}
+
+.quote{
+margin:80px 0;
+padding:35px 0;
+border-top:1px solid #DCD5CA;
+border-bottom:1px solid #DCD5CA;
+font-family:Georgia,serif;
+font-size:clamp(25px,4vw,38px);
+line-height:1.3;
+}
+
+.question{
+margin:80px 0;
+padding:45px 0;
+border-top:1px solid #DCD5CA;
+border-bottom:1px solid #DCD5CA;
+}
+
+.question p{
+margin:0;
+color:#29251F;
+font-family:Georgia,serif;
+font-size:clamp(24px,4vw,34px);
+line-height:1.45;
+}
+
+/* PERSONAL */
+
+.personal,
+.discovery,
+.journey{
+margin-top:90px;
+padding-top:55px;
+border-top:1px solid #DCD5CA;
+}
+
+.personal-label{
+margin-bottom:24px;
+color:#81776A;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+/* DISCOVERY */
+
+.discovery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin:30px 0;
+}
+
+.discovery-grid>div{
+padding:22px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+}
+
+.discovery-title{
+margin-bottom:8px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.12em;
+text-transform:uppercase;
+}
+
+.discovery-grid p{
+margin:0;
+font-size:16px;
+}
+
+.discovery-note{
+font-size:15px;
+color:#6B645A;
+}
+
+/* JOURNEY */
+
+.journey-links{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.journey-links a{
+display:inline-block;
+padding:12px 18px;
+border:1px solid #D8D0C5;
+text-decoration:none;
+color:#201D19;
+transition:.2s;
+}
+
+.journey-links a:hover{
+background:#7A2635;
+border-color:#7A2635;
+color:white;
+}
+
+/* CLOSING */
+
+.closing{
+margin-top:100px;
+padding-top:45px;
+border-top:1px solid #DCD5CA;
+}
+
+.closing p{
+font-family:Georgia,serif;
+font-size:28px;
+line-height:1.5;
+}
+
+.signature{
+margin-top:35px;
+color:#81776A;
+font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+.article{
+padding:65px 22px 80px;
+}
+
+.hero{
+margin:50px 0 70px;
+}
+
+.discovery-grid{
+grid-template-columns:1fr;
+}
+
+.journey-links{
+flex-direction:column;
+}
+
+.journey-links a{
+text-align:center;
+}
+
+p{
+font-size:17px;
+line-height:1.85;
+}
+
+}
+
+</style>

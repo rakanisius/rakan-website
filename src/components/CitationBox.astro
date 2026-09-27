@@ -1,0 +1,38 @@
+---
+const {
+title="Referensi Utama"
+}=Astro.props;
+---
+
+<section class="citation-box">
+
+<div class="label">
+{title}
+</div>
+
+<div class="content">
+<slot/>
+</div>
+
+</section>
+
+<style>
+.citation-box{
+max-width:720px;
+margin:90px auto;
+padding:28px;
+background:#F2EEE6;
+border-left:4px solid #7A2635;
+}
+.label{
+margin-bottom:14px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:#81776A;
+}
+.content p{
+margin:0;
+line-height:1.8;
+}
+</style>

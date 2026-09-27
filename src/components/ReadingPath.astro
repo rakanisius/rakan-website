@@ -1,0 +1,58 @@
+---
+const {
+  title="Lanjutkan Perjalanan",
+  items=[]
+}=Astro.props;
+---
+
+<section class="reading-path">
+
+<div class="label">
+{title}
+</div>
+
+<ul>
+
+{items.map(item=>(
+<li>
+
+<a href={item.href}>
+{item.title}
+</a>
+
+</li>
+))}
+
+</ul>
+
+</section>
+
+<style>
+.reading-path{
+max-width:720px;
+margin:90px auto;
+padding-top:45px;
+border-top:1px solid #DCD5CA;
+}
+.label{
+margin-bottom:22px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:#81776A;
+}
+ul{
+margin:0;
+padding-left:20px;
+}
+li{
+margin:16px 0;
+}
+a{
+color:#7A2635;
+text-decoration:none;
+}
+a:hover{
+text-decoration:underline;
+}
+</style>

@@ -1,3 +1,4 @@
+
 ---
 import SearchArticles from "../../components/SearchArticles.astro";
 import Nav from "../../components/Nav.astro";
@@ -22,12 +23,21 @@ const categoriesWithCount = categories.map((category) => ({
 
 <link rel="icon" href="/favicon-rakan.png"/>
 
-<title>Tulisan | RAKAN</title>
+<title>Perpustakaan RAKAN | Tulisan</title>
 
 <meta
 name="description"
-content="Catatan Rakan tentang tubuh, pikiran, kesehatan, obat, kebiasaan, dan kehidupan."
+content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik."
 />
+
+<link rel="canonical" href="https://rakan.my.id/tulisan"/>
+
+<meta property="og:title" content="Perpustakaan RAKAN"/>
+<meta property="og:description" content="Menjelajahi tubuh, otak, pikiran, dan kehidupan melalui tulisan yang saling terhubung."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/images/og-library.jpg"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
 
 </head>
 
@@ -44,19 +54,105 @@ content="Catatan Rakan tentang tubuh, pikiran, kesehatan, obat, kebiasaan, dan k
 <div class="container">
 
 <div class="eyebrow">
-RUANG TULISAN RAKAN
+PERPUSTAKAAN RAKAN
 </div>
 
 <h1>
-<span>Memahami kesehatan,</span>
-<span><em>manusia,</em></span>
+<span>Memahami tubuh,</span>
+<span><em>otak, pikiran,</em></span>
 <em>dan kehidupan.</em>
 </h1>
 
 <p class="intro">
-Catatan tentang tubuh, pikiran, kesehatan, obat, kebiasaan,
-dan perjalanan manusia memahami dirinya sendiri.
+Seluruh tulisan di RAKAN disusun sebagai perpustakaan yang saling terhubung.
+Anda bisa memulai dari satu artikel, satu kategori, atau satu pertanyaan.
 </p>
+
+</div>
+
+</section>
+
+<!-- PETA -->
+
+<section class="map-section">
+
+<div class="container">
+
+<div class="eyebrow">
+PETA RAKAN
+</div>
+
+<h2>
+Setiap tulisan memiliki koordinatnya.
+</h2>
+
+<p class="section-intro">
+Peta RAKAN sedang dibangun sebagai navigator pengetahuan yang menghubungkan artikel,
+Knowledge Nodes, dan Edition dalam satu perjalanan belajar.
+</p>
+
+<div class="map-preview">
+
+<div class="map-node center">RAKAN</div>
+
+<div class="map-node top-left">Tubuh</div>
+
+<div class="map-node top-right">Otak</div>
+
+<div class="map-node bottom-left">Pikiran</div>
+
+<div class="map-node bottom-right">Kehidupan</div>
+
+</div>
+
+<p class="map-caption">
+Widget interaktif akan menggantikan preview ini pada pengembangan berikutnya.
+</p>
+
+</div>
+
+</section>
+
+<!-- EDITION -->
+
+<section class="edition-section">
+
+<div class="container">
+
+<div class="eyebrow">
+EDITION
+</div>
+
+<h2>
+Belajar melalui satu tema sampai selesai.
+</h2>
+
+<p class="section-intro">
+Sebagian artikel nantinya akan menjadi bagian dari Edition,
+yaitu rangkaian bacaan yang saling berurutan.
+</p>
+
+<div class="edition-card">
+
+<div>
+
+<div class="edition-label">
+EDITION 001
+</div>
+
+<h3>Tidur</h3>
+
+<p>
+Memahami tidur melalui sains, kebiasaan, otak, dan proses pemulihan.
+</p>
+
+</div>
+
+<div class="coming">
+Segera hadir
+</div>
+
+</div>
 
 </div>
 
@@ -69,8 +165,12 @@ dan perjalanan manusia memahami dirinya sendiri.
 <div class="container">
 
 <div class="eyebrow">
-JELAJAHI BERDASARKAN TEMA
+EMPAT DUNIA RAKAN
 </div>
+
+<h2>
+Empat pintu masuk menuju perpustakaan.
+</h2>
 
 <div class="category-grid">
 
@@ -90,7 +190,7 @@ class="category-card"
 <p>{item.description}</p>
 
 <div class="arrow">
-Lihat kategori →
+Masuk →
 </div>
 
 </a>
@@ -103,9 +203,21 @@ Lihat kategori →
 
 </section>
 
+<!-- SEARCH -->
+
+<section class="search-section">
+
 <div class="container">
-  <SearchArticles articles={sortedArticles} />
+
+<div class="eyebrow">
+CARI TULISAN
 </div>
+
+<SearchArticles articles={sortedArticles} />
+
+</div>
+
+</section>
 
 <!-- ARTIKEL -->
 
@@ -113,18 +225,22 @@ Lihat kategori →
 
 <div class="container">
 
+<div class="eyebrow">
+ARTIKEL TERBARU
+</div>
+
 <div class="articles">
 
 {sortedArticles.map((article)=>(
 
 <article
-  class="article"
-  data-article
-  data-href={article.href}
+class="article"
+data-article
+data-href={article.href}
 >
 
 <div class="number">
-{article.number}
+{String(article.number).padStart(2,"0")}
 </div>
 
 <div class="article-content">
@@ -136,9 +252,7 @@ href={`/tulisan/kategori/${article.slug}`}
 {article.category}
 </a>
 
-<h2>
-{article.title}
-</h2>
+<h2>{article.title}</h2>
 
 <p class="description">
 {article.description}
@@ -150,7 +264,7 @@ href={`/tulisan/kategori/${article.slug}`}
 class="read"
 href={article.href}
 >
-Baca tulisan →
+Baca →
 </a>
 
 </article>
@@ -179,7 +293,11 @@ Membaca adalah awal.
 </h2>
 
 <p>
-Jika satu tulisan membuka pertanyaan baru, Anda bisa melanjutkannya melalui buku atau layanan pendampingan.
+Kalau satu tulisan membuka pertanyaan baru,
+Anda bisa melanjutkannya melalui buku,
+konsultasi,
+pendampingan,
+atau kolaborasi.
 </p>
 
 <div class="cta-actions">
@@ -210,13 +328,11 @@ Lihat Layanan
 :global(*){box-sizing:border-box;}
 
 :global(html){
-overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
 :global(body){
 margin:0;
-overflow-x:hidden;
 background:#F7F4EE;
 color:#201D19;
 font-family:Arial,Helvetica,sans-serif;
@@ -228,12 +344,24 @@ margin:auto;
 padding:0 32px;
 }
 
-/* HERO */
+/* SECTION */
 
-.hero{
-padding:100px 0 90px;
+.hero,
+.map-section,
+.edition-section,
+.categories-section,
+.search-section,
+.articles-section{
+padding:90px 0;
 border-bottom:1px solid #E5DFD5;
 }
+
+.cta{
+padding:95px 0;
+background:#EBE5DC;
+}
+
+/* TYPOGRAPHY */
 
 .eyebrow{
 margin-bottom:24px;
@@ -267,42 +395,114 @@ font-style:italic;
 color:#756653;
 }
 
-.intro{
-max-width:650px;
-margin-top:32px;
+h2{
+margin-bottom:26px;
+font-size:clamp(36px,5vw,48px);
+line-height:1.15;
+}
+
+h3{
+font-size:28px;
+line-height:1.2;
+margin-bottom:12px;
+}
+
+.intro,
+.section-intro,
+p{
 color:#514C45;
 font-size:17px;
 line-height:1.8;
 }
 
-/* KATEGORI */
+/* MAP */
 
-.categories-section{
-padding:70px 0;
-border-bottom:1px solid #E5DFD5;
+.map-preview{
+position:relative;
+height:340px;
+margin-top:40px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
 }
+
+.map-node{
+position:absolute;
+padding:10px 18px;
+background:#F7F4EE;
+border:1px solid #D8D0C5;
+font-family:Georgia,serif;
+}
+
+.center{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+border-color:#7A2635;
+}
+
+.top-left{left:80px;top:60px;}
+.top-right{right:80px;top:60px;}
+.bottom-left{left:80px;bottom:60px;}
+.bottom-right{right:80px;bottom:60px;}
+
+.map-caption{
+margin-top:18px;
+color:#756653;
+font-size:14px;
+}
+
+/* EDITION */
+
+.edition-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:34px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+margin-top:36px;
+gap:24px;
+}
+
+.edition-label{
+margin-bottom:12px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+.coming{
+padding:8px 14px;
+border:1px solid #D8D0C5;
+color:#756653;
+font-size:14px;
+white-space:nowrap;
+}
+
+/* KATEGORI */
 
 .category-grid{
 display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:24px;
-margin-top:34px;
+margin-top:42px;
 }
 
 .category-card{
 display:block;
 padding:28px;
-background:#F7F4EE;
 border:1px solid #E5DFD5;
+background:#F7F4EE;
 text-decoration:none;
 color:inherit;
-transition:.25s ease;
+transition:.25s;
 }
 
 .category-card:hover{
 transform:translateY(-3px);
 border-color:#7A2635;
-box-shadow:0 10px 24px rgba(32,29,25,.06);
 }
 
 .count{
@@ -313,51 +513,29 @@ letter-spacing:.08em;
 text-transform:uppercase;
 }
 
-.category-card h3{
-font-size:28px;
-line-height:1.15;
-margin-bottom:14px;
-}
-
-.category-card p{
-margin:0;
-color:#514C45;
-line-height:1.75;
-font-size:15px;
-}
-
 .arrow{
 margin-top:22px;
-font-size:14px;
 color:#7A2635;
 }
 
 /* ARTIKEL */
 
-.articles-section{
-padding:80px 0 110px;
-}
-
 .articles{
 border-top:1px solid #E5DFD5;
+margin-top:32px;
 }
 
 .article{
 display:grid;
-grid-template-columns:60px minmax(0,1fr) 120px;
-gap:28px;
-padding:40px 0;
+grid-template-columns:60px minmax(0,1fr) 80px;
+gap:24px;
+padding:34px 0;
 border-bottom:1px solid #E5DFD5;
 }
 
 .number{
 font-family:Georgia,serif;
-font-size:17px;
 color:#8B8174;
-}
-
-.article-content{
-min-width:0;
 }
 
 .category{
@@ -376,24 +554,19 @@ color:#7A2635;
 }
 
 .article h2{
-font-size:clamp(28px,4vw,44px);
+font-size:clamp(28px,4vw,42px);
 line-height:1.12;
 }
 
 .description{
-max-width:650px;
 margin-top:16px;
-color:#514C45;
 font-size:15px;
-line-height:1.75;
 }
 
 .read{
 align-self:center;
 text-decoration:none;
 color:#201D19;
-font-size:14px;
-white-space:nowrap;
 }
 
 .read:hover{
@@ -402,22 +575,10 @@ color:#7A2635;
 
 /* CTA */
 
-.cta{
-padding:90px 0;
-background:#EBE5DC;
-border-top:1px solid #E5DFD5;
-}
-
 .cta-inner{
 max-width:760px;
 margin:auto;
 padding:0 32px;
-}
-
-.cta h2{
-font-size:clamp(34px,5vw,48px);
-line-height:1.15;
-margin:18px 0;
 }
 
 .cta h2 em{
@@ -426,18 +587,11 @@ font-style:italic;
 color:#756653;
 }
 
-.cta p{
-max-width:620px;
-color:#514C45;
-font-size:17px;
-line-height:1.8;
-}
-
 .cta-actions{
 display:flex;
 gap:14px;
-flex-wrap:wrap;
 margin-top:30px;
+flex-wrap:wrap;
 }
 
 .button{
@@ -462,33 +616,39 @@ color:#201D19;
 background:#F1ECE5;
 }
 
-/* TABLET */
+/* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:800px){
 
 .container{
 padding:0 20px;
 }
 
-.hero{
+.hero,
+.map-section,
+.edition-section,
+.categories-section,
+.search-section,
+.articles-section,
+.cta{
 padding:70px 0;
 }
 
 h1{
-font-size:44px;
+font-size:42px;
 }
 
 .category-grid{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr;
 }
 
-.category-card h3{
-font-size:24px;
+.edition-card{
+flex-direction:column;
+align-items:flex-start;
 }
 
 .article{
 grid-template-columns:32px minmax(0,1fr);
-gap:14px;
 }
 
 .read{
@@ -496,21 +656,31 @@ grid-column:2;
 margin-top:10px;
 }
 
-.article h2{
-font-size:26px;
+.map-preview{
+height:300px;
 }
 
-}
+.top-left{left:24px;top:30px;}
+.top-right{right:24px;top:30px;}
+.bottom-left{left:24px;bottom:30px;}
+.bottom-right{right:24px;bottom:30px;}
 
-/* MOBILE */
+}
 
 @media(max-width:390px){
 
-.container{
+.container,
+.cta-inner{
 padding:0 18px;
 }
 
-.hero{
+.hero,
+.map-section,
+.edition-section,
+.categories-section,
+.search-section,
+.articles-section,
+.cta{
 padding:58px 0;
 }
 
@@ -518,71 +688,23 @@ h1{
 font-size:34px;
 }
 
-.intro{
+h2{
+font-size:28px;
+}
+
+.intro,
+.section-intro,
+p{
 font-size:15px;
-}
-
-.categories-section{
-padding:52px 0;
-}
-
-.category-grid{
-grid-template-columns:1fr;
-gap:18px;
-}
-
-.category-card{
-padding:22px;
-}
-
-.category-card h3{
-font-size:22px;
-}
-
-.category-card p{
-font-size:14px;
-}
-
-.articles-section{
-padding:52px 0 70px;
 }
 
 .article{
 grid-template-columns:24px minmax(0,1fr);
-gap:10px;
-padding:26px 0;
 }
 
-.number{
-font-size:12px;
-}
-
-.category{
-font-size:8px;
-}
-
-.article h2{
-font-size:22px;
-}
-
-.description{
-font-size:14px;
-}
-
-.read{
-font-size:12px;
-}
-
-.cta{
-padding:58px 0;
-}
-
-.cta-inner{
-padding:0 18px;
-}
-
-.cta p{
-font-size:15px;
+.category-card,
+.edition-card{
+padding:22px;
 }
 
 }

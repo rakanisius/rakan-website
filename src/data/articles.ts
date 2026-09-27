@@ -1,94 +1,185 @@
-export const articles = [
+/*
+====================================================
+RAKAN LIBRARY INDEX
+Single Source of Truth
+RDR-001
+====================================================
+
+Aturan:
+
+1. Semua artikel didaftarkan DI SINI.
+2. Jangan update index.astro lagi.
+3. Jangan update kategori lagi.
+4. Search otomatis membaca file ini.
+5. Peta RAKAN nanti membaca file ini.
+
+Urutan artikel:
+001
+002
+003
+...
+
+Knowledge Node:
+T-001 = Tubuh
+O-001 = Otak
+P-001 = Pikiran
+K-001 = Kehidupan
+*/
+
+export type World =
+  | "Tubuh"
+  | "Otak"
+  | "Pikiran"
+  | "Kehidupan";
+
+export type Category = {
+  slug:string;
+  title:World;
+  description:string;
+};
+
+export type Article = {
+  number:number;
+  title:string;
+  href:string;
+  slug:string;
+  category:World;
+  world:World;
+  edition:string;
+  node:string;
+  archive:string;
+  description:string;
+};
+
+export const categories:Category[]=[
+
   {
-  number: 6,
-  category: "Kehidupan",
-  slug: "kehidupan",
-  title: "Ketika Kekerasan Menjadi Syarat Masuk Komunitas",
-  description:
-    "Catatan dari ruang IGD tentang bagaimana kebutuhan diterima dalam kelompok bisa berubah menjadi kekerasan, dan mengapa luka manusia tidak selalu berasal dari penyakit.",
-  href: "/tulisan/ketika-kekerasan-menjadi-syarat-masuk-komunitas",
+    slug:"tubuh",
+    title:"Tubuh",
+    description:"Obat, farmasi, nutrisi, aktivitas, tidur, dan proses pemulihan."
   },
+
   {
-    number: 5,
-    archive: "K-001",
-    category: "Kehidupan",
-    slug: "kehidupan",
-    title: "Saya Memilih Pergi, dan Itu Tidak Selalu Berarti Takut",
-    description:
-      "Sebuah benturan di jalan berubah menjadi pelajaran tentang harga diri, keberanian, dan cara memahami diri secara lebih utuh.",
-    href: "/tulisan/memilih-pergi-tidak-selalu-takut",
+    slug:"otak",
+    title:"Otak",
+    description:"Tidur, memori, perhatian, dan neurosains dalam kehidupan sehari-hari."
   },
+
   {
-    number: 4,
-    archive: "K-004",
-    category: "Tubuh & Kesehatan",
-    slug: "tubuh-kesehatan",
-    title: "Tubuh tidak pernah bekerja sendirian.",
-    description:
-      "Tubuh bukan sekadar kumpulan organ yang bekerja sendiri-sendiri. Ia adalah sebuah sistem yang terus berkomunikasi dengan pikiran, kebiasaan, lingkungan, dan kehidupan kita.",
-    href: "/tulisan/tubuh-tidak-pernah-bekerja-sendirian",
+    slug:"pikiran",
+    title:"Pikiran",
+    description:"Emosi, stres, kebiasaan, dan perubahan yang realistis."
   },
+
   {
-    number: 3,
-    archive: "K-003",
-    category: "Kehidupan",
-    slug: "kehidupan",
-    title: "Ketika Kita Merasa Lebih Tinggi dari Orang Lain",
-    description:
-      "Tentang jabatan, status, kekuasaan, dan bagaimana kita memperlakukan manusia lain ketika merasa berada di posisi yang lebih tinggi.",
-    href: "/tulisan/ketika-kita-merasa-lebih-tinggi-dari-orang-lain",
-  },
-  {
-    number: 2,
-    archive: "K-002",
-    category: "Kehidupan",
-    slug: "kehidupan",
-    title: "Jangan Tanya “Kapan?” kepada Orang Lain",
-    description:
-      "Kita tidak pernah tahu apa yang sedang diperjuangkan seseorang. Jangan menjadikan pencapaian hidup kita sebagai ukuran untuk menentukan kapan orang lain harus lulus, menikah, atau mencapai sesuatu.",
-    href: "/tulisan/jangan-tanya-kapan-kepada-orang-lain",
-  },
-  {
-    number: 1,
-    archive: "K-001",
-    category: "Kehidupan",
-    slug: "kehidupan",
-    title: "Me-Ramadhan-kan Diri",
-    description:
-      "Ramadhan mungkin hanya sebulan. Tetapi latihan untuk menahan diri, mengenali batas, dan menata kehidupan tidak harus selesai ketika bulan itu berakhir.",
-    href: "/tulisan/me-ramadhan-kan-diri",
-  },
+    slug:"kehidupan",
+    title:"Kehidupan",
+    description:"Relasi, keluarga, pekerjaan, lingkungan, dan ruang bertumbuh."
+  }
+
 ];
 
-export const categories = [
+/*
+====================================================
+ARTICLES
+====================================================
+
+Cara menambah artikel:
+
+{
+  number:7,
+  title:"Judul",
+  href:"/tulisan/nama-slug",
+  slug:"otak",
+  category:"Otak",
+  world:"Otak",
+  edition:"001",
+  node:"O-007",
+  archive:"O-007",
+  description:"Ringkasan."
+}
+
+Lalu build.
+*/
+
+export const articles:Article[]=[
+
   {
-    title: "Tubuh & Kesehatan",
-    slug: "tubuh-kesehatan",
-    description: "Obat, tubuh, tidur, nutrisi, dan kebiasaan.",
+    number:6,
+    title:"Otak Tidak Lelah karena Berpikir",
+    href:"/tulisan/otak-tidak-lelah-karena-berpikir",
+    slug:"otak",
+    category:"Otak",
+    world:"Otak",
+    edition:"001",
+    node:"O-001",
+    archive:"O-001",
+    description:"Memahami kelelahan mental melalui cara kerja otak, bukan sekadar rasa capek."
   },
+
   {
-    title: "Pikiran & Emosi",
-    slug: "pikiran-emosi",
-    description: "Stres, emosi, perhatian, dan pengalaman batin.",
+    number:5,
+    title:"Stres Tidak Selalu Berasal dari Pikiran",
+    href:"/tulisan/stres-tidak-selalu-berasal-dari-pikiran",
+    slug:"pikiran",
+    category:"Pikiran",
+    world:"Pikiran",
+    edition:"002",
+    node:"P-001",
+    archive:"P-001",
+    description:"Melihat stres sebagai pertemuan antara tubuh, otak, pikiran, dan kehidupan."
   },
+
   {
-    title: "Obat & Farmasi",
-    slug: "farmasi",
-    description: "Literasi obat untuk manusia biasa.",
+    number:4,
+    title:"Tidur Bukan Sekadar Istirahat",
+    href:"/tulisan/tidur-bukan-sekadar-istirahat",
+    slug:"otak",
+    category:"Otak",
+    world:"Otak",
+    edition:"001",
+    node:"O-002",
+    archive:"O-002",
+    description:"Mengapa tidur adalah fondasi bagi pemulihan tubuh dan fungsi otak."
   },
+
   {
-    title: "Kesehatan Holistik",
-    slug: "holistik",
-    description: "Melihat manusia lebih utuh.",
+    number:3,
+    title:"Ketika Kekerasan Menjadi Syarat Masuk Komunitas",
+    href:"/tulisan/ketika-kekerasan-menjadi-syarat-masuk-komunitas",
+    slug:"kehidupan",
+    category:"Kehidupan",
+    world:"Kehidupan",
+    edition:"000",
+    node:"K-001",
+    archive:"K-001",
+    description:"Catatan tentang bagaimana kebutuhan diterima dalam kelompok dapat berubah menjadi kekerasan."
   },
+
   {
-    title: "Kehidupan",
-    slug: "kehidupan",
-    description: "Makna, relasi, dan perjalanan manusia.",
+    number:2,
+    title:"Mengapa Kita Sulit Mengubah Kebiasaan",
+    href:"/tulisan/mengapa-kita-sulit-mengubah-kebiasaan",
+    slug:"pikiran",
+    category:"Pikiran",
+    world:"Pikiran",
+    edition:"002",
+    node:"P-002",
+    archive:"P-002",
+    description:"Perubahan lebih sering lahir dari langkah kecil daripada solusi instan."
   },
+
   {
-    title: "Catatan Praktisi",
-    slug: "catatan-praktisi",
-    description: "Belajar dari pengalaman nyata di lapangan.",
-  },
+    number:1,
+    title:"Tubuh Tidak Pernah Benar-Benar Diam",
+    href:"/tulisan/tubuh-tidak-pernah-benar-benar-diam",
+    slug:"tubuh",
+    category:"Tubuh",
+    world:"Tubuh",
+    edition:"003",
+    node:"T-001",
+    archive:"T-001",
+    description:"Tubuh terus bekerja bahkan ketika kita merasa tidak sedang melakukan apa pun."
+  }
+
 ];

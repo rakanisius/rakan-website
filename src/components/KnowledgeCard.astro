@@ -1,0 +1,61 @@
+---
+const {
+  code,
+  title,
+  summary
+} = Astro.props;
+---
+
+<section class="knowledge-card">
+
+<div class="top">
+
+<div class="label">
+Knowledge Card
+</div>
+
+<div class="code">
+{code}
+</div>
+
+</div>
+
+<h3>{title}</h3>
+
+<p>{summary}</p>
+
+</section>
+
+<style>
+.knowledge-card{
+margin:70px auto;
+padding:30px;
+max-width:720px;
+background:#F2EEE6;
+border:1px solid #DCD5CA;
+border-radius:8px;
+}
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+.label,
+.code{
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:#81776A;
+}
+h3{
+margin:0 0 12px;
+font-family:Georgia,serif;
+font-size:30px;
+font-weight:400;
+}
+p{
+margin:0;
+line-height:1.8;
+}
+</style>
