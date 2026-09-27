@@ -22,6 +22,79 @@ const CATEGORY = {
   "6": { title: "Catatan Praktisi", slug: "catatan-praktisi" },
 };
 
+// ======================
+// Buat ilustrasi otomatis
+// ======================
+
+async function generateIllustration(title, slug) {
+  const apiKey = process.env.OPENAI_API_KEY;
+
+  if (!apiKey) {
+    console.log("⚠ OPENAI_API_KEY belum ditemukan. Ilustrasi dilewati.");
+    return;
+  }
+
+  const prompt = `
+Editorial illustration for RAKAN.
+
+Style:
+- minimalist editorial
+- cream paper texture (#F7F4EE)
+- deep maroon accent (#7A2635)
+- elegant literary magazine aesthetic
+- symbolic composition
+- soft cinematic lighting
+- no text
+- no logo
+- high-end magazine illustration
+
+Article title:
+"${title}"
+`;
+
+  console.log("\n🎨 Membuat ilustrasi...");
+
+  try {
+    const res = await fetch("https://api.openai.com/v1/images/generations", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-image-1",
+        prompt,
+        size: "1536x1536",
+        quality: "medium",
+      }),
+    });
+
+    if (!res.ok) {
+      console.log("⚠ Gagal membuat ilustrasi.");
+      console.log(await res.text());
+      return;
+    }
+
+    const json = await res.json();
+
+    const imageBase64 = json.data[0].b64_json;
+
+    const imagePath = path.join(
+      __dirname,
+      "public",
+      "images",
+      `${slug}.png`
+    );
+
+    fs.writeFileSync(imagePath, Buffer.from(imageBase64, "base64"));
+
+    console.log(`✓ Ilustrasi: public/images/${slug}.png`);
+  } catch (err) {
+    console.log("⚠ Gagal membuat ilustrasi.");
+    console.log(err.message);
+  }
+}
+
 (async () => {
   console.log("\n=== RAKAN • ARTIKEL BARU ===\n");
 
@@ -85,19 +158,34 @@ const CATEGORY = {
 
   article = article
     .replace(/const slug = "slug-artikel"/, `const slug = "${slug}"`)
-    .replace(/const title = "JUDUL ARTIKEL \| RAKAN"/, `const title = "${title} | RAKAN"`)
-    .replace(/const description = "Deskripsi singkat artikel\."/,
-      `const description = "Tulis deskripsi singkat di sini."`)
-    .replace(/const image = "\/images\/nama-gambar\.png"/,
-      `const image = "/images/${slug}.png"`)
-    .replace(/const category = "Kehidupan"/,
-      `const category = "${cat.title}"`)
-    .replace(/const archive = "K-000"/,
-      `const archive = "K-${String(next).padStart(3, "0")}"`)
-    .replace(/<h1>JUDUL ARTIKEL<\/h1>/,
-      `<h1>${title}</h1>`)
-    .replace(/alt="Judul Artikel"/,
-      `alt="${title}"`);
+    .replace(
+      /const title = "JUDUL ARTIKEL \| RAKAN"/,
+      `const title = "${title} | RAKAN"`
+    )
+    .replace(
+      /const description = "Deskripsi singkat artikel\."/,
+      `const description = "Tulis deskripsi singkat di sini."`
+    )
+    .replace(
+      /const image = "\/images\/nama-gambar\.png"/,
+      `const image = "/images/${slug}.png"`
+    )
+    .replace(
+      /const category = "Kehidupan"/,
+      `const category = "${cat.title}"`
+    )
+    .replace(
+      /const archive = "K-000"/,
+      `const archive = "K-${String(next).padStart(3, "0")}"`
+    )
+    .replace(
+      /<h1>JUDUL ARTIKEL<\/h1>/,
+      `<h1>${title}</h1>`
+    )
+    .replace(
+      /alt="Judul Artikel"/,
+      `alt="${title}"`
+    );
 
   fs.writeFileSync(articlePath, article);
 
@@ -122,6 +210,12 @@ const CATEGORY = {
 
   fs.writeFileSync(dataPath, updated);
 
+  // ======================
+  // Buat ilustrasi AI
+  // ======================
+
+  await generateIllustration(title, slug);
+
   console.log("\n==============================");
   console.log("✓ Artikel dibuat");
   console.log(`✓ Nomor : ${next}`);
@@ -131,5 +225,6 @@ const CATEGORY = {
   console.log("✓ Related Content otomatis");
   console.log("✓ Masuk menu Tulisan");
   console.log("✓ Masuk kategori");
+  console.log("✓ Ilustrasi otomatis (jika API aktif)");
   console.log("==============================");
 })();
