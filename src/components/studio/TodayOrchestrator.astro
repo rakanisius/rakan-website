@@ -1,0 +1,30 @@
+---
+import CurrentContextCard from "./CurrentContextCard.astro";
+import TodayCard from "./TodayCard.astro";
+import EditorialHealth from "./EditorialHealth.astro";
+import TodayCompass from "./TodayCompass.astro";
+
+import { todayModules } from "../../studio/registry/today";
+
+const components={
+
+"current-context":CurrentContextCard,
+
+"today-card":TodayCard,
+
+"editorial-health":EditorialHealth,
+
+"today-compass":TodayCompass
+
+};
+---
+
+{todayModules.map(module=>{
+
+const Component=components[module.id];
+
+return module.enabled&&Component
+?<Component/>
+:null;
+
+})}
