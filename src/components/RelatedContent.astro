@@ -1,4 +1,4 @@
----
+﻿---
 import { articles } from "../data/articles";
 
 const {
@@ -38,7 +38,7 @@ related=related.sort((a,b)=>new Date(b.published)-new Date(a.published)).slice(0
 </div>
 <h3>{item.title}</h3>
 <p>{item.description}</p>
-<div class="more">Baca tulisan →</div>
+<div class="more">Baca tulisan â†’</div>
 </a>
 ))}
 </div>
@@ -58,3 +58,4 @@ p{color:#514C45;line-height:1.8;margin:0}
 .more{margin-top:18px;color:#7A2635;font-size:14px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
+

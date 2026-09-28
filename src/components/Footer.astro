@@ -1,22 +1,24 @@
+﻿---
+import Brand from "./Brand.astro";
+---
+
 <footer class="footer">
 
   <div class="container">
 
     <div class="footer-top">
 
-      <div class="brand">
+      <div class="brand-block">
 
-        <div class="eyebrow">
-          RAKAN
-        </div>
+        <Brand mode="lockup" size="lg" />
 
         <h2>
           Mendampingi manusia memahami dirinya secara utuh.
         </h2>
 
         <p>
-          Apoteker & praktisi penyembuhan holistik yang membangun ruang
-          percakapan tentang tubuh, pikiran, dan kehidupan melalui tulisan, konsultasi,
+          Apoteker & Praktisi Penyembuhan Holistik yang membangun ruang percakapan
+          tentang tubuh, otak, pikiran, dan kehidupan melalui tulisan, buku,
           pendampingan, dan kolaborasi.
         </p>
 
@@ -31,10 +33,10 @@
           </div>
 
           <a href="/">Beranda</a>
-          <a href="/about">Tentang</a>
-          <a href="/holistik">Penyembuhan Holistik</a>
+          <a href="/peta">Peta</a>
           <a href="/tulisan">Tulisan</a>
           <a href="/buku">Buku</a>
+          <a href="/about">Tentang</a>
 
         </div>
 
@@ -59,14 +61,10 @@
     <div class="footer-bottom">
 
       <div class="copyright">
-        © 2026 Abdul Rakan
+        Â© 2026 Abdul Rakan
       </div>
 
       <div class="social">
-
-        <a href="https://youtube.com/@apt.rakan_id" target="_blank" rel="noopener noreferrer">
-          YouTube
-        </a>
 
         <a href="https://instagram.com/rakan.my.id" target="_blank" rel="noopener noreferrer">
           Instagram
@@ -87,13 +85,13 @@
 <style>
 
 .footer{
-background:#201D19;
-color:#F7F4EE;
+background:var(--rakan-ink);
+color:var(--rakan-cream);
 padding:72px 0 34px;
 }
 
 .container{
-max-width:1180px;
+max-width:var(--container);
 margin:auto;
 padding:0 32px;
 }
@@ -104,24 +102,15 @@ grid-template-columns:1.5fr 1fr;
 gap:70px;
 }
 
-.eyebrow{
-margin-bottom:18px;
-color:#C9B8A3;
-font-size:11px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-}
-
-.brand h2{
-margin:0;
-font-family:Georgia,serif;
+.brand-block h2{
+margin:24px 0 0;
+font-family:var(--font-serif);
 font-size:clamp(32px,4vw,44px);
 font-weight:400;
 line-height:1.15;
 }
 
-.brand p{
+.brand-block p{
 max-width:520px;
 margin-top:24px;
 color:#D5CDC1;
@@ -152,8 +141,7 @@ text-transform:uppercase;
 
 .group a,
 .social a{
-color:#F7F4EE;
-text-decoration:none;
+color:var(--rakan-cream);
 transition:.2s;
 }
 
@@ -187,7 +175,7 @@ gap:22px;
 flex-wrap:wrap;
 }
 
-@media(max-width:800px){
+@media(max-width:900px){
 
 .container{
 padding:0 20px;
@@ -206,7 +194,7 @@ gap:48px;
 grid-template-columns:1fr 1fr;
 }
 
-.brand p{
+.brand-block p{
 font-size:15px;
 }
 
@@ -221,10 +209,6 @@ padding:0 18px;
 .links{
 grid-template-columns:1fr;
 gap:28px;
-}
-
-.brand h2{
-font-size:30px;
 }
 
 .footer-bottom{

@@ -1,0 +1,330 @@
+﻿---
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+import { articles } from "../../../data/articles";
+
+const editions = [...new Set(articles.map(a=>a.edition))]
+  .sort()
+  .map(edition=>({
+    edition,
+    articles:articles
+      .filter(a=>a.edition===edition)
+      .sort((a,b)=>a.number-b.number)
+  }));
+
+const titles={
+  "001":"Tidur",
+  "002":"Pikiran & Kebiasaan",
+  "003":"Tubuh"
+};
+
+const descriptions={
+  "001":"Memahami tidur melalui sains, kebiasaan, otak, dan proses pemulihan.",
+  "002":"Membaca stres dan perubahan kebiasaan sebagai satu rangkaian.",
+  "003":"Memahami tubuh sebagai sistem yang terus bekerja bahkan saat beristirahat."
+};
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Edition | RAKAN</title>
+
+<meta
+  name="description"
+  content="Rangkaian bacaan yang saling terhubung dalam Perpustakaan RAKAN."
+/>
+
+<link rel="canonical" href="https://rakan.my.id/tulisan/edition"/>
+
+<meta property="og:title" content="Edition | RAKAN"/>
+<meta property="og:description" content="Belajar melalui satu tema sampai selesai."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/images/og-library.jpg"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="eyebrow">
+EDITION
+</div>
+
+<h1>
+Belajar melalui satu tema sampai selesai.
+</h1>
+
+<p class="intro">
+Setiap Edition menyusun artikel dalam urutan yang saling terhubung sehingga satu tema dapat dipahami sebagai satu perjalanan belajar.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+{editions.map(edition=>(
+
+<section class="edition-card">
+
+<div class="edition-header">
+
+<div>
+
+<div class="eyebrow">
+EDITION {edition.edition}
+</div>
+
+<h2>{titles[edition.edition] ?? `Edition ${edition.edition}`}</h2>
+
+<p>{descriptions[edition.edition] ?? "Rangkaian bacaan yang saling terhubung."}</p>
+
+</div>
+
+<div class="badge">
+{edition.articles.length} artikel
+</div>
+
+</div>
+
+<div class="article-list">
+
+{edition.articles.map(article=>(
+
+<a href={article.href} class="article">
+
+<div class="meta">
+{article.node} Â· {article.world}
+</div>
+
+<h3>{article.title}</h3>
+
+<p>{article.description}</p>
+
+<div class="read">
+Baca â†’
+</div>
+
+</a>
+
+))}
+
+</div>
+
+</section>
+
+))}
+
+</div>
+
+</section>
+
+</main>
+
+<Footer/>
+
+</body>
+
+</html>
+
+<style>
+
+:global(*){box-sizing:border-box}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.hero{
+padding:100px 0 90px;
+border-bottom:1px solid #E5DFD5;
+}
+
+.section{
+padding:80px 0;
+}
+
+.eyebrow{
+margin-bottom:20px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+h1{
+font-size:clamp(50px,7vw,82px);
+line-height:1.05;
+letter-spacing:-.03em;
+}
+
+h2{
+margin-bottom:18px;
+font-size:clamp(36px,5vw,48px);
+line-height:1.15;
+}
+
+h3{
+margin:8px 0 12px;
+font-size:26px;
+line-height:1.2;
+}
+
+.intro,p{
+color:#514C45;
+font-size:17px;
+line-height:1.8;
+}
+
+.edition-card{
+padding:42px;
+border:1px solid #E5DFD5;
+margin-bottom:38px;
+background:#F7F4EE;
+}
+
+.edition-header{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:24px;
+margin-bottom:30px;
+}
+
+.badge{
+padding:8px 14px;
+border:1px solid #D8D0C5;
+color:#7A2635;
+font-size:13px;
+white-space:nowrap;
+}
+
+.article-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+}
+
+.article{
+display:block;
+padding:24px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+text-decoration:none;
+color:inherit;
+transition:.2s;
+}
+
+.article:hover{
+transform:translateY(-2px);
+border-color:#7A2635;
+}
+
+.meta{
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.12em;
+text-transform:uppercase;
+}
+
+.read{
+margin-top:18px;
+color:#7A2635;
+}
+
+@media(max-width:900px){
+
+.container{
+padding:0 20px;
+}
+
+.hero{
+padding:70px 0;
+}
+
+.edition-header{
+flex-direction:column;
+}
+
+.article-list{
+grid-template-columns:1fr;
+}
+
+.edition-card{
+padding:28px;
+}
+
+h1{
+font-size:42px;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero,
+.section{
+padding:58px 0;
+}
+
+h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
+.intro,p{
+font-size:15px;
+}
+
+.edition-card,
+.article{
+padding:22px;
+}
+
+}
+
+</style>

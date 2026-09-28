@@ -1,4 +1,6 @@
----
+﻿---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import BookLayout from "../layouts/BookLayout.astro";
 ---
 
@@ -6,35 +8,47 @@ import BookLayout from "../layouts/BookLayout.astro";
   title="Pikiran, Jangan Berisik!"
   subtitle="Tentang pikiran, emosi, dan cara berdamai dengan suara-suara di dalam kepala."
   cover="/images/books/pikiran-jangan-berisik.jpg"
-  status="Buku fisik & Ebook tersedia"
-  buyLink="https://wa.me/62819821945"
+  quote="Sebelum menenangkan pikiran, kita perlu memahami dari mana suaranya datang."
+  description="Percakapan tentang pikiran, emosi, dan cara kita berdamai dengan suara-suara di dalam kepala."
+  ebook={true}
+  physical="preorder"
 >
 
-<section class="book-extra">
+<Nav slot="nav"/>
 
-  <div class="container narrow">
+<section slot="extra" class="book-extra">
 
-    <div class="eyebrow">
-      TENTANG PIKIRAN
-    </div>
+<div class="container narrow">
 
-    <h2>
-      Pikiran tidak selalu musuh.
-    </h2>
+<div class="eyebrow">
+TENTANG PIKIRAN
+</div>
 
-    <p>
-      Sering kali kita berusaha membungkam pikiran yang berisik.
-      Padahal, sebelum menenangkannya, kita perlu memahami dari mana suara itu datang.
-    </p>
+<h2>
+Pikiran tidak selalu musuh.
+</h2>
 
-    <p>
-      Buku ini mengajak pembaca membedakan antara pikiran yang perlu didengarkan,
-      pikiran yang perlu dipertanyakan, dan pikiran yang cukup dibiarkan berlalu.
-    </p>
+<p>
+Sering kali kita berusaha membungkam pikiran yang berisik.
+Padahal, sebelum menenangkannya, kita perlu memahami dari mana suara itu datang.
+</p>
 
-  </div>
+<p>
+Buku ini mengajak pembaca membedakan antara pikiran yang perlu didengarkan,
+pikiran yang perlu dipertanyakan,
+dan pikiran yang cukup dibiarkan berlalu.
+</p>
+
+<p>
+Tujuannya bukan membuat kepala selalu sunyi,
+melainkan membantu seseorang memiliki hubungan yang lebih sehat dengan pikirannya sendiri.
+</p>
+
+</div>
 
 </section>
+
+<Footer slot="footer"/>
 
 </BookLayout>
 
@@ -95,6 +109,10 @@ padding:70px 0;
 
 .container{
 padding:0 18px;
+}
+
+.book-extra{
+padding:58px 0;
 }
 
 .book-extra p{

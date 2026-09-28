@@ -1,0 +1,59 @@
+:root{
+
+/* ======================================
+RAKAN Identity System
+RIS-001
+Design Tokens
+====================================== */
+
+/* COLORS */
+
+--rakan-cream:#F7F4EE;
+--rakan-cream-soft:#F1ECE5;
+--rakan-cream-deep:#EBE5DC;
+
+--rakan-maroon:#7A2635;
+
+--rakan-ink:#201D19;
+--rakan-text:#3F3A33;
+--rakan-muted:#514C45;
+--rakan-light:#756653;
+
+--rakan-border:#E5DFD5;
+--rakan-border-strong:#D8D0C5;
+
+/* TYPOGRAPHY */
+
+--font-serif:Georgia,serif;
+--font-sans:Arial,Helvetica,sans-serif;
+
+/* CONTAINER */
+
+--container:1180px;
+--reading:760px;
+
+/* RADIUS */
+
+--radius-sm:6px;
+--radius-md:12px;
+--radius-lg:18px;
+
+/* SPACING */
+
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:20px;
+--space-6:24px;
+--space-7:32px;
+--space-8:40px;
+--space-9:54px;
+--space-10:70px;
+--space-11:90px;
+
+/* SHADOW */
+
+--shadow-soft:0 8px 24px rgba(32,29,25,.05);
+
+}

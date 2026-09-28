@@ -1,0 +1,283 @@
+﻿---
+import {
+  getNode,
+  getEdition,
+  getRelatedArticles
+} from "../data/knowledge";
+
+interface Props{
+  href:string;
+  nodeId:string;
+  editionId:string;
+}
+
+const{
+  href,
+  nodeId,
+  editionId
+}=Astro.props;
+
+const node=getNode(nodeId);
+const edition=getEdition(editionId);
+const related=getRelatedArticles(href);
+---
+
+<section class="knowledge">
+
+<div class="eyebrow">
+KNOWLEDGE NAVIGATOR
+</div>
+
+<h2>
+Lanjutkan perjalanan membaca.
+</h2>
+
+<div class="grid">
+
+  <div class="card">
+
+    <div class="label">
+Knowledge Node
+    </div>
+
+    {node ? (
+
+      <>
+
+        <div class="id">
+{node.id}
+        </div>
+
+        <h3>{node.title}</h3>
+
+        <p>{node.description}</p>
+
+      </>
+
+    ):(
+      <p>Node belum tersedia.</p>
+    )}
+
+  </div>
+
+  <div class="card">
+
+    <div class="label">
+Edition
+    </div>
+
+    {edition ? (
+
+      <>
+
+        <div class="id">
+ED-{edition.id}
+        </div>
+
+        <h3>{edition.title}</h3>
+
+        <p>{edition.description}</p>
+
+      </>
+
+    ):(
+      <p>Artikel ini belum menjadi bagian dari Edition.</p>
+    )}
+
+  </div>
+
+</div>
+
+<div class="related-card">
+
+<div class="label">
+Artikel terkait
+</div>
+
+{related.length>0 ? (
+
+  related.map(article=>(
+
+    <a
+      href={article.href}
+      class="related-item"
+    >
+
+      <div>
+
+        <div class="related-category">
+{article.category}
+        </div>
+
+        <strong>{article.title}</strong>
+
+        <p>{article.description}</p>
+
+      </div>
+
+      <span>â†’</span>
+
+    </a>
+
+  ))
+
+):(
+
+  <p>
+Belum ada artikel lain yang terhubung.
+  </p>
+
+)}
+
+</div>
+
+</section>
+
+<style>
+
+.knowledge{
+margin-top:90px;
+padding-top:70px;
+border-top:1px solid #E5DFD5;
+}
+
+.eyebrow{
+margin-bottom:20px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+.knowledge h2{
+margin:0 0 34px;
+font-family:Georgia,serif;
+font-size:clamp(32px,5vw,42px);
+font-weight:400;
+line-height:1.15;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+margin-bottom:22px;
+}
+
+.card,
+.related-card{
+padding:28px;
+border:1px solid #E5DFD5;
+background:#F7F4EE;
+}
+
+.label{
+margin-bottom:16px;
+color:#756653;
+font-size:11px;
+font-weight:600;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+.id{
+margin-bottom:10px;
+color:#7A2635;
+font-size:12px;
+font-weight:600;
+letter-spacing:.08em;
+}
+
+.card h3{
+margin:0 0 12px;
+font-family:Georgia,serif;
+font-size:28px;
+font-weight:400;
+}
+
+.card p,
+.related-card p{
+margin:0;
+color:#514C45;
+line-height:1.8;
+}
+
+.related-item{
+display:flex;
+justify-content:space-between;
+gap:18px;
+padding:18px 0;
+border-bottom:1px solid #E5DFD5;
+text-decoration:none;
+color:inherit;
+transition:.2s;
+}
+
+.related-item:last-child{
+border-bottom:none;
+padding-bottom:0;
+}
+
+.related-item:hover{
+color:#7A2635;
+}
+
+.related-category{
+margin-bottom:8px;
+color:#81776A;
+font-size:10px;
+font-weight:600;
+letter-spacing:.12em;
+text-transform:uppercase;
+}
+
+.related-item strong{
+display:block;
+margin-bottom:8px;
+font-size:20px;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+.related-item span{
+align-self:center;
+font-size:22px;
+color:#7A2635;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.related-item{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:390px){
+
+.knowledge{
+margin-top:60px;
+padding-top:50px;
+}
+
+.card,
+.related-card{
+padding:22px;
+}
+
+.card h3{
+font-size:24px;
+}
+
+.related-item strong{
+font-size:18px;
+}
+
+}
+
+</style>

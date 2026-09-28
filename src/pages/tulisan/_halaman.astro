@@ -1,49 +1,27 @@
-
----
-import RelatedContent from "../../components/RelatedContent.astro";
+﻿---
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
+import KnowledgeNavigator from "../../components/KnowledgeNavigator.astro";
 
-/*
-====================================================
-RAKAN MASTER ARTICLE TEMPLATE
-TRA-2.0 FINAL
-====================================================
+interface Props{
+title:string;
+description:string;
+world:"Tubuh"|"Otak"|"Pikiran"|"Kehidupan";
+node:string;
+edition:string;
+hero:string;
+href:string;
+}
 
-Yang diganti setiap artikel:
-
-1. slug
-2. title
-3. description
-4. image
-5. category
-6. world
-7. edition
-8. node
-9. readingTime
-10. archive
-11. heroCaption
-12. H1
-13. Intro
-14. Isi artikel
-*/
-
-const slug = "slug-artikel";
-
-const title = "JUDUL ARTIKEL | RAKAN";
-const description = "Deskripsi singkat artikel.";
-const image = "/images/nama-gambar.png";
-
-const category = "Otak";
-const world = "Otak";
-const edition = "001";
-const node = "O-001";
-
-const readingTime = "8 menit membaca";
-const archive = "O-001";
-
-const heroCaption =
-  "Satu kalimat pembuka yang menjadi benang merah artikel.";
+const{
+title,
+description,
+world,
+node,
+edition,
+hero,
+href
+}=Astro.props;
 ---
 
 <!doctype html>
@@ -53,20 +31,21 @@ const heroCaption =
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>{title}</title>
+<title>{title} | RAKAN</title>
 
 <meta name="description" content={description}/>
 
-<link rel="canonical" href={`https://rakan.my.id/tulisan/${slug}`}/>
+<link rel="canonical" href={`https://rakan.my.id${href}`}/>
 
-<meta property="og:title" content={title}/>
+<meta property="og:title" content={`${title} | RAKAN`}/>
 <meta property="og:description" content={description}/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content={image}/>
+<meta property="og:image" content={hero}/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 
-<link rel="icon" href="/favicon-rakan.png"/>
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
 
 </head>
 
@@ -74,254 +53,122 @@ const heroCaption =
 
 <Nav/>
 
-<main class="article">
-
-<!-- METADATA -->
-
-<div class="meta-top">
-
-<div class="category">
-{category}
-</div>
-
-<div class="meta-tags">
-
-<span>{world}</span>
-
-<span>Edition {edition}</span>
-
-<span>{node}</span>
-
-</div>
-
-</div>
+<main>
 
 <!-- HERO -->
 
-<h1>JUDUL ARTIKEL</h1>
+<section class="hero">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+{world.toUpperCase()}
+</div>
+
+<h1>{title}</h1>
 
 <p class="intro">
-Benang merah artikel ditulis satu atau dua kalimat.
+{description}
 </p>
 
 <div class="meta">
-Catatan Rakan · {category} · {readingTime}
+
+<div class="meta-item">
+<span>Node</span>
+<strong>{node}</strong>
 </div>
 
-<div class="hero">
+<div class="meta-item">
+<span>Edition</span>
+<strong>ED-{edition}</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-image">
 
 <img
-src={image}
-alt="Judul Artikel"
+src={hero}
+alt={title}
+fetchpriority="high"
 />
 
-<div class="hero-caption">
-{heroCaption}
 </div>
 
-</div>
+</section>
 
 <!-- ARTICLE -->
 
-<div class="content">
+<article class="article">
 
-<section>
+<div class="container narrow">
 
-<h2>Subjudul Pertama</h2>
+<slot/>
+
+<KnowledgeNavigator
+href={href}
+nodeId={node}
+editionId={edition}
+/>
+
+</div>
+
+</article>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container narrow">
+
+<div class="eyebrow">
+LANJUTKAN PERJALANAN
+</div>
+
+<h2>
+Setiap artikel adalah satu pintu masuk.
+</h2>
 
 <p>
-Mulai menulis di sini.
+Kalau satu tulisan membuka pertanyaan baru,
+Anda bisa melanjutkannya melalui Perpustakaan RAKAN,
+Buku,
+Layanan,
+atau Kolaborasi.
 </p>
 
-<p>
-Paragraf kedua.
-</p>
+<div class="actions">
 
-</section>
-
-<div class="quote">
-Kalimat yang layak dibawa pulang.
-</div>
-
-<section>
-
-<h2>Subjudul Kedua</h2>
-
-<p>
-Lanjutkan tulisan.
-</p>
-
-</section>
-
-<div class="question">
-
-<p>
-Pertanyaan reflektif.
-</p>
-
-</div>
-
-<section>
-
-<h2>Subjudul Terakhir</h2>
-
-<p>
-Penutup isi artikel.
-</p>
-
-</section>
-
-<!-- CATATAN RAKAN -->
-
-<section class="personal">
-
-<div class="personal-label">
-Catatan RAKAN
-</div>
-
-<p>
-Penyembuhan sering dimulai bukan ketika konflik selesai,
-melainkan ketika kita memahami respons kita terhadap konflik itu sendiri.
-Tubuh menyimpan ketegangan.
-Otak membentuk pola.
-Pikiran memberi makna.
-Kehidupan menjadi tempat semuanya bertemu.
-</p>
-
-</section>
-
-<!-- DISCOVERY -->
-
-<section class="discovery">
-
-<div class="personal-label">
-Peta RAKAN
-</div>
-
-<div class="discovery-grid">
-
-<div>
-
-<div class="discovery-title">
-Dunia
-</div>
-
-<p>{world}</p>
-
-</div>
-
-<div>
-
-<div class="discovery-title">
-Knowledge Node
-</div>
-
-<p>{node}</p>
-
-</div>
-
-<div>
-
-<div class="discovery-title">
-Edition
-</div>
-
-<p>{edition}</p>
-
-</div>
-
-</div>
-
-<p class="discovery-note">
-Tulisan ini adalah bagian dari perpustakaan RAKAN.
-Semakin banyak artikel terbit,
-semakin jelas hubungan antar pengetahuan akan terlihat melalui Peta RAKAN.
-</p>
-
-</section>
-
-<!-- JOURNEY -->
-
-<section class="journey">
-
-<div class="personal-label">
-Lanjutkan Perjalanan
-</div>
-
-<p>
-Sebagian tulisan di RAKAN lahir dari pengalaman sebagai apoteker,
-praktisi penyembuhan holistik,
-dan perjalanan memahami manusia secara lebih utuh.
-</p>
-
-<p>
-Kalau tulisan ini membuka pertanyaan baru,
-Anda bisa melanjutkan perjalanan melalui perpustakaan RAKAN,
-buku,
-layanan,
-atau kolaborasi.
-</p>
-
-<div class="journey-links">
-
-<a href="/tulisan">
+<a href="/tulisan" class="button secondary">
 Perpustakaan
 </a>
 
-<a href="/buku">
-Buku
+<a href="/buku" class="button secondary">
+Lihat Buku
 </a>
 
-<a href="/layanan">
-Layanan
+<a href="/layanan" class="button primary">
+Lihat Layanan
 </a>
 
-<a href="/kolaborasi">
-Kolaborasi
-</a>
+</div>
 
 </div>
 
 </section>
-
-<!-- SIGNATURE -->
-
-<section class="closing">
-
-<p>
-Kalimat penutup yang ingin dibawa pembaca pulang.
-</p>
-
-<div class="signature">
-
-Abdul Rakan · Apoteker & Praktisi Penyembuhan Holistik
-
-<br/>
-
-Arsip RAKAN · {archive}
-
-</div>
-
-</section>
-
-</div>
-
-<RelatedContent
-currentHref={`/tulisan/${slug}`}
-currentCategory={category}
-/>
 
 </main>
 
 <Footer/>
 
 </body>
-
 </html>
 
 <style>
 
-:global(*){box-sizing:border-box;}
+:global(*){box-sizing:border-box}
 
 :global(html){
 scroll-behavior:smooth;
@@ -330,264 +177,284 @@ scroll-behavior:smooth;
 :global(body){
 margin:0;
 background:#F7F4EE;
-color:#29251F;
+color:#201D19;
 font-family:Arial,Helvetica,sans-serif;
 }
 
-.article{
-max-width:1000px;
+.container{
+max-width:1180px;
 margin:auto;
-padding:100px 32px;
+padding:0 32px;
 }
 
-/* META */
-
-.meta-top{
-margin-bottom:22px;
+.narrow{
+max-width:760px;
 }
 
-.category{
-color:#81776A;
-font-size:12px;
-letter-spacing:.14em;
-text-transform:uppercase;
+/* HERO */
+
+.hero{
+padding:80px 0 0;
+border-bottom:1px solid #E5DFD5;
 }
 
-.meta-tags{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:14px;
+.hero .container{
+padding-bottom:54px;
 }
 
-.meta-tags span{
-padding:6px 10px;
-border:1px solid #DCD5CA;
-color:#756653;
-font-size:12px;
+.hero-image img{
+display:block;
+width:100%;
+max-height:520px;
+object-fit:cover;
 }
 
-.meta{
-margin-top:12px;
-color:#81776A;
-font-size:14px;
+/* ARTICLE */
+
+.article{
+padding:70px 0 90px;
+}
+
+/* CTA */
+
+.cta{
+padding:95px 0;
+background:#EBE5DC;
+border-top:1px solid #E5DFD5;
 }
 
 /* TYPOGRAPHY */
 
-h1,h2{
+.eyebrow{
+margin-bottom:20px;
+color:#7A2635;
+font-size:11px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
 margin:0;
 font-family:Georgia,serif;
 font-weight:400;
 }
 
 h1{
-max-width:860px;
-margin:24px 0;
-font-size:clamp(46px,7vw,78px);
-line-height:1;
-letter-spacing:-.04em;
-}
-
-.intro{
-max-width:720px;
-margin:0 0 36px;
-color:#625B52;
-font-family:Georgia,serif;
-font-size:clamp(20px,3vw,27px);
-line-height:1.55;
-}
-
-.hero{
-margin:70px 0 100px;
-}
-
-.hero img{
-display:block;
-width:100%;
-height:auto;
-}
-
-.hero-caption{
-margin-top:12px;
-color:#93897B;
-font-size:12px;
-line-height:1.5;
-}
-
-/* CONTENT */
-
-.content{
-max-width:720px;
-margin:auto;
-}
-
-.content section{
-margin-bottom:75px;
+font-size:clamp(44px,6vw,72px);
+line-height:1.06;
+letter-spacing:-.03em;
 }
 
 h2{
-margin-bottom:25px;
-font-size:clamp(30px,4vw,46px);
-line-height:1.1;
-}
-
-p{
-color:#514C45;
-font-size:18px;
-line-height:1.9;
-}
-
-.quote{
-margin:80px 0;
-padding:35px 0;
-border-top:1px solid #DCD5CA;
-border-bottom:1px solid #DCD5CA;
-font-family:Georgia,serif;
-font-size:clamp(25px,4vw,38px);
-line-height:1.3;
-}
-
-.question{
-margin:80px 0;
-padding:45px 0;
-border-top:1px solid #DCD5CA;
-border-bottom:1px solid #DCD5CA;
-}
-
-.question p{
-margin:0;
-color:#29251F;
-font-family:Georgia,serif;
-font-size:clamp(24px,4vw,34px);
-line-height:1.45;
-}
-
-/* PERSONAL */
-
-.personal,
-.discovery,
-.journey{
-margin-top:90px;
-padding-top:55px;
-border-top:1px solid #DCD5CA;
-}
-
-.personal-label{
 margin-bottom:24px;
-color:#81776A;
-font-size:12px;
-letter-spacing:.14em;
-text-transform:uppercase;
+font-size:clamp(34px,5vw,48px);
+line-height:1.15;
 }
 
-/* DISCOVERY */
-
-.discovery-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-margin:30px 0;
+.intro{
+margin-top:26px;
+color:#514C45;
+font-size:19px;
+line-height:1.85;
 }
 
-.discovery-grid>div{
-padding:22px;
-border:1px solid #E5DFD5;
-background:#F7F4EE;
+.meta{
+display:flex;
+gap:34px;
+flex-wrap:wrap;
+margin-top:36px;
+padding-top:26px;
+border-top:1px solid #E5DFD5;
 }
 
-.discovery-title{
-margin-bottom:8px;
-color:#7A2635;
+.meta-item{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.meta-item span{
+color:#756653;
 font-size:11px;
-font-weight:600;
 letter-spacing:.12em;
 text-transform:uppercase;
 }
 
-.discovery-grid p{
-margin:0;
+.meta-item strong{
 font-size:16px;
+font-weight:600;
+color:#201D19;
 }
 
-.discovery-note{
-font-size:15px;
-color:#6B645A;
+/* ARTICLE CONTENT */
+
+.article :global(h2){
+margin-top:54px;
+margin-bottom:20px;
+font-size:clamp(30px,4vw,40px);
 }
 
-/* JOURNEY */
+.article :global(h3){
+margin-top:40px;
+margin-bottom:16px;
+font-size:28px;
+}
 
-.journey-links{
+.article :global(p){
+margin:0 0 24px;
+color:#3F3A33;
+font-size:18px;
+line-height:1.95;
+}
+
+.article :global(ul),
+.article :global(ol){
+margin:0 0 28px 22px;
+padding:0;
+}
+
+.article :global(li){
+margin-bottom:12px;
+color:#3F3A33;
+line-height:1.9;
+}
+
+.article :global(blockquote){
+margin:42px 0;
+padding-left:22px;
+border-left:2px solid #7A2635;
+color:#514C45;
+font-family:Georgia,serif;
+font-size:24px;
+font-style:italic;
+line-height:1.7;
+}
+
+.article :global(strong){
+color:#201D19;
+}
+
+.article :global(hr){
+margin:50px 0;
+border:none;
+border-top:1px solid #E5DFD5;
+}
+
+/* CTA */
+
+.actions{
 display:flex;
 gap:14px;
 flex-wrap:wrap;
-margin-top:30px;
+margin-top:32px;
 }
 
-.journey-links a{
+.button{
 display:inline-block;
-padding:12px 18px;
-border:1px solid #D8D0C5;
+padding:15px 24px;
 text-decoration:none;
-color:#201D19;
 transition:.2s;
 }
 
-.journey-links a:hover{
+.button.primary{
 background:#7A2635;
-border-color:#7A2635;
 color:white;
 }
 
-/* CLOSING */
-
-.closing{
-margin-top:100px;
-padding-top:45px;
-border-top:1px solid #DCD5CA;
+.button.primary:hover{
+background:#201D19;
 }
 
-.closing p{
-font-family:Georgia,serif;
-font-size:28px;
-line-height:1.5;
+.button.secondary{
+border:1px solid #D8D0C5;
+color:#201D19;
 }
 
-.signature{
-margin-top:35px;
-color:#81776A;
-font-size:14px;
+.button.secondary:hover{
+background:#F1ECE5;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:700px){
+@media(max-width:900px){
 
-.article{
-padding:65px 22px 80px;
+.container{
+padding:0 20px;
 }
 
 .hero{
-margin:50px 0 70px;
+padding-top:64px;
 }
 
-.discovery-grid{
-grid-template-columns:1fr;
+.article{
+padding:54px 0 70px;
 }
 
-.journey-links{
+.cta{
+padding:70px 0;
+}
+
+.intro{
+font-size:17px;
+}
+
+.article :global(p){
+font-size:17px;
+}
+
+.actions{
 flex-direction:column;
 }
 
-.journey-links a{
+.button{
 text-align:center;
 }
 
-p{
-font-size:17px;
-line-height:1.85;
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero{
+padding-top:54px;
+}
+
+.article{
+padding:42px 0 58px;
+}
+
+.cta{
+padding:58px 0;
+}
+
+h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
+.intro{
+font-size:16px;
+}
+
+.article :global(p){
+font-size:16px;
+line-height:1.9;
+}
+
+.article :global(blockquote){
+font-size:20px;
+}
+
+.meta{
+gap:20px;
 }
 
 }
-
 </style>

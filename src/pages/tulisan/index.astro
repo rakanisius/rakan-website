@@ -1,34 +1,32 @@
-
----
+﻿---
 import SearchArticles from "../../components/SearchArticles.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
-
 import { articles, categories } from "../../data/articles";
 
-const sortedArticles = [...articles].sort((a, b) => b.number - a.number);
+const sortedArticles = [...articles].sort((a,b)=>b.number-a.number);
 
-const categoriesWithCount = categories.map((category) => ({
+const categoriesWithCount = categories.map(category=>({
   ...category,
-  count: articles.filter((a) => a.slug === category.slug).length,
+  count:articles.filter(a=>a.slug===category.slug).length,
 }));
+
+const tidurEdition = articles
+  .filter(a=>a.edition==="001")
+  .sort((a,b)=>a.number-b.number);
 ---
 
 <!doctype html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<link rel="icon" href="/favicon-rakan.png"/>
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
 
 <title>Perpustakaan RAKAN | Tulisan</title>
 
-<meta
-name="description"
-content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik."
-/>
+<meta name="description" content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik."/>
 
 <link rel="canonical" href="https://rakan.my.id/tulisan"/>
 
@@ -36,9 +34,7 @@ content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidup
 <meta property="og:description" content="Menjelajahi tubuh, otak, pikiran, dan kehidupan melalui tulisan yang saling terhubung."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="/images/og-library.jpg"/>
-
 <meta name="twitter:card" content="summary_large_image"/>
-
 </head>
 
 <body>
@@ -47,15 +43,10 @@ content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidup
 
 <main>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <div class="container">
 
-<div class="eyebrow">
-PERPUSTAKAAN RAKAN
-</div>
+<div class="eyebrow">PERPUSTAKAAN RAKAN</div>
 
 <h1>
 <span>Memahami tubuh,</span>
@@ -69,40 +60,25 @@ Anda bisa memulai dari satu artikel, satu kategori, atau satu pertanyaan.
 </p>
 
 </div>
-
 </section>
 
-<!-- PETA -->
-
 <section class="map-section">
-
 <div class="container">
 
-<div class="eyebrow">
-PETA RAKAN
-</div>
+<div class="eyebrow">PETA RAKAN</div>
 
-<h2>
-Setiap tulisan memiliki koordinatnya.
-</h2>
+<h2>Setiap tulisan memiliki koordinatnya.</h2>
 
 <p class="section-intro">
-Peta RAKAN sedang dibangun sebagai navigator pengetahuan yang menghubungkan artikel,
-Knowledge Nodes, dan Edition dalam satu perjalanan belajar.
+Peta RAKAN sedang dibangun sebagai navigator pengetahuan yang menghubungkan artikel, Knowledge Nodes, dan Edition dalam satu perjalanan belajar.
 </p>
 
 <div class="map-preview">
-
 <div class="map-node center">RAKAN</div>
-
 <div class="map-node top-left">Tubuh</div>
-
 <div class="map-node top-right">Otak</div>
-
 <div class="map-node bottom-left">Pikiran</div>
-
 <div class="map-node bottom-right">Kehidupan</div>
-
 </div>
 
 <p class="map-caption">
@@ -110,88 +86,63 @@ Widget interaktif akan menggantikan preview ini pada pengembangan berikutnya.
 </p>
 
 </div>
-
 </section>
 
-<!-- EDITION -->
-
 <section class="edition-section">
-
 <div class="container">
 
-<div class="eyebrow">
-EDITION
-</div>
+<div class="eyebrow">EDITION</div>
 
-<h2>
-Belajar melalui satu tema sampai selesai.
-</h2>
+<h2>Belajar melalui satu tema sampai selesai.</h2>
 
 <p class="section-intro">
-Sebagian artikel nantinya akan menjadi bagian dari Edition,
-yaitu rangkaian bacaan yang saling berurutan.
+Sebagian artikel menjadi bagian dari Edition, yaitu rangkaian bacaan yang saling berurutan.
 </p>
 
 <div class="edition-card">
 
-<div>
+<div class="edition-left">
 
-<div class="edition-label">
-EDITION 001
-</div>
+<div class="edition-label">EDITION 001</div>
 
 <h3>Tidur</h3>
 
 <p>
+<strong>{tidurEdition.length} artikel tersedia.</strong><br/>
 Memahami tidur melalui sains, kebiasaan, otak, dan proses pemulihan.
 </p>
 
 </div>
 
-<div class="coming">
-Segera hadir
-</div>
+<a href="/tulisan/edition" class="edition-button">
+Buka Edition â†’
+</a>
 
 </div>
 
 </div>
-
 </section>
 
-<!-- KATEGORI -->
-
 <section class="categories-section">
-
 <div class="container">
 
-<div class="eyebrow">
-EMPAT DUNIA RAKAN
-</div>
+<div class="eyebrow">EMPAT DUNIA RAKAN</div>
 
-<h2>
-Empat pintu masuk menuju perpustakaan.
-</h2>
+<h2>Empat pintu masuk menuju perpustakaan.</h2>
 
 <div class="category-grid">
 
-{categoriesWithCount.map((item)=>(
+{categoriesWithCount.map(item=>(
 
-<a
-href={`/tulisan/kategori/${item.slug}`}
-class="category-card"
->
+<a href={`/tulisan/kategori/${item.slug}`} class="category-card">
 
-<div class="count">
-{item.count} tulisan
-</div>
+<div class="count">{item.count} tulisan</div>
 
 <h3>{item.title}</h3>
 
 <p>{item.description}</p>
 
-<div class="arrow">
-Masuk →
-</div>
+<div class="arrow">Masuk â†’</div>
 
 </a>
 
@@ -200,71 +151,45 @@ Masuk →
 </div>
 
 </div>
-
 </section>
-
-<!-- SEARCH -->
 
 <section class="search-section">
-
 <div class="container">
 
-<div class="eyebrow">
-CARI TULISAN
-</div>
+<div class="eyebrow">CARI TULISAN</div>
 
-<SearchArticles articles={sortedArticles} />
+<SearchArticles articles={sortedArticles}/>
 
 </div>
-
 </section>
 
-<!-- ARTIKEL -->
-
 <section class="articles-section">
-
 <div class="container">
 
-<div class="eyebrow">
-ARTIKEL TERBARU
-</div>
+<div class="eyebrow">ARTIKEL TERBARU</div>
 
 <div class="articles">
 
-{sortedArticles.map((article)=>(
+{sortedArticles.map(article=>(
 
-<article
-class="article"
-data-article
-data-href={article.href}
->
+<article class="article" data-article data-href={article.href}>
 
-<div class="number">
-{String(article.number).padStart(2,"0")}
-</div>
+<div class="number">{String(article.number).padStart(2,"0")}</div>
 
 <div class="article-content">
 
-<a
-class="category"
-href={`/tulisan/kategori/${article.slug}`}
->
+<a class="category" href={`/tulisan/kategori/${article.slug}`}>
 {article.category}
 </a>
 
 <h2>{article.title}</h2>
 
-<p class="description">
-{article.description}
-</p>
+<p class="description">{article.description}</p>
 
 </div>
 
-<a
-class="read"
-href={article.href}
->
-Baca →
+<a class="read" href={article.href}>
+Baca â†’
 </a>
 
 </article>
@@ -274,18 +199,12 @@ Baca →
 </div>
 
 </div>
-
 </section>
 
-<!-- CTA -->
-
 <section class="cta">
-
 <div class="cta-inner">
 
-<div class="eyebrow">
-LANJUTKAN PERJALANAN
-</div>
+<div class="eyebrow">LANJUTKAN PERJALANAN</div>
 
 <h2>
 Membaca adalah awal.
@@ -313,7 +232,6 @@ Lihat Layanan
 </div>
 
 </div>
-
 </section>
 
 </main>
@@ -325,12 +243,8 @@ Lihat Layanan
 
 <style>
 
-:global(*){box-sizing:border-box;}
-
-:global(html){
-scroll-behavior:smooth;
-}
-
+:global(*){box-sizing:border-box}
+:global(html){scroll-behavior:smooth}
 :global(body){
 margin:0;
 background:#F7F4EE;
@@ -343,8 +257,6 @@ max-width:1180px;
 margin:auto;
 padding:0 32px;
 }
-
-/* SECTION */
 
 .hero,
 .map-section,
@@ -361,8 +273,6 @@ padding:95px 0;
 background:#EBE5DC;
 }
 
-/* TYPOGRAPHY */
-
 .eyebrow{
 margin-bottom:24px;
 color:#7A2635;
@@ -378,10 +288,7 @@ font-family:Georgia,serif;
 font-weight:400;
 }
 
-h1 span,
-h1 em{
-display:block;
-}
+h1 span,h1 em{display:block}
 
 h1{
 max-width:860px;
@@ -407,9 +314,7 @@ line-height:1.2;
 margin-bottom:12px;
 }
 
-.intro,
-.section-intro,
-p{
+.intro,.section-intro,p{
 color:#514C45;
 font-size:17px;
 line-height:1.8;
@@ -440,10 +345,10 @@ transform:translate(-50%,-50%);
 border-color:#7A2635;
 }
 
-.top-left{left:80px;top:60px;}
-.top-right{right:80px;top:60px;}
-.bottom-left{left:80px;bottom:60px;}
-.bottom-right{right:80px;bottom:60px;}
+.top-left{left:80px;top:60px}
+.top-right{right:80px;top:60px}
+.bottom-left{left:80px;bottom:60px}
+.bottom-right{right:80px;bottom:60px}
 
 .map-caption{
 margin-top:18px;
@@ -464,6 +369,10 @@ margin-top:36px;
 gap:24px;
 }
 
+.edition-left{
+flex:1;
+}
+
 .edition-label{
 margin-bottom:12px;
 color:#7A2635;
@@ -473,12 +382,20 @@ letter-spacing:.16em;
 text-transform:uppercase;
 }
 
-.coming{
-padding:8px 14px;
+.edition-button{
+display:inline-block;
+padding:14px 22px;
 border:1px solid #D8D0C5;
-color:#756653;
-font-size:14px;
+color:#201D19;
+text-decoration:none;
 white-space:nowrap;
+transition:.2s;
+}
+
+.edition-button:hover{
+background:#7A2635;
+border-color:#7A2635;
+color:white;
 }
 
 /* KATEGORI */
@@ -616,8 +533,6 @@ color:#201D19;
 background:#F1ECE5;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:800px){
 
 .container{
@@ -660,10 +575,10 @@ margin-top:10px;
 height:300px;
 }
 
-.top-left{left:24px;top:30px;}
-.top-right{right:24px;top:30px;}
-.bottom-left{left:24px;bottom:30px;}
-.bottom-right{right:24px;bottom:30px;}
+.top-left{left:24px;top:30px}
+.top-right{right:24px;top:30px}
+.bottom-left{left:24px;bottom:30px}
+.bottom-right{right:24px;bottom:30px}
 
 }
 
@@ -708,5 +623,4 @@ padding:22px;
 }
 
 }
-
 </style>

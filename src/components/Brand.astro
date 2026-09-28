@@ -1,0 +1,72 @@
+﻿---
+interface Props{
+  href?:string;
+  mode?:"text"|"wordmark"|"mark"|"lockup";
+  size?:"sm"|"md"|"lg";
+}
+
+const{
+  href="/",
+  mode="wordmark",
+  size="md"
+}=Astro.props;
+
+const sizeClass={
+  sm:"brand-sm",
+  md:"brand-md",
+  lg:"brand-lg"
+}[size];
+
+const logo={
+  wordmark:"/brand/logo-rakan.svg",
+  mark:"/brand/logo-mark.svg",
+  lockup:"/brand/logo-rakan-signature.svg"
+}[mode];
+---
+
+<a href={href} class={`brand ${sizeClass}`} aria-label="RAKAN">
+
+  {mode==="text" ? (
+
+    <span class="fallback">
+      RAKANÂ®
+    </span>
+
+  ) : (
+
+    <img
+      src={logo}
+      alt="RAKAN"
+      class="logo"
+    />
+
+  )}
+
+</a>
+
+<style>
+
+.brand{
+display:inline-flex;
+align-items:center;
+text-decoration:none;
+}
+
+.logo{
+display:block;
+height:100%;
+width:auto;
+}
+
+.fallback{
+font-family:var(--font-sans);
+font-weight:600;
+letter-spacing:.12em;
+color:var(--rakan-ink);
+}
+
+.brand-sm{height:22px;}
+.brand-md{height:28px;}
+.brand-lg{height:38px;}
+
+</style>
