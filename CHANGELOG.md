@@ -1,135 +1,158 @@
-# RAKAN Changelog
+# CHANGELOG
 
-> Riwayat resmi pengembangan rakan.my.id
+Semua perubahan penting RAKAN Website dicatat di sini.
 
-Format mengikuti prinsip **Keep a Changelog** dengan penyesuaian untuk proyek editorial.
-
-Status: **Living Document**
+Format mengikuti semangat Keep a Changelog dengan penyesuaian untuk RAKAN Canon System.
 
 ---
 
-## [1.0.0] - 2026-09
+# v3.1 — Living Foundation
 
-### Added
+Status: Release Candidate
 
-#### Website Foundation
+Tanggal: 2026
 
-- Struktur website dikunci.
-- Halaman Beranda.
-- Halaman Tentang.
-- Halaman Kesehatan Holistik.
-- Halaman Tulisan.
-- Halaman Buku.
-- Halaman Layanan.
-- Halaman Kolaborasi.
-- Halaman Kontak.
-
-#### Kolaborasi
-
-- Halaman `kolaborasi/form`.
-- Halaman `kolaborasi/terima-kasih`.
-- CTA utama Kolaborasi diarahkan ke formulir.
-- CTA penutup diarahkan ke halaman Kontak.
-
-#### Identity Pack
-
-- Editorial Portrait Pack.
-- Signature System.
-- Brand Direction dikunci.
-- Basis resmi diubah menjadi **Jakarta Selatan, Indonesia**.
-
-#### Editorial Language
-
-- Motif System (Tubuh, Pikiran, Kehidupan).
-- Editorial Rhythm.
-- UI Kit Editorial.
-- Manifest Komponen RAKAN.
-
-#### Dokumentasi Proyek
-
-- `DECISIONS.md`
-- `ROADMAP.md`
-- `src/components/editorial/README.md`
+Tema:
+Membangun fondasi sebelum menambah fitur.
 
 ---
 
-### Changed
+## Added
 
-#### Identitas
+### Canon
 
-- Nama brand dikunci menjadi **RAKAN**.
-- Nama publik penulis menggunakan **Abdul Rakan**.
-- Tagline resmi dikunci:
+- RCS-001 — RAKAN Canon System.
+- RIS-001 — RAKAN Identity System.
+- DRS-001 — Design Rule System.
+- KMS-001 — Knowledge Map System.
+- ACS-001 — Article Consolidation System.
+- GWS-001 — Growth Writing System.
+- WOS-001 — Writer Operating System.
+- PLS-001 — Product Layer System.
 
-  > Mendampingi manusia memahami dirinya secara utuh.
+### Components
 
-#### Visual
+- Brand.astro.
+- WorldCards.astro.
+- WorldStats otomatis dari knowledge.ts.
+- PetaRakan sebagai entry point menuju Living Library.
 
-- Warna utama dikunci:
-  - Cream `#F7F4EE`
-  - Maroon `#7A2635`
-- Heading menggunakan Georgia.
-- Body menggunakan Arial.
+### Knowledge
 
-#### Halaman Kontak
-
-- Email dijadikan kanal profesional utama.
-- WhatsApp dipertahankan untuk konsultasi dan pendampingan.
-- Lokasi menggunakan **Jakarta Selatan** tanpa menampilkan Google Maps.
-
-#### Kolaborasi
-
-- Alur diarahkan menuju formulir khusus.
-- Halaman Kontak menjadi jalur komunikasi umum.
-
----
-
-### Fixed
-
-- Perbaikan CTA ganda pada halaman Kolaborasi.
-- Perbaikan struktur penutupan tag pada `kolaborasi.astro`.
-- Konsistensi alur:
-  - `/kolaborasi`
-  - `/kolaborasi/form`
-  - `/kolaborasi/terima-kasih`
-  - `/kontak`
-
----
-
-### Locked Decisions
-
-Keputusan berikut dianggap permanen kecuali direvisi secara eksplisit.
-
-- Website publik dianggap stabil.
-- Fitur baru dibangun melalui RAKAN Studio.
-- Tiga dunia utama:
+- Empat World resmi:
   - Tubuh
+  - Otak
   - Pikiran
   - Kehidupan
-- QuietDivider menggantikan `<hr>`.
-- ArticleSignature wajib di akhir artikel.
-- Motif mengikuti kategori artikel.
+
+- Node menjadi bagian resmi arsitektur pengetahuan.
 
 ---
 
-## Template Rilis Berikutnya
+## Changed
 
-```md
-## [1.x.x] - YYYY-MM-DD
+### Navigation
 
-### Added
+- Peta dihapus dari navbar.
+- Entry resmi menuju Peta menjadi `/tulisan#peta`.
 
--
+### Holistik
 
-### Changed
+- "Tiga Ruang" berubah menjadi "Empat World".
+- CTA menuju `/tulisan#peta`.
+- Flow kerja diselaraskan.
 
--
+### Tulisan
 
-### Fixed
+- Menjadi gerbang resmi Living Library.
+- Struktur:
+  - Hero
+  - Peta
+  - Edition
+  - World
+  - Search
+  - Artikel
+  - CTA
 
--
+### Identity
 
-### Removed
+- Brand menjadi teks "RAKAN".
+- Favicon dipusatkan melalui layout.
+- Head Consolidation diterapkan.
 
--
-```
+---
+
+## Fixed
+
+- Konsolidasi favicon.
+- Perbaikan encoding UTF-8.
+- Footer konsisten.
+- Nav konsisten.
+- Build hijau setelah konsolidasi Sacred File.
+
+---
+
+## Archived
+
+- `/peta` dipertahankan sebagai halaman teknis internal.
+- Public entry point tetap `/tulisan#peta`.
+
+---
+
+## Decision Records
+
+### DR-0007
+
+About menjadi halaman posisi, bukan profil.
+
+### DR-0008
+
+`/peta` menjadi kanvas internal Living Library.
+Entry publik tetap `/tulisan#peta`.
+
+---
+
+## Sacred Files
+
+- `Brand.astro`
+- `Nav.astro`
+- `Footer.astro`
+- `BaseLayout.astro`
+- `BookLayout.astro`
+- `knowledge.ts`
+- `articles.ts`
+- `books.ts`
+- `WorldCards.astro`
+
+---
+
+## Release Notes
+
+v3.1 bukan akhir dari website.
+
+Versi ini membangun fondasi agar seluruh pengembangan berikutnya memiliki bahasa, struktur, dan identitas yang konsisten.
+
+## v3.1 Baseline Freeze (2026-09-29)
+
+### Frozen
+
+- Canon Registry dibekukan.
+- Design Tokens menjadi sumber visual tunggal.
+- RakanArticleLayout menjadi layout resmi.
+- Studio Shell menjadi layout resmi Studio.
+- Local Publish Agent v1.0 diverifikasi.
+- Repository Baseline v3.1 ditetapkan.
+
+### Infrastructure
+
+- LPA /health PASS.
+- LPA /status PASS.
+- Repository terdeteksi.
+- Build hijau.
+
+### Next
+
+- C3.0.2 Handshake
+- C3.0.3 SSE
+- C3.0.4 Job Queue
+- C4 Studio Memory

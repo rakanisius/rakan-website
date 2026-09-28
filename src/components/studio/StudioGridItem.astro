@@ -1,0 +1,55 @@
+---
+const{
+span=12,
+tablet,
+mobile
+}=Astro.props;
+
+const tabletSpan=tablet??Math.min(span,6);
+const mobileSpan=mobile??1;
+---
+
+<div
+class="grid-item"
+style={`
+--span:${span};
+--tablet:${tabletSpan};
+--mobile:${mobileSpan};
+`}
+>
+
+<slot/>
+
+</div>
+
+<style>
+
+.grid-item{
+
+grid-column:span var(--span);
+
+min-width:0;
+
+}
+
+@media(max-width:900px){
+
+.grid-item{
+
+grid-column:span var(--tablet);
+
+}
+
+}
+
+@media(max-width:640px){
+
+.grid-item{
+
+grid-column:span var(--mobile);
+
+}
+
+}
+
+</style>

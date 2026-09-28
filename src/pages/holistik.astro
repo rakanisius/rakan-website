@@ -1,21 +1,30 @@
-﻿---
+---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import WorldCards from "../components/WorldCards.astro";
 
 const title = "Penyembuhan Holistik | RAKAN";
+
 const description =
-  "Memahami penyembuhan holistik sebagai hubungan antara tubuh, pikiran, kebiasaan, lingkungan, dan kehidupan dengan pendekatan yang utuh dan bertanggung jawab.";
+  "Memahami manusia melalui empat dunia RAKAN: Tubuh, Otak, Pikiran, dan Kehidupan. Pendekatan yang utuh, bertanggung jawab, dan tetap berpijak pada pengetahuan.";
 ---
 
 <!doctype html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8"/>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>{title}</title>
+
 <meta name="description" content={description}/>
+
 <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
 <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
+
 </head>
 
 <body>
@@ -25,6 +34,7 @@ const description =
 <main>
 
 <section class="hero">
+
 <div class="container">
 
 <p class="eyebrow">PENYEMBUHAN HOLISTIK</p>
@@ -35,65 +45,100 @@ Penyembuhan dimulai ketika kita berhenti melihat manusia
 </h1>
 
 <p class="lead">
-Tubuh, pikiran, kebiasaan, lingkungan, dan kehidupan saling memengaruhi.
-Pendekatan ini tidak menggantikan pengobatan, tetapi memperluas cara kita memahami manusia.
+Tubuh, Otak, Pikiran, dan Kehidupan saling memengaruhi. Pendekatan ini tidak
+menggantikan pengobatan, tetapi memperluas cara kita memahami manusia secara
+lebih utuh.
 </p>
 
 <div class="actions">
+
 <a href="/layanan" class="button primary">Mulai Konsultasi</a>
+
 <a href="/tulisan" class="button secondary">Baca Tulisan</a>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="section">
+
 <div class="container split">
 
 <div class="left">
+
 <p class="eyebrow">APA ITU</p>
+
 <h2>Melihat manusia sebagai satu kesatuan.</h2>
+
 </div>
 
 <div class="right">
-<p>Penyembuhan holistik bukan metode tunggal. Ia adalah cara memandang manusia secara lebih utuh.</p>
-<p>Keluhan fisik dapat dipengaruhi banyak faktor. Begitu pula pengalaman batin dapat memengaruhi cara seseorang menjalani hidup. Hubungan itu tidak selalu sederhana, tetapi layak dipahami.</p>
-<p>Tujuannya bukan mencari satu penyebab untuk semua hal, melainkan memahami konteks yang lebih luas.</p>
+
+<p>
+Penyembuhan holistik bukan metode tunggal. Ia adalah cara memandang manusia
+secara lebih utuh.
+</p>
+
+<p>
+Keluhan fisik dapat dipengaruhi banyak faktor. Begitu pula pengalaman batin
+dapat memengaruhi cara seseorang menjalani hidup. Hubungan itu tidak selalu
+sederhana, tetapi layak dipahami.
+</p>
+
+<p>
+Tujuannya bukan mencari satu penyebab untuk semua hal, melainkan memahami
+konteks yang lebih luas sebelum menentukan langkah yang paling relevan.
+</p>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="section">
+
 <div class="container">
 
-<p class="eyebrow">TIGA RUANG</p>
-
-<h2>Tubuh Â· Pikiran Â· Kehidupan</h2>
-
-<div class="grid3">
-
-<article>
-<h3>Tubuh</h3>
-<p>Gejala, obat, tidur, nutrisi, aktivitas, dan proses pemulihan.</p>
-</article>
-
-<article>
-<h3>Pikiran</h3>
-<p>Emosi, stres, perhatian, dan cara kita merespons kehidupan.</p>
-</article>
-
-<article>
-<h3>Kehidupan</h3>
-<p>Relasi, pekerjaan, lingkungan, nilai, dan ruang bertumbuh.</p>
-</article>
+<WorldCards/>
 
 </div>
 
-</div>
 </section>
 
 <section class="section alt">
+
+<div class="container narrow">
+
+<p class="eyebrow">PETA RAKAN</p>
+
+<h2>Empat dunia saling terhubung.</h2>
+
+<p>
+Setiap dunia memiliki Node dan tulisan yang saling berhubungan. Peta RAKAN
+membantu melihat hubungan itu sebagai satu perpustakaan yang terus bertumbuh.
+</p>
+
+<div class="map-preview">
+
+<AsyncImage query="minimalist editorial four connected circles body brain mind life cream background maroon accent paper texture" aspectRatio="16:9"/>
+
+</div>
+
+<div class="actions">
+
+<a href="/peta" class="button primary">Jelajahi Peta RAKAN</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section alt">
+
 <div class="container">
 
 <p class="eyebrow">BATAS PENDEKATAN</p>
@@ -101,34 +146,59 @@ Pendekatan ini tidak menggantikan pengobatan, tetapi memperluas cara kita memaha
 <h2>Holistik tidak berarti meninggalkan sains.</h2>
 
 <div class="table-wrap">
+
 <table>
+
 <tr>
+
 <th>Bukan</th>
+
 <th>Melainkan</th>
+
 </tr>
+
 <tr>
+
 <td>Menggantikan diagnosis</td>
+
 <td>Memperluas pemahaman tentang manusia</td>
+
 </tr>
+
 <tr>
+
 <td>Menolak obat</td>
+
 <td>Menggunakan obat secara tepat</td>
+
 </tr>
+
 <tr>
+
 <td>Menjanjikan kesembuhan instan</td>
+
 <td>Mendampingi proses perubahan</td>
+
 </tr>
+
 <tr>
+
 <td>Mengabaikan bukti ilmiah</td>
+
 <td>Tetap berpijak pada pengetahuan</td>
+
 </tr>
+
 </table>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="section">
+
 <div class="container">
 
 <p class="eyebrow">EMPAT LAPIS PEMAHAMAN</p>
@@ -138,71 +208,125 @@ Pendekatan ini tidak menggantikan pengobatan, tetapi memperluas cara kita memaha
 <div class="grid2">
 
 <article>
+
 <h3>Bukti ilmiah</h3>
+
 <p>Temuan yang didukung penelitian dan menjadi dasar praktik kesehatan.</p>
+
 </article>
 
 <article>
+
 <h3>Kemungkinan biologis</h3>
+
 <p>Ada mekanisme yang masuk akal, tetapi bukti masih berkembang.</p>
+
 </article>
 
 <article>
+
 <h3>Pengalaman pribadi</h3>
+
 <p>Pengalaman dapat memberi makna, tetapi belum tentu berlaku untuk semua orang.</p>
+
 </article>
 
 <article>
+
 <h3>Keyakinan</h3>
+
 <p>Nilai dan kepercayaan memiliki tempatnya sendiri, tetapi berbeda dari klaim ilmiah.</p>
+
 </article>
 
 </div>
 
 </div>
+
 </section>
 
 <section class="section">
+
 <div class="container narrow">
 
 <p class="eyebrow">BAGAIMANA SAYA BEKERJA</p>
 
-<h2>Memahami sebelum menentukan langkah.</h2>
+<h2>Memahami empat dunia sebelum menentukan langkah.</h2>
 
-<p>Ketika seseorang datang, saya tidak hanya bertanya apa yang sakit. Saya juga ingin memahami bagaimana tidurnya, bagaimana kesehariannya, bagaimana pikirannya, dan bagaimana hidup sedang berjalan.</p>
+<p>
+Ketika seseorang datang, saya tidak hanya bertanya apa yang sakit. Saya ingin
+memahami bagaimana tubuhnya memberi sinyal, bagaimana otaknya bekerja, bagaimana
+pikirannya merespons pengalaman, dan bagaimana kehidupannya sedang berjalan.
+</p>
 
 <div class="flow">
 
-<div>01 Â· Memahami konteks.</div>
-<div>02 Â· Menentukan langkah.</div>
-<div>03 Â· Konsultasi selesai atau berlanjut menjadi pendampingan.</div>
+<div>
+
+<strong>01 · Memahami empat dunia.</strong>
+
+<p>Tubuh, Otak, Pikiran, dan Kehidupan menjadi titik awal membaca konteks.</p>
+
+</div>
+
+<div>
+
+<strong>02 · Menentukan langkah.</strong>
+
+<p>Prioritas pertama bukan selalu mencari jawaban tercepat, melainkan memahami konteks yang paling relevan.</p>
+
+</div>
+
+<div>
+
+<strong>03 · Pendampingan seperlunya.</strong>
+
+<p>Bila satu percakapan sudah cukup, selesai. Bila belum, perjalanan dapat berlanjut.</p>
+
+</div>
 
 </div>
 
 <div class="statement">
+
 <p>Tubuh memberi sinyal.</p>
-<p>Pikiran memberi konteks.</p>
+
+<p>Otak mengolah ritme.</p>
+
+<p>Pikiran memberi makna.</p>
+
 <p>Kehidupan memberi cerita.</p>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="cta">
+
 <div class="container narrow">
 
 <p class="eyebrow">MULAI DARI SATU PERCAKAPAN</p>
 
 <h2>Mungkin jawaban yang Anda cari bukan hanya nama penyakit.</h2>
 
-<p>Konsultasi menjadi ruang untuk memahami persoalan terlebih dahulu. Bila satu percakapan sudah cukup, tidak perlu pendampingan. Bila belum cukup, perjalanan dapat dilanjutkan dengan pendampingan yang lebih mendalam.</p>
+<p>
+Konsultasi menjadi ruang untuk memahami persoalan terlebih dahulu. Bila satu
+percakapan sudah cukup, tidak perlu pendampingan. Bila belum cukup, perjalanan
+dapat dilanjutkan dengan pendampingan yang lebih mendalam.
+</p>
 
 <div class="actions">
+
 <a href="/layanan" class="button primary">Lihat Layanan</a>
+
 <a href="/kolaborasi" class="button secondary">Kolaborasi</a>
+
 </div>
 
 </div>
+
 </section>
 
 </main>
@@ -210,44 +334,250 @@ Pendekatan ini tidak menggantikan pengobatan, tetapi memperluas cara kita memaha
 <Footer/>
 
 </body>
+
 </html>
 
 <style>
-:global(*){box-sizing:border-box}
-:global(body){margin:0;background:#F7F4EE;color:#201D19;font-family:Arial,sans-serif}
-.container{max-width:1180px;margin:auto;padding:0 32px}
-.narrow{max-width:760px}
-.hero{padding:96px 0 110px}
-.section{padding:86px 0;border-top:1px solid #E5DFD5}
-.alt{background:#F1ECE5}
-.split{display:grid;grid-template-columns:320px 1fr;gap:60px}
-.eyebrow{color:#7A2635;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
-h1,h2,h3{font-family:Georgia,serif;font-weight:400;margin:0}
-h1{font-size:clamp(54px,7vw,82px);line-height:1.05}
-h1 em{display:block;font-style:italic;color:#756653}
-h2{font-size:clamp(36px,5vw,50px);line-height:1.15;margin-bottom:24px}
-.lead,p{color:#514C45;line-height:1.8}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:40px}
-.table-wrap{overflow:auto}
-table{width:100%;border-collapse:collapse}
-th,td{padding:16px;border-bottom:1px solid #D8D0C5;text-align:left}
-th{font-family:Georgia,serif}
-.flow{margin-top:36px;border-top:1px solid #D8D0C5}
-.flow div{padding:18px 0;border-bottom:1px solid #D8D0C5}
-.statement{margin-top:36px;padding:26px 0;border-top:1px solid #D8D0C5;border-bottom:1px solid #D8D0C5}
-.statement p{font-family:Georgia,serif;font-size:24px;color:#201D19;margin:8px 0}
-.cta{padding:100px 0;background:#EBE5DC}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.button{display:inline-block;padding:14px 22px;text-decoration:none;border:1px solid #C8BBAA}
-.primary{background:#7A2635;color:#fff;border-color:#7A2635}
-.secondary{color:#201D19;background:transparent}
-@media(max-width:800px){
-.container{padding:0 20px}
-.hero,.section,.cta{padding:70px 0}
-.split,.grid3,.grid2{grid-template-columns:1fr}
-h1{font-size:42px}
-.statement p{font-size:20px}
-}
-</style>
 
+:global(*){box-sizing:border-box}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+.hero{
+padding:96px 0 110px;
+}
+
+.section{
+padding:90px 0;
+border-top:1px solid #E5DFD5;
+}
+
+.alt{
+background:#F1ECE5;
+}
+
+.split{
+display:grid;
+grid-template-columns:320px 1fr;
+gap:60px;
+}
+
+.eyebrow{
+color:#7A2635;
+font-size:12px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+margin-bottom:22px;
+}
+
+h1,h2,h3{
+font-family:Georgia,serif;
+font-weight:400;
+margin:0;
+}
+
+h1{
+font-size:clamp(54px,7vw,82px);
+line-height:1.05;
+}
+
+h1 em{
+display:block;
+font-style:italic;
+color:#756653;
+}
+
+h2{
+font-size:clamp(36px,5vw,50px);
+line-height:1.15;
+margin-bottom:26px;
+}
+
+.lead,
+p{
+color:#514C45;
+line-height:1.8;
+font-size:17px;
+}
+
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:32px;
+}
+
+.button{
+display:inline-block;
+padding:14px 22px;
+text-decoration:none;
+border:1px solid #C8BBAA;
+border-radius:999px;
+transition:.2s;
+}
+
+.primary{
+background:#7A2635;
+color:white;
+border-color:#7A2635;
+}
+
+.primary:hover{
+background:#68202D;
+}
+
+.secondary{
+background:transparent;
+color:#201D19;
+}
+
+.secondary:hover{
+background:#EFE8DE;
+}
+
+.map-preview{
+margin-top:34px;
+border-radius:24px;
+overflow:hidden;
+border:1px solid #E5DFD5;
+}
+
+.table-wrap{
+overflow:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:16px;
+border-bottom:1px solid #D8D0C5;
+text-align:left;
+}
+
+th{
+font-family:Georgia,serif;
+}
+
+.grid2{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:28px;
+margin-top:42px;
+}
+
+.grid2 article{
+background:#F1ECE5;
+border:1px solid #E5DFD5;
+border-radius:24px;
+padding:28px;
+}
+
+.flow{
+margin-top:38px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.flow div{
+padding:22px 24px;
+background:#F1ECE5;
+border:1px solid #E5DFD5;
+border-radius:20px;
+}
+
+.flow strong{
+display:block;
+margin-bottom:10px;
+color:#201D19;
+}
+
+.statement{
+margin-top:42px;
+padding:34px 0;
+border-top:1px solid #D8D0C5;
+border-bottom:1px solid #D8D0C5;
+}
+
+.statement p{
+font-family:Georgia,serif;
+font-size:28px;
+color:#201D19;
+margin:10px 0;
+}
+
+.cta{
+padding:100px 0;
+background:#EBE5DC;
+}
+
+@media(max-width:800px){
+
+.container{
+padding:0 20px;
+}
+
+.hero,
+.section,
+.cta{
+padding:70px 0;
+}
+
+.split,
+.grid2{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:42px;
+}
+
+.statement p{
+font-size:22px;
+}
+
+}
+
+@media(max-width:390px){
+
+.container{
+padding:0 18px;
+}
+
+.hero,
+.section,
+.cta{
+padding:60px 0;
+}
+
+.button{
+width:100%;
+text-align:center;
+}
+
+.statement p{
+font-size:20px;
+}
+
+}
+
+</style>

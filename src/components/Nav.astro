@@ -1,133 +1,70 @@
 ﻿---
 import Brand from "./Brand.astro";
-
-const path = Astro.url.pathname;
-
-const links = [
-  { href: "/about", label: "Tentang" },
-  { href: "/holistik", label: "Penyembuhan Holistik" },
-  { href: "/peta", label: "Peta" },
-  { href: "/tulisan", label: "Tulisan" },
-  { href: "/buku", label: "Buku" },
-  { href: "/layanan", label: "Layanan" },
-  { href: "/kolaborasi", label: "Kolaborasi" },
-  { href: "/kontak", label: "Kontak" }
-];
-
-const isActive = (href: string) => {
-  return path === href || path.startsWith(`${href}/`);
-};
 ---
 
-<nav class="nav">
-  <div class="nav-inner">
+<header class="nav">
+  <div class="inner">
 
-    <Brand mode="wordmark" size="md" />
+    <Brand size={42}/>
 
-    <div class="links">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={{ active: isActive(link.href) }}
-          aria-current={isActive(link.href) ? "page" : undefined}
-        >
-          {link.label}
-        </a>
-      ))}
-    </div>
+    <nav>
+      <a href="/about">Tentang</a>
+      <a href="/holistik">Penyembuhan Holistik</a>
+      <a href="/tulisan">Tulisan</a>
+      <a href="/buku">Buku</a>
+      <a href="/layanan">Layanan</a>
+      <a href="/kolaborasi">Kolaborasi</a>
+      <a href="/kontak">Kontak</a>
+    </nav>
 
   </div>
-</nav>
+</header>
 
 <style>
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  background: rgba(247, 244, 238, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--rakan-border);
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#161311;
+  border-bottom:1px solid #2A221E;
 }
 
-.nav-inner {
-  max-width: var(--container);
-  margin: auto;
-  padding: 20px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+.inner{
+  max-width:1180px;
+  margin:auto;
+  padding:18px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+nav{
+  display:flex;
+  gap:34px;
 }
 
-.links a {
-  position: relative;
-  color: var(--rakan-muted);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.2s;
+nav a{
+  color:#F7F4EE;
+  text-decoration:none;
+  font-size:16px;
 }
 
-.links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: var(--rakan-maroon);
-  transition: width 0.2s;
+nav a:hover{
+  color:#C9B79A;
 }
 
-.links a:hover {
-  color: var(--rakan-ink);
-}
-
-.links a:hover::after,
-.links a.active::after {
-  width: 100%;
-}
-
-.links a.active {
-  color: var(--rakan-ink);
-}
-
-.links a:focus-visible {
-  outline: 2px solid var(--rakan-maroon);
-  outline-offset: 4px;
-}
-
-@media (max-width: 900px) {
-  .nav-inner {
-    padding: 18px 20px;
-    flex-direction: column;
-    align-items: flex-start;
+@media(max-width:900px){
+  .inner{
+    padding:16px 20px;
   }
 
-  .links {
-    gap: 14px 18px;
-  }
-}
-
-@media (max-width: 390px) {
-  .nav-inner {
-    padding: 16px 18px;
+  nav{
+    gap:18px;
+    overflow:auto;
   }
 
-  .links {
-    gap: 12px 16px;
-  }
-
-  .links a {
-    font-size: 13px;
+  nav a{
+    white-space:nowrap;
   }
 }
 </style>

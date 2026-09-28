@@ -1,0 +1,185 @@
+/* =====================================================
+   RAKAN ARTICLE TYPOGRAPHY SYSTEM (ATS-001)
+   Canon v3.1
+===================================================== */
+
+.article-prose{
+max-width:760px;
+margin:auto;
+font-family:Arial,Helvetica,sans-serif;
+font-size:18px;
+line-height:1.9;
+color:#3F3A34;
+}
+
+/* Paragraph */
+
+.article-prose p{
+margin:0 0 1.5rem;
+}
+
+/* Heading */
+
+.article-prose h2,
+.article-prose h3,
+.article-prose h4{
+font-family:Georgia,serif;
+font-weight:400;
+color:#201D19;
+line-height:1.2;
+margin:3rem 0 1rem;
+}
+
+.article-prose h2{
+font-size:clamp(34px,4vw,42px);
+}
+
+.article-prose h3{
+font-size:clamp(26px,3vw,32px);
+}
+
+.article-prose h4{
+font-size:22px;
+}
+
+/* Strong */
+
+.article-prose strong{
+color:#201D19;
+font-weight:600;
+}
+
+/* Emphasis */
+
+.article-prose em{
+font-style:italic;
+}
+
+/* List */
+
+.article-prose ul,
+.article-prose ol{
+padding-left:1.4rem;
+margin:1.4rem 0;
+}
+
+.article-prose li{
+margin:.55rem 0;
+}
+
+/* Quote */
+
+.article-prose blockquote{
+margin:2.2rem 0;
+padding-left:1.4rem;
+border-left:3px solid #7A2635;
+font-family:Georgia,serif;
+font-size:22px;
+font-style:italic;
+line-height:1.6;
+color:#3F3A34;
+}
+
+/* Horizontal */
+
+.article-prose hr{
+border:none;
+border-top:1px solid #DDD3C7;
+margin:3rem 0;
+}
+
+/* Link */
+
+.article-prose a{
+color:#7A2635;
+text-decoration:none;
+border-bottom:1px solid transparent;
+transition:.2s;
+}
+
+.article-prose a:hover{
+border-color:#7A2635;
+}
+
+/* Table */
+
+.article-prose table{
+width:100%;
+border-collapse:collapse;
+margin:2rem 0;
+font-size:16px;
+}
+
+.article-prose th,
+.article-prose td{
+padding:14px;
+border-bottom:1px solid #DDD3C7;
+text-align:left;
+}
+
+.article-prose th{
+font-family:Georgia,serif;
+font-weight:400;
+color:#201D19;
+}
+
+/* Code */
+
+.article-prose code{
+background:#EFE7DD;
+padding:.15rem .35rem;
+border-radius:4px;
+font-size:.92em;
+}
+
+.article-prose pre{
+background:#201D19;
+color:#F7F4EE;
+padding:1.25rem;
+border-radius:12px;
+overflow:auto;
+margin:2rem 0;
+}
+
+.article-prose pre code{
+background:transparent;
+padding:0;
+color:inherit;
+}
+
+/* Figure */
+
+.article-prose figure{
+margin:2.6rem 0;
+}
+
+.article-prose figcaption{
+margin-top:.8rem;
+font-size:14px;
+color:#756653;
+text-align:center;
+line-height:1.6;
+}
+
+/* Mobile */
+
+@media(max-width:800px){
+
+.article-prose{
+font-size:17px;
+line-height:1.85;
+}
+
+.article-prose h2{
+font-size:30px;
+}
+
+.article-prose h3{
+font-size:24px;
+}
+
+.article-prose blockquote{
+font-size:20px;
+}
+
+}

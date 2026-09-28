@@ -1,149 +1,132 @@
-/*
-====================================================
-RAKAN KNOWLEDGE MAP SYSTEM
-KMS-001
-
-Single Source of Truth
-Knowledge Registry
-====================================================
-*/
-
-import { articles } from "./articles";
-
 export type World = "Tubuh" | "Otak" | "Pikiran" | "Kehidupan";
 
-export type Node = {
-  id: string;
+export type Category = {
+  slug: string;
+  title: World;
+  description: string;
+};
+
+export type Article = {
+  number: number;
+  title: string;
+  href: string;
+  slug: string;
+  category: World;
   world: World;
-  title: string;
+  edition: string;
+  node: string;
+  archive: string;
   description: string;
 };
 
-export type Edition = {
-  id: string;
-  title: string;
-  description: string;
-  worlds: World[];
-};
-
-/*
-====================================================
-KNOWLEDGE NODES
-====================================================
-*/
-
-export const nodes: Node[] = [
-
+export const categories: Category[] = [
   {
-    id: "T-001",
+    slug: "tubuh",
+    title: "Tubuh",
+    description: "Obat, farmasi, nutrisi, aktivitas, tidur, dan proses pemulihan."
+  },
+  {
+    slug: "otak",
+    title: "Otak",
+    description: "Tidur, memori, perhatian, regulasi, dan cara sistem saraf mendukung kehidupan sehari-hari."
+  },
+  {
+    slug: "pikiran",
+    title: "Pikiran",
+    description: "Emosi, stres, kebiasaan, makna, dan cara kita merespons pengalaman."
+  },
+  {
+    slug: "kehidupan",
+    title: "Kehidupan",
+    description: "Relasi, keluarga, pekerjaan, lingkungan, dan ruang bertumbuh."
+  }
+];
+
+export const articles: Article[] = [
+  {
+    number: 5,
+    title: "Tubuh Tidak Pernah Benar-benar Diam",
+    href: "/tulisan/tubuh-tidak-pernah-benar-benar-diam",
+    slug: "tubuh",
+    category: "Tubuh",
     world: "Tubuh",
-    title: "Tubuh Tidak Pernah Diam",
-    description: "Tubuh terus bekerja bahkan ketika kita merasa sedang beristirahat."
+    edition: "001",
+    node: "T-001",
+    archive: "T-001",
+    description: "Tubuh terus bekerja bahkan ketika kita merasa tidak melakukan apa pun."
   },
-
   {
-    id: "O-001",
-    world: "Otak",
-    title: "Tidur",
-    description: "Tidur sebagai fondasi pemulihan tubuh dan fungsi otak."
+    number: 4,
+    title: "Mengapa Kita Sulit Mengubah Kebiasaan",
+    href: "/tulisan/mengapa-kita-sulit-mengubah-kebiasaan",
+    slug: "pikiran",
+    category: "Pikiran",
+    world: "Pikiran",
+    edition: "001",
+    node: "P-002",
+    archive: "P-002",
+    description: "Perubahan lebih sering lahir dari langkah kecil daripada solusi instan."
   },
-
   {
-    id: "O-002",
+    number: 3,
+    title: "Stres Tidak Selalu Berasal dari Pikiran",
+    href: "/tulisan/stres-tidak-selalu-berasal-dari-pikiran",
+    slug: "pikiran",
+    category: "Pikiran",
+    world: "Pikiran",
+    edition: "001",
+    node: "P-001",
+    archive: "P-001",
+    description: "Melihat stres sebagai pertemuan antara tubuh, otak, pikiran, dan kehidupan."
+  },
+  {
+    number: 2,
+    title: "Otak Tidak Lelah karena Berpikir",
+    href: "/tulisan/otak-tidak-lelah-karena-berpikir",
+    slug: "otak",
+    category: "Otak",
     world: "Otak",
-    title: "Kelelahan Mental",
+    edition: "001",
+    node: "O-002",
+    archive: "O-002",
     description: "Memahami kelelahan mental melalui cara kerja otak."
   },
-
   {
-    id: "P-001",
-    world: "Pikiran",
-    title: "Stres",
-    description: "Stres sebagai pertemuan antara tubuh, otak, pikiran, dan kehidupan."
-  },
-
-  {
-    id: "P-002",
-    world: "Pikiran",
-    title: "Kebiasaan",
-    description: "Perubahan lahir dari langkah kecil yang diulang."
+    number: 1,
+    title: "Tidur Bukan Sekadar Istirahat",
+    href: "/tulisan/tidur-bukan-sekadar-istirahat",
+    slug: "otak",
+    category: "Otak",
+    world: "Otak",
+    edition: "001",
+    node: "O-001",
+    archive: "O-001",
+    description: "Mengapa tidur menjadi fondasi bagi pemulihan tubuh dan fungsi otak."
   }
-
 ];
 
-/*
-====================================================
-EDITIONS
-====================================================
-*/
+/* ====================================================
+   WORLD STATS (AUTO)
+   Single Source of Truth
+==================================================== */
 
-export const editions: Edition[] = [
-
-  {
-    id: "001",
-    title: "Fondasi Penyembuhan",
-    description: "Lima bacaan awal untuk memahami hubungan tubuh, otak, pikiran, dan kebiasaan.",
-    worlds: ["Tubuh","Otak","Pikiran"]
-  }
-
-];
-
-/*
-====================================================
-HELPERS
-====================================================
-*/
-
-export const getNode = (id:string)=>
-  nodes.find(node=>node.id===id);
-
-export const getEdition = (id:string)=>
-  editions.find(edition=>edition.id===id);
-
-export const getArticlesByNode = (nodeId:string)=>
-  articles
-    .filter(article=>article.node===nodeId)
-    .sort((a,b)=>b.number-a.number);
-
-export const getArticlesByEdition = (editionId:string)=>
-  articles
-    .filter(article=>article.edition===editionId)
-    .sort((a,b)=>b.number-a.number);
-
-export const getWorldNodes = (world:World)=>
-  nodes.filter(node=>node.world===world);
-
-/*
-====================================================
-RELATED ARTICLES
-
-Mencari artikel yang memiliki dunia atau edition
-yang sama dengan artikel aktif.
-====================================================
-*/
-
-export const getRelatedArticles = (href:string)=>{
-
-  const current = articles.find(article=>article.href===href);
-
-  if(!current) return [];
-
-  return articles
-
-    .filter(article=>
-
-      article.href!==href && (
-
-        article.world===current.world ||
-
-        article.edition===current.edition
-
-      )
-
-    )
-
-    .sort((a,b)=>b.number-a.number)
-
-    .slice(0,3);
-
+export type WorldStat = Category & {
+  articleCount: number;
+  nodeCount: number;
 };
+
+export const worldStats: WorldStat[] = categories.map((world) => {
+
+  const worldArticles = articles.filter(
+    (article) => article.slug === world.slug
+  );
+
+  const nodes = new Set(worldArticles.map((article) => article.node));
+
+  return {
+    ...world,
+    articleCount: worldArticles.length,
+    nodeCount: nodes.size
+  };
+
+});

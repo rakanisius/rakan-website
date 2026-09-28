@@ -1,4 +1,4 @@
-﻿---
+---
 import { getCollection } from "astro:content";
 
 const articles = await getCollection("articles");
@@ -20,7 +20,7 @@ const featured = articles.filter(a => a.data.featured);
 
 const priorities = [
   ...missingExcerpt.map(a => ({
-    icon: "âœï¸",
+    icon: "✍️",
     text: `Lengkapi excerpt: ${a.data.title}`,
     link: `/studio/writing/${a.id}`
   })),
@@ -28,14 +28,14 @@ const priorities = [
     .filter(a => !a.data.featured)
     .slice(0,2)
     .map(a => ({
-      icon: "â­",
+      icon: "⭐",
       text: `Pilih featured: ${a.data.title}`,
       link: `/studio/writing/${a.id}`
     })),
   ...publishReady
     .slice(0,2)
     .map(a => ({
-      icon: "ðŸš€",
+      icon: "🚀",
       text: `Siap publish: ${a.data.title}`,
       link: `/studio/writing/${a.id}`
     }))

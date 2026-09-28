@@ -1,59 +1,88 @@
+/* =====================================================
+   RAKAN Design Tokens
+   C1.2
+   Canon v3.1
+===================================================== */
+
 :root{
 
-/* ======================================
-RAKAN Identity System
-RIS-001
-Design Tokens
-====================================== */
+/* ---------- Brand ---------- */
 
-/* COLORS */
+--brand-maroon:#7A2635;
+--brand-cream:#F7F4EE;
 
---rakan-cream:#F7F4EE;
---rakan-cream-soft:#F1ECE5;
---rakan-cream-deep:#EBE5DC;
+/* ---------- World ---------- */
 
---rakan-maroon:#7A2635;
+--world-tubuh:#A65A52;
+--world-otak:#5C718A;
+--world-pikiran:#7A5A8F;
+--world-kehidupan:#74614D;
 
---rakan-ink:#201D19;
---rakan-text:#3F3A33;
---rakan-muted:#514C45;
---rakan-light:#756653;
+/* ---------- Surface ---------- */
 
---rakan-border:#E5DFD5;
---rakan-border-strong:#D8D0C5;
+--surface-primary:#F7F4EE;
+--surface-secondary:#F1ECE5;
+--surface-tertiary:#EBE5DC;
 
-/* TYPOGRAPHY */
+/* ---------- Text ---------- */
 
---font-serif:Georgia,serif;
---font-sans:Arial,Helvetica,sans-serif;
+--text-primary:#201D19;
+--text-secondary:#514C45;
+--text-muted:#756653;
 
-/* CONTAINER */
+/* ---------- Border ---------- */
 
---container:1180px;
---reading:760px;
+--border-light:#E5DFD5;
+--border-medium:#D8D0C5;
+--border-dark:#B9A999;
 
-/* RADIUS */
+/* ---------- Radius ---------- */
 
---radius-sm:6px;
+--radius-sm:8px;
 --radius-md:12px;
 --radius-lg:18px;
+--radius-xl:22px;
+--radius-pill:999px;
 
-/* SPACING */
+/* ---------- Shadow ---------- */
 
---space-1:4px;
---space-2:8px;
---space-3:12px;
---space-4:16px;
---space-5:20px;
---space-6:24px;
---space-7:32px;
---space-8:40px;
---space-9:54px;
---space-10:70px;
---space-11:90px;
+--shadow-soft:
+0 8px 24px rgba(32,29,25,.05);
 
-/* SHADOW */
+--shadow-hover:
+0 14px 36px rgba(32,29,25,.08);
 
---shadow-soft:0 8px 24px rgba(32,29,25,.05);
+/* ---------- Spacing ---------- */
+
+--space-1:8px;
+--space-2:12px;
+--space-3:16px;
+--space-4:24px;
+--space-5:32px;
+--space-6:48px;
+--space-7:64px;
+--space-8:96px;
+
+/* ---------- Width ---------- */
+
+--content-width:760px;
+--container-width:1180px;
+--sidebar-width:220px;
+
+/* ---------- Typography ---------- */
+
+--font-serif:Georgia,"Times New Roman",serif;
+--font-sans:Arial,Helvetica,sans-serif;
+
+--text-body:18px;
+--text-small:14px;
+
+--leading-body:1.9;
+--leading-tight:1.2;
+
+/* ---------- Motion ---------- */
+
+--motion-fast:200ms;
+--motion-normal:250ms;
 
 }
