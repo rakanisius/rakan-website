@@ -1,190 +1,172 @@
----
-import { worldStats } from "../data/knowledge";
+<section class="peta-rakan">
 
-const icons: Record<string,string> = {
-  tubuh:"◉",
-  otak:"◎",
-  pikiran:"◌",
-  kehidupan:"◇"
-};
----
+  <div class="heading">
+    <p class="eyebrow">PETA RAKAN</p>
+    <h2>Satu perpustakaan, empat dunia.</h2>
+    <p>
+      Setiap artikel di RAKAN berada di dalam hubungan antara Tubuh, Otak,
+      Pikiran, dan Kehidupan.
+    </p>
+  </div>
 
-<section id="peta" class="peta">
+  <div class="map-card">
 
-<div class="header">
+    <svg viewBox="0 0 800 500" width="100%" height="100%">
 
-<p class="eyebrow">PETA RAKAN</p>
+      <line x1="400" y1="250" x2="170" y2="120"/>
+      <line x1="400" y1="250" x2="630" y2="120"/>
+      <line x1="400" y1="250" x2="170" y2="380"/>
+      <line x1="400" y1="250" x2="630" y2="380"/>
 
-<h2>Perpustakaan yang saling terhubung.</h2>
+      <g class="center">
+        <circle cx="400" cy="250" r="50"/>
+        <text x="400" y="257">RAKAN</text>
+      </g>
 
-<p class="lead">
-Tulisan di RAKAN tidak berdiri sendiri. Setiap artikel menjadi bagian dari
-Node, World, dan Edition yang saling terhubung menjadi satu peta pengetahuan.
-</p>
+      <g class="node">
+        <circle cx="170" cy="120" r="34"/>
+        <text x="170" y="126">Tubuh</text>
+      </g>
 
-</div>
+      <g class="node">
+        <circle cx="630" cy="120" r="34"/>
+        <text x="630" y="126">Otak</text>
+      </g>
 
-<div class="preview">
+      <g class="node">
+        <circle cx="170" cy="380" r="34"/>
+        <text x="170" y="386">Pikiran</text>
+      </g>
 
-<AsyncImage query="minimalist editorial four connected circles body brain mind life cream background maroon accent paper texture" aspectRatio="16:9"/>
+      <g class="node">
+        <circle cx="630" cy="380" r="34"/>
+        <text x="630" y="386">Kehidupan</text>
+      </g>
 
-</div>
+    </svg>
 
-<div class="grid">
+  </div>
 
-{
-worldStats.map((world)=>(
-
-<a
-href={`/tulisan/kategori/${world.slug}`}
-class="card"
->
-
-<div class="icon">{icons[world.slug]}</div>
-
-<div class="meta">
-{world.nodeCount} Node · {world.articleCount} tulisan
-</div>
-
-<h3>{world.title}</h3>
-
-<p>{world.description}</p>
-
-</a>
-
-))
-}
-
-</div>
-
-<div class="footer">
-
-<a href="/tulisan/edition" class="button">
-Jelajahi Edition →
-</a>
-
-</div>
+  <div class="footer">
+    <a href="/tulisan/kategori/tubuh">Tubuh</a>
+    <a href="/tulisan/kategori/otak">Otak</a>
+    <a href="/tulisan/kategori/pikiran">Pikiran</a>
+    <a href="/tulisan/kategori/kehidupan">Kehidupan</a>
+  </div>
 
 </section>
 
 <style>
-
-.peta{
+.peta-rakan{
 display:flex;
 flex-direction:column;
-gap:40px;
+gap:28px;
 }
 
-.header{
+.heading{
 max-width:760px;
 }
 
 .eyebrow{
+margin:0 0 14px;
 color:#7A2635;
-font-size:12px;
+font-size:11px;
 font-weight:600;
 letter-spacing:.16em;
 text-transform:uppercase;
-margin:0 0 18px;
 }
 
-.header h2{
-margin:0;
+.heading h2{
+margin:0 0 16px;
 font-family:Georgia,serif;
+font-size:clamp(34px,5vw,48px);
 font-weight:400;
-font-size:clamp(36px,5vw,50px);
 line-height:1.15;
 color:#201D19;
 }
 
-.lead{
-margin-top:20px;
+.heading p{
+margin:0;
 color:#514C45;
 line-height:1.8;
-font-size:17px;
 }
 
-.preview{
+.map-card{
+padding:30px;
+background:#F7F4EE;
+border:1px solid #E5DFD5;
+border-radius:28px;
 overflow:hidden;
-border-radius:24px;
-border:1px solid #E5DFD5;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:24px;
+svg{
+display:block;
+width:100%;
+height:auto;
+stroke:#D3C8BB;
+stroke-width:2;
+fill:none;
 }
 
-.card{
-display:flex;
-flex-direction:column;
-gap:14px;
-padding:26px;
-background:#F1ECE5;
-border:1px solid #E5DFD5;
-border-radius:24px;
-text-decoration:none;
-transition:.2s;
+circle{
+fill:#F7F4EE;
+stroke:#7A2635;
 }
 
-.card:hover{
-transform:translateY(-2px);
-border-color:#D8D0C5;
-}
-
-.icon{
-font-size:28px;
-color:#7A2635;
-}
-
-.meta{
-font-size:13px;
-letter-spacing:.04em;
-text-transform:uppercase;
-color:#7A2635;
-}
-
-.card h3{
-margin:0;
+text{
+fill:#201D19;
 font-family:Georgia,serif;
-font-weight:400;
-font-size:28px;
-color:#201D19;
+font-size:18px;
+text-anchor:middle;
+stroke:none;
 }
 
-.card p{
-margin:0;
-color:#514C45;
-line-height:1.8;
+.center circle{
+fill:#7A2635;
+}
+
+.center text{
+fill:white;
+}
+
+.node{
+transition:.2s;
+cursor:pointer;
+}
+
+.node:hover circle{
+fill:#7A2635;
+}
+
+.node:hover text{
+fill:white;
 }
 
 .footer{
 display:flex;
-justify-content:flex-start;
+flex-wrap:wrap;
+gap:18px;
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:14px 22px;
-border-radius:999px;
-background:#7A2635;
-color:white;
+.footer a{
 text-decoration:none;
+color:#7A2635;
+font-size:14px;
+}
+
+.footer a:hover{
+text-decoration:underline;
 }
 
 @media(max-width:800px){
 
-.grid{
-grid-template-columns:1fr;
+.map-card{
+padding:18px;
 }
 
-.card{
-padding:22px;
+text{
+font-size:15px;
 }
 
 }
-
 </style>

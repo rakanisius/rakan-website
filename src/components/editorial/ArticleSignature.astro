@@ -1,48 +1,240 @@
-<div class="article-signature">
+---
+interface Props{
+  author?:string;
+  archive:string;
+}
 
-  <div class="line"></div>
+const{
+  author="Abdul Rakan",
+  archive
+}=Astro.props;
+---
 
-  <img
-    src="/brand/abdul-rakan-signature-maroon.png"
-    alt="Tanda tangan Abdul Rakan"/>
+<section class="signature-card">
 
-  <h3>Abdul Rakan</h3>
+  <div class="signature-divider"></div>
 
-  <p>Praktisi Kesehatan Holistik · Apoteker · Penulis</p>
+  <div class="signature-body">
 
-  <small>Mendampingi manusia memahami dirinya secara utuh.</small>
+    <h3>{author}</h3>
 
-</div>
+    <p class="role">
+      Apoteker & Praktisi Penyembuhan Holistik
+    </p>
+
+    <p class="editorial-text">
+      Di RAKAN.MY.ID, saya percaya perjalanan memahami diri sering dimulai dari
+      peristiwa yang tampak biasa.
+    </p>
+
+    <p class="archive">
+      Arsip RAKAN · {archive}
+    </p>
+
+  </div>
+
+  <nav class="signature-nav">
+
+    <a href="/tulisan">Perpustakaan</a>
+
+    <a href="/buku">Buku</a>
+
+    <a href="/layanan">Layanan</a>
+
+  </nav>
+
+</section>
 
 <style>
-.article-signature{
-  margin-top:90px;
-  text-align:center;
+
+.signature-card{
+
+margin:6rem auto 0;
+
+padding:2.6rem;
+
+background:#F2ECE3;
+
+border:1px solid #DDD3C7;
+
+border-radius:26px;
+
+box-shadow:0 10px 30px rgba(32,29,25,.04);
+
 }
 
-.line{
-  width:90px;
-  height:1px;
-  margin:0 auto 28px;
-  background:#D8D0C4;
+.signature-divider{
+
+width:48px;
+
+height:2px;
+
+margin:0 auto 2rem;
+
+background:#7A2635;
+
 }
 
-.article-signature img{
-  width:150px;
-  margin-bottom:18px;
+.signature-body{
+
+text-align:center;
+
 }
 
-.article-signature h3{
-  margin:0;
-  font-family:Georgia,serif;
-  font-weight:400;
+.signature-body h3{
+
+margin:0 0 .35rem;
+
+font-family:Georgia,serif;
+
+font-size:2rem;
+
+font-weight:400;
+
+color:#201D19;
+
 }
 
-.article-signature p{
-  margin:8px 0;
+.role{
+
+margin:0 0 1.4rem;
+
+font-family:Arial,Helvetica,sans-serif;
+
+font-size:.88rem;
+
+letter-spacing:.05em;
+
+text-transform:uppercase;
+
+color:#756653;
+
 }
 
-.article-signature small{
-  color:#7A2635;
+.editorial-text{
+
+max-width:480px;
+
+margin:0 auto;
+
+font-family:Georgia,serif;
+
+font-size:1rem;
+
+font-style:italic;
+
+line-height:1.8;
+
+color:#5C534B;
+
 }
+
+.archive{
+
+margin-top:1.5rem;
+
+font-family:Arial,Helvetica,sans-serif;
+
+font-size:.72rem;
+
+letter-spacing:.14em;
+
+text-transform:uppercase;
+
+color:#9A8D81;
+
+}
+
+.signature-nav{
+
+display:flex;
+
+justify-content:center;
+
+gap:2rem;
+
+margin-top:2rem;
+
+padding-top:1.4rem;
+
+border-top:1px solid #DDD3C7;
+
+}
+
+.signature-nav a{
+
+position:relative;
+
+font-family:Georgia,serif;
+
+font-size:1rem;
+
+text-decoration:none;
+
+color:#201D19;
+
+transition:.25s;
+
+}
+
+.signature-nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-4px;
+
+width:0;
+
+height:1px;
+
+background:#7A2635;
+
+transition:.25s;
+
+}
+
+.signature-nav a:hover{
+
+color:#7A2635;
+
+}
+
+.signature-nav a:hover::after{
+
+width:100%;
+
+}
+
+@media(max-width:640px){
+
+.signature-card{
+
+padding:2rem 1.5rem;
+
+border-radius:20px;
+
+}
+
+.signature-nav{
+
+flex-direction:column;
+
+gap:1rem;
+
+align-items:center;
+
+}
+
+.signature-body h3{
+
+font-size:1.7rem;
+
+}
+
+}
+
 </style>

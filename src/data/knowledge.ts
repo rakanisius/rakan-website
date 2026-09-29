@@ -19,6 +19,14 @@ export type Article = {
   description: string;
 };
 
+export type Node = {
+  id: string;
+  world: World;
+  title: string;
+  summary: string;
+  related: string[];
+};
+
 export const categories: Category[] = [
   {
     slug: "tubuh",
@@ -47,7 +55,7 @@ export const articles: Article[] = [
     number: 5,
     title: "Tubuh Tidak Pernah Benar-benar Diam",
     href: "/tulisan/tubuh-tidak-pernah-benar-benar-diam",
-    slug: "tubuh",
+    slug: "tubuh-tidak-pernah-benar-benar-diam",
     category: "Tubuh",
     world: "Tubuh",
     edition: "001",
@@ -59,7 +67,7 @@ export const articles: Article[] = [
     number: 4,
     title: "Mengapa Kita Sulit Mengubah Kebiasaan",
     href: "/tulisan/mengapa-kita-sulit-mengubah-kebiasaan",
-    slug: "pikiran",
+    slug: "mengapa-kita-sulit-mengubah-kebiasaan",
     category: "Pikiran",
     world: "Pikiran",
     edition: "001",
@@ -71,7 +79,7 @@ export const articles: Article[] = [
     number: 3,
     title: "Stres Tidak Selalu Berasal dari Pikiran",
     href: "/tulisan/stres-tidak-selalu-berasal-dari-pikiran",
-    slug: "pikiran",
+    slug: "stres-tidak-selalu-berasal-dari-pikiran",
     category: "Pikiran",
     world: "Pikiran",
     edition: "001",
@@ -83,7 +91,7 @@ export const articles: Article[] = [
     number: 2,
     title: "Otak Tidak Lelah karena Berpikir",
     href: "/tulisan/otak-tidak-lelah-karena-berpikir",
-    slug: "otak",
+    slug: "otak-tidak-lelah-karena-berpikir",
     category: "Otak",
     world: "Otak",
     edition: "001",
@@ -95,7 +103,7 @@ export const articles: Article[] = [
     number: 1,
     title: "Tidur Bukan Sekadar Istirahat",
     href: "/tulisan/tidur-bukan-sekadar-istirahat",
-    slug: "otak",
+    slug: "tidur-bukan-sekadar-istirahat",
     category: "Otak",
     world: "Otak",
     edition: "001",
@@ -106,8 +114,42 @@ export const articles: Article[] = [
 ];
 
 /* ====================================================
+   NODES (derived from SSOT)
+==================================================== */
+
+export const nodes: Node[] = articles.map((article) => ({
+  id: article.node,
+  world: article.world,
+  title: article.title,
+  summary: article.description,
+  related: []
+}));
+
+/* ====================================================
+   EDITIONS (derived from SSOT)
+==================================================== */
+
+export const editions = [...new Set(articles.map((article) => article.edition))]
+  .sort()
+  .map((id) => ({
+    id,
+    title: `Edition ${id}`
+  }));
+
+/* ====================================================
+   HELPERS
+==================================================== */
+
+export function getWorldNodes(world: World) {
+  return nodes.filter((node) => node.world === world);
+}
+
+export function getArticlesByNode(nodeId: string) {
+  return articles.filter((article) => article.node === nodeId);
+}
+
+/* ====================================================
    WORLD STATS (AUTO)
-   Single Source of Truth
 ==================================================== */
 
 export type WorldStat = Category & {
@@ -118,15 +160,17 @@ export type WorldStat = Category & {
 export const worldStats: WorldStat[] = categories.map((world) => {
 
   const worldArticles = articles.filter(
-    (article) => article.slug === world.slug
+    (article) => article.world === world.title
   );
 
-  const nodes = new Set(worldArticles.map((article) => article.node));
+  const worldNodes = new Set(
+    worldArticles.map((article) => article.node)
+  );
 
   return {
     ...world,
     articleCount: worldArticles.length,
-    nodeCount: nodes.size
+    nodeCount: worldNodes.size
   };
 
 });

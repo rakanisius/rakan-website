@@ -1,11 +1,11 @@
 ---
 import { worldStats } from "../data/knowledge";
 
-const icons: Record<string,string> = {
-  tubuh: "◉",
-  otak: "◎",
-  pikiran: "◌",
-  kehidupan: "◇",
+const icons: Record<string, string> = {
+  tubuh: "heart-pulse",
+  otak: "brain",
+  pikiran: "sparkles",
+  kehidupan: "compass",
 };
 ---
 
@@ -27,10 +27,16 @@ const icons: Record<string,string> = {
   <div class="grid">
 
     {
-      worldStats.map((world)=>(
+      worldStats.map((world) => (
         <article class="card">
 
-          <div class="icon">{icons[world.slug]}</div>
+          <div class="icon">
+            <icon
+              name={icons[world.slug]}
+              color="discovery"
+              size="lg"
+            />
+          </div>
 
           <div class="meta">
             {world.nodeCount} Node · {world.articleCount} tulisan
@@ -40,8 +46,16 @@ const icons: Record<string,string> = {
 
           <p>{world.description}</p>
 
-          <a href={`/tulisan/kategori/${world.slug}`} class="link">
-            Jelajahi {world.title} →
+          <a
+            href={`/tulisan/kategori/${world.slug}`}
+            class="link"
+          >
+            Jelajahi {world.title}
+            <icon
+              name="arrow-right"
+              size="sm"
+              aria-hidden="true"
+            />
           </a>
 
         </article>
@@ -55,116 +69,121 @@ const icons: Record<string,string> = {
 <style>
 
 .worlds{
-display:flex;
-flex-direction:column;
-gap:42px;
+  display:flex;
+  flex-direction:column;
+  gap:42px;
 }
 
 .heading{
-max-width:760px;
+  max-width:760px;
 }
 
 .eyebrow{
-color:#7A2635;
-font-size:12px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-margin:0 0 18px;
+  color:#7A2635;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin:0 0 18px;
 }
 
 .heading h2{
-font-family:Georgia,serif;
-font-weight:400;
-font-size:clamp(36px,5vw,50px);
-line-height:1.15;
-margin:0;
-color:#201D19;
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:clamp(36px,5vw,50px);
+  line-height:1.15;
+  margin:0;
+  color:#201D19;
 }
 
 .intro{
-margin-top:22px;
-color:#514C45;
-line-height:1.8;
-font-size:17px;
+  margin-top:22px;
+  color:#514C45;
+  line-height:1.8;
+  font-size:17px;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:28px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
 }
 
 .card{
-background:#F1ECE5;
-border:1px solid #E5DFD5;
-border-radius:24px;
-padding:30px;
-display:flex;
-flex-direction:column;
-gap:16px;
-transition:.2s ease;
+  background:#F1ECE5;
+  border:1px solid #E5DFD5;
+  border-radius:24px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  transition:.2s ease;
 }
 
 .card:hover{
-transform:translateY(-2px);
-border-color:#D8D0C5;
+  transform:translateY(-2px);
+  border-color:#D8D0C5;
 }
 
 .icon{
-font-size:28px;
-color:#7A2635;
-line-height:1;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#F7F4EE;
+  border:1px solid #E5DFD5;
 }
 
 .meta{
-font-size:13px;
-color:#7A2635;
-letter-spacing:.04em;
-text-transform:uppercase;
+  font-size:13px;
+  color:#7A2635;
+  letter-spacing:.04em;
+  text-transform:uppercase;
 }
 
 .card h3{
-margin:0;
-font-family:Georgia,serif;
-font-weight:400;
-font-size:28px;
-color:#201D19;
+  margin:0;
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:28px;
+  color:#201D19;
 }
 
 .card p{
-margin:0;
-color:#514C45;
-line-height:1.8;
+  margin:0;
+  color:#514C45;
+  line-height:1.8;
 }
 
 .link{
-margin-top:auto;
-display:inline-flex;
-align-items:center;
-gap:6px;
-text-decoration:none;
-color:#7A2635;
-font-weight:600;
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  text-decoration:none;
+  color:#7A2635;
+  font-weight:600;
 }
 
 .link:hover{
-text-decoration:underline;
+  text-decoration:underline;
 }
 
 @media(max-width:800px){
 
-.grid{
-grid-template-columns:1fr;
-}
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-.card{
-padding:24px;
-}
+  .card{
+    padding:24px;
+  }
 
-.heading h2{
-font-size:36px;
-}
+  .heading h2{
+    font-size:36px;
+  }
 
 }
 

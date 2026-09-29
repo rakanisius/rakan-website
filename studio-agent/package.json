@@ -1,7 +1,5 @@
 {
-  "name": "rakan-local-publish-agent",
-  "version": "1.0.0",
-  "private": true,
+  "name": "studio-agent",
   "type": "module",
   "scripts": {
     "start": "node server.mjs"

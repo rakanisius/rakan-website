@@ -1,16 +1,15 @@
-
 ---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import { articles } from "../data/articles";
+import { articles } from "../data/manifest";
 
 const title = "RAKAN | Apoteker & Praktisi Penyembuhan Holistik";
 const description =
   "Mendampingi manusia memahami tubuh, otak, pikiran, dan kehidupan melalui tulisan, buku, konsultasi, pendampingan, dan kolaborasi.";
 
 const latestArticles = [...articles]
-  .sort((a,b)=>b.number-a.number)
-  .slice(0,3);
+  .sort((a, b) => b.number - a.number)
+  .slice(0, 3);
 ---
 
 <!doctype html>
@@ -21,7 +20,6 @@ const latestArticles = [...articles]
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>{title}</title>
-
 <meta name="description" content={description}/>
 
 <link rel="canonical" href="https://rakan.my.id/"/>
@@ -43,8 +41,6 @@ const latestArticles = [...articles]
 <Nav/>
 
 <main>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -91,8 +87,6 @@ Tentang Rakan
 </div>
 
 </section>
-
-<!-- EMPAT DUNIA -->
 
 <section class="section">
 
@@ -159,8 +153,6 @@ Relasi, keluarga, pekerjaan, dan makna.
 
 </section>
 
-<!-- PENYEMBUHAN HOLISTIK -->
-
 <section class="section alt">
 
 <div class="container">
@@ -187,8 +179,6 @@ Memahami penyembuhan holistik →
 
 </section>
 
-<!-- TULISAN TERBARU -->
-
 <section class="section">
 
 <div class="container">
@@ -206,10 +196,6 @@ Mulai dari satu pertanyaan.
 {latestArticles.map((article) => (
 
 <a href={article.href} class="article">
-
-<div class="article-category">
-{article.category}
-</div>
 
 <h3>{article.title}</h3>
 
@@ -232,8 +218,6 @@ Lihat seluruh perpustakaan →
 </div>
 
 </section>
-
-<!-- BUKU -->
 
 <section class="section">
 
@@ -258,8 +242,6 @@ Lihat Buku →
 </div>
 
 </section>
-
-<!-- LAYANAN -->
 
 <section class="section">
 
@@ -314,8 +296,6 @@ Lihat Layanan →
 </div>
 
 </section>
-
-<!-- CTA -->
 
 <section class="cta">
 
@@ -502,15 +482,6 @@ transition:.25s;
 .article:hover{
 transform:translateY(-3px);
 border-color:#7A2635;
-}
-
-.article-category{
-margin-bottom:12px;
-color:#81776A;
-font-size:10px;
-font-weight:600;
-letter-spacing:.13em;
-text-transform:uppercase;
 }
 
 .more{

@@ -1,40 +1,54 @@
 ---
-import SearchArticles from "../../components/SearchArticles.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
-import { articles, categories } from "../../data/articles";
+import PetaRakan from "../../components/PetaRakan.astro";
+import { articles, categories } from "../../data/manifest";
 
-const sortedArticles = [...articles].sort((a,b)=>b.number-a.number);
+const sortedArticles = [...articles].sort(
+  (a, b) => b.number - a.number
+);
 
-const categoriesWithCount = categories.map(category=>({
+const categoriesWithCount = categories.map((category) => ({
   ...category,
-  count:articles.filter(a=>a.slug===category.slug).length,
+  count: articles.filter(
+    (article) => article.categorySlug === category.slug
+  ).length,
 }));
 
 const tidurEdition = articles
-  .filter(a=>a.edition==="001")
-  .sort((a,b)=>a.number-b.number);
+  .filter((article) => article.edition === "001")
+  .sort((a, b) => a.number - b.number);
 ---
 
 <!doctype html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
 <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
 
 <title>Perpustakaan RAKAN | Tulisan</title>
 
-<meta name="description" content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik."/>
+<meta
+  name="description"
+  content="Perpustakaan RAKAN berisi catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik."
+/>
 
 <link rel="canonical" href="https://rakan.my.id/tulisan"/>
 
 <meta property="og:title" content="Perpustakaan RAKAN"/>
-<meta property="og:description" content="Menjelajahi tubuh, otak, pikiran, dan kehidupan melalui tulisan yang saling terhubung."/>
+<meta
+  property="og:description"
+  content="Menjelajahi tubuh, otak, pikiran, dan kehidupan melalui tulisan yang saling terhubung."
+/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="/images/og-library.jpg"/>
+
 <meta name="twitter:card" content="summary_large_image"/>
+
 </head>
 
 <body>
@@ -44,9 +58,12 @@ const tidurEdition = articles
 <main>
 
 <section class="hero">
+
 <div class="container">
 
-<div class="eyebrow">PERPUSTAKAAN RAKAN</div>
+<div class="eyebrow">
+PERPUSTAKAAN RAKAN
+</div>
 
 <h1>
 <span>Memahami tubuh,</span>
@@ -60,40 +77,40 @@ Anda bisa memulai dari satu artikel, satu kategori, atau satu pertanyaan.
 </p>
 
 </div>
+
 </section>
 
+
 <section class="map-section">
-<div class="container">
 
-<div class="eyebrow">PETA RAKAN</div>
+  <div class="container">
 
-<h2>Setiap tulisan memiliki koordinatnya.</h2>
+    <div class="eyebrow">PETA RAKAN</div>
 
-<p class="section-intro">
-Peta RAKAN sedang dibangun sebagai navigator pengetahuan yang menghubungkan artikel, Knowledge Nodes, dan Edition dalam satu perjalanan belajar.
-</p>
+    <h2>Setiap tulisan memiliki koordinatnya.</h2>
 
-<div class="map-preview">
-<div class="map-node center">RAKAN</div>
-<div class="map-node top-left">Tubuh</div>
-<div class="map-node top-right">Otak</div>
-<div class="map-node bottom-left">Pikiran</div>
-<div class="map-node bottom-right">Kehidupan</div>
-</div>
+    <p class="section-intro">
+      Peta RAKAN menghubungkan World, Node, dan Edition menjadi satu perjalanan
+      pengetahuan. Mulailah dari mana saja, lalu ikuti hubungan antar tulisan.
+    </p>
 
-<p class="map-caption">
-Widget interaktif akan menggantikan preview ini pada pengembangan berikutnya.
-</p>
+    <PetaRakan/>
 
-</div>
+  </div>
+
 </section>
 
 <section class="edition-section">
+
 <div class="container">
 
-<div class="eyebrow">EDITION</div>
+<div class="eyebrow">
+EDITION
+</div>
 
-<h2>Belajar melalui satu tema sampai selesai.</h2>
+<h2>
+Belajar melalui satu tema sampai selesai.
+</h2>
 
 <p class="section-intro">
 Sebagian artikel menjadi bagian dari Edition, yaitu rangkaian bacaan yang saling berurutan.
@@ -103,9 +120,13 @@ Sebagian artikel menjadi bagian dari Edition, yaitu rangkaian bacaan yang saling
 
 <div class="edition-left">
 
-<div class="edition-label">EDITION 001</div>
+<div class="edition-label">
+EDITION 001
+</div>
 
-<h3>Tidur</h3>
+<h3>
+Tidur
+</h3>
 
 <p>
 <strong>{tidurEdition.length} artikel tersedia.</strong><br/>
@@ -121,90 +142,136 @@ Buka Edition →
 </div>
 
 </div>
+
 </section>
 
+
 <section class="categories-section">
+
 <div class="container">
 
-<div class="eyebrow">EMPAT DUNIA RAKAN</div>
+<div class="eyebrow">
+EMPAT DUNIA RAKAN
+</div>
 
-<h2>Empat pintu masuk menuju perpustakaan.</h2>
+<h2>
+Empat pintu masuk menuju perpustakaan.
+</h2>
 
 <div class="category-grid">
 
-{categoriesWithCount.map(item=>(
+{
+  categoriesWithCount.map((item) => (
+    <a
+      href={`/tulisan/kategori/${item.slug}`}
+      class="category-card"
+    >
 
-<a href={`/tulisan/kategori/${item.slug}`} class="category-card">
+      <div class="count">
+        {item.count} tulisan
+      </div>
 
-<div class="count">{item.count} tulisan</div>
+      <h3>
+        {item.title}
+      </h3>
 
-<h3>{item.title}</h3>
+      <p>
+        {item.description}
+      </p>
 
-<p>{item.description}</p>
+      <div class="arrow">
+        Masuk →
+      </div>
 
-<div class="arrow">Masuk →</div>
-
-</a>
-
-))}
+    </a>
+  ))
+}
 
 </div>
 
 </div>
+
 </section>
 
-<section class="search-section">
-<div class="container">
-
-<div class="eyebrow">CARI TULISAN</div>
-
-<SearchArticles articles={sortedArticles}/>
-
-</div>
-</section>
 
 <section class="articles-section">
+
 <div class="container">
 
-<div class="eyebrow">ARTIKEL TERBARU</div>
+<div class="eyebrow">
+SELURUH TULISAN
+</div>
 
 <div class="articles">
 
-{sortedArticles.map(article=>(
+{
+  sortedArticles.map((article) => (
+    <article
+      class="article"
+      data-article
+      data-href={article.href}
+    >
 
-<article class="article" data-article data-href={article.href}>
+      <div class="number">
+        {String(article.number).padStart(2, "0")}
+      </div>
 
-<div class="number">{String(article.number).padStart(2,"0")}</div>
+      <div class="article-content">
 
-<div class="article-content">
+        <div class="meta-tags">
 
-<a class="category" href={`/tulisan/kategori/${article.slug}`}>
-{article.category}
-</a>
+          <span class="world">
+            {article.world}
+          </span>
 
-<h2>{article.title}</h2>
+          <a
+            class="category"
+            href={`/tulisan/kategori/${article.categorySlug}`}
+          >
+            {article.category}
+          </a>
 
-<p class="description">{article.description}</p>
+        </div>
+
+        <h2>
+          {article.title}
+        </h2>
+
+        <p class="description">
+          {article.description}
+        </p>
+
+        <div class="article-meta">
+          Edition {article.edition} · Node {article.node}
+        </div>
+
+      </div>
+
+      <a
+        class="read"
+        href={article.href}
+      >
+        Baca →
+      </a>
+
+    </article>
+  ))
+}
 
 </div>
 
-<a class="read" href={article.href}>
-Baca →
-</a>
-
-</article>
-
-))}
-
 </div>
 
-</div>
 </section>
 
+
 <section class="cta">
+
 <div class="cta-inner">
 
-<div class="eyebrow">LANJUTKAN PERJALANAN</div>
+<div class="eyebrow">
+LANJUTKAN PERJALANAN
+</div>
 
 <h2>
 Membaca adalah awal.
@@ -221,17 +288,24 @@ atau kolaborasi.
 
 <div class="cta-actions">
 
-<a href="/buku" class="button secondary">
+<a
+  href="/buku"
+  class="button secondary"
+>
 Lihat Buku
 </a>
 
-<a href="/layanan" class="button">
+<a
+  href="/layanan"
+  class="button"
+>
 Lihat Layanan
 </a>
 
 </div>
 
 </div>
+
 </section>
 
 </main>
@@ -243,384 +317,383 @@ Lihat Layanan
 
 <style>
 
-:global(*){box-sizing:border-box}
-:global(html){scroll-behavior:smooth}
-:global(body){
-margin:0;
-background:#F7F4EE;
-color:#201D19;
-font-family:Arial,Helvetica,sans-serif;
+:global(*) {
+  box-sizing: border-box;
 }
 
-.container{
-max-width:1180px;
-margin:auto;
-padding:0 32px;
+:global(html) {
+  scroll-behavior: smooth;
 }
 
-.hero,
-.map-section,
-.edition-section,
-.categories-section,
-.search-section,
-.articles-section{
-padding:90px 0;
-border-bottom:1px solid #E5DFD5;
+:global(body) {
+  margin: 0;
+  background: #F7F4EE;
+  color: #201D19;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.cta{
-padding:95px 0;
-background:#EBE5DC;
-}
-
-.eyebrow{
-margin-bottom:24px;
-color:#7A2635;
-font-size:11px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-}
-
-h1,h2,h3{
-margin:0;
-font-family:Georgia,serif;
-font-weight:400;
-}
-
-h1 span,h1 em{display:block}
-
-h1{
-max-width:860px;
-font-size:clamp(50px,7vw,84px);
-line-height:1.02;
-letter-spacing:-.03em;
-}
-
-h1 em{
-font-style:italic;
-color:#756653;
-}
-
-h2{
-margin-bottom:26px;
-font-size:clamp(36px,5vw,48px);
-line-height:1.15;
-}
-
-h3{
-font-size:28px;
-line-height:1.2;
-margin-bottom:12px;
-}
-
-.intro,.section-intro,p{
-color:#514C45;
-font-size:17px;
-line-height:1.8;
-}
-
-/* MAP */
-
-.map-preview{
-position:relative;
-height:340px;
-margin-top:40px;
-border:1px solid #E5DFD5;
-background:#F7F4EE;
-}
-
-.map-node{
-position:absolute;
-padding:10px 18px;
-background:#F7F4EE;
-border:1px solid #D8D0C5;
-font-family:Georgia,serif;
-}
-
-.center{
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-border-color:#7A2635;
-}
-
-.top-left{left:80px;top:60px}
-.top-right{right:80px;top:60px}
-.bottom-left{left:80px;bottom:60px}
-.bottom-right{right:80px;bottom:60px}
-
-.map-caption{
-margin-top:18px;
-color:#756653;
-font-size:14px;
-}
-
-/* EDITION */
-
-.edition-card{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:34px;
-border:1px solid #E5DFD5;
-background:#F7F4EE;
-margin-top:36px;
-gap:24px;
-}
-
-.edition-left{
-flex:1;
-}
-
-.edition-label{
-margin-bottom:12px;
-color:#7A2635;
-font-size:11px;
-font-weight:600;
-letter-spacing:.16em;
-text-transform:uppercase;
-}
-
-.edition-button{
-display:inline-block;
-padding:14px 22px;
-border:1px solid #D8D0C5;
-color:#201D19;
-text-decoration:none;
-white-space:nowrap;
-transition:.2s;
-}
-
-.edition-button:hover{
-background:#7A2635;
-border-color:#7A2635;
-color:white;
-}
-
-/* KATEGORI */
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:24px;
-margin-top:42px;
-}
-
-.category-card{
-display:block;
-padding:28px;
-border:1px solid #E5DFD5;
-background:#F7F4EE;
-text-decoration:none;
-color:inherit;
-transition:.25s;
-}
-
-.category-card:hover{
-transform:translateY(-3px);
-border-color:#7A2635;
-}
-
-.count{
-margin-bottom:16px;
-color:#7A2635;
-font-size:11px;
-letter-spacing:.08em;
-text-transform:uppercase;
-}
-
-.arrow{
-margin-top:22px;
-color:#7A2635;
-}
-
-/* ARTIKEL */
-
-.articles{
-border-top:1px solid #E5DFD5;
-margin-top:32px;
-}
-
-.article{
-display:grid;
-grid-template-columns:60px minmax(0,1fr) 80px;
-gap:24px;
-padding:34px 0;
-border-bottom:1px solid #E5DFD5;
-}
-
-.number{
-font-family:Georgia,serif;
-color:#8B8174;
-}
-
-.category{
-display:inline-block;
-margin-bottom:14px;
-color:#81776A;
-font-size:10px;
-font-weight:600;
-letter-spacing:.13em;
-text-transform:uppercase;
-text-decoration:none;
-}
-
-.category:hover{
-color:#7A2635;
-}
-
-.article h2{
-font-size:clamp(28px,4vw,42px);
-line-height:1.12;
-}
-
-.description{
-margin-top:16px;
-font-size:15px;
-}
-
-.read{
-align-self:center;
-text-decoration:none;
-color:#201D19;
-}
-
-.read:hover{
-color:#7A2635;
-}
-
-/* CTA */
-
-.cta-inner{
-max-width:760px;
-margin:auto;
-padding:0 32px;
-}
-
-.cta h2 em{
-display:block;
-font-style:italic;
-color:#756653;
-}
-
-.cta-actions{
-display:flex;
-gap:14px;
-margin-top:30px;
-flex-wrap:wrap;
-}
-
-.button{
-display:inline-block;
-padding:15px 24px;
-background:#7A2635;
-color:white;
-text-decoration:none;
-}
-
-.button:hover{
-background:#201D19;
-}
-
-.button.secondary{
-background:transparent;
-border:1px solid #D8D0C5;
-color:#201D19;
-}
-
-.button.secondary:hover{
-background:#F1ECE5;
-}
-
-@media(max-width:800px){
-
-.container{
-padding:0 20px;
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 32px;
 }
 
 .hero,
 .map-section,
 .edition-section,
 .categories-section,
-.search-section,
-.articles-section,
-.cta{
-padding:70px 0;
+.articles-section {
+  padding: 90px 0;
+  border-bottom: 1px solid #E5DFD5;
 }
 
-h1{
-font-size:42px;
+.cta {
+  padding: 95px 0;
+  background: #EBE5DC;
 }
 
-.category-grid{
-grid-template-columns:1fr;
+.eyebrow {
+  margin-bottom: 24px;
+  color: #7A2635;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
-.edition-card{
-flex-direction:column;
-align-items:flex-start;
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-weight: 400;
 }
 
-.article{
-grid-template-columns:32px minmax(0,1fr);
+h1 span,
+h1 em {
+  display: block;
 }
 
-.read{
-grid-column:2;
-margin-top:10px;
+h1 {
+  max-width: 860px;
+  font-size: clamp(50px, 7vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
 }
 
-.map-preview{
-height:300px;
+h1 em {
+  font-style: italic;
+  color: #756653;
 }
 
-.top-left{left:24px;top:30px}
-.top-right{right:24px;top:30px}
-.bottom-left{left:24px;bottom:30px}
-.bottom-right{right:24px;bottom:30px}
-
+h2 {
+  margin-bottom: 26px;
+  font-size: clamp(36px, 5vw, 48px);
+  line-height: 1.15;
 }
 
-@media(max-width:390px){
-
-.container,
-.cta-inner{
-padding:0 18px;
-}
-
-.hero,
-.map-section,
-.edition-section,
-.categories-section,
-.search-section,
-.articles-section,
-.cta{
-padding:58px 0;
-}
-
-h1{
-font-size:34px;
-}
-
-h2{
-font-size:28px;
+h3 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 .intro,
 .section-intro,
-p{
-font-size:15px;
+p {
+  color: #514C45;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-.article{
-grid-template-columns:24px minmax(0,1fr);
+
+/* EDITION */
+
+.edition-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 34px;
+  border: 1px solid #E5DFD5;
+  background: #F7F4EE;
+  margin-top: 36px;
+  gap: 24px;
 }
 
-.category-card,
-.edition-card{
-padding:22px;
+.edition-left {
+  flex: 1;
 }
 
+.edition-label {
+  margin-bottom: 12px;
+  color: #7A2635;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
+
+.edition-button {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 1px solid #D8D0C5;
+  color: #201D19;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: .2s;
+}
+
+.edition-button:hover {
+  background: #7A2635;
+  border-color: #7A2635;
+  color: white;
+}
+
+
+/* KATEGORI */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.category-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid #E5DFD5;
+  background: #F7F4EE;
+  text-decoration: none;
+  color: inherit;
+  transition: .25s;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  border-color: #7A2635;
+}
+
+.count {
+  margin-bottom: 16px;
+  color: #7A2635;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  margin-top: 22px;
+  color: #7A2635;
+}
+
+
+/* ARTIKEL */
+
+.articles {
+  border-top: 1px solid #E5DFD5;
+  margin-top: 32px;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) 80px;
+  gap: 24px;
+  padding: 34px 0;
+  border-bottom: 1px solid #E5DFD5;
+}
+
+.number {
+  font-family: Georgia, serif;
+  color: #8B8174;
+}
+
+.meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.world {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #F2EEE6;
+  border: 1px solid #DCD5CA;
+  border-radius: 999px;
+  color: #7A2635;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.category {
+  display: inline-block;
+  color: #81776A;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.category:hover {
+  color: #7A2635;
+}
+
+.article h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.12;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.article-meta {
+  margin-top: 16px;
+  color: #81776A;
+  font-size: 13px;
+}
+
+.read {
+  align-self: center;
+  color: #201D19;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.read:hover {
+  color: #7A2635;
+}
+
+
+/* CTA */
+
+.cta-inner {
+  max-width: 760px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.cta h2 em {
+  display: block;
+  font-style: italic;
+  color: #756653;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 24px;
+  background: #7A2635;
+  color: white;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #201D19;
+}
+
+.button.secondary {
+  background: transparent;
+  border: 1px solid #D8D0C5;
+  color: #201D19;
+}
+
+.button.secondary:hover {
+  background: #F1ECE5;
+}
+
+
+@media (max-width: 800px) {
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero,
+  .map-section,
+  .edition-section,
+  .categories-section,
+  .articles-section,
+  .cta {
+    padding: 70px 0;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edition-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .article {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .read {
+    grid-column: 2;
+    margin-top: 10px;
+  }
+
+}
+
+
+@media (max-width: 390px) {
+
+  .container,
+  .cta-inner {
+    padding: 0 18px;
+  }
+
+  .hero,
+  .map-section,
+  .edition-section,
+  .categories-section,
+  .articles-section,
+  .cta {
+    padding: 58px 0;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .intro,
+  .section-intro,
+  p {
+    font-size: 15px;
+  }
+
+  .article {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .category-card,
+  .edition-card {
+    padding: 22px;
+  }
+
+}
+
 </style>

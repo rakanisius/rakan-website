@@ -1,87 +1,82 @@
 ---
 export const prerender = true;
+
 import StudioLayout from "../../../layouts/StudioLayout.astro";
-import { getCollection, render } from "astro:content";
+import { articles } from "../../../data/manifest";
 
-export async function getStaticPaths() {
-  const articles = await getCollection("articles");
-
+export function getStaticPaths() {
   return articles.map((article) => ({
-    params: { slug: article.id },
+    params: { slug: article.slug },
     props: { article }
   }));
 }
 
 const { article } = Astro.props;
-const { Content } = await render(article);
 
 const score = [
-  article.data.title,
-  article.data.kategori,
-  article.data.status,
-  article.data.excerpt,
-  article.data.readingTime,
-  article.data.featured
+  article.title,
+  article.category,
+  article.world,
+  article.edition,
+  article.node
 ].filter(Boolean).length;
 
-const percent = Math.round(score / 6 * 100);
+const percent = Math.round((score / 5) * 100);
 
-const filePath = `src/content/articles/${article.id}.md`;
+const filePath = `src/pages/tulisan/${article.slug}.astro`;
 ---
 
-<StudioLayout title={article.data.title}>
+<StudioLayout title={article.title} eyebrow="RAKAN Studio / Writing" description="Preview artikel dari manifest RAKAN.">
 
 <div class="workspace">
 
 <article class="editorial">
 
-<p class="eyebrow">
-RAKAN Studio / Draft
-</p>
+<p class="eyebrow">RAKAN Studio / Writing</p>
 
-<h1>{article.data.title}</h1>
+<h1>{article.title}</h1>
 
-<p class="lead">
-Ruang kerja artikel.
-</p>
+<p class="lead">{article.description}</p>
 
 <div class="meta">
 
-<span class="badge category">
-{article.data.kategori}
-</span>
+<span class="badge category">{article.category}</span>
 
-<span class="badge status">
-{article.data.status}
-</span>
+<span class="badge world">{article.world}</span>
 
 </div>
 
-<p class="date">
-{article.data.tanggal.toLocaleDateString("id-ID")}
-</p>
-
 <div class="actions">
 
-<button
-onclick={`navigator.clipboard.writeText("${filePath}")`}>
-✍️ Lanjut Menulis
+<button onclick={`navigator.clipboard.writeText("${filePath}")`}>
+Lanjut Menulis
 </button>
 
-<button
-onclick={`navigator.clipboard.writeText("${filePath}")`}>
-📋 Copy Path
-</button>
-
-<button
-onclick={`navigator.clipboard.writeText("src/content/articles/")`}>
-📂 Folder
+<button onclick={`navigator.clipboard.writeText("${filePath}")`}>
+Copy Path
 </button>
 
 </div>
 
 <div class="body">
-<Content/>
+
+<h2>Metadata Artikel</h2>
+
+<table class="info">
+<tr><td>Judul</td><td>{article.title}</td></tr>
+<tr><td>World</td><td>{article.world}</td></tr>
+<tr><td>Kategori</td><td>{article.category}</td></tr>
+<tr><td>Edition</td><td>{article.edition}</td></tr>
+<tr><td>Node</td><td>{article.node}</td></tr>
+<tr><td>Nomor</td><td>{article.number}</td></tr>
+<tr><td>Slug</td><td>{article.slug}</td></tr>
+</table>
+
+<p class="note">
+Preview Studio sekarang menggunakan <code>src/data/manifest.ts</code>.
+Konten artikel asli berada di <code>{filePath}</code>.
+</p>
+
 </div>
 
 </article>
@@ -92,44 +87,32 @@ onclick={`navigator.clipboard.writeText("src/content/articles/")`}>
 
 <div class="score">
 
-<div class="ring">
-{percent}%
-</div>
+<div class="ring">{percent}%</div>
 
-<p>Kelengkapan artikel</p>
+<p>Kelengkapan metadata</p>
 
 </div>
 
 <div class="divider"></div>
 
 <div class="item">
-<span>Status</span>
-<strong>{article.data.status}</strong>
+<span>World</span>
+<strong>{article.world}</strong>
 </div>
 
 <div class="item">
 <span>Kategori</span>
-<strong>{article.data.kategori}</strong>
+<strong>{article.category}</strong>
 </div>
 
 <div class="item">
-<span>Tanggal</span>
-<strong>{article.data.tanggal.toLocaleDateString("id-ID")}</strong>
+<span>Edition</span>
+<strong>{article.edition}</strong>
 </div>
 
 <div class="item">
-<span>Excerpt</span>
-<strong>{article.data.excerpt || "Belum ada"}</strong>
-</div>
-
-<div class="item">
-<span>Reading Time</span>
-<strong>{article.data.readingTime || 0} menit</strong>
-</div>
-
-<div class="item">
-<span>Featured</span>
-<strong>{article.data.featured ? "Ya" : "Tidak"}</strong>
+<span>Node</span>
+<strong>{article.node}</strong>
 </div>
 
 <div class="item">
@@ -173,39 +156,36 @@ line-height:.95;
 .lead{
 margin:0 0 28px;
 color:#514C45;
+line-height:1.8;
 }
 
 .meta{
 display:flex;
 gap:10px;
 margin-bottom:18px;
+flex-wrap:wrap;
 }
 
 .badge{
 padding:8px 14px;
 border-radius:999px;
-font-size:14px;
+font-size:13px;
 }
 
 .category{
 background:#F5F2EC;
 }
 
-.status{
+.world{
 background:#7A2635;
 color:white;
-}
-
-.date{
-margin-bottom:26px;
-color:#6B645A;
 }
 
 .actions{
 display:flex;
 gap:12px;
 flex-wrap:wrap;
-margin-bottom:40px;
+margin-bottom:36px;
 }
 
 .actions button{
@@ -214,7 +194,6 @@ border:none;
 border-radius:12px;
 background:#F5F2EC;
 cursor:pointer;
-font-size:14px;
 }
 
 .actions button:first-child{
@@ -224,6 +203,31 @@ color:white;
 
 .body{
 line-height:1.9;
+}
+
+.info{
+width:100%;
+border-collapse:collapse;
+margin-top:18px;
+}
+
+.info td{
+padding:12px 0;
+border-bottom:1px solid #ECE5DA;
+vertical-align:top;
+}
+
+.info td:first-child{
+width:140px;
+color:#6B645A;
+}
+
+.note{
+margin-top:24px;
+padding:18px;
+background:#F5F2EC;
+border-radius:14px;
+font-size:14px;
 }
 
 .inspector{
@@ -259,11 +263,6 @@ font-family:Georgia,serif;
 font-size:28px;
 }
 
-.score p{
-margin-top:12px;
-color:#6B645A;
-}
-
 .divider{
 height:1px;
 background:#ECE5DA;
@@ -288,20 +287,13 @@ color:#6B645A;
 margin-bottom:6px;
 }
 
-.item strong{
-word-break:break-word;
-}
-
 @media(max-width:960px){
-
 .workspace{
 grid-template-columns:1fr;
 }
-
 .inspector{
 position:relative;
 top:auto;
 }
-
 }
 </style>

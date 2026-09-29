@@ -1,0 +1,180 @@
+---
+import WritingColumn from "./WritingColumn.astro";
+import {
+  getWorkflowItems
+} from "../../data/workflow";
+
+const draft = getWorkflowItems("draft");
+const review = getWorkflowItems("review");
+const ready = getWorkflowItems("ready");
+const published = getWorkflowItems("published");
+---
+
+<div class="workflow">
+
+  <section class="workflow-stage">
+
+    <div class="stage-head">
+      <div>
+        <p class="stage-index">01</p>
+        <h2>Draft</h2>
+      </div>
+
+      <span class="count">{draft.length}</span>
+    </div>
+
+    <WritingColumn
+      title=""
+      items={draft}
+    />
+
+  </section>
+
+
+  <section class="workflow-stage">
+
+    <div class="stage-head">
+      <div>
+        <p class="stage-index">02</p>
+        <h2>Review</h2>
+      </div>
+
+      <span class="count">{review.length}</span>
+    </div>
+
+    <WritingColumn
+      title=""
+      items={review}
+    />
+
+  </section>
+
+
+  <section class="workflow-stage">
+
+    <div class="stage-head">
+      <div>
+        <p class="stage-index">03</p>
+        <h2>Ready</h2>
+      </div>
+
+      <span class="count">{ready.length}</span>
+    </div>
+
+    <WritingColumn
+      title=""
+      items={ready}
+    />
+
+  </section>
+
+
+  <section class="workflow-stage">
+
+    <div class="stage-head">
+      <div>
+        <p class="stage-index">04</p>
+        <h2>Published</h2>
+      </div>
+
+      <span class="count">{published.length}</span>
+    </div>
+
+    <WritingColumn
+      title=""
+      items={published}
+    />
+
+  </section>
+
+</div>
+
+<style>
+.workflow {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+.workflow-stage {
+  min-width: 0;
+
+  padding: 22px;
+
+  background: #FCFAF6;
+
+  border: 1px solid #E3DBCF;
+  border-radius: 20px;
+}
+
+.stage-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  min-height: 72px;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #E7DFD3;
+}
+
+.stage-index {
+  margin: 0 0 5px;
+
+  color: #9A9187;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: .12em;
+}
+
+.stage-head h2 {
+  margin: 0;
+
+  color: #201D19;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30px;
+  height: 30px;
+
+  padding: 0 9px;
+
+  border: 1px solid #D9D0C4;
+  border-radius: 999px;
+
+  color: #7A2635;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .workflow {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .workflow {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

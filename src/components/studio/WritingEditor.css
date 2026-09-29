@@ -1,0 +1,13 @@
+.spacer{
+flex:1;
+}
+
+.save{
+background:#7A2635;
+color:white;
+border-color:#7A2635;
+}
+
+.save:hover{
+background:#68202D;
+}

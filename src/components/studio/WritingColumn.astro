@@ -1,0 +1,65 @@
+---
+import WritingCard from "./WritingCard.astro";
+
+const { title, items } = Astro.props;
+---
+
+<div class="column">
+
+<div class="head">
+
+<h2>{title}</h2>
+
+<span>{items.length}</span>
+
+</div>
+
+<div class="stack">
+
+{items.map(item=>(
+<WritingCard
+title={item.title}
+node={item.node}
+updated={item.updated}
+href={`/studio/writing/${item.slug}`}
+/>
+))}
+
+</div>
+
+</div>
+
+<style>
+
+.column{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding-bottom:10px;
+border-bottom:1px solid #E5DFD5;
+}
+
+h2{
+margin:0;
+font-family:Georgia,serif;
+font-weight:400;
+font-size:30px;
+}
+
+span{
+color:#756653;
+}
+
+.stack{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+</style>

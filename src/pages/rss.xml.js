@@ -1,19 +1,23 @@
 import rss from "@astrojs/rss";
-import { articles } from "../data/articles";
+import { articles } from "../data/manifest";
 
-export async function GET(context) {
-  const sorted = [...articles].sort((a, b) => b.number - a.number);
-
+export function GET(context) {
   return rss({
     title: "RAKAN",
     description:
-      "Catatan tentang tubuh, pikiran, kesehatan, obat, dan kehidupan.",
+      "Catatan tentang tubuh, otak, pikiran, kehidupan, dan penyembuhan holistik.",
+
     site: context.site,
-    items: sorted.map((article) => ({
-      title: article.title,
-      description: article.description,
-      link: article.href,
-    })),
-    customData: `<language>id-ID</language>`,
+
+    items: articles
+      .slice()
+      .sort((a, b) => b.number - a.number)
+      .map((article) => ({
+        title: article.title,
+        description: article.description,
+        link: article.href,
+      })),
+
+    customData: `<language>id-id</language>`,
   });
 }

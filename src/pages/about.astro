@@ -1,8 +1,8 @@
----
+﻿---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "Tentang Abdul Rakan | RAKAN";
+const title = "Tentang | RAKAN";
 const description =
   "Mengenal Abdul Rakan, apoteker, penulis, dan praktisi penyembuhan holistik.";
 const image = "/images/profile/rakan-portrait.jpg";
@@ -30,6 +30,10 @@ const image = "/images/profile/rakan-portrait.jpg";
 <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
 <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
 
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 </head>
 
 <body>
@@ -37,8 +41,6 @@ const image = "/images/profile/rakan-portrait.jpg";
 <Nav/>
 
 <main>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -79,8 +81,6 @@ Karena itu saya membangun RAKAN sebagai ruang untuk menulis, berdialog, dan mend
 
 </section>
 
-<!-- PERAN -->
-
 <section class="section border">
 
 <div class="container">
@@ -97,7 +97,7 @@ Empat cara saya bekerja.
 
 <div class="card">
 
-<div class="icon">◉</div>
+<div class="icon-circle">💊</div>
 
 <h3>Apoteker</h3>
 
@@ -109,7 +109,7 @@ Membantu menjelaskan farmasi dan kesehatan dengan bahasa yang mudah dipahami.
 
 <div class="card">
 
-<div class="icon">◎</div>
+<div class="icon-circle">📚</div>
 
 <h3>Penulis</h3>
 
@@ -121,7 +121,7 @@ Membangun perpustakaan RAKAN melalui artikel, buku, dan perjalanan pengetahuan.
 
 <div class="card">
 
-<div class="icon">◌</div>
+<div class="icon-circle">❤️</div>
 
 <h3>Praktisi Penyembuhan Holistik</h3>
 
@@ -133,7 +133,7 @@ Mendampingi proses belajar dan refleksi melalui pendekatan yang melihat manusia 
 
 <div class="card">
 
-<div class="icon">◇</div>
+<div class="icon-circle">🤝</div>
 
 <h3>Kolaborator</h3>
 
@@ -148,8 +148,6 @@ Menyusun seminar, workshop, training, dan kelas sesuai konteks institusi maupun 
 </div>
 
 </section>
-
-<!-- PERJALANAN -->
 
 <section class="section border">
 
@@ -183,8 +181,6 @@ Bukan sekadar nama, tetapi ruang untuk membantu orang memahami kesehatan dengan 
 </div>
 
 </section>
-
-<!-- PRINSIP -->
 
 <section class="section alt">
 
@@ -247,8 +243,6 @@ Saya lebih percaya pada langkah kecil yang konsisten daripada solusi instan.
 
 </section>
 
-<!-- EMPAT WORLD -->
-
 <section class="section border">
 
 <div class="container">
@@ -271,7 +265,7 @@ Inilah fondasi Peta RAKAN yang sedang dikembangkan.
 
 <a href="/tulisan/kategori/tubuh" class="world-card">
 
-<div class="icon">◉</div>
+<div class="icon-circle">❤️</div>
 
 <h3>Tubuh</h3>
 
@@ -281,7 +275,7 @@ Inilah fondasi Peta RAKAN yang sedang dikembangkan.
 
 <a href="/tulisan/kategori/otak" class="world-card">
 
-<div class="icon">◎</div>
+<div class="icon-circle">🧠</div>
 
 <h3>Otak</h3>
 
@@ -291,7 +285,7 @@ Inilah fondasi Peta RAKAN yang sedang dikembangkan.
 
 <a href="/tulisan/kategori/pikiran" class="world-card">
 
-<div class="icon">◌</div>
+<div class="icon-circle">✨</div>
 
 <h3>Pikiran</h3>
 
@@ -301,7 +295,7 @@ Inilah fondasi Peta RAKAN yang sedang dikembangkan.
 
 <a href="/tulisan/kategori/kehidupan" class="world-card">
 
-<div class="icon">◇</div>
+<div class="icon-circle">🧭</div>
 
 <h3>Kehidupan</h3>
 
@@ -314,8 +308,6 @@ Inilah fondasi Peta RAKAN yang sedang dikembangkan.
 </div>
 
 </section>
-
-<!-- PENUTUP -->
 
 <section class="cta">
 
@@ -382,7 +374,7 @@ scroll-behavior:smooth;
 margin:0;
 background:#F7F4EE;
 color:#201D19;
-font-family:Arial,Helvetica,sans-serif;
+font-family:"Inter",sans-serif;
 }
 
 .container{
@@ -394,8 +386,6 @@ padding:0 32px;
 .narrow{
 max-width:760px;
 }
-
-/* HERO */
 
 .hero{
 padding:100px 0 90px;
@@ -412,9 +402,10 @@ align-items:center;
 .portrait{
 aspect-ratio:4/5;
 overflow:hidden;
-border-radius:24px;
+border-radius:28px;
 border:1px solid #E5DFD5;
 background:#ECE5DA;
+max-width:340px;
 }
 
 .portrait img{
@@ -423,8 +414,6 @@ width:100%;
 height:100%;
 object-fit:cover;
 }
-
-/* SECTION */
 
 .section{
 padding:90px 0;
@@ -442,8 +431,6 @@ background:#F1ECE5;
 padding:100px 0;
 background:#EBE5DC;
 }
-
-/* TYPOGRAPHY */
 
 .eyebrow{
 margin-bottom:22px;
@@ -465,8 +452,8 @@ text-transform:uppercase;
 
 h1,h2,h3{
 margin:0;
-font-family:Georgia,serif;
-font-weight:400;
+font-family:"Source Serif 4",serif;
+font-weight:600;
 }
 
 h1{
@@ -501,8 +488,6 @@ font-size:17px;
 line-height:1.85;
 }
 
-/* GRID */
-
 .grid4{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -524,13 +509,17 @@ padding:30px;
 background:#F7F4EE;
 }
 
-.icon{
+.icon-circle{
+width:54px;
+height:54px;
+display:flex;
+align-items:center;
+justify-content:center;
 margin-bottom:18px;
-color:#7A2635;
-font-size:28px;
+border-radius:50%;
+background:#F7F4EE;
+border:1px solid #E5DFD5;
 }
-
-/* WORLD */
 
 .world-grid{
 display:grid;
@@ -553,8 +542,6 @@ transition:.25s;
 transform:translateY(-3px);
 border-color:#7A2635;
 }
-
-/* BUTTON */
 
 .actions{
 display:flex;
@@ -588,8 +575,6 @@ color:#201D19;
 .button.secondary:hover{
 background:#F1ECE5;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:900px){
 

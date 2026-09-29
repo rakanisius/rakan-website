@@ -1,59 +1,84 @@
 import http from "node:http";
-import fs from "node:fs";
-import { CONFIG } from "./config.mjs";
-import { state } from "./state.mjs";
+import fs from "node:fs/promises";
+import path from "node:path";
 
-const json = (res, data, status = 200) => {
-  res.writeHead(status, {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "http://localhost:4321",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  });
+const PORT = 8788;
+const ROOT = path.resolve(process.cwd(), "..");
+const DRAFT_DIR = path.join(ROOT, "src", "content", "drafts");
 
-  res.end(JSON.stringify(data, null, 2));
-};
+await fs.mkdir(DRAFT_DIR, { recursive: true });
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
 
   if (req.method === "OPTIONS") {
     res.writeHead(204);
     return res.end();
   }
 
-  if (req.method === "GET" && req.url === "/health") {
-
-    return json(res, {
-      agent: "RAKAN Local Publish Agent",
-      version: CONFIG.agentVersion,
-      status: "ready"
-    });
-
+  if (req.url === "/health") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify({ ok: true }));
   }
 
-  if (req.method === "GET" && req.url === "/status") {
+  if (req.url === "/draft" && req.method === "POST") {
 
-    return json(res, {
-      ...state,
-      repository: CONFIG.repository,
-      repositoryExists: fs.existsSync(CONFIG.repository)
+    let body = "";
+
+    req.on("data", chunk => body += chunk);
+
+    req.on("end", async () => {
+
+      try {
+
+        const data = JSON.parse(body);
+
+        const file = path.join(DRAFT_DIR, `${data.slug}.md`);
+
+        const markdown =
+`---
+title: "${data.title}"
+description: "${data.description || ""}"
+category: "${data.category}"
+status: draft
+---
+
+${data.body}
+`;
+
+        await fs.writeFile(file, markdown, "utf8");
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+
+        res.end(JSON.stringify({
+          ok: true,
+          file
+        }));
+
+      } catch (err) {
+
+        res.writeHead(500, { "Content-Type": "application/json" });
+
+        res.end(JSON.stringify({
+          ok: false,
+          error: String(err)
+        }));
+
+      }
+
     });
 
+    return;
   }
 
-  json(res, {
-    error: "NOT_FOUND"
-  }, 404);
+  res.writeHead(404);
+  res.end();
 
 });
 
-server.listen(CONFIG.port, CONFIG.host, () => {
-
-  console.log("");
-  console.log("RAKAN Local Publish Agent");
-  console.log("-------------------------");
-  console.log(`Repository : ${CONFIG.repository}`);
-  console.log(`Listening  : http://${CONFIG.host}:${CONFIG.port}`);
-  console.log("");
-
+server.listen(PORT, () => {
+  console.log(`Studio Agent running http://localhost:${PORT}`);
 });

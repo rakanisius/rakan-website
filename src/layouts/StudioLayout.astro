@@ -1,61 +1,127 @@
-﻿---
-import "../styles/studio.css";
+---
 import StudioSidebar from "../components/studio/StudioSidebar.astro";
-import StudioHeader from "../components/studio/StudioHeader.astro";
-import CommandPalette from "../components/studio/CommandPalette.astro";
 
-const title = Astro.props.title ?? "Today";
+const {
+  title = "Studio",
+} = Astro.props;
 ---
 
+<!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | RAKAN Studio</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <div class="studio-shell">
-      <StudioSidebar />
+  <title>{title} | RAKAN Studio</title>
 
-      <main class="studio-main">
-        <StudioHeader title={title} />
+  <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+  <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+</head>
 
-        <section class="studio-content">
-          <slot />
-        </section>
-      </main>
-    </div>
+<body>
+  <div class="studio-shell">
 
-    <CommandPalette />
-  </body>
+    <StudioSidebar />
+
+    <main class="studio-main">
+      <section class="page-content">
+        <slot />
+      </section>
+    </main>
+
+  </div>
+</body>
 </html>
 
-<style is:global>
-.studio-shell{
-  display:grid;
-  grid-template-columns:260px minmax(0,1fr);
-  min-height:100vh;
-  background:#F7F4EE;
+<style>
+:global(*) {
+  box-sizing: border-box;
 }
 
-.studio-main{
-  min-width:0;
+:global(html) {
+  height: 100%;
 }
 
-.studio-content{
-  padding:0 48px 48px;
+:global(body) {
+  margin: 0;
+  min-height: 100%;
+  background: #F7F4EE;
+  color: #201D19;
+  font-family: Arial, sans-serif;
 }
 
-@media (max-width:900px){
+.studio-shell {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  min-height: 100vh;
+}
 
-  .studio-shell{
-    grid-template-columns:1fr;
+.studio-main {
+  min-width: 0;
+  padding: 56px 64px 80px;
+}
+
+.page-content {
+  display: block;
+  width: 100%;
+}
+
+:global(.hero) {
+  max-width: 820px;
+  margin-bottom: 52px;
+}
+
+:global(.eyebrow) {
+  margin: 0 0 16px;
+  color: #7A2635;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+:global(.hero h1),
+:global(.page-hero h1) {
+  margin: 0 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+
+:global(.hero .lead),
+:global(.page-hero .lead) {
+  max-width: 680px;
+  margin: 0;
+  color: #514C45;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+
+  .studio-shell {
+    grid-template-columns: 1fr;
   }
 
-  .studio-content{
-    padding:24px;
+  .studio-main {
+    padding: 40px 24px 64px;
   }
 
+  :global(.hero) {
+    margin-bottom: 40px;
+  }
+
+  :global(.hero h1),
+  :global(.page-hero h1) {
+    font-size: 42px;
+  }
+
+  :global(.hero .lead),
+  :global(.page-hero .lead) {
+    font-size: 18px;
+  }
 }
 </style>

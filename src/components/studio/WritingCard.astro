@@ -1,0 +1,53 @@
+---
+const { title, node, updated, href } = Astro.props;
+---
+
+<a href={href} class="card">
+
+  <div class="node">{node}</div>
+
+  <h3>{title}</h3>
+
+  <p>{updated}</p>
+
+</a>
+
+<style>
+.card{
+display:block;
+padding:20px;
+background:#F7F4EE;
+border:1px solid #E5DFD5;
+border-radius:18px;
+text-decoration:none;
+transition:.18s;
+}
+
+.card:hover{
+background:#F1ECE5;
+transform:translateY(-2px);
+}
+
+.node{
+font-size:12px;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:#7A2635;
+margin-bottom:12px;
+}
+
+h3{
+margin:0 0 10px;
+font-family:Georgia,serif;
+font-weight:400;
+font-size:24px;
+line-height:1.2;
+color:#201D19;
+}
+
+p{
+margin:0;
+font-size:14px;
+color:#756653;
+}
+</style>

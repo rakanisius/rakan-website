@@ -1,0 +1,461 @@
+---
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+import {
+  nodes,
+  getWorldNodes,
+  getArticlesByNode
+} from "../../data/knowledge";
+
+const worlds=["Tubuh","Otak","Pikiran","Kehidupan"] as const;
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Peta RAKAN | Tulisan</title>
+
+<meta
+name="description"
+content="Peta pengetahuan RAKAN yang menghubungkan tulisan melalui World dan Knowledge Node."
+/>
+
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg"/>
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main>
+
+<section class="hero">
+
+<div class="container narrow">
+
+<p class="eyebrow">PETA RAKAN</p>
+
+<h1>
+Setiap tulisan memiliki koordinatnya.
+</h1>
+
+<p class="intro">
+Perpustakaan RAKAN tidak dibangun sebagai kumpulan artikel yang berdiri sendiri.
+Setiap tulisan berada di dalam satu dunia, memiliki Knowledge Node, dan saling
+terhubung sebagai satu perpustakaan yang terus bertumbuh.
+</p>
+
+<div class="actions">
+
+<a href="/tulisan" class="button secondary">
+← Kembali ke Tulisan
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<p class="eyebrow">EMPAT DUNIA</p>
+
+<h2>Empat pintu masuk menuju perpustakaan.</h2>
+
+<div class="map-preview">
+
+<div class="map-center">RAKAN</div>
+
+<a href="#tubuh" class="map-node top-left">Tubuh</a>
+<a href="#otak" class="map-node top-right">Otak</a>
+<a href="#pikiran" class="map-node bottom-left">Pikiran</a>
+<a href="#kehidupan" class="map-node bottom-right">Kehidupan</a>
+
+</div>
+
+</div>
+
+</section>
+
+{worlds.map((world)=>(
+
+<section
+class="section"
+id={world.toLowerCase()}
+>
+
+<div class="container">
+
+<p class="eyebrow">{world.toUpperCase()}</p>
+
+<h2>{world}</h2>
+
+<div class="node-grid">
+
+{getWorldNodes(world).length>0?(
+getWorldNodes(world).map((node)=>(
+
+<article class="node-card">
+
+<div class="node-id">{node.id}</div>
+
+<h3>{node.title}</h3>
+
+<p>{node.summary}</p>
+
+<div class="related">
+
+<p class="related-title">Tulisan</p>
+
+{getArticlesByNode(node.id).map((article)=>(
+
+<a href={article.href}>
+{article.title}
+</a>
+
+))}
+
+</div>
+
+</article>
+
+))
+):(
+
+<div class="empty">
+
+<h3>Masih kosong.</h3>
+
+<p>
+Dunia ini akan berkembang seiring bertambahnya tulisan baru.
+</p>
+
+</div>
+
+)}
+
+</div>
+
+</div>
+
+</section>
+
+))}
+
+<section class="section alt">
+
+<div class="container">
+
+<p class="eyebrow">PERPUSTAKAAN SAAT INI</p>
+
+<h2>Fondasi yang sedang bertumbuh.</h2>
+
+<div class="stats-grid">
+
+<div class="stat">
+<div class="value">4</div>
+<div class="label">Worlds</div>
+</div>
+
+<div class="stat">
+<div class="value">{nodes.length}</div>
+<div class="label">Knowledge Nodes</div>
+</div>
+
+<div class="stat">
+<div class="value">5</div>
+<div class="label">Articles</div>
+</div>
+
+<div class="stat">
+<div class="value">1</div>
+<div class="label">Library</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="container narrow">
+
+<p class="eyebrow">LANJUTKAN PERJALANAN</p>
+
+<h2>Peta hanya menunjukkan arah.</h2>
+
+<p>
+Perjalanan dimulai ketika satu artikel membawa Anda menuju artikel berikutnya.
+</p>
+
+<div class="actions">
+
+<a href="/tulisan" class="button primary">
+Jelajahi Tulisan
+</a>
+
+<a href="/holistik" class="button secondary">
+Empat Dunia
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<Footer/>
+
+</body>
+
+</html>
+
+<style>
+
+:global(*){box-sizing:border-box}
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#201D19;
+font-family:Arial,sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 32px;
+}
+
+.narrow{
+max-width:760px;
+}
+
+.hero,
+.section{
+padding:90px 0;
+border-bottom:1px solid #E5DFD5;
+}
+
+.alt{
+background:#F1ECE5;
+}
+
+.cta{
+padding:100px 0;
+background:#EBE5DC;
+}
+
+.eyebrow{
+color:#7A2635;
+font-size:12px;
+font-weight:600;
+letter-spacing:.16em;
+text-transform:uppercase;
+margin-bottom:22px;
+}
+
+h1,h2,h3{
+font-family:Georgia,serif;
+font-weight:400;
+margin:0;
+}
+
+h1{
+font-size:clamp(54px,7vw,82px);
+line-height:1.05;
+}
+
+h2{
+font-size:clamp(36px,5vw,50px);
+line-height:1.15;
+margin-bottom:26px;
+}
+
+.intro,p{
+color:#514C45;
+line-height:1.8;
+font-size:17px;
+}
+
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:32px;
+}
+
+.button{
+display:inline-block;
+padding:14px 22px;
+text-decoration:none;
+border:1px solid #C8BBAA;
+border-radius:999px;
+transition:.2s;
+}
+
+.primary{
+background:#7A2635;
+color:white;
+border-color:#7A2635;
+}
+
+.secondary{
+color:#201D19;
+}
+
+.map-preview{
+position:relative;
+height:360px;
+margin-top:34px;
+border:1px solid #E5DFD5;
+border-radius:24px;
+overflow:hidden;
+}
+
+.map-preview::before,
+.map-preview::after{
+content:"";
+position:absolute;
+background:#D8D0C5;
+}
+
+.map-preview::before{
+left:50%;
+top:72px;
+bottom:72px;
+width:1px;
+transform:translateX(-50%);
+}
+
+.map-preview::after{
+top:50%;
+left:72px;
+right:72px;
+height:1px;
+transform:translateY(-50%);
+}
+
+.map-center,
+.map-node{
+position:absolute;
+padding:12px 18px;
+background:#F7F4EE;
+border:1px solid #D8D0C5;
+text-decoration:none;
+color:#201D19;
+}
+
+.map-center{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+border-color:#7A2635;
+font-family:Georgia,serif;
+}
+
+.top-left{left:60px;top:48px}
+.top-right{right:60px;top:48px}
+.bottom-left{left:60px;bottom:48px}
+.bottom-right{right:60px;bottom:48px}
+
+.node-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+margin-top:42px;
+}
+
+.node-card{
+padding:28px;
+background:#F1ECE5;
+border:1px solid #E5DFD5;
+border-radius:24px;
+}
+
+.node-id{
+margin-bottom:12px;
+color:#7A2635;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+.related{
+margin-top:24px;
+padding-top:20px;
+border-top:1px solid #D8D0C5;
+}
+
+.related-title{
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:#756653;
+margin-bottom:10px;
+}
+
+.related a{
+display:block;
+margin:8px 0;
+text-decoration:none;
+color:#201D19;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+margin-top:42px;
+}
+
+.stat{
+padding:28px;
+background:#F7F4EE;
+border:1px solid #E5DFD5;
+border-radius:24px;
+text-align:center;
+}
+
+.value{
+font-family:Georgia,serif;
+font-size:44px;
+color:#7A2635;
+margin-bottom:8px;
+}
+
+.label{
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:#756653;
+}
+
+@media(max-width:800px){
+
+.container{padding:0 20px;}
+
+.hero,
+.section,
+.cta{padding:70px 0;}
+
+.node-grid,
+.stats-grid{grid-template-columns:1fr;}
+
+}
+
+</style>

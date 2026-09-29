@@ -1,0 +1,185 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import AuthorCard from "../components/article/AuthorCard.astro";
+import RuangBerikutnya from "../components/article/RuangBerikutnya.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+
+const {
+title,
+description,
+world,
+category,
+edition,
+node,
+archive,
+hero,
+heroCaption
+}=Astro.props.frontmatter;
+---
+
+<!doctype html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>{title} | RAKAN</title>
+
+<meta name="description" content={description}/>
+
+</head>
+
+<body>
+
+<Nav/>
+
+<main class="article">
+
+<div class="eyebrow">
+Tulisan · {world} · {archive}
+</div>
+
+<h1>{title}</h1>
+
+<p class="intro">
+{description}
+</p>
+
+<div class="meta">
+{category} · Edition {edition} · {node}
+</div>
+
+<figure class="hero">
+
+<img src={hero} alt={title}/>
+
+{heroCaption && (
+
+<figcaption>{heroCaption}</figcaption>
+
+)}
+
+</figure>
+
+<article class="content">
+
+<slot/>
+
+</article>
+
+<AuthorCard/>
+
+<RuangBerikutnya/>
+
+<RelatedContent
+currentHref={Astro.url.pathname}
+currentCategory={category}
+/>
+
+</main>
+
+<Footer/>
+
+</body>
+
+</html>
+
+<style>
+
+:global(body){
+margin:0;
+background:#F7F4EE;
+color:#29251F;
+font-family:Arial,sans-serif;
+}
+
+.article{
+max-width:980px;
+margin:auto;
+padding:90px 28px;
+}
+
+.eyebrow{
+color:#7A2635;
+font-size:12px;
+letter-spacing:.15em;
+text-transform:uppercase;
+}
+
+h1{
+font-family:Georgia,serif;
+font-weight:400;
+font-size:clamp(48px,7vw,82px);
+line-height:1;
+margin:24px 0;
+}
+
+.intro{
+font-family:Georgia,serif;
+font-size:clamp(22px,3vw,30px);
+color:#5A534B;
+line-height:1.45;
+margin-bottom:34px;
+}
+
+.meta{
+color:#81776A;
+font-size:13px;
+text-transform:uppercase;
+margin-bottom:54px;
+}
+
+.hero img{
+width:100%;
+border-radius:8px;
+}
+
+.hero figcaption{
+margin-top:12px;
+font-size:13px;
+color:#8A7F73;
+}
+
+.content{
+max-width:720px;
+margin:auto;
+}
+
+:global(.content h2){
+font-family:Georgia,serif;
+font-size:42px;
+font-weight:400;
+margin-top:70px;
+}
+
+:global(.content p){
+font-size:18px;
+line-height:1.9;
+color:#514C45;
+}
+
+:global(.content blockquote){
+margin:60px 0;
+padding-left:24px;
+border-left:3px solid #7A2635;
+font-family:Georgia,serif;
+font-size:28px;
+line-height:1.45;
+}
+
+@media(max-width:720px){
+
+.article{
+padding:60px 22px;
+}
+
+:global(.content p){
+font-size:17px;
+}
+
+}
+
+</style>

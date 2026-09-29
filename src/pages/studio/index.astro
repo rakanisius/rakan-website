@@ -1,59 +1,265 @@
-﻿---
+---
 import StudioLayout from "../../layouts/StudioLayout.astro";
-import TodayCard from "../../components/studio/TodayCard.astro";
-import TodayCompass from "../../components/studio/TodayCompass.astro";
-import EditorialHealth from "../../components/studio/EditorialHealth.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const draftDir=path.resolve("src/content/drafts");
+
+let drafts=[];
+
+if(fs.existsSync(draftDir)){
+
+drafts=fs.readdirSync(draftDir)
+.filter(f=>f.endsWith(".md"))
+.map(file=>{
+
+const stat=fs.statSync(path.join(draftDir,file));
+
+return{
+
+file,
+slug:file.replace(".md",""),
+date:stat.mtime
+
+};
+
+})
+.sort((a,b)=>b.date-a.date);
+
+}
+
+const published=5;
+const review=0;
 ---
 
-<StudioLayout title="Today">
+<StudioLayout
+title="Today"
+eyebrow="RAKAN Studio"
+description="Pusat editorial RAKAN."
+hideHero
+>
 
 <div class="hero">
 
-<p class="eyebrow">
-RAKAN Studio / Today
-</p>
+<p class="eyebrow">RAKAN STUDIO</p>
 
 <h1>Today</h1>
 
-<p class="lead">
-Mendampingi manusia memahami dirinya secara utuh.
-</p>
+<p>Semua pekerjaan editorial dimulai dari sini.</p>
 
 </div>
 
-<TodayCard />
+<div class="stats">
 
-<EditorialHealth />
+<div class="card">
 
-<TodayCompass />
+<span>Draft</span>
+
+<strong>{drafts.length}</strong>
+
+</div>
+
+<div class="card">
+
+<span>Review</span>
+
+<strong>{review}</strong>
+
+</div>
+
+<div class="card">
+
+<span>Published</span>
+
+<strong>{published}</strong>
+
+</div>
+
+</div>
+
+<section class="section">
+
+<div class="section-head">
+
+<div>
+
+<p class="eyebrow">DRAFT REGISTRY</p>
+
+<h2>Draft terbaru</h2>
+
+</div>
+
+<a href="/studio/writing/new" class="button">
++ Artikel Baru
+</a>
+
+</div>
+
+{drafts.length===0?(
+<div class="empty">
+
+<h3>Belum ada draft.</h3>
+
+<p>Mulailah menulis untuk membuat draft pertama.</p>
+
+</div>
+):(
+<div class="drafts">
+
+{drafts.map(draft=>(
+
+<article class="draft">
+
+<div>
+
+<h3>{draft.slug}</h3>
+
+<p>{draft.date.toLocaleDateString("id-ID")}</p>
+
+</div>
+
+<a href={`/studio/writing/new?draft=${draft.slug}`} class="edit">
+Edit
+</a>
+
+</article>
+
+))}
+
+</div>
+)}
+
+</section>
 
 </StudioLayout>
 
 <style>
+
 .hero{
-margin-bottom:18px;
+margin-bottom:56px;
 }
 
-.eyebrow{
-font-size:14px;
-letter-spacing:.08em;
+.hero h1{
+font-family:Georgia,serif;
+font-weight:400;
+font-size:clamp(46px,5vw,62px);
+margin:0 0 14px;
+}
+
+.hero p{
+font-size:18px;
+color:#514C45;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-bottom:60px;
+}
+
+.card{
+padding:28px;
+background:#F1ECE5;
+border:1px solid #E5DFD5;
+border-radius:24px;
+}
+
+.card span{
+display:block;
+margin-bottom:10px;
+font-size:12px;
+letter-spacing:.14em;
 text-transform:uppercase;
-color:#6B645A;
+color:#756653;
+}
+
+.card strong{
+font-family:Georgia,serif;
+font-size:44px;
+font-weight:400;
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin-bottom:26px;
+}
+
+.section-head h2{
+font-family:Georgia,serif;
+font-weight:400;
+font-size:36px;
 margin:0;
 }
 
-h1{
-margin:14px 0 10px;
-font-family:Georgia,serif;
-font-size:72px;
-font-weight:400;
-line-height:.95;
+.button{
+padding:12px 18px;
+border-radius:999px;
+background:#7A2635;
+color:white;
+text-decoration:none;
 }
 
-.lead{
-max-width:520px;
-font-size:20px;
-line-height:1.7;
-color:#514C45;
+.drafts{
+display:flex;
+flex-direction:column;
+gap:16px;
 }
+
+.draft{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:24px;
+border:1px solid #E5DFD5;
+border-radius:22px;
+background:white;
+}
+
+.draft h3{
+margin:0 0 8px;
+font-family:Georgia,serif;
+font-weight:400;
+}
+
+.draft p{
+margin:0;
+color:#756653;
+}
+
+.edit{
+text-decoration:none;
+color:#7A2635;
+font-weight:600;
+}
+
+.empty{
+padding:36px;
+border:1px dashed #D8D0C5;
+border-radius:24px;
+text-align:center;
+}
+
+@media(max-width:800px){
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.section-head{
+flex-direction:column;
+align-items:start;
+gap:18px;
+}
+
+.draft{
+flex-direction:column;
+align-items:start;
+gap:16px;
+}
+
+}
+
 </style>
