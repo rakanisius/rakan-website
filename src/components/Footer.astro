@@ -8,115 +8,216 @@ import Brand from "./Brand.astro";
     <div class="top">
 
       <div class="brand">
-        <Brand variant="text" size={42} />
+        <a href="/" class="brand-link" aria-label="Beranda RAKAN">
+          <Brand variant="text" size={42} />
+        </a>
+
+        <p class="role">
+          Apoteker & Praktisi Penyembuhan Holistik
+        </p>
 
         <p class="tagline">
           Mendampingi manusia memahami dirinya secara utuh.
         </p>
       </div>
 
-      <nav class="links">
-        <a href="/tulisan">Tulisan</a>
-        <a href="/buku">Buku</a>
-        <a href="/layanan">Layanan</a>
-        <a href="/kolaborasi">Kolaborasi</a>
-        <a href="/kontak">Kontak</a>
+      <nav class="links" aria-label="Navigasi footer">
+
+        <div class="link-group">
+          <p class="label">Jelajah</p>
+
+          <a href="/">Beranda</a>
+          <a href="/about">Tentang</a>
+          <a href="/tulisan">Tulisan</a>
+          <a href="/buku">Buku</a>
+        </div>
+
+        <div class="link-group">
+          <p class="label">Layanan</p>
+
+          <a href="/holistik">Penyembuhan Holistik</a>
+          <a href="/layanan">Layanan</a>
+          <a href="/kolaborasi">Kolaborasi</a>
+          <a href="/kontak">Kontak</a>
+        </div>
+
       </nav>
 
     </div>
 
     <div class="bottom">
-      <p>© 2026 RAKAN. Seluruh hak cipta dilindungi.</p>
+
+      <p>
+        © {new Date().getFullYear()} RAKAN. Seluruh hak cipta dilindungi.
+      </p>
+
+      <div class="legal">
+        <a href="/kontak">Hubungi RAKAN</a>
+      </div>
+
     </div>
 
   </div>
 </footer>
 
 <style>
-
-.footer{
-  background:#2F2A26;
-  color:#ECE6DC;
-  padding:72px 0 36px;
+.footer {
+  background: #2F2A26;
+  color: #ECE6DC;
+  padding: 72px 0 36px;
 }
 
-.container{
-  max-width:1180px;
-  margin:auto;
-  padding:0 32px;
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 32px;
 }
 
-.top{
-  display:flex;
-  justify-content:space-between;
-  gap:48px;
-  align-items:flex-start;
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: flex-start;
 }
 
-.brand{
-  max-width:380px;
+.brand {
+  max-width: 400px;
 }
 
-.tagline{
-  margin-top:14px;
-  color:#B8AEA2;
-  font-size:15px;
-  line-height:1.7;
+.brand-link {
+  display: inline-flex;
+  text-decoration: none;
 }
 
-.links{
-  display:grid;
-  gap:14px;
+.role {
+  margin: 18px 0 0;
+  color: #ECE6DC;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-.links a{
-  color:#ECE6DC;
-  text-decoration:none;
-  transition:.2s;
+.tagline {
+  margin: 8px 0 0;
+  color: #B8AEA2;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-.links a:hover{
-  color:#FFFFFF;
+.links {
+  display: flex;
+  gap: 72px;
 }
 
-.bottom{
-  margin-top:48px;
-  padding-top:24px;
-  border-top:1px solid rgba(255,255,255,.08);
+.link-group {
+  display: grid;
+  gap: 13px;
+  min-width: 130px;
 }
 
-.bottom p{
-  margin:0;
-  color:#9D9387;
-  font-size:14px;
+.label {
+  margin: 0 0 5px;
+  color: #9D9387;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
-@media(max-width:800px){
-
-.container{
-  padding:0 20px;
+.links a {
+  color: #ECE6DC;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: color .2s ease;
 }
 
-.top{
-  flex-direction:column;
+.links a:hover {
+  color: #FFFFFF;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
-@media(max-width:390px){
-
-.container{
-  padding:0 18px;
+.bottom p {
+  margin: 0;
+  color: #9D9387;
+  font-size: 14px;
 }
 
-.footer{
-  padding:56px 0 28px;
+.legal a {
+  color: #9D9387;
+  font-size: 14px;
+  text-decoration: none;
 }
 
-.tagline{
-  font-size:14px;
+.legal a:hover {
+  color: #FFFFFF;
 }
+
+@media (max-width: 800px) {
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .top {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .links {
+    width: 100%;
+    gap: 48px;
+  }
+
+  .link-group {
+    min-width: 0;
+  }
+
+  .bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
 
 }
 
+@media (max-width: 500px) {
+
+  .footer {
+    padding: 56px 0 28px;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+
+  .role,
+  .tagline {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .links {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+}
 </style>
