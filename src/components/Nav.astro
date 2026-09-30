@@ -5,66 +5,260 @@ import Brand from "./Brand.astro";
 <header class="nav">
   <div class="inner">
 
-    <Brand size={42}/>
+    <a href="/" class="brand-link" aria-label="Beranda RAKAN">
+      <Brand size={42}/>
+    </a>
 
-    <nav>
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      <a href="/">Beranda</a>
       <a href="/about">Tentang</a>
-      <a href="/holistik">Penyembuhan Holistik</a>
       <a href="/tulisan">Tulisan</a>
       <a href="/buku">Buku</a>
+      <a href="/holistik">Penyembuhan Holistik</a>
       <a href="/layanan">Layanan</a>
       <a href="/kolaborasi">Kolaborasi</a>
       <a href="/kontak">Kontak</a>
     </nav>
 
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav aria-label="Navigasi mobile">
+      <a href="/">Beranda</a>
+      <a href="/about">Tentang</a>
+      <a href="/tulisan">Tulisan</a>
+      <a href="/buku">Buku</a>
+      <a href="/holistik">Penyembuhan Holistik</a>
+      <a href="/layanan">Layanan</a>
+      <a href="/kolaborasi">Kolaborasi</a>
+      <a href="/kontak">Kontak</a>
+    </nav>
   </div>
 </header>
 
+<script>
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector("#mobile-menu");
+
+  if (toggle && mobileMenu && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("menu-open");
+
+      toggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu" : "Buka menu"
+      );
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("menu-open");
+
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Buka menu");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (
+        target instanceof Node &&
+        !nav.contains(target)
+      ) {
+        nav.classList.remove("menu-open");
+
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Buka menu");
+      }
+    });
+  }
+</script>
+
 <style>
-.nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#161311;
-  border-bottom:1px solid #2A221E;
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #161311;
+  border-bottom: 1px solid #2A221E;
 }
 
-.inner{
-  max-width:1180px;
-  margin:auto;
-  padding:18px 32px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.inner {
+  max-width: 1180px;
+  margin: auto;
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav{
-  display:flex;
-  gap:34px;
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-nav a{
-  color:#F7F4EE;
-  text-decoration:none;
-  font-size:16px;
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-nav a:hover{
-  color:#C9B79A;
+.desktop-nav a {
+  color: #F7F4EE;
+  text-decoration: none;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: color .2s ease;
 }
 
-@media(max-width:900px){
-  .inner{
-    padding:16px 20px;
+.desktop-nav a:hover {
+  color: #C9B79A;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #4A3A34;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: #F7F4EE;
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+
+  .inner {
+    padding: 14px 20px;
   }
 
-  nav{
-    gap:18px;
-    overflow:auto;
+  .desktop-nav {
+    display: none;
   }
 
-  nav a{
-    white-space:nowrap;
+  .menu-toggle {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-top: 0 solid #2A221E;
+    transition:
+      max-height .25s ease,
+      opacity .2s ease,
+      border-top .2s ease;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 20px 18px;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 15px 4px;
+    border-bottom: 1px solid #2A221E;
+
+    color: #F7F4EE;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu a:hover {
+    color: #C9B79A;
+  }
+
+  .menu-open .mobile-menu {
+    max-height: 520px;
+    opacity: 1;
+    border-top: 1px solid #2A221E;
+  }
+
+  .menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 390px) {
+
+  .inner {
+    padding: 13px 16px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .mobile-menu nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mobile-menu a {
+    font-size: 15px;
+    padding: 14px 4px;
   }
 }
 </style>
